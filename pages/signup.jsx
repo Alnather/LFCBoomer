@@ -63,25 +63,25 @@ export default function Signup() {
 
   return (
     <div className="min-h-screen flex items-center justify-center gradient-bg py-12">
-      <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
+      <div className="bg-[#2a2a2a] p-8 rounded-2xl shadow-xl w-full max-w-md">
         <div className="text-center mb-8">
           <Link href="/" className="inline-block mb-4">
             <h1 className="text-3xl font-bold gradient-text">🌲 ForesterSwap</h1>
           </Link>
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">Create Account</h2>
-          <p className="text-gray-600">Join ForesterSwap today</p>
+          <h2 className="text-2xl font-bold text-gray-100 mb-2">Create Account</h2>
+          <p className="text-gray-400">Join ForesterSwap today</p>
         </div>
 
         <form onSubmit={handleSignup} className="space-y-5">
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+            <div className="bg-red-900/30 border border-red-700 text-red-300 px-4 py-3 rounded-lg text-sm">
               {error}
             </div>
           )}
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="firstName" className="block text-sm font-medium text-gray-300 mb-2">
                 First Name
               </label>
               <input
@@ -96,7 +96,7 @@ export default function Signup() {
             </div>
 
             <div>
-              <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="lastName" className="block text-sm font-medium text-gray-300 mb-2">
                 Last Name
               </label>
               <input
@@ -112,7 +112,7 @@ export default function Signup() {
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
               Email Address (Lake Forest College)
             </label>
             <input
@@ -130,7 +130,7 @@ export default function Signup() {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
               Password
             </label>
             <input
@@ -145,7 +145,7 @@ export default function Signup() {
           </div>
 
           <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-300 mb-2">
               Confirm Password
             </label>
             <input
@@ -169,9 +169,9 @@ export default function Signup() {
         </form>
 
         <div className="mt-6 text-center">
-          <p className="text-gray-600">
+          <p className="text-gray-400">
             Already have an account?{" "}
-            <Link href="/login" className="text-primary-600 hover:text-primary-700 font-semibold">
+            <Link href="/login" className="text-primary-500 hover:text-primary-400 font-semibold">
               Sign in
             </Link>
           </p>
@@ -180,3 +180,4 @@ export default function Signup() {
     </div>
   );
 }
+

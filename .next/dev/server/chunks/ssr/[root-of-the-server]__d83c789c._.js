@@ -62,7 +62,7 @@ function Navbar({ user }) {
         }
     }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("nav", {
-        className: "bg-white shadow-md sticky top-0 z-50",
+        className: "bg-[#1a1a1a] border-b border-gray-800 shadow-md sticky top-0 z-50",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
             className: "container-custom",
             children: [
@@ -90,7 +90,7 @@ function Navbar({ user }) {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/",
-                                    className: "text-gray-700 hover:text-primary-600 font-medium transition",
+                                    className: "text-gray-300 hover:text-primary-500 font-medium transition",
                                     children: "Home"
                                 }, void 0, false, {
                                     fileName: "[project]/components/Navbar.jsx",
@@ -99,7 +99,7 @@ function Navbar({ user }) {
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/listings",
-                                    className: "text-gray-700 hover:text-primary-600 font-medium transition",
+                                    className: "text-gray-300 hover:text-primary-500 font-medium transition",
                                     children: "Listings"
                                 }, void 0, false, {
                                     fileName: "[project]/components/Navbar.jsx",
@@ -110,7 +110,7 @@ function Navbar({ user }) {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                                             href: "/create-listing",
-                                            className: "text-gray-700 hover:text-primary-600 font-medium transition",
+                                            className: "text-gray-300 hover:text-primary-500 font-medium transition",
                                             children: "Create Listing"
                                         }, void 0, false, {
                                             fileName: "[project]/components/Navbar.jsx",
@@ -119,7 +119,7 @@ function Navbar({ user }) {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                                             href: "/messages",
-                                            className: "text-gray-700 hover:text-primary-600 font-medium transition",
+                                            className: "text-gray-300 hover:text-primary-500 font-medium transition",
                                             children: "Messages"
                                         }, void 0, false, {
                                             fileName: "[project]/components/Navbar.jsx",
@@ -136,7 +136,7 @@ function Navbar({ user }) {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
                             onClick: ()=>setMobileMenuOpen(!mobileMenuOpen),
-                            className: "md:hidden p-2 rounded-lg hover:bg-gray-100 transition",
+                            className: "md:hidden p-2 rounded-lg hover:bg-gray-800 transition text-gray-300",
                             "aria-label": "Toggle menu",
                             children: mobileMenuOpen ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("svg", {
                                 className: "w-6 h-6",
@@ -187,7 +187,7 @@ function Navbar({ user }) {
                             children: user ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                        className: "flex items-center space-x-2 text-gray-700",
+                                        className: "flex items-center space-x-2 text-gray-300",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
                                             className: "font-medium",
                                             children: user.displayName || user.email
@@ -203,7 +203,7 @@ function Navbar({ user }) {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
                                         onClick: handleLogout,
-                                        className: "px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition font-medium",
+                                        className: "px-4 py-2 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 transition font-medium",
                                         children: "Logout"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -215,7 +215,7 @@ function Navbar({ user }) {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                                         href: "/login",
-                                        className: "px-4 py-2 text-gray-700 hover:text-primary-600 font-medium transition",
+                                        className: "px-4 py-2 text-gray-300 hover:text-primary-500 font-medium transition",
                                         children: "Login"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -245,14 +245,14 @@ function Navbar({ user }) {
                     columnNumber: 9
                 }, this),
                 mobileMenuOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                    className: "md:hidden py-4 border-t border-gray-200",
+                    className: "md:hidden py-4 border-t border-gray-800",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                         className: "flex flex-col space-y-3",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                                 href: "/",
                                 onClick: ()=>setMobileMenuOpen(false),
-                                className: "px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition",
+                                className: "px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition",
                                 children: "Home"
                             }, void 0, false, {
                                 fileName: "[project]/components/Navbar.jsx",
@@ -262,7 +262,7 @@ function Navbar({ user }) {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                                 href: "/listings",
                                 onClick: ()=>setMobileMenuOpen(false),
-                                className: "px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition",
+                                className: "px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition",
                                 children: "Listings"
                             }, void 0, false, {
                                 fileName: "[project]/components/Navbar.jsx",
@@ -274,7 +274,7 @@ function Navbar({ user }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                                         href: "/create-listing",
                                         onClick: ()=>setMobileMenuOpen(false),
-                                        className: "px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition",
+                                        className: "px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition",
                                         children: "Create Listing"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -284,7 +284,7 @@ function Navbar({ user }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                                         href: "/messages",
                                         onClick: ()=>setMobileMenuOpen(false),
-                                        className: "px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition",
+                                        className: "px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition",
                                         children: "Messages"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -292,7 +292,7 @@ function Navbar({ user }) {
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                        className: "px-4 py-2 text-sm text-gray-600",
+                                        className: "px-4 py-2 text-sm text-gray-400",
                                         children: user.displayName || user.email
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -301,7 +301,7 @@ function Navbar({ user }) {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
                                         onClick: handleLogout,
-                                        className: "mx-4 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition font-medium",
+                                        className: "mx-4 px-4 py-2 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 transition font-medium",
                                         children: "Logout"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -315,7 +315,7 @@ function Navbar({ user }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                                         href: "/login",
                                         onClick: ()=>setMobileMenuOpen(false),
-                                        className: "px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition",
+                                        className: "px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition",
                                         children: "Login"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -420,7 +420,7 @@ function Messages({ user, loading }) {
     ]);
     if (loading) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-            className: "min-h-screen bg-gray-50",
+            className: "min-h-screen",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Navbar$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                     user: user
@@ -432,7 +432,7 @@ function Messages({ user, loading }) {
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                     className: "container-custom py-20 text-center",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                        className: "text-gray-600",
+                        className: "text-gray-400",
                         children: "Loading..."
                     }, void 0, false, {
                         fileName: "[project]/pages/messages.jsx",
@@ -453,7 +453,7 @@ function Messages({ user, loading }) {
     }
     if (!user) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-            className: "min-h-screen bg-gray-50",
+            className: "min-h-screen",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Navbar$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                     user: user
@@ -466,7 +466,7 @@ function Messages({ user, loading }) {
                     className: "container-custom py-20 text-center",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
-                            className: "text-3xl font-bold text-gray-900 mb-4",
+                            className: "text-3xl font-bold text-gray-100 mb-4",
                             children: "Please Log In"
                         }, void 0, false, {
                             fileName: "[project]/pages/messages.jsx",
@@ -474,7 +474,7 @@ function Messages({ user, loading }) {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                            className: "text-gray-600 mb-8",
+                            className: "text-gray-400 mb-8",
                             children: "You need to be logged in to view messages"
                         }, void 0, false, {
                             fileName: "[project]/pages/messages.jsx",
@@ -504,7 +504,7 @@ function Messages({ user, loading }) {
         }, this);
     }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-        className: "min-h-screen bg-gray-50",
+        className: "min-h-screen",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Navbar$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                 user: user
@@ -517,7 +517,7 @@ function Messages({ user, loading }) {
                 className: "container-custom py-12",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
-                        className: "text-4xl font-bold text-gray-900 mb-8",
+                        className: "text-4xl font-bold text-gray-100 mb-8",
                         children: "Messages"
                     }, void 0, false, {
                         fileName: "[project]/pages/messages.jsx",
@@ -527,7 +527,7 @@ function Messages({ user, loading }) {
                     loadingMessages ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                         className: "text-center py-20",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                            className: "text-gray-600",
+                            className: "text-gray-400",
                             children: "Loading conversations..."
                         }, void 0, false, {
                             fileName: "[project]/pages/messages.jsx",
@@ -539,7 +539,7 @@ function Messages({ user, loading }) {
                         lineNumber: 87,
                         columnNumber: 11
                     }, this) : conversations.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                        className: "bg-white rounded-xl shadow-md p-12 text-center",
+                        className: "bg-[#2a2a2a] rounded-xl shadow-md p-12 text-center border border-gray-700",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                 className: "text-6xl mb-4",
@@ -550,7 +550,7 @@ function Messages({ user, loading }) {
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h2", {
-                                className: "text-2xl font-bold text-gray-900 mb-2",
+                                className: "text-2xl font-bold text-gray-100 mb-2",
                                 children: "No Messages Yet"
                             }, void 0, false, {
                                 fileName: "[project]/pages/messages.jsx",
@@ -558,7 +558,7 @@ function Messages({ user, loading }) {
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                                className: "text-gray-600 mb-6",
+                                className: "text-gray-400 mb-6",
                                 children: "Start a conversation by contacting someone from the listings page"
                             }, void 0, false, {
                                 fileName: "[project]/pages/messages.jsx",
@@ -580,14 +580,14 @@ function Messages({ user, loading }) {
                         lineNumber: 91,
                         columnNumber: 11
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                        className: "bg-white rounded-xl shadow-md overflow-hidden",
+                        className: "bg-[#2a2a2a] rounded-xl shadow-md overflow-hidden border border-gray-700",
                         children: conversations.map((convo)=>{
                             // Determine the other user in the conversation
                             const otherUserId = convo.user1Id === user.uid ? convo.user2Id : convo.user1Id;
                             const otherUserName = convo.user1Id === user.uid ? convo.user2Name : convo.user1Name;
                             return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                 onClick: ()=>router.push(`/chat/${convo.id}`),
-                                className: "border-b border-gray-200 last:border-b-0 p-6 hover:bg-gray-50 cursor-pointer transition",
+                                className: "border-b border-gray-700 last:border-b-0 p-6 hover:bg-gray-800/50 cursor-pointer transition",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                     className: "flex items-start justify-between",
                                     children: [
@@ -608,7 +608,7 @@ function Messages({ user, loading }) {
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
-                                                                    className: "font-semibold text-gray-900",
+                                                                    className: "font-semibold text-gray-100",
                                                                     children: otherUserName || "Unknown User"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/pages/messages.jsx",
@@ -616,7 +616,7 @@ function Messages({ user, loading }) {
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                                                                    className: "text-sm text-gray-500",
+                                                                    className: "text-sm text-gray-400",
                                                                     children: [
                                                                         "Re: ",
                                                                         convo.productName
@@ -639,7 +639,7 @@ function Messages({ user, loading }) {
                                                     columnNumber: 23
                                                 }, this),
                                                 convo.lastMessage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                                                    className: "text-gray-600 text-sm ml-13",
+                                                    className: "text-gray-400 text-sm ml-13",
                                                     children: convo.lastMessage
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/messages.jsx",

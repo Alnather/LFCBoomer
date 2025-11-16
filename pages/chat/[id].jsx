@@ -100,10 +100,10 @@ export default function Chat({ user, loading }) {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen">
         <Navbar user={user} />
         <div className="container-custom py-20 text-center">
-          <p className="text-gray-600">Loading...</p>
+          <p className="text-gray-400">Loading...</p>
         </div>
       </div>
     );
@@ -116,10 +116,10 @@ export default function Chat({ user, loading }) {
 
   if (!conversation) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen flex flex-col">
         <Navbar user={user} />
         <div className="container-custom py-20 text-center">
-          <p className="text-gray-600">Loading conversation...</p>
+          <p className="text-gray-400">Loading conversation...</p>
         </div>
       </div>
     );
@@ -130,23 +130,23 @@ export default function Chat({ user, loading }) {
     : conversation.user1Name;
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Navbar user={user} />
 
       <div className="flex-1 container-custom py-6">
-        <div className="bg-white rounded-xl shadow-lg h-[calc(100vh-180px)] flex flex-col">
+        <div className="bg-[#2a2a2a] rounded-xl shadow-lg h-[calc(100vh-180px)] flex flex-col border border-gray-700">
           {/* Chat Header */}
-          <div className="border-b border-gray-200 p-6">
+          <div className="border-b border-gray-700 p-6">
             <button
               onClick={() => router.push("/messages")}
-              className="text-primary-600 hover:text-primary-700 mb-2 flex items-center"
+              className="text-primary-500 hover:text-primary-400 mb-2 flex items-center"
             >
               ← Back to Messages
             </button>
-            <h2 className="text-2xl font-bold text-gray-900">
+            <h2 className="text-2xl font-bold text-gray-100">
               {otherUserName}
             </h2>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-400">
               Re: {conversation.productName}
             </p>
           </div>
@@ -154,7 +154,7 @@ export default function Chat({ user, loading }) {
           {/* Messages Area */}
           <div className="flex-1 overflow-y-auto p-6 space-y-4">
             {messages.length === 0 ? (
-              <div className="text-center text-gray-500 py-12">
+              <div className="text-center text-gray-400 py-12">
                 <p>No messages yet. Start the conversation!</p>
               </div>
             ) : (
@@ -169,7 +169,7 @@ export default function Chat({ user, loading }) {
                       className={`max-w-[70%] rounded-lg px-4 py-2 ${
                         isOwnMessage
                           ? "bg-primary-600 text-white"
-                          : "bg-gray-100 text-gray-900"
+                          : "bg-gray-800 text-gray-100"
                       }`}
                     >
                       <p className="text-sm font-medium mb-1">
@@ -191,7 +191,7 @@ export default function Chat({ user, loading }) {
           </div>
 
           {/* Message Input */}
-          <form onSubmit={handleSendMessage} className="border-t border-gray-200 p-4">
+          <form onSubmit={handleSendMessage} className="border-t border-gray-700 p-4">
             <div className="flex space-x-2">
               <input
                 type="text"

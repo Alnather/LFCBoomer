@@ -19,7 +19,7 @@ export default function Navbar({ user }) {
   }
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className="bg-[#1a1a1a] border-b border-gray-800 shadow-md sticky top-0 z-50">
       <div className="container-custom">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -31,18 +31,18 @@ export default function Navbar({ user }) {
 
           {/* Navigation Links - Desktop */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-primary-600 font-medium transition">
+            <Link href="/" className="text-gray-300 hover:text-primary-500 font-medium transition">
               Home
             </Link>
-            <Link href="/listings" className="text-gray-700 hover:text-primary-600 font-medium transition">
+            <Link href="/listings" className="text-gray-300 hover:text-primary-500 font-medium transition">
               Listings
             </Link>
             {user && (
               <>
-                <Link href="/create-listing" className="text-gray-700 hover:text-primary-600 font-medium transition">
+                <Link href="/create-listing" className="text-gray-300 hover:text-primary-500 font-medium transition">
                   Create Listing
                 </Link>
-                <Link href="/messages" className="text-gray-700 hover:text-primary-600 font-medium transition">
+                <Link href="/messages" className="text-gray-300 hover:text-primary-500 font-medium transition">
                   Messages
                 </Link>
               </>
@@ -52,7 +52,7 @@ export default function Navbar({ user }) {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition"
+            className="md:hidden p-2 rounded-lg hover:bg-gray-800 transition text-gray-300"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
@@ -70,14 +70,14 @@ export default function Navbar({ user }) {
           <div className="hidden md:flex items-center space-x-4">
             {user ? (
               <>
-                <div className="flex items-center space-x-2 text-gray-700">
+                <div className="flex items-center space-x-2 text-gray-300">
                   <span className="font-medium">
                     {user.displayName || user.email}
                   </span>
                 </div>
                 <button
                   onClick={handleLogout}
-                  className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition font-medium"
+                  className="px-4 py-2 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 transition font-medium"
                 >
                   Logout
                 </button>
@@ -86,7 +86,7 @@ export default function Navbar({ user }) {
               <>
                 <Link
                   href="/login"
-                  className="px-4 py-2 text-gray-700 hover:text-primary-600 font-medium transition"
+                  className="px-4 py-2 text-gray-300 hover:text-primary-500 font-medium transition"
                 >
                   Login
                 </Link>
@@ -103,19 +103,19 @@ export default function Navbar({ user }) {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
+          <div className="md:hidden py-4 border-t border-gray-800">
             <div className="flex flex-col space-y-3">
               <Link
                 href="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition"
+                className="px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition"
               >
                 Home
               </Link>
               <Link
                 href="/listings"
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition"
+                className="px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition"
               >
                 Listings
               </Link>
@@ -124,23 +124,23 @@ export default function Navbar({ user }) {
                   <Link
                     href="/create-listing"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition"
+                    className="px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition"
                   >
                     Create Listing
                   </Link>
                   <Link
                     href="/messages"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition"
+                    className="px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition"
                   >
                     Messages
                   </Link>
-                  <div className="px-4 py-2 text-sm text-gray-600">
+                  <div className="px-4 py-2 text-sm text-gray-400">
                     {user.displayName || user.email}
                   </div>
                   <button
                     onClick={handleLogout}
-                    className="mx-4 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition font-medium"
+                    className="mx-4 px-4 py-2 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 transition font-medium"
                   >
                     Logout
                   </button>
@@ -151,7 +151,7 @@ export default function Navbar({ user }) {
                   <Link
                     href="/login"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition"
+                    className="px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition"
                   >
                     Login
                   </Link>

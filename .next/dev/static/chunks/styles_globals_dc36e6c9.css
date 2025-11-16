@@ -39,9 +39,11 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --color-red-50: #fef2f2;
     --color-red-200: #ffcaca;
+    --color-red-300: #ffa3a3;
     --color-red-500: #fb2c36;
     --color-red-600: #e40014;
     --color-red-700: #bf000f;
+    --color-red-900: #82181a;
     --color-green-400: #05df72;
     --color-green-600: #00a544;
     --color-green-700: #008138;
@@ -96,6 +98,7 @@
     --color-primary-100: #fee2e2;
     --color-primary-200: #fecaca;
     --color-primary-300: #fca5a5;
+    --color-primary-400: #f87171;
     --color-primary-500: #ef4444;
     --color-primary-600: #dc2626;
     --color-primary-700: #b91c1c;
@@ -105,9 +108,11 @@
     :root, :host {
       --color-red-50: lab(96.5005% 4.18511 1.52329);
       --color-red-200: lab(86.017% 19.8815 7.75869);
+      --color-red-300: lab(76.5514% 36.4219 15.5335);
       --color-red-500: lab(55.4814% 75.0732 48.8528);
       --color-red-600: lab(48.4493% 77.4328 61.5452);
       --color-red-700: lab(40.4273% 67.2623 53.7441);
+      --color-red-900: lab(28.5139% 44.5539 29.0463);
       --color-green-400: lab(78.503% -64.9265 39.7492);
       --color-green-600: lab(59.0978% -58.6621 41.2579);
       --color-green-700: lab(47.0329% -47.0239 31.4788);
@@ -746,6 +751,11 @@
     border-width: 1px;
   }
 
+  .border-2 {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+  }
+
   .border-t {
     border-top-style: var(--tw-border-style);
     border-top-width: 1px;
@@ -768,12 +778,32 @@
     border-color: var(--color-gray-300);
   }
 
+  .border-gray-700 {
+    border-color: var(--color-gray-700);
+  }
+
+  .border-gray-800 {
+    border-color: var(--color-gray-800);
+  }
+
   .border-primary-600 {
     border-color: var(--color-primary-600);
   }
 
   .border-red-200 {
     border-color: var(--color-red-200);
+  }
+
+  .border-red-700 {
+    border-color: var(--color-red-700);
+  }
+
+  .bg-\[\#1a1a1a\] {
+    background-color: #1a1a1a;
+  }
+
+  .bg-\[\#2a2a2a\] {
+    background-color: #2a2a2a;
   }
 
   .bg-black {
@@ -788,12 +818,12 @@
     background-color: var(--color-gray-50);
   }
 
-  .bg-gray-100 {
-    background-color: var(--color-gray-100);
-  }
-
   .bg-gray-600 {
     background-color: var(--color-gray-600);
+  }
+
+  .bg-gray-800 {
+    background-color: var(--color-gray-800);
   }
 
   .bg-gray-900 {
@@ -828,8 +858,14 @@
     background-color: var(--color-red-600);
   }
 
-  .bg-white {
-    background-color: var(--color-white);
+  .bg-red-900\/30 {
+    background-color: #82181a4d;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-red-900\/30 {
+      background-color: color-mix(in oklab, var(--color-red-900) 30%, transparent);
+    }
   }
 
   .bg-gradient-to-br {
@@ -1000,6 +1036,14 @@
     font-weight: var(--font-weight-semibold);
   }
 
+  .text-gray-100 {
+    color: var(--color-gray-100);
+  }
+
+  .text-gray-300 {
+    color: var(--color-gray-300);
+  }
+
   .text-gray-400 {
     color: var(--color-gray-400);
   }
@@ -1012,20 +1056,16 @@
     color: var(--color-gray-600);
   }
 
-  .text-gray-700 {
-    color: var(--color-gray-700);
-  }
-
   .text-gray-800 {
     color: var(--color-gray-800);
   }
 
-  .text-gray-900 {
-    color: var(--color-gray-900);
-  }
-
   .text-green-400 {
     color: var(--color-green-400);
+  }
+
+  .text-primary-500 {
+    color: var(--color-primary-500);
   }
 
   .text-primary-600 {
@@ -1034,6 +1074,10 @@
 
   .text-primary-700 {
     color: var(--color-primary-700);
+  }
+
+  .text-red-300 {
+    color: var(--color-red-300);
   }
 
   .text-red-700 {
@@ -1102,20 +1146,26 @@
   }
 
   @media (hover: hover) {
-    .hover\:bg-gray-100:hover {
-      background-color: var(--color-gray-100);
-    }
-  }
-
-  @media (hover: hover) {
-    .hover\:bg-gray-200:hover {
-      background-color: var(--color-gray-200);
-    }
-  }
-
-  @media (hover: hover) {
     .hover\:bg-gray-700:hover {
       background-color: var(--color-gray-700);
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:bg-gray-800:hover {
+      background-color: var(--color-gray-800);
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:bg-gray-800\/50:hover {
+      background-color: #1e293980;
+    }
+
+    @supports (color: color-mix(in lab, red, red)) {
+      .hover\:bg-gray-800\/50:hover {
+        background-color: color-mix(in oklab, var(--color-gray-800) 50%, transparent);
+      }
     }
   }
 
@@ -1138,8 +1188,14 @@
   }
 
   @media (hover: hover) {
-    .hover\:text-primary-600:hover {
-      color: var(--color-primary-600);
+    .hover\:text-primary-400:hover {
+      color: var(--color-primary-400);
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:text-primary-500:hover {
+      color: var(--color-primary-500);
     }
   }
 
@@ -1246,13 +1302,13 @@ html {
 }
 
 body {
-  color: #111827;
-  background-color: #f9fafb;
+  color: #f5f5f5;
+  background-color: #1a1a1a;
 }
 
 .btn-primary {
   background-color: var(--color-primary-600);
-  color: #fff;
+  color: #f5f5f5;
   border-radius: .5rem;
   padding: .75rem 1.5rem;
   font-weight: 600;
@@ -1271,9 +1327,9 @@ body {
 }
 
 .btn-secondary {
-  color: var(--color-primary-600);
+  color: #f5f5f5;
   border: 2px solid var(--color-primary-600);
-  background-color: #fff;
+  background-color: #2a2a2a;
   border-radius: .5rem;
   padding: .75rem 1.5rem;
   font-weight: 600;
@@ -1281,7 +1337,7 @@ body {
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-primary-50);
+  background-color: #333;
 }
 
 .btn-secondary:disabled {
@@ -1290,7 +1346,9 @@ body {
 }
 
 .input-field {
-  border: 1px solid #d1d5db;
+  color: #f5f5f5;
+  background-color: #2a2a2a;
+  border: 1px solid #404040;
   border-radius: .5rem;
   outline: none;
   width: 100%;
@@ -1305,15 +1363,16 @@ body {
 }
 
 .card {
-  background-color: #fff;
+  background-color: #2a2a2a;
+  border: 1px solid #404040;
   border-radius: .75rem;
   padding: 1.5rem;
   transition: box-shadow .2s;
-  box-shadow: 0 10px 15px -3px #0000001a;
+  box-shadow: 0 10px 15px -3px #0000004d;
 }
 
 .card:hover {
-  box-shadow: 0 20px 25px -5px #0000001a;
+  box-shadow: 0 20px 25px -5px #0006;
 }
 
 .container-custom {
@@ -1339,7 +1398,7 @@ body {
 }
 
 .gradient-bg {
-  background: linear-gradient(to bottom right, var(--color-primary-50), #fef2f2, #fee2e2);
+  background: linear-gradient(to bottom right, #2a2a2a, #1a1a1a, #252525);
 }
 
 .gradient-text {

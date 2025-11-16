@@ -536,7 +536,7 @@ function Navbar({ user }) {
         }
     }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-        className: "bg-white shadow-md sticky top-0 z-50",
+        className: "bg-[#1a1a1a] border-b border-gray-800 shadow-md sticky top-0 z-50",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "container-custom",
             children: [
@@ -564,7 +564,7 @@ function Navbar({ user }) {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/",
-                                    className: "text-gray-700 hover:text-primary-600 font-medium transition",
+                                    className: "text-gray-300 hover:text-primary-500 font-medium transition",
                                     children: "Home"
                                 }, void 0, false, {
                                     fileName: "[project]/components/Navbar.jsx",
@@ -573,7 +573,7 @@ function Navbar({ user }) {
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/listings",
-                                    className: "text-gray-700 hover:text-primary-600 font-medium transition",
+                                    className: "text-gray-300 hover:text-primary-500 font-medium transition",
                                     children: "Listings"
                                 }, void 0, false, {
                                     fileName: "[project]/components/Navbar.jsx",
@@ -584,7 +584,7 @@ function Navbar({ user }) {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                             href: "/create-listing",
-                                            className: "text-gray-700 hover:text-primary-600 font-medium transition",
+                                            className: "text-gray-300 hover:text-primary-500 font-medium transition",
                                             children: "Create Listing"
                                         }, void 0, false, {
                                             fileName: "[project]/components/Navbar.jsx",
@@ -593,7 +593,7 @@ function Navbar({ user }) {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                             href: "/messages",
-                                            className: "text-gray-700 hover:text-primary-600 font-medium transition",
+                                            className: "text-gray-300 hover:text-primary-500 font-medium transition",
                                             children: "Messages"
                                         }, void 0, false, {
                                             fileName: "[project]/components/Navbar.jsx",
@@ -610,7 +610,7 @@ function Navbar({ user }) {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             onClick: ()=>setMobileMenuOpen(!mobileMenuOpen),
-                            className: "md:hidden p-2 rounded-lg hover:bg-gray-100 transition",
+                            className: "md:hidden p-2 rounded-lg hover:bg-gray-800 transition text-gray-300",
                             "aria-label": "Toggle menu",
                             children: mobileMenuOpen ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                 className: "w-6 h-6",
@@ -661,7 +661,7 @@ function Navbar({ user }) {
                             children: user ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex items-center space-x-2 text-gray-700",
+                                        className: "flex items-center space-x-2 text-gray-300",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "font-medium",
                                             children: user.displayName || user.email
@@ -677,7 +677,7 @@ function Navbar({ user }) {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: handleLogout,
-                                        className: "px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition font-medium",
+                                        className: "px-4 py-2 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 transition font-medium",
                                         children: "Logout"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -689,7 +689,7 @@ function Navbar({ user }) {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                         href: "/login",
-                                        className: "px-4 py-2 text-gray-700 hover:text-primary-600 font-medium transition",
+                                        className: "px-4 py-2 text-gray-300 hover:text-primary-500 font-medium transition",
                                         children: "Login"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -719,14 +719,14 @@ function Navbar({ user }) {
                     columnNumber: 9
                 }, this),
                 mobileMenuOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "md:hidden py-4 border-t border-gray-200",
+                    className: "md:hidden py-4 border-t border-gray-800",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex flex-col space-y-3",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                 href: "/",
                                 onClick: ()=>setMobileMenuOpen(false),
-                                className: "px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition",
+                                className: "px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition",
                                 children: "Home"
                             }, void 0, false, {
                                 fileName: "[project]/components/Navbar.jsx",
@@ -736,7 +736,7 @@ function Navbar({ user }) {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                 href: "/listings",
                                 onClick: ()=>setMobileMenuOpen(false),
-                                className: "px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition",
+                                className: "px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition",
                                 children: "Listings"
                             }, void 0, false, {
                                 fileName: "[project]/components/Navbar.jsx",
@@ -748,7 +748,7 @@ function Navbar({ user }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                         href: "/create-listing",
                                         onClick: ()=>setMobileMenuOpen(false),
-                                        className: "px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition",
+                                        className: "px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition",
                                         children: "Create Listing"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -758,7 +758,7 @@ function Navbar({ user }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                         href: "/messages",
                                         onClick: ()=>setMobileMenuOpen(false),
-                                        className: "px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition",
+                                        className: "px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition",
                                         children: "Messages"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -766,7 +766,7 @@ function Navbar({ user }) {
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "px-4 py-2 text-sm text-gray-600",
+                                        className: "px-4 py-2 text-sm text-gray-400",
                                         children: user.displayName || user.email
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -775,7 +775,7 @@ function Navbar({ user }) {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: handleLogout,
-                                        className: "mx-4 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition font-medium",
+                                        className: "mx-4 px-4 py-2 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 transition font-medium",
                                         children: "Logout"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -789,7 +789,7 @@ function Navbar({ user }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                         href: "/login",
                                         onClick: ()=>setMobileMenuOpen(false),
-                                        className: "px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition",
+                                        className: "px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition",
                                         children: "Login"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -858,7 +858,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Navbar$2e$jsx_
 ;
 function Home({ user }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "min-h-screen bg-gray-50",
+        className: "min-h-screen",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Navbar$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                 user: user
@@ -890,7 +890,7 @@ function Home({ user }) {
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                className: "text-5xl md:text-6xl font-bold text-gray-900 mb-6",
+                                className: "text-5xl md:text-6xl font-bold text-gray-100 mb-6",
                                 children: [
                                     "Welcome to",
                                     " ",
@@ -909,7 +909,7 @@ function Home({ user }) {
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-xl text-gray-700 mb-4 max-w-3xl mx-auto",
+                                className: "text-xl text-gray-300 mb-4 max-w-3xl mx-auto",
                                 children: "Lake Forest College's sustainable marketplace for swapping, trading, and discovering unique items. Join your fellow Foresters in reducing waste and building a circular economy on campus! 🌲"
                             }, void 0, false, {
                                 fileName: "[project]/pages/index.jsx",
@@ -917,7 +917,7 @@ function Home({ user }) {
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-lg text-gray-600 mb-8 max-w-2xl mx-auto font-medium",
+                                className: "text-lg text-gray-400 mb-8 max-w-2xl mx-auto font-medium",
                                 children: "Every swap is a step toward a more sustainable future. Together, we can make a difference."
                             }, void 0, false, {
                                 fileName: "[project]/pages/index.jsx",
@@ -991,12 +991,12 @@ function Home({ user }) {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-                className: "py-20 bg-white",
+                className: "py-20 bg-[#2a2a2a]",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "container-custom",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                            className: "text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900",
+                            className: "text-3xl md:text-4xl font-bold text-center mb-4 text-gray-100",
                             children: "Why Choose ForesterSwap?"
                         }, void 0, false, {
                             fileName: "[project]/pages/index.jsx",
@@ -1004,7 +1004,7 @@ function Home({ user }) {
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-center text-gray-600 mb-12 max-w-2xl mx-auto",
+                            className: "text-center text-gray-400 mb-12 max-w-2xl mx-auto",
                             children: "Lake Forest College is committed to sustainability. ForesterSwap empowers our community to reduce waste and promote conscious consumption."
                         }, void 0, false, {
                             fileName: "[project]/pages/index.jsx",
@@ -1026,7 +1026,7 @@ function Home({ user }) {
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                            className: "text-xl font-bold mb-3 text-gray-900",
+                                            className: "text-xl font-bold mb-3 text-gray-100",
                                             children: "Reduce Waste"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/index.jsx",
@@ -1034,7 +1034,7 @@ function Home({ user }) {
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "text-gray-600",
+                                            className: "text-gray-400",
                                             children: "Combat overconsumption and landfill waste by extending the lifecycle of items through swapping and reuse."
                                         }, void 0, false, {
                                             fileName: "[project]/pages/index.jsx",
@@ -1059,7 +1059,7 @@ function Home({ user }) {
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                            className: "text-xl font-bold mb-3 text-gray-900",
+                                            className: "text-xl font-bold mb-3 text-gray-100",
                                             children: "Campus Sustainability"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/index.jsx",
@@ -1067,7 +1067,7 @@ function Home({ user }) {
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "text-gray-600",
+                                            className: "text-gray-400",
                                             children: "Support Lake Forest College's sustainability goals by participating in our circular economy initiative."
                                         }, void 0, false, {
                                             fileName: "[project]/pages/index.jsx",
@@ -1092,7 +1092,7 @@ function Home({ user }) {
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                            className: "text-xl font-bold mb-3 text-gray-900",
+                                            className: "text-xl font-bold mb-3 text-gray-100",
                                             children: "Forester Community"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/index.jsx",
@@ -1100,7 +1100,7 @@ function Home({ user }) {
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "text-gray-600",
+                                            className: "text-gray-400",
                                             children: "Connect with fellow students, faculty, and staff who share your commitment to environmental responsibility."
                                         }, void 0, false, {
                                             fileName: "[project]/pages/index.jsx",
@@ -1136,7 +1136,7 @@ function Home({ user }) {
                     className: "container-custom",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                            className: "text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900",
+                            className: "text-3xl md:text-4xl font-bold text-center mb-12 text-gray-100",
                             children: "How It Works"
                         }, void 0, false, {
                             fileName: "[project]/pages/index.jsx",
@@ -1160,7 +1160,7 @@ function Home({ user }) {
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                    className: "text-xl font-bold mb-2 text-gray-900",
+                                                    className: "text-xl font-bold mb-2 text-gray-100",
                                                     children: "Create Your Account"
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/index.jsx",
@@ -1168,7 +1168,7 @@ function Home({ user }) {
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-gray-700",
+                                                    className: "text-gray-300",
                                                     children: "Sign up in seconds and join our growing community of swappers."
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/index.jsx",
@@ -1201,7 +1201,7 @@ function Home({ user }) {
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                    className: "text-xl font-bold mb-2 text-gray-900",
+                                                    className: "text-xl font-bold mb-2 text-gray-100",
                                                     children: "List Your Items"
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/index.jsx",
@@ -1209,7 +1209,7 @@ function Home({ user }) {
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-gray-700",
+                                                    className: "text-gray-300",
                                                     children: "Upload photos and descriptions of items you want to swap or trade."
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/index.jsx",
@@ -1242,7 +1242,7 @@ function Home({ user }) {
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                    className: "text-xl font-bold mb-2 text-gray-900",
+                                                    className: "text-xl font-bold mb-2 text-gray-100",
                                                     children: "Browse & Connect"
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/index.jsx",
@@ -1250,7 +1250,7 @@ function Home({ user }) {
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-gray-700",
+                                                    className: "text-gray-300",
                                                     children: "Explore listings and connect with other users to make swaps."
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/index.jsx",
@@ -1283,7 +1283,7 @@ function Home({ user }) {
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                    className: "text-xl font-bold mb-2 text-gray-900",
+                                                    className: "text-xl font-bold mb-2 text-gray-100",
                                                     children: "Complete the Swap"
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/index.jsx",
@@ -1291,7 +1291,7 @@ function Home({ user }) {
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                    className: "text-gray-700",
+                                                    className: "text-gray-300",
                                                     children: "Arrange the exchange and enjoy your new item while helping the planet!"
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/index.jsx",
@@ -1350,7 +1350,7 @@ function Home({ user }) {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                             href: "/signup",
-                            className: "inline-block px-8 py-4 bg-white text-primary-600 font-bold rounded-lg hover:bg-gray-100 transition text-lg",
+                            className: "inline-block px-8 py-4 bg-gray-800 text-gray-100 border-2 border-primary-600 font-bold rounded-lg hover:bg-gray-700 transition text-lg",
                             children: "Sign Up with Your @lakeforest.edu Email"
                         }, void 0, false, {
                             fileName: "[project]/pages/index.jsx",

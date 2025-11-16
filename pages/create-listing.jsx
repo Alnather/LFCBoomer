@@ -133,10 +133,10 @@ export default function CreateListing({ user, loading }) {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen">
         <Navbar user={user} />
         <div className="container-custom py-20 text-center">
-          <p className="text-gray-600">Loading...</p>
+          <p className="text-gray-400">Loading...</p>
         </div>
       </div>
     );
@@ -144,13 +144,13 @@ export default function CreateListing({ user, loading }) {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen">
         <Navbar user={user} />
         <div className="container-custom py-20 text-center">
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl font-bold text-gray-100 mb-4">
             Please Log In
           </h1>
-          <p className="text-gray-600 mb-8">
+          <p className="text-gray-400 mb-8">
             You need to be logged in to create a listing
           </p>
           <a href="/login" className="btn-primary inline-block">
@@ -162,22 +162,22 @@ export default function CreateListing({ user, loading }) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       <Navbar user={user} />
 
       <div className="container-custom py-12">
         <div className="max-w-3xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-lg p-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <div className="bg-[#2a2a2a] rounded-2xl shadow-lg p-8">
+            <h1 className="text-3xl font-bold text-gray-100 mb-2">
               Create New Listing
             </h1>
-            <p className="text-gray-600 mb-8">
+            <p className="text-gray-400 mb-8">
               Share an item you'd like to swap or trade
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               {error && (
-                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                <div className="bg-red-900/30 border border-red-700 text-red-300 px-4 py-3 rounded-lg text-sm">
                   {error}
                 </div>
               )}
@@ -186,7 +186,7 @@ export default function CreateListing({ user, loading }) {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 mb-2"
+                  className="block text-sm font-medium text-gray-300 mb-2"
                 >
                   Item Name *
                 </label>
@@ -205,7 +205,7 @@ export default function CreateListing({ user, loading }) {
               <div>
                 <label
                   htmlFor="description"
-                  className="block text-sm font-medium text-gray-700 mb-2"
+                  className="block text-sm font-medium text-gray-300 mb-2"
                 >
                   Description *
                 </label>
@@ -222,7 +222,7 @@ export default function CreateListing({ user, loading }) {
 
               {/* Image Upload */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   Photo *
                 </label>
                 <div className="flex items-center space-x-4">
@@ -262,7 +262,7 @@ export default function CreateListing({ user, loading }) {
 
               {/* Categories */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">
+                <label className="block text-sm font-medium text-gray-300 mb-3">
                   Categories * (Select at least one)
                 </label>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -281,7 +281,7 @@ export default function CreateListing({ user, loading }) {
                         onChange={() => handleCategoryChange(category.id)}
                         className="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
                       />
-                      <span className="text-sm font-medium text-gray-700">
+                      <span className="text-sm font-medium text-gray-300">
                         {category.label}
                       </span>
                     </label>
@@ -314,3 +314,4 @@ export default function CreateListing({ user, loading }) {
     </div>
   );
 }
+

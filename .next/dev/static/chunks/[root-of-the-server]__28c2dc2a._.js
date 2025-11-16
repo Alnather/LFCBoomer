@@ -536,7 +536,7 @@ function Navbar({ user }) {
         }
     }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-        className: "bg-white shadow-md sticky top-0 z-50",
+        className: "bg-[#1a1a1a] border-b border-gray-800 shadow-md sticky top-0 z-50",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "container-custom",
             children: [
@@ -564,7 +564,7 @@ function Navbar({ user }) {
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/",
-                                    className: "text-gray-700 hover:text-primary-600 font-medium transition",
+                                    className: "text-gray-300 hover:text-primary-500 font-medium transition",
                                     children: "Home"
                                 }, void 0, false, {
                                     fileName: "[project]/components/Navbar.jsx",
@@ -573,7 +573,7 @@ function Navbar({ user }) {
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/listings",
-                                    className: "text-gray-700 hover:text-primary-600 font-medium transition",
+                                    className: "text-gray-300 hover:text-primary-500 font-medium transition",
                                     children: "Listings"
                                 }, void 0, false, {
                                     fileName: "[project]/components/Navbar.jsx",
@@ -584,7 +584,7 @@ function Navbar({ user }) {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                             href: "/create-listing",
-                                            className: "text-gray-700 hover:text-primary-600 font-medium transition",
+                                            className: "text-gray-300 hover:text-primary-500 font-medium transition",
                                             children: "Create Listing"
                                         }, void 0, false, {
                                             fileName: "[project]/components/Navbar.jsx",
@@ -593,7 +593,7 @@ function Navbar({ user }) {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                             href: "/messages",
-                                            className: "text-gray-700 hover:text-primary-600 font-medium transition",
+                                            className: "text-gray-300 hover:text-primary-500 font-medium transition",
                                             children: "Messages"
                                         }, void 0, false, {
                                             fileName: "[project]/components/Navbar.jsx",
@@ -610,7 +610,7 @@ function Navbar({ user }) {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             onClick: ()=>setMobileMenuOpen(!mobileMenuOpen),
-                            className: "md:hidden p-2 rounded-lg hover:bg-gray-100 transition",
+                            className: "md:hidden p-2 rounded-lg hover:bg-gray-800 transition text-gray-300",
                             "aria-label": "Toggle menu",
                             children: mobileMenuOpen ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                 className: "w-6 h-6",
@@ -661,7 +661,7 @@ function Navbar({ user }) {
                             children: user ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["Fragment"], {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex items-center space-x-2 text-gray-700",
+                                        className: "flex items-center space-x-2 text-gray-300",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             className: "font-medium",
                                             children: user.displayName || user.email
@@ -677,7 +677,7 @@ function Navbar({ user }) {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: handleLogout,
-                                        className: "px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition font-medium",
+                                        className: "px-4 py-2 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 transition font-medium",
                                         children: "Logout"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -689,7 +689,7 @@ function Navbar({ user }) {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                         href: "/login",
-                                        className: "px-4 py-2 text-gray-700 hover:text-primary-600 font-medium transition",
+                                        className: "px-4 py-2 text-gray-300 hover:text-primary-500 font-medium transition",
                                         children: "Login"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -719,14 +719,14 @@ function Navbar({ user }) {
                     columnNumber: 9
                 }, this),
                 mobileMenuOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "md:hidden py-4 border-t border-gray-200",
+                    className: "md:hidden py-4 border-t border-gray-800",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex flex-col space-y-3",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                 href: "/",
                                 onClick: ()=>setMobileMenuOpen(false),
-                                className: "px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition",
+                                className: "px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition",
                                 children: "Home"
                             }, void 0, false, {
                                 fileName: "[project]/components/Navbar.jsx",
@@ -736,7 +736,7 @@ function Navbar({ user }) {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                 href: "/listings",
                                 onClick: ()=>setMobileMenuOpen(false),
-                                className: "px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition",
+                                className: "px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition",
                                 children: "Listings"
                             }, void 0, false, {
                                 fileName: "[project]/components/Navbar.jsx",
@@ -748,7 +748,7 @@ function Navbar({ user }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                         href: "/create-listing",
                                         onClick: ()=>setMobileMenuOpen(false),
-                                        className: "px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition",
+                                        className: "px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition",
                                         children: "Create Listing"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -758,7 +758,7 @@ function Navbar({ user }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                         href: "/messages",
                                         onClick: ()=>setMobileMenuOpen(false),
-                                        className: "px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition",
+                                        className: "px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition",
                                         children: "Messages"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -766,7 +766,7 @@ function Navbar({ user }) {
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "px-4 py-2 text-sm text-gray-600",
+                                        className: "px-4 py-2 text-sm text-gray-400",
                                         children: user.displayName || user.email
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -775,7 +775,7 @@ function Navbar({ user }) {
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: handleLogout,
-                                        className: "mx-4 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition font-medium",
+                                        className: "mx-4 px-4 py-2 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 transition font-medium",
                                         children: "Logout"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -789,7 +789,7 @@ function Navbar({ user }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                                         href: "/login",
                                         onClick: ()=>setMobileMenuOpen(false),
-                                        className: "px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg font-medium transition",
+                                        className: "px-4 py-2 text-gray-300 hover:bg-gray-800 rounded-lg font-medium transition",
                                         children: "Login"
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
@@ -964,7 +964,7 @@ function Chat({ user, loading }) {
     }
     if (loading) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "min-h-screen bg-gray-50",
+            className: "min-h-screen",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Navbar$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                     user: user
@@ -976,7 +976,7 @@ function Chat({ user, loading }) {
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "container-custom py-20 text-center",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-gray-600",
+                        className: "text-gray-400",
                         children: "Loading..."
                     }, void 0, false, {
                         fileName: "[project]/pages/chat/[id].jsx",
@@ -1001,7 +1001,7 @@ function Chat({ user, loading }) {
     }
     if (!conversation) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "min-h-screen bg-gray-50",
+            className: "min-h-screen flex flex-col",
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Navbar$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                     user: user
@@ -1013,7 +1013,7 @@ function Chat({ user, loading }) {
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "container-custom py-20 text-center",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-gray-600",
+                        className: "text-gray-400",
                         children: "Loading conversation..."
                     }, void 0, false, {
                         fileName: "[project]/pages/chat/[id].jsx",
@@ -1034,7 +1034,7 @@ function Chat({ user, loading }) {
     }
     const otherUserName = conversation.user1Id === user.uid ? conversation.user2Name : conversation.user1Name;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "min-h-screen bg-gray-50 flex flex-col",
+        className: "min-h-screen flex flex-col",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Navbar$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                 user: user
@@ -1046,14 +1046,14 @@ function Chat({ user, loading }) {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex-1 container-custom py-6",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "bg-white rounded-xl shadow-lg h-[calc(100vh-180px)] flex flex-col",
+                    className: "bg-[#2a2a2a] rounded-xl shadow-lg h-[calc(100vh-180px)] flex flex-col border border-gray-700",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "border-b border-gray-200 p-6",
+                            className: "border-b border-gray-700 p-6",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     onClick: ()=>router.push("/messages"),
-                                    className: "text-primary-600 hover:text-primary-700 mb-2 flex items-center",
+                                    className: "text-primary-500 hover:text-primary-400 mb-2 flex items-center",
                                     children: "← Back to Messages"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/chat/[id].jsx",
@@ -1061,7 +1061,7 @@ function Chat({ user, loading }) {
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                                    className: "text-2xl font-bold text-gray-900",
+                                    className: "text-2xl font-bold text-gray-100",
                                     children: otherUserName
                                 }, void 0, false, {
                                     fileName: "[project]/pages/chat/[id].jsx",
@@ -1069,7 +1069,7 @@ function Chat({ user, loading }) {
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    className: "text-sm text-gray-500",
+                                    className: "text-sm text-gray-400",
                                     children: [
                                         "Re: ",
                                         conversation.productName
@@ -1089,7 +1089,7 @@ function Chat({ user, loading }) {
                             className: "flex-1 overflow-y-auto p-6 space-y-4",
                             children: [
                                 messages.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "text-center text-gray-500 py-12",
+                                    className: "text-center text-gray-400 py-12",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                         children: "No messages yet. Start the conversation!"
                                     }, void 0, false, {
@@ -1106,7 +1106,7 @@ function Chat({ user, loading }) {
                                     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: `flex ${isOwnMessage ? "justify-end" : "justify-start"}`,
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: `max-w-[70%] rounded-lg px-4 py-2 ${isOwnMessage ? "bg-primary-600 text-white" : "bg-gray-100 text-gray-900"}`,
+                                            className: `max-w-[70%] rounded-lg px-4 py-2 ${isOwnMessage ? "bg-primary-600 text-white" : "bg-gray-800 text-gray-100"}`,
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                     className: "text-sm font-medium mb-1",
@@ -1161,7 +1161,7 @@ function Chat({ user, loading }) {
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                             onSubmit: handleSendMessage,
-                            className: "border-t border-gray-200 p-4",
+                            className: "border-t border-gray-700 p-4",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex space-x-2",
                                 children: [

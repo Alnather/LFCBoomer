@@ -213,17 +213,17 @@ export default function Listings({ user, loading }) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       <Navbar user={user} />
 
       <div className="container-custom py-12">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
           <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+            <h1 className="text-4xl font-bold text-gray-100 mb-2">
               Browse Listings
             </h1>
-            <p className="text-gray-600">
+            <p className="text-gray-400">
               Find items to swap and trade with the community
             </p>
           </div>
@@ -238,18 +238,18 @@ export default function Listings({ user, loading }) {
         </div>
 
         {/* Category Filter and Sorting */}
-        <div className="mb-8 bg-white rounded-xl shadow-md p-4">
+        <div className="mb-8 bg-[#2a2a2a] rounded-xl shadow-md p-4">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
-            <h3 className="font-semibold text-gray-700">Filter by Category:</h3>
+            <h3 className="font-semibold text-gray-300">Filter by Category:</h3>
             <div className="flex items-center gap-2">
-              <label htmlFor="sortOrder" className="text-sm font-medium text-gray-700">
+              <label htmlFor="sortOrder" className="text-sm font-medium text-gray-300">
                 Sort by:
               </label>
               <select
                 id="sortOrder"
                 value={sortOrder}
                 onChange={(e) => setSortOrder(e.target.value)}
-                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
+                className="px-4 py-2 bg-[#1a1a1a] text-gray-300 border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none"
               >
                 <option value="smart">🤖 AI Recommended</option>
                 <option value="newest">📅 Newest First</option>
@@ -265,7 +265,7 @@ export default function Listings({ user, loading }) {
                 className={`px-4 py-2 rounded-lg font-medium transition ${
                   selectedCategory === category.id
                     ? "bg-primary-600 text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    : "bg-gray-800 text-gray-300 hover:bg-gray-700"
                 }`}
               >
                 {category.label}
@@ -277,11 +277,11 @@ export default function Listings({ user, loading }) {
         {/* Listings Grid */}
         {loadingListings ? (
           <div className="text-center py-20">
-            <p className="text-gray-600">Loading listings...</p>
+            <p className="text-gray-400">Loading listings...</p>
           </div>
         ) : filteredListings.length === 0 ? (
-          <div className="text-center py-20 bg-white rounded-xl shadow-md">
-            <p className="text-gray-600 text-lg mb-4">No listings found</p>
+          <div className="text-center py-20 bg-[#2a2a2a] rounded-xl shadow-md border border-gray-700">
+            <p className="text-gray-400 text-lg mb-4">No listings found</p>
             {user && (
               <Link href="/create-listing" className="btn-primary inline-block">
                 Create the first listing
@@ -309,7 +309,7 @@ export default function Listings({ user, loading }) {
                 )}
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-gray-100 mb-2">
                   {listing.name}
                 </h3>
                 <p className="text-gray-600 text-sm mb-3 line-clamp-2">
@@ -354,3 +354,4 @@ export default function Listings({ user, loading }) {
     </div>
   );
 }
+

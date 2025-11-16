@@ -30,24 +30,24 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center gradient-bg">
-      <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
+      <div className="bg-[#2a2a2a] p-8 rounded-2xl shadow-xl w-full max-w-md">
         <div className="text-center mb-8">
           <Link href="/" className="inline-block mb-4">
             <h1 className="text-3xl font-bold gradient-text">🌲 ForesterSwap</h1>
           </Link>
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">Welcome Back</h2>
-          <p className="text-gray-600">Sign in to your account</p>
+          <h2 className="text-2xl font-bold text-gray-100 mb-2">Welcome Back</h2>
+          <p className="text-gray-400">Sign in to your account</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-6">
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+            <div className="bg-red-900/30 border border-red-700 text-red-300 px-4 py-3 rounded-lg text-sm">
               {error}
             </div>
           )}
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
               Email Address
             </label>
             <input
@@ -62,7 +62,7 @@ export default function Login() {
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
               Password
             </label>
             <input
@@ -86,9 +86,9 @@ export default function Login() {
         </form>
 
         <div className="mt-6 text-center">
-          <p className="text-gray-600">
+          <p className="text-gray-400">
             Don't have an account?{" "}
-            <Link href="/signup" className="text-primary-600 hover:text-primary-700 font-semibold">
+            <Link href="/signup" className="text-primary-500 hover:text-primary-400 font-semibold">
               Sign up
             </Link>
           </p>
@@ -97,3 +97,4 @@ export default function Login() {
     </div>
   );
 }
+

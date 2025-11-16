@@ -73,3 +73,55 @@
 [00:50:39.057] Server  LOG      ✓ Compiled in 45ms
 [00:50:48.537] Server  LOG      ✓ Compiled in 64ms
 [00:51:03.621] Server  LOG      ✓ Compiled in 56ms
+[00:56:15.600] Server  LOG      ✓ Compiled in 50ms
+[00:56:17.434] Server  LOG      ✓ Compiled in 39ms
+[00:56:19.607] Server  LOG      ✓ Compiled in 39ms
+[00:56:21.705] Server  LOG      ✓ Compiled in 77ms
+[00:56:23.690] Server  LOG      ✓ Compiled in 32ms
+[00:56:37.761] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:56:44.075] Server  LOG      ✓ Compiled in 115ms
+[00:56:46.059] Server  LOG      ✓ Compiled in 79ms
+[00:56:48.031] Server  LOG      ✓ Compiled in 52ms
+[00:56:52.111] Server  LOG      ✓ Compiled in 62ms
+[00:56:54.166] Server  LOG      ✓ Compiled in 50ms
+[00:57:07.826] Server  LOG      ✓ Compiled in 29ms
+[00:57:19.785] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:57:28.801] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:57:31.731] Server  LOG      ✓ Compiled in 17ms
+[00:57:32.707] Server  LOG      ✓ Compiled in 19ms
+[00:57:33.870] Server  LOG      ✓ Compiled in 18ms
+[00:57:34.514] Server  LOG      ✓ Compiled in 17ms
+[00:57:35.065] Server  LOG      ✓ Compiled in 18ms
+[00:57:40.089] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:57:58.528] Server  LOG      ✓ Compiled in 49ms
+[00:58:00.515] Server  LOG      ✓ Compiled in 28ms
+[00:58:02.583] Server  LOG      ✓ Compiled in 40ms
+[00:58:11.728] Server  LOG      ✓ Compiled in 48ms
+[00:58:21.147] Server  LOG      ✓ Compiled in 29ms
+[00:58:29.869] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:58:33.579] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:58:38.309] Server  LOG      ✓ Compiled in 50ms
+[00:58:39.089] Server  LOG      ✓ Compiled in 18ms
+[00:58:59.815] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:59:16.554] Server  LOG      ✓ Compiled in 38ms
+[00:59:24.713] Server  LOG      ✓ Compiled in 29ms
+[00:59:32.239] Server  LOG      ✓ Compiled in 37ms
+[00:59:42.883] Server  LOG      ✓ Compiled in 18ms
+[00:59:47.629] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:59:50.924] Server  LOG      ✓ Compiled in 26ms
+[01:00:00.478] Server  LOG      ✓ Compiled in 21ms
+[01:00:06.974] Server  LOG      ✓ Compiled in 20ms
+[01:00:19.249] Server  LOG      ✓ Compiled in 17ms
+[01:00:24.923] Server  LOG      ✓ Compiled in 25ms
+[01:00:35.213] Server  LOG      ✓ Compiled in 36ms
+[01:00:45.466] Server  LOG      ✓ Compiled in 27ms
+[01:00:53.698] Server  LOG      ✓ Compiled in 32ms
+[01:00:59.567] Server  LOG      ✓ Compiled in 55ms
+[01:01:05.671] Server  LOG      ✓ Compiled in 27ms
+[01:01:33.610] Server  LOG      ✓ Compiled in 18ms
+[01:01:41.846] Server  LOG      ✓ Compiled in 18ms
+[01:01:50.241] Server  LOG      ✓ Compiled in 19ms
+[01:02:02.760] Server  LOG      ✓ Compiled in 19ms
+[01:02:10.460] Server  LOG      ✓ Compiled in 21ms
+[01:02:25.649] Server  LOG      ✓ Compiled in 23ms
+[01:02:32.783] Server  LOG      ✓ Compiled in 27ms
