@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
+import { collection, getDocs, query, orderBy, addDoc, where } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
 export default function Listings({ user, loading }) {
@@ -56,6 +56,67 @@ export default function Listings({ user, loading }) {
       );
     }
   }, [selectedCategory, listings]);
+
+  async function handleContactSeller(e, listing) {
+    e.stopPropagation();
+    
+    if (!user) {
+      router.push("/login");
+      return;
+    }
+
+    if (listing.userId === user.uid) {
+      alert("This is your own listing!");
+      return;
+    }
+
+    try {
+      // Check if conversation already exists
+      const q = query(
+        collection(db, "conversations"),
+        where("productId", "==", listing.id),
+        where("user1Id", "==", user.uid)
+      );
+      const q2 = query(
+        collection(db, "conversations"),
+        where("productId", "==", listing.id),
+        where("user2Id", "==", user.uid)
+      );
+
+      const [snapshot1, snapshot2] = await Promise.all([
+        getDocs(q),
+        getDocs(q2)
+      ]);
+
+      if (!snapshot1.empty) {
+        router.push(`/chat/${snapshot1.docs[0].id}`);
+        return;
+      }
+      if (!snapshot2.empty) {
+        router.push(`/chat/${snapshot2.docs[0].id}`);
+        return;
+      }
+
+      // Create new conversation
+      const convoData = {
+        productId: listing.id,
+        productName: listing.name,
+        user1Id: user.uid,
+        user1Name: user.displayName || "Anonymous",
+        user2Id: listing.userId,
+        user2Name: listing.userName,
+        createdAt: new Date().toISOString(),
+        lastMessage: "",
+        lastMessageTime: new Date().toISOString(),
+      };
+
+      const docRef = await addDoc(collection(db, "conversations"), convoData);
+      router.push(`/chat/${docRef.id}`);
+    } catch (error) {
+      console.error("Error creating conversation:", error);
+      alert("Failed to start conversation. Please try again.");
+    }
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -120,8 +181,7 @@ export default function Listings({ user, loading }) {
             {filteredListings.map((listing) => (
               <div
                 key={listing.id}
-                className="card cursor-pointer"
-                onClick={() => router.push(`/listing/${listing.id}`)}
+                className="card"
               >
                 {/* Image */}
                 {listing.photo ? (
@@ -161,9 +221,18 @@ export default function Listings({ user, loading }) {
                   <span className="text-sm text-gray-500">
                     By {listing.userName}
                   </span>
-                  <span className="text-sm text-primary-600 font-medium">
-                    View Details →
-                  </span>
+                  {user && listing.userId !== user.uid ? (
+                    <button
+                      onClick={(e) => handleContactSeller(e, listing)}
+                      className="text-sm bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition font-medium"
+                    >
+                      Contact Seller
+                    </button>
+                  ) : (
+                    <span className="text-sm text-gray-400 font-medium">
+                      {listing.userId === user?.uid ? "Your listing" : ""}
+                    </span>
+                  )}
                 </div>
               </div>
             ))}

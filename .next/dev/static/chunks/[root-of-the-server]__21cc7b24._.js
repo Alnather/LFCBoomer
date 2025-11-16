@@ -688,12 +688,12 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
 }),
-"[project]/pages/listings.jsx [client] (ecmascript)", ((__turbopack_context__) => {
+"[project]/pages/messages.jsx [client] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
     "default",
-    ()=>Listings
+    ()=>Messages
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react/jsx-dev-runtime.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react/index.js [client] (ecmascript)");
@@ -711,132 +711,133 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-function Listings({ user, loading }) {
+function Messages({ user, loading }) {
     _s();
-    const [listings, setListings] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [filteredListings, setFilteredListings] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [selectedCategory, setSelectedCategory] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])("all");
-    const [loadingListings, setLoadingListings] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(true);
+    const [conversations, setConversations] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [loadingMessages, setLoadingMessages] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(true);
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"])();
-    const categoryOptions = [
-        {
-            id: "all",
-            label: "All Items"
-        },
-        {
-            id: "sports",
-            label: "Sports"
-        },
-        {
-            id: "electronics",
-            label: "Electronics"
-        },
-        {
-            id: "clothing",
-            label: "Clothing"
-        },
-        {
-            id: "furniture",
-            label: "Furniture"
-        },
-        {
-            id: "books",
-            label: "Books"
-        },
-        {
-            id: "toys",
-            label: "Toys & Games"
-        },
-        {
-            id: "home",
-            label: "Home & Garden"
-        },
-        {
-            id: "other",
-            label: "Other"
-        }
-    ];
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "Listings.useEffect": ()=>{
-            async function fetchListings() {
-                try {
-                    const q = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["db"], "products"), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["orderBy"])("createdAt", "desc"));
-                    const querySnapshot = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["getDocs"])(q);
-                    const listingsData = querySnapshot.docs.map({
-                        "Listings.useEffect.fetchListings.listingsData": (doc)=>({
+        "Messages.useEffect": ()=>{
+            if (!user) return;
+            // Real-time listener for conversations
+            const q = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["db"], "conversations"), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["or"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])("user1Id", "==", user.uid), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])("user2Id", "==", user.uid)));
+            const unsubscribe = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["onSnapshot"])(q, {
+                "Messages.useEffect.unsubscribe": (querySnapshot)=>{
+                    const convos = querySnapshot.docs.map({
+                        "Messages.useEffect.unsubscribe.convos": (doc)=>({
                                 id: doc.id,
                                 ...doc.data()
                             })
-                    }["Listings.useEffect.fetchListings.listingsData"]);
-                    setListings(listingsData);
-                    setFilteredListings(listingsData);
-                } catch (error) {
-                    console.error("Error fetching listings:", error);
-                } finally{
-                    setLoadingListings(false);
+                    }["Messages.useEffect.unsubscribe.convos"]);
+                    // Sort by most recent message
+                    convos.sort({
+                        "Messages.useEffect.unsubscribe": (a, b)=>{
+                            const aTime = a.lastMessageTime || a.createdAt || "";
+                            const bTime = b.lastMessageTime || b.createdAt || "";
+                            return bTime.localeCompare(aTime);
+                        }
+                    }["Messages.useEffect.unsubscribe"]);
+                    setConversations(convos);
+                    setLoadingMessages(false);
                 }
-            }
-            fetchListings();
+            }["Messages.useEffect.unsubscribe"], {
+                "Messages.useEffect.unsubscribe": (error)=>{
+                    console.error("Error fetching conversations:", error);
+                    setLoadingMessages(false);
+                }
+            }["Messages.useEffect.unsubscribe"]);
+            // Cleanup listener on unmount
+            return ({
+                "Messages.useEffect": ()=>unsubscribe()
+            })["Messages.useEffect"];
         }
-    }["Listings.useEffect"], []);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "Listings.useEffect": ()=>{
-            if (selectedCategory === "all") {
-                setFilteredListings(listings);
-            } else {
-                setFilteredListings(listings.filter({
-                    "Listings.useEffect": (listing)=>listing.categories?.includes(selectedCategory)
-                }["Listings.useEffect"]));
-            }
-        }
-    }["Listings.useEffect"], [
-        selectedCategory,
-        listings
+    }["Messages.useEffect"], [
+        user
     ]);
-    async function handleContactSeller(e, listing) {
-        e.stopPropagation();
-        if (!user) {
-            router.push("/login");
-            return;
-        }
-        if (listing.userId === user.uid) {
-            alert("This is your own listing!");
-            return;
-        }
-        try {
-            // Check if conversation already exists
-            const q = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["db"], "conversations"), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])("productId", "==", listing.id), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])("user1Id", "==", user.uid));
-            const q2 = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["db"], "conversations"), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])("productId", "==", listing.id), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])("user2Id", "==", user.uid));
-            const [snapshot1, snapshot2] = await Promise.all([
-                (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["getDocs"])(q),
-                (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["getDocs"])(q2)
-            ]);
-            if (!snapshot1.empty) {
-                router.push(`/chat/${snapshot1.docs[0].id}`);
-                return;
-            }
-            if (!snapshot2.empty) {
-                router.push(`/chat/${snapshot2.docs[0].id}`);
-                return;
-            }
-            // Create new conversation
-            const convoData = {
-                productId: listing.id,
-                productName: listing.name,
-                user1Id: user.uid,
-                user1Name: user.displayName || "Anonymous",
-                user2Id: listing.userId,
-                user2Name: listing.userName,
-                createdAt: new Date().toISOString(),
-                lastMessage: "",
-                lastMessageTime: new Date().toISOString()
-            };
-            const docRef = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["addDoc"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["db"], "conversations"), convoData);
-            router.push(`/chat/${docRef.id}`);
-        } catch (error) {
-            console.error("Error creating conversation:", error);
-            alert("Failed to start conversation. Please try again.");
-        }
+    if (loading) {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "min-h-screen bg-gray-50",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Navbar$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                    user: user
+                }, void 0, false, {
+                    fileName: "[project]/pages/messages.jsx",
+                    lineNumber: 52,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "container-custom py-20 text-center",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                        className: "text-gray-600",
+                        children: "Loading..."
+                    }, void 0, false, {
+                        fileName: "[project]/pages/messages.jsx",
+                        lineNumber: 54,
+                        columnNumber: 11
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/pages/messages.jsx",
+                    lineNumber: 53,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/pages/messages.jsx",
+            lineNumber: 51,
+            columnNumber: 7
+        }, this);
+    }
+    if (!user) {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "min-h-screen bg-gray-50",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Navbar$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                    user: user
+                }, void 0, false, {
+                    fileName: "[project]/pages/messages.jsx",
+                    lineNumber: 63,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "container-custom py-20 text-center",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                            className: "text-3xl font-bold text-gray-900 mb-4",
+                            children: "Please Log In"
+                        }, void 0, false, {
+                            fileName: "[project]/pages/messages.jsx",
+                            lineNumber: 65,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-gray-600 mb-8",
+                            children: "You need to be logged in to view messages"
+                        }, void 0, false, {
+                            fileName: "[project]/pages/messages.jsx",
+                            lineNumber: 68,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                            href: "/login",
+                            className: "btn-primary inline-block",
+                            children: "Log In"
+                        }, void 0, false, {
+                            fileName: "[project]/pages/messages.jsx",
+                            lineNumber: 71,
+                            columnNumber: 11
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/pages/messages.jsx",
+                    lineNumber: 64,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/pages/messages.jsx",
+            lineNumber: 62,
+            columnNumber: 7
+        }, this);
     }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "min-h-screen bg-gray-50",
@@ -844,255 +845,206 @@ function Listings({ user, loading }) {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Navbar$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
                 user: user
             }, void 0, false, {
-                fileName: "[project]/pages/listings.jsx",
-                lineNumber: 123,
+                fileName: "[project]/pages/messages.jsx",
+                lineNumber: 81,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "container-custom py-12",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex flex-col md:flex-row justify-between items-start md:items-center mb-8",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                        className: "text-4xl font-bold text-gray-900 mb-2",
-                                        children: "Browse Listings"
-                                    }, void 0, false, {
-                                        fileName: "[project]/pages/listings.jsx",
-                                        lineNumber: 129,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-gray-600",
-                                        children: "Find items to swap and trade with the community"
-                                    }, void 0, false, {
-                                        fileName: "[project]/pages/listings.jsx",
-                                        lineNumber: 132,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/pages/listings.jsx",
-                                lineNumber: 128,
-                                columnNumber: 11
-                            }, this),
-                            user && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                href: "/create-listing",
-                                className: "btn-primary mt-4 md:mt-0 inline-block",
-                                children: "+ Create Listing"
-                            }, void 0, false, {
-                                fileName: "[project]/pages/listings.jsx",
-                                lineNumber: 137,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/pages/listings.jsx",
-                        lineNumber: 127,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "mb-8 bg-white rounded-xl shadow-md p-4",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex flex-wrap gap-2",
-                            children: categoryOptions.map((category)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                    onClick: ()=>setSelectedCategory(category.id),
-                                    className: `px-4 py-2 rounded-lg font-medium transition ${selectedCategory === category.id ? "bg-primary-600 text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`,
-                                    children: category.label
-                                }, category.id, false, {
-                                    fileName: "[project]/pages/listings.jsx",
-                                    lineNumber: 150,
-                                    columnNumber: 15
-                                }, this))
-                        }, void 0, false, {
-                            fileName: "[project]/pages/listings.jsx",
-                            lineNumber: 148,
-                            columnNumber: 11
-                        }, this)
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                        className: "text-4xl font-bold text-gray-900 mb-8",
+                        children: "Messages"
                     }, void 0, false, {
-                        fileName: "[project]/pages/listings.jsx",
-                        lineNumber: 147,
+                        fileName: "[project]/pages/messages.jsx",
+                        lineNumber: 84,
                         columnNumber: 9
                     }, this),
-                    loadingListings ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    loadingMessages ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "text-center py-20",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                             className: "text-gray-600",
-                            children: "Loading listings..."
+                            children: "Loading conversations..."
                         }, void 0, false, {
-                            fileName: "[project]/pages/listings.jsx",
-                            lineNumber: 168,
+                            fileName: "[project]/pages/messages.jsx",
+                            lineNumber: 88,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
-                        fileName: "[project]/pages/listings.jsx",
-                        lineNumber: 167,
+                        fileName: "[project]/pages/messages.jsx",
+                        lineNumber: 87,
                         columnNumber: 11
-                    }, this) : filteredListings.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "text-center py-20 bg-white rounded-xl shadow-md",
+                    }, this) : conversations.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-white rounded-xl shadow-md p-12 text-center",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-gray-600 text-lg mb-4",
-                                children: "No listings found"
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "text-6xl mb-4",
+                                children: "💬"
                             }, void 0, false, {
-                                fileName: "[project]/pages/listings.jsx",
-                                lineNumber: 172,
+                                fileName: "[project]/pages/messages.jsx",
+                                lineNumber: 92,
                                 columnNumber: 13
                             }, this),
-                            user && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
-                                href: "/create-listing",
-                                className: "btn-primary inline-block",
-                                children: "Create the first listing"
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                className: "text-2xl font-bold text-gray-900 mb-2",
+                                children: "No Messages Yet"
                             }, void 0, false, {
-                                fileName: "[project]/pages/listings.jsx",
-                                lineNumber: 174,
-                                columnNumber: 15
+                                fileName: "[project]/pages/messages.jsx",
+                                lineNumber: 93,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-gray-600 mb-6",
+                                children: "Start a conversation by contacting someone from the listings page"
+                            }, void 0, false, {
+                                fileName: "[project]/pages/messages.jsx",
+                                lineNumber: 96,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                                href: "/listings",
+                                className: "btn-primary inline-block",
+                                children: "Browse Listings"
+                            }, void 0, false, {
+                                fileName: "[project]/pages/messages.jsx",
+                                lineNumber: 99,
+                                columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
-                        fileName: "[project]/pages/listings.jsx",
-                        lineNumber: 171,
+                        fileName: "[project]/pages/messages.jsx",
+                        lineNumber: 91,
                         columnNumber: 11
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6",
-                        children: filteredListings.map((listing)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "card",
-                                children: [
-                                    listing.photo ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                        src: listing.photo,
-                                        alt: listing.name,
-                                        className: "w-full h-48 object-cover rounded-lg mb-4"
-                                    }, void 0, false, {
-                                        fileName: "[project]/pages/listings.jsx",
-                                        lineNumber: 188,
-                                        columnNumber: 19
-                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "w-full h-48 bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg mb-4 flex items-center justify-center",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "text-6xl",
-                                            children: "📦"
+                        className: "bg-white rounded-xl shadow-md overflow-hidden",
+                        children: conversations.map((convo)=>{
+                            // Determine the other user in the conversation
+                            const otherUserId = convo.user1Id === user.uid ? convo.user2Id : convo.user1Id;
+                            const otherUserName = convo.user1Id === user.uid ? convo.user2Name : convo.user1Name;
+                            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                onClick: ()=>router.push(`/chat/${convo.id}`),
+                                className: "border-b border-gray-200 last:border-b-0 p-6 hover:bg-gray-50 cursor-pointer transition",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "flex items-start justify-between",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex-1",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex items-center space-x-3 mb-2",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "w-10 h-10 bg-primary-600 rounded-full flex items-center justify-center text-white font-bold",
+                                                            children: otherUserName?.charAt(0) || "?"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/pages/messages.jsx",
+                                                            lineNumber: 119,
+                                                            columnNumber: 25
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                                                    className: "font-semibold text-gray-900",
+                                                                    children: otherUserName || "Unknown User"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/pages/messages.jsx",
+                                                                    lineNumber: 123,
+                                                                    columnNumber: 27
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                    className: "text-sm text-gray-500",
+                                                                    children: [
+                                                                        "Re: ",
+                                                                        convo.productName
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/pages/messages.jsx",
+                                                                    lineNumber: 126,
+                                                                    columnNumber: 27
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/pages/messages.jsx",
+                                                            lineNumber: 122,
+                                                            columnNumber: 25
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/pages/messages.jsx",
+                                                    lineNumber: 118,
+                                                    columnNumber: 23
+                                                }, this),
+                                                convo.lastMessage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                    className: "text-gray-600 text-sm ml-13",
+                                                    children: convo.lastMessage
+                                                }, void 0, false, {
+                                                    fileName: "[project]/pages/messages.jsx",
+                                                    lineNumber: 132,
+                                                    columnNumber: 25
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/pages/messages.jsx",
+                                            lineNumber: 117,
+                                            columnNumber: 21
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-primary-600 font-medium text-sm",
+                                            children: "View →"
                                         }, void 0, false, {
-                                            fileName: "[project]/pages/listings.jsx",
-                                            lineNumber: 195,
+                                            fileName: "[project]/pages/messages.jsx",
+                                            lineNumber: 137,
                                             columnNumber: 21
                                         }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/pages/listings.jsx",
-                                        lineNumber: 194,
-                                        columnNumber: 19
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                        className: "text-xl font-bold text-gray-900 mb-2",
-                                        children: listing.name
-                                    }, void 0, false, {
-                                        fileName: "[project]/pages/listings.jsx",
-                                        lineNumber: 200,
-                                        columnNumber: 17
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-gray-600 text-sm mb-3 line-clamp-2",
-                                        children: listing.description
-                                    }, void 0, false, {
-                                        fileName: "[project]/pages/listings.jsx",
-                                        lineNumber: 203,
-                                        columnNumber: 17
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex flex-wrap gap-2 mb-3",
-                                        children: listing.categories?.map((cat)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "px-2 py-1 bg-primary-100 text-primary-700 text-xs font-medium rounded",
-                                                children: categoryOptions.find((c)=>c.id === cat)?.label || cat
-                                            }, cat, false, {
-                                                fileName: "[project]/pages/listings.jsx",
-                                                lineNumber: 210,
-                                                columnNumber: 21
-                                            }, this))
-                                    }, void 0, false, {
-                                        fileName: "[project]/pages/listings.jsx",
-                                        lineNumber: 208,
-                                        columnNumber: 17
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "flex items-center justify-between pt-3 border-t border-gray-100",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "text-sm text-gray-500",
-                                                children: [
-                                                    "By ",
-                                                    listing.userName
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/pages/listings.jsx",
-                                                lineNumber: 221,
-                                                columnNumber: 19
-                                            }, this),
-                                            user && listing.userId !== user.uid ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                onClick: (e)=>handleContactSeller(e, listing),
-                                                className: "text-sm bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition font-medium",
-                                                children: "Contact Seller"
-                                            }, void 0, false, {
-                                                fileName: "[project]/pages/listings.jsx",
-                                                lineNumber: 225,
-                                                columnNumber: 21
-                                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                className: "text-sm text-gray-400 font-medium",
-                                                children: listing.userId === user?.uid ? "Your listing" : ""
-                                            }, void 0, false, {
-                                                fileName: "[project]/pages/listings.jsx",
-                                                lineNumber: 232,
-                                                columnNumber: 21
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/pages/listings.jsx",
-                                        lineNumber: 220,
-                                        columnNumber: 17
-                                    }, this)
-                                ]
-                            }, listing.id, true, {
-                                fileName: "[project]/pages/listings.jsx",
-                                lineNumber: 182,
-                                columnNumber: 15
-                            }, this))
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/pages/messages.jsx",
+                                    lineNumber: 116,
+                                    columnNumber: 19
+                                }, this)
+                            }, convo.id, false, {
+                                fileName: "[project]/pages/messages.jsx",
+                                lineNumber: 111,
+                                columnNumber: 17
+                            }, this);
+                        })
                     }, void 0, false, {
-                        fileName: "[project]/pages/listings.jsx",
-                        lineNumber: 180,
+                        fileName: "[project]/pages/messages.jsx",
+                        lineNumber: 104,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
-                fileName: "[project]/pages/listings.jsx",
-                lineNumber: 125,
+                fileName: "[project]/pages/messages.jsx",
+                lineNumber: 83,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
-        fileName: "[project]/pages/listings.jsx",
-        lineNumber: 122,
+        fileName: "[project]/pages/messages.jsx",
+        lineNumber: 80,
         columnNumber: 5
     }, this);
 }
-_s(Listings, "v52lxOEls0+IIsHbnmurLzxIaO8=", false, function() {
+_s(Messages, "Yab3AG7/8r6gWfVa5LEPXxR4GI4=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"]
     ];
 });
-_c = Listings;
+_c = Messages;
 var _c;
-__turbopack_context__.k.register(_c, "Listings");
+__turbopack_context__.k.register(_c, "Messages");
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
 }
 }),
-"[next]/entry/page-loader.ts { PAGE => \"[project]/pages/listings.jsx [client] (ecmascript)\" } [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"[next]/entry/page-loader.ts { PAGE => \"[project]/pages/messages.jsx [client] (ecmascript)\" } [client] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
-const PAGE_PATH = "/listings";
+const PAGE_PATH = "/messages";
 (window.__NEXT_P = window.__NEXT_P || []).push([
     PAGE_PATH,
     ()=>{
-        return __turbopack_context__.r("[project]/pages/listings.jsx [client] (ecmascript)");
+        return __turbopack_context__.r("[project]/pages/messages.jsx [client] (ecmascript)");
     }
 ]);
 // @ts-expect-error module.hot exists
@@ -1105,11 +1057,11 @@ if (module.hot) {
     });
 }
 }),
-"[hmr-entry]/hmr-entry.js { ENTRY => \"[project]/pages/listings\" }", ((__turbopack_context__) => {
+"[hmr-entry]/hmr-entry.js { ENTRY => \"[project]/pages/messages\" }", ((__turbopack_context__) => {
 "use strict";
 
-__turbopack_context__.r("[next]/entry/page-loader.ts { PAGE => \"[project]/pages/listings.jsx [client] (ecmascript)\" } [client] (ecmascript)");
+__turbopack_context__.r("[next]/entry/page-loader.ts { PAGE => \"[project]/pages/messages.jsx [client] (ecmascript)\" } [client] (ecmascript)");
 }),
 ]);
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__817570f5._.js.map
+//# sourceMappingURL=%5Broot-of-the-server%5D__21cc7b24._.js.map

@@ -35,9 +35,14 @@ export default function Navbar({ user }) {
               Listings
             </Link>
             {user && (
-              <Link href="/create-listing" className="text-gray-700 hover:text-primary-600 font-medium transition">
-                Create Listing
-              </Link>
+              <>
+                <Link href="/create-listing" className="text-gray-700 hover:text-primary-600 font-medium transition">
+                  Create Listing
+                </Link>
+                <Link href="/messages" className="text-gray-700 hover:text-primary-600 font-medium transition">
+                  Messages
+                </Link>
+              </>
             )}
           </div>
 

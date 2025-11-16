@@ -2,8 +2,11 @@
   "/": "pages/index.js",
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
+  "/_error": "pages/_error.js",
+  "/chat/[id]": "pages/chat/[id].js",
   "/create-listing": "pages/create-listing.js",
   "/listings": "pages/listings.js",
   "/login": "pages/login.js",
+  "/messages": "pages/messages.js",
   "/signup": "pages/signup.js"
 }

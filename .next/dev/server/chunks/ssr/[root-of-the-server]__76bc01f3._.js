@@ -101,15 +101,28 @@ function Navbar({ user }) {
                                 lineNumber: 34,
                                 columnNumber: 13
                             }, this),
-                            user && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                href: "/create-listing",
-                                className: "text-gray-700 hover:text-primary-600 font-medium transition",
-                                children: "Create Listing"
-                            }, void 0, false, {
-                                fileName: "[project]/components/Navbar.jsx",
-                                lineNumber: 38,
-                                columnNumber: 15
-                            }, this)
+                            user && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                        href: "/create-listing",
+                                        className: "text-gray-700 hover:text-primary-600 font-medium transition",
+                                        children: "Create Listing"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/Navbar.jsx",
+                                        lineNumber: 39,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                        href: "/messages",
+                                        className: "text-gray-700 hover:text-primary-600 font-medium transition",
+                                        children: "Messages"
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/Navbar.jsx",
+                                        lineNumber: 42,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/Navbar.jsx",
@@ -127,12 +140,12 @@ function Navbar({ user }) {
                                         children: user.displayName || user.email
                                     }, void 0, false, {
                                         fileName: "[project]/components/Navbar.jsx",
-                                        lineNumber: 49,
+                                        lineNumber: 54,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/Navbar.jsx",
-                                    lineNumber: 48,
+                                    lineNumber: 53,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -141,7 +154,7 @@ function Navbar({ user }) {
                                     children: "Logout"
                                 }, void 0, false, {
                                     fileName: "[project]/components/Navbar.jsx",
-                                    lineNumber: 53,
+                                    lineNumber: 58,
                                     columnNumber: 17
                                 }, this)
                             ]
@@ -153,7 +166,7 @@ function Navbar({ user }) {
                                     children: "Login"
                                 }, void 0, false, {
                                     fileName: "[project]/components/Navbar.jsx",
-                                    lineNumber: 62,
+                                    lineNumber: 67,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -162,14 +175,14 @@ function Navbar({ user }) {
                                     children: "Sign Up"
                                 }, void 0, false, {
                                     fileName: "[project]/components/Navbar.jsx",
-                                    lineNumber: 68,
+                                    lineNumber: 73,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true)
                     }, void 0, false, {
                         fileName: "[project]/components/Navbar.jsx",
-                        lineNumber: 45,
+                        lineNumber: 50,
                         columnNumber: 11
                     }, this)
                 ]
@@ -293,6 +306,51 @@ function Listings({ user, loading }) {
         selectedCategory,
         listings
     ]);
+    async function handleContactSeller(e, listing) {
+        e.stopPropagation();
+        if (!user) {
+            router.push("/login");
+            return;
+        }
+        if (listing.userId === user.uid) {
+            alert("This is your own listing!");
+            return;
+        }
+        try {
+            // Check if conversation already exists
+            const q = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])((0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], "conversations"), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])("productId", "==", listing.id), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])("user1Id", "==", user.uid));
+            const q2 = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])((0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], "conversations"), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])("productId", "==", listing.id), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])("user2Id", "==", user.uid));
+            const [snapshot1, snapshot2] = await Promise.all([
+                (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["getDocs"])(q),
+                (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["getDocs"])(q2)
+            ]);
+            if (!snapshot1.empty) {
+                router.push(`/chat/${snapshot1.docs[0].id}`);
+                return;
+            }
+            if (!snapshot2.empty) {
+                router.push(`/chat/${snapshot2.docs[0].id}`);
+                return;
+            }
+            // Create new conversation
+            const convoData = {
+                productId: listing.id,
+                productName: listing.name,
+                user1Id: user.uid,
+                user1Name: user.displayName || "Anonymous",
+                user2Id: listing.userId,
+                user2Name: listing.userName,
+                createdAt: new Date().toISOString(),
+                lastMessage: "",
+                lastMessageTime: new Date().toISOString()
+            };
+            const docRef = await (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["addDoc"])((0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], "conversations"), convoData);
+            router.push(`/chat/${docRef.id}`);
+        } catch (error) {
+            console.error("Error creating conversation:", error);
+            alert("Failed to start conversation. Please try again.");
+        }
+    }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
         className: "min-h-screen bg-gray-50",
         children: [
@@ -300,7 +358,7 @@ function Listings({ user, loading }) {
                 user: user
             }, void 0, false, {
                 fileName: "[project]/pages/listings.jsx",
-                lineNumber: 62,
+                lineNumber: 123,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -316,7 +374,7 @@ function Listings({ user, loading }) {
                                         children: "Browse Listings"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/listings.jsx",
-                                        lineNumber: 68,
+                                        lineNumber: 129,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -324,13 +382,13 @@ function Listings({ user, loading }) {
                                         children: "Find items to swap and trade with the community"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/listings.jsx",
-                                        lineNumber: 71,
+                                        lineNumber: 132,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/listings.jsx",
-                                lineNumber: 67,
+                                lineNumber: 128,
                                 columnNumber: 11
                             }, this),
                             user && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -339,13 +397,13 @@ function Listings({ user, loading }) {
                                 children: "+ Create Listing"
                             }, void 0, false, {
                                 fileName: "[project]/pages/listings.jsx",
-                                lineNumber: 76,
+                                lineNumber: 137,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/listings.jsx",
-                        lineNumber: 66,
+                        lineNumber: 127,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -358,17 +416,17 @@ function Listings({ user, loading }) {
                                     children: category.label
                                 }, category.id, false, {
                                     fileName: "[project]/pages/listings.jsx",
-                                    lineNumber: 89,
+                                    lineNumber: 150,
                                     columnNumber: 15
                                 }, this))
                         }, void 0, false, {
                             fileName: "[project]/pages/listings.jsx",
-                            lineNumber: 87,
+                            lineNumber: 148,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/pages/listings.jsx",
-                        lineNumber: 86,
+                        lineNumber: 147,
                         columnNumber: 9
                     }, this),
                     loadingListings ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -378,12 +436,12 @@ function Listings({ user, loading }) {
                             children: "Loading listings..."
                         }, void 0, false, {
                             fileName: "[project]/pages/listings.jsx",
-                            lineNumber: 107,
+                            lineNumber: 168,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/pages/listings.jsx",
-                        lineNumber: 106,
+                        lineNumber: 167,
                         columnNumber: 11
                     }, this) : filteredListings.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                         className: "text-center py-20 bg-white rounded-xl shadow-md",
@@ -393,7 +451,7 @@ function Listings({ user, loading }) {
                                 children: "No listings found"
                             }, void 0, false, {
                                 fileName: "[project]/pages/listings.jsx",
-                                lineNumber: 111,
+                                lineNumber: 172,
                                 columnNumber: 13
                             }, this),
                             user && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -402,19 +460,18 @@ function Listings({ user, loading }) {
                                 children: "Create the first listing"
                             }, void 0, false, {
                                 fileName: "[project]/pages/listings.jsx",
-                                lineNumber: 113,
+                                lineNumber: 174,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/listings.jsx",
-                        lineNumber: 110,
+                        lineNumber: 171,
                         columnNumber: 11
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                         className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6",
                         children: filteredListings.map((listing)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                className: "card cursor-pointer",
-                                onClick: ()=>router.push(`/listing/${listing.id}`),
+                                className: "card",
                                 children: [
                                     listing.photo ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("img", {
                                         src: listing.photo,
@@ -422,7 +479,7 @@ function Listings({ user, loading }) {
                                         className: "w-full h-48 object-cover rounded-lg mb-4"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/listings.jsx",
-                                        lineNumber: 128,
+                                        lineNumber: 188,
                                         columnNumber: 19
                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                         className: "w-full h-48 bg-gradient-to-br from-primary-100 to-primary-200 rounded-lg mb-4 flex items-center justify-center",
@@ -431,12 +488,12 @@ function Listings({ user, loading }) {
                                             children: "📦"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/listings.jsx",
-                                            lineNumber: 135,
+                                            lineNumber: 195,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/pages/listings.jsx",
-                                        lineNumber: 134,
+                                        lineNumber: 194,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
@@ -444,7 +501,7 @@ function Listings({ user, loading }) {
                                         children: listing.name
                                     }, void 0, false, {
                                         fileName: "[project]/pages/listings.jsx",
-                                        lineNumber: 140,
+                                        lineNumber: 200,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -452,7 +509,7 @@ function Listings({ user, loading }) {
                                         children: listing.description
                                     }, void 0, false, {
                                         fileName: "[project]/pages/listings.jsx",
-                                        lineNumber: 143,
+                                        lineNumber: 203,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -462,12 +519,12 @@ function Listings({ user, loading }) {
                                                 children: categoryOptions.find((c)=>c.id === cat)?.label || cat
                                             }, cat, false, {
                                                 fileName: "[project]/pages/listings.jsx",
-                                                lineNumber: 150,
+                                                lineNumber: 210,
                                                 columnNumber: 21
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/pages/listings.jsx",
-                                        lineNumber: 148,
+                                        lineNumber: 208,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -481,44 +538,52 @@ function Listings({ user, loading }) {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pages/listings.jsx",
-                                                lineNumber: 161,
+                                                lineNumber: 221,
                                                 columnNumber: 19
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
-                                                className: "text-sm text-primary-600 font-medium",
-                                                children: "View Details →"
+                                            user && listing.userId !== user.uid ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
+                                                onClick: (e)=>handleContactSeller(e, listing),
+                                                className: "text-sm bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition font-medium",
+                                                children: "Contact Seller"
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/listings.jsx",
-                                                lineNumber: 164,
-                                                columnNumber: 19
+                                                lineNumber: 225,
+                                                columnNumber: 21
+                                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
+                                                className: "text-sm text-gray-400 font-medium",
+                                                children: listing.userId === user?.uid ? "Your listing" : ""
+                                            }, void 0, false, {
+                                                fileName: "[project]/pages/listings.jsx",
+                                                lineNumber: 232,
+                                                columnNumber: 21
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pages/listings.jsx",
-                                        lineNumber: 160,
+                                        lineNumber: 220,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, listing.id, true, {
                                 fileName: "[project]/pages/listings.jsx",
-                                lineNumber: 121,
+                                lineNumber: 182,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/pages/listings.jsx",
-                        lineNumber: 119,
+                        lineNumber: 180,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/pages/listings.jsx",
-                lineNumber: 64,
+                lineNumber: 125,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/pages/listings.jsx",
-        lineNumber: 61,
+        lineNumber: 122,
         columnNumber: 5
     }, this);
 }
