@@ -312,7 +312,7 @@ export default function Listings({ user, loading }) {
                 <h3 className="text-xl font-bold text-gray-100 mb-2">
                   {listing.name}
                 </h3>
-                <p className="text-gray-600 text-sm mb-3 line-clamp-2">
+                <p className="text-gray-300 text-sm mb-3 line-clamp-2">
                   {listing.description}
                 </p>
 
@@ -321,7 +321,7 @@ export default function Listings({ user, loading }) {
                   {listing.categories?.map((cat) => (
                     <span
                       key={cat}
-                      className="px-2 py-1 bg-primary-100 text-primary-700 text-xs font-medium rounded"
+                      className="px-2 py-1 bg-primary-900/30 text-primary-300 text-xs font-medium rounded border border-primary-700"
                     >
                       {categoryOptions.find((c) => c.id === cat)?.label || cat}
                     </span>
@@ -329,8 +329,8 @@ export default function Listings({ user, loading }) {
                 </div>
 
                 {/* Footer */}
-                <div className="flex items-center justify-between pt-3 border-t border-gray-100">
-                  <span className="text-sm text-gray-500">
+                <div className="flex items-center justify-between pt-3 border-t border-gray-700">
+                  <span className="text-sm text-gray-300">
                     By {listing.userName}
                   </span>
                   {user && listing.userId !== user.uid ? (

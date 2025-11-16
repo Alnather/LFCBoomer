@@ -271,15 +271,15 @@ export default function CreateListing({ user, loading }) {
                       key={category.id}
                       className={`flex items-center space-x-2 p-3 border rounded-lg cursor-pointer transition ${
                         categories.includes(category.id)
-                          ? "border-primary-600 bg-primary-50"
-                          : "border-gray-300 hover:border-primary-300"
+                          ? "border-primary-600 bg-primary-900/20"
+                          : "border-gray-600 hover:border-primary-500"
                       }`}
                     >
                       <input
                         type="checkbox"
                         checked={categories.includes(category.id)}
                         onChange={() => handleCategoryChange(category.id)}
-                        className="w-4 h-4 text-primary-600 rounded focus:ring-primary-500"
+                        className="w-4 h-4 text-primary-600 bg-gray-700 border-gray-600 rounded focus:ring-primary-500 focus:ring-offset-0"
                       />
                       <span className="text-sm font-medium text-gray-300">
                         {category.label}

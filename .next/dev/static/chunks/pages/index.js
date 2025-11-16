@@ -1,14 +1,14 @@
 __turbopack_load_page_chunks__("/", [
-  "static/chunks/node_modules_next_dist_compiled_caaa605a._.js",
-  "static/chunks/node_modules_next_dist_shared_lib_4025f6b7._.js",
-  "static/chunks/node_modules_next_dist_client_3ede7da4._.js",
+  "static/chunks/node_modules_next_dist_compiled_ad506013._.js",
+  "static/chunks/node_modules_next_dist_shared_lib_fe7e72ad._.js",
+  "static/chunks/node_modules_next_dist_client_9b1b49db._.js",
   "static/chunks/node_modules_next_dist_6024eba3._.js",
-  "static/chunks/node_modules_next_87234b82._.js",
+  "static/chunks/node_modules_next_bc01f6a2._.js",
   "static/chunks/node_modules_react-dom_4411d9bd._.js",
   "static/chunks/node_modules_@firebase_auth_dist_esm_40b5261f._.js",
   "static/chunks/node_modules_@firebase_firestore_dist_index_esm_a1d87665.js",
   "static/chunks/node_modules_fcc89ab0._.js",
   "static/chunks/[root-of-the-server]__4fa49200._.js",
   "static/chunks/pages_index_2da965e7._.js",
-  "static/chunks/turbopack-pages_index_54118783._.js"
+  "static/chunks/turbopack-pages_index_fa6721ac._.js"
 ])

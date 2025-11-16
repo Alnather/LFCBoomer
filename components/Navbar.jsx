@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { signOut } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Navbar({ user }) {
   const router = useRouter();
@@ -24,8 +25,15 @@ export default function Navbar({ user }) {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold gradient-text">
-              🌲 ForesterSwap
+            <Image 
+              src="/swapbear1.png" 
+              alt="SwapBear" 
+              width={40} 
+              height={40}
+              className="w-8 h-8 md:w-10 md:h-10"
+            />
+            <div className="text-xl md:text-2xl font-bold gradient-text">
+              ForesterSwap
             </div>
           </Link>
 
