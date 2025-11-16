@@ -1,2 +1,8 @@
 [00:00:01.110] Server  LOG      ✓ Ready in 829ms
 [00:01:32.077] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:08:24.406] Server  LOG      ✓ Compiled in 37ms
+[00:08:46.448] Server  LOG      ✓ Compiled in 56ms
+[00:08:54.746] Server  LOG      ✓ Compiled in 27ms
+[00:08:58.090] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:09:47.219] Browser ERROR   Error fetching listings: {"code":"permission-denied","name":"FirebaseError"}
+[00:09:50.151] Browser ERROR   Error fetching listings: {"code":"permission-denied","name":"FirebaseError"}

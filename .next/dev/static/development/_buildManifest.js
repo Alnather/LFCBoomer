@@ -2,6 +2,12 @@ self.__BUILD_MANIFEST = {
   "/": [
     "static/chunks/pages/index.js"
   ],
+  "/create-listing": [
+    "static/chunks/pages/create-listing.js"
+  ],
+  "/listings": [
+    "static/chunks/pages/listings.js"
+  ],
   "/login": [
     "static/chunks/pages/login.js"
   ],
@@ -21,6 +27,8 @@ self.__BUILD_MANIFEST = {
     "/api/auth/logout",
     "/api/auth/signup",
     "/auth-test",
+    "/create-listing",
+    "/listings",
     "/login",
     "/signup"
   ]

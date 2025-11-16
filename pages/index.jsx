@@ -24,8 +24,8 @@ export default function Home({ user }) {
                   <Link href="/listings" className="btn-primary">
                     Browse Listings
                   </Link>
-                  <Link href="/my-products" className="btn-secondary">
-                    My Products
+                  <Link href="/create-listing" className="btn-secondary">
+                    Create Listing
                   </Link>
                 </>
               ) : (

@@ -2,6 +2,8 @@
   "/": "pages/index.js",
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
+  "/create-listing": "pages/create-listing.js",
+  "/listings": "pages/listings.js",
   "/login": "pages/login.js",
   "/signup": "pages/signup.js"
 }
