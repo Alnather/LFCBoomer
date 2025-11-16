@@ -26,6 +26,8 @@ module.exports = mod;
 "[project]/pages/login.jsx [ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
+return __turbopack_context__.a(async (__turbopack_handle_async_dependencies__, __turbopack_async_result__) => { try {
+
 __turbopack_context__.s([
     "default",
     ()=>Login
@@ -34,6 +36,15 @@ var __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$run
 var __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/react [external] (react, cjs)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/router.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/link.js [ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__ = __turbopack_context__.i("[externals]/firebase/auth [external] (firebase/auth, esm_import)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/firebase.js [ssr] (ecmascript)");
+var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
+    __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__,
+    __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__
+]);
+[__TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__;
+;
+;
 ;
 ;
 ;
@@ -49,26 +60,12 @@ function Login() {
         setError("");
         setLoading(true);
         try {
-            const res = await fetch("/api/auth/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email,
-                    password
-                })
-            });
-            const data = await res.json();
-            if (res.ok) {
-                // Redirect to home or dashboard after successful login
-                router.push("/");
-            } else {
-                setError(data.error || "Login failed");
-            }
+            // Sign in with Firebase Auth (client-side)
+            await (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__["signInWithEmailAndPassword"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["auth"], email, password);
+            // Redirect to home after successful login
+            router.push("/");
         } catch (err) {
-            setError("An error occurred. Please try again.");
-        } finally{
+            setError(err.message || "Login failed");
             setLoading(false);
         }
     }
@@ -88,12 +85,12 @@ function Login() {
                                 children: "🌲 ForesterSwap"
                             }, void 0, false, {
                                 fileName: "[project]/pages/login.jsx",
-                                lineNumber: 44,
+                                lineNumber: 36,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 43,
+                            lineNumber: 35,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h2", {
@@ -101,7 +98,7 @@ function Login() {
                             children: "Welcome Back"
                         }, void 0, false, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 46,
+                            lineNumber: 38,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -109,13 +106,13 @@ function Login() {
                             children: "Sign in to your account"
                         }, void 0, false, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 47,
+                            lineNumber: 39,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/login.jsx",
-                    lineNumber: 42,
+                    lineNumber: 34,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("form", {
@@ -127,7 +124,7 @@ function Login() {
                             children: error
                         }, void 0, false, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 52,
+                            lineNumber: 44,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -138,7 +135,7 @@ function Login() {
                                     children: "Email Address"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/login.jsx",
-                                    lineNumber: 58,
+                                    lineNumber: 50,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
@@ -151,13 +148,13 @@ function Login() {
                                     placeholder: "you@example.com"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/login.jsx",
-                                    lineNumber: 61,
+                                    lineNumber: 53,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 57,
+                            lineNumber: 49,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -168,7 +165,7 @@ function Login() {
                                     children: "Password"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/login.jsx",
-                                    lineNumber: 73,
+                                    lineNumber: 65,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
@@ -181,13 +178,13 @@ function Login() {
                                     placeholder: "••••••••"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/login.jsx",
-                                    lineNumber: 76,
+                                    lineNumber: 68,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 72,
+                            lineNumber: 64,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -197,13 +194,13 @@ function Login() {
                             children: loading ? "Signing in..." : "Sign In"
                         }, void 0, false, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 87,
+                            lineNumber: 79,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/login.jsx",
-                    lineNumber: 50,
+                    lineNumber: 42,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -219,33 +216,34 @@ function Login() {
                                 children: "Sign up"
                             }, void 0, false, {
                                 fileName: "[project]/pages/login.jsx",
-                                lineNumber: 99,
+                                lineNumber: 91,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/login.jsx",
-                        lineNumber: 97,
+                        lineNumber: 89,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/pages/login.jsx",
-                    lineNumber: 96,
+                    lineNumber: 88,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/pages/login.jsx",
-            lineNumber: 41,
+            lineNumber: 33,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/pages/login.jsx",
-        lineNumber: 40,
+        lineNumber: 32,
         columnNumber: 5
     }, this);
 }
-}),
+__turbopack_async_result__();
+} catch(e) { __turbopack_async_result__(e); } }, false);}),
 "[externals]/next/dist/shared/lib/no-fallback-error.external.js [external] (next/dist/shared/lib/no-fallback-error.external.js, cjs)", ((__turbopack_context__, module, exports) => {
 
 const mod = __turbopack_context__.x("next/dist/shared/lib/no-fallback-error.external.js", () => require("next/dist/shared/lib/no-fallback-error.external.js"));

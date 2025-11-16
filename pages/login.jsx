@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/lib/firebase";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -15,23 +17,13 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        // Redirect to home or dashboard after successful login
-        router.push("/");
-      } else {
-        setError(data.error || "Login failed");
-      }
+      // Sign in with Firebase Auth (client-side)
+      await signInWithEmailAndPassword(auth, email, password);
+      
+      // Redirect to home after successful login
+      router.push("/");
     } catch (err) {
-      setError("An error occurred. Please try again.");
-    } finally {
+      setError(err.message || "Login failed");
       setLoading(false);
     }
   }

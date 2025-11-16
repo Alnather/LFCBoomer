@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+import { auth, db } from "@/lib/firebase";
 
 export default function Signup() {
   const [firstName, setFirstName] = useState("");
@@ -32,24 +35,21 @@ export default function Signup() {
     try {
       const name = `${firstName} ${lastName}`.trim();
       
-      const res = await fetch("/api/auth/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password }),
+      // Create user with Firebase Auth (client-side)
+      const userCred = await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(userCred.user, { displayName: name });
+
+      // Create user document in Firestore
+      await setDoc(doc(db, "Users", userCred.user.uid), {
+        firstName: firstName,
+        lastName: lastName,
+        products: [],
       });
 
-      const data = await res.json();
-
-      if (res.ok) {
-        // User is automatically logged in by Firebase after createUserWithEmailAndPassword
-        // Redirect to homepage
-        router.push("/");
-      } else {
-        setError(data.error || "Signup failed");
-      }
+      // Redirect to homepage - user is now authenticated
+      router.push("/");
     } catch (err) {
-      setError("An error occurred. Please try again.");
-    } finally {
+      setError(err.message || "Signup failed");
       setLoading(false);
     }
   }
