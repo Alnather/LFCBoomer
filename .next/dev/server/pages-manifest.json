@@ -2,10 +2,8 @@
   "/": "pages/index.js",
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/_error": "pages/_error.js",
   "/campus": "pages/campus.js",
-  "/login": "pages/login.js",
   "/marketplace": "pages/marketplace.js",
-  "/profile": "pages/profile.js",
+  "/ride/[id]": "pages/ride/[id].js",
   "/rides": "pages/rides.js"
 }

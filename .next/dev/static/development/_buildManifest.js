@@ -2,20 +2,14 @@ self.__BUILD_MANIFEST = {
   "/": [
     "static/chunks/pages/index.js"
   ],
-  "/_error": [
-    "static/chunks/pages/_error.js"
-  ],
   "/campus": [
     "static/chunks/pages/campus.js"
-  ],
-  "/login": [
-    "static/chunks/pages/login.js"
   ],
   "/marketplace": [
     "static/chunks/pages/marketplace.js"
   ],
-  "/profile": [
-    "static/chunks/pages/profile.js"
+  "/ride/[id]": [
+    "static/chunks/pages/ride/[id].js"
   ],
   "/rides": [
     "static/chunks/pages/rides.js"
@@ -41,6 +35,7 @@ self.__BUILD_MANIFEST = {
     "/marketplace",
     "/messages",
     "/profile",
+    "/ride/[id]",
     "/rides",
     "/signup"
   ]

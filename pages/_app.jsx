@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }) {
   return (
     <div className="app-layout">
       {showNav && <TopBar />}
-      <main className="flex-1 w-full" style={{ marginTop: showNav ? '74px' : '0' }}>
+      <main className="flex-1 w-full" style={{ marginTop: showNav ? '74px' : '0', paddingLeft: '5vw', paddingRight: '5vw' }}>
         <Component {...pageProps} user={user} loading={loading} />
       </main>
       {showNav && <BottomNav />}

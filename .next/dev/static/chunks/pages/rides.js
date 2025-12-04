@@ -3,18 +3,16 @@ __turbopack_load_page_chunks__("/rides", [
   "static/chunks/node_modules_next_dist_shared_lib_82dc2e9d._.js",
   "static/chunks/node_modules_next_dist_client_d0aa886c._.js",
   "static/chunks/node_modules_next_dist_6024eba3._.js",
+  "static/chunks/node_modules_next_router_104fab1c.js",
   "static/chunks/node_modules_react-dom_4411d9bd._.js",
   "static/chunks/node_modules_motion-dom_dist_es_16ec27b0._.js",
   "static/chunks/node_modules_framer-motion_dist_es_3c710854._.js",
   "static/chunks/node_modules_react-icons_fi_index_mjs_cfeda098._.js",
   "static/chunks/node_modules_react-icons_md_index_mjs_244d37ff._.js",
   "static/chunks/node_modules_react-icons_lib_7cd2a28b._.js",
-  "static/chunks/node_modules_date-fns_6c1479f4._.js",
-  "static/chunks/node_modules_@floating-ui_react_dist_ca3caa08._.js",
-  "static/chunks/node_modules_react-datepicker_dist_index_es_0a0b086b.js",
-  "static/chunks/node_modules_d762a6ff._.js",
+  "static/chunks/node_modules_dc2334a6._.js",
   "static/chunks/[root-of-the-server]__cfac5b51._.js",
   "static/chunks/node_modules_react-datepicker_dist_react-datepicker_7a114146.css",
   "static/chunks/pages_rides_2da965e7._.js",
-  "static/chunks/turbopack-pages_rides_a5105e71._.js"
+  "static/chunks/turbopack-pages_rides_2c8cc138._.js"
 ])

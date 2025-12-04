@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { FiPlus, FiMapPin, FiCalendar, FiClock, FiUsers, FiChevronRight } from 'react-icons/fi';
-import { MdFlight, MdShoppingCart, MdLocationCity } from 'react-icons/md';
+import { FiPlus, FiMapPin, FiCalendar, FiClock, FiUsers, FiChevronRight, FiArrowRight } from 'react-icons/fi';
+import { MdFlight, MdShoppingCart, MdLocationCity, MdArrowRightAlt } from 'react-icons/md';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -27,6 +28,7 @@ const destinationThemes = {
 };
 
 export default function Rides() {
+  const router = useRouter();
   const [destination, setDestination] = useState('');
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState('');
@@ -52,27 +54,9 @@ export default function Rides() {
       id: 2,
       destination: 'Target',
       date: '2025-12-04',
-      time: '02:00 PM',
-      organizer: 'John D.',
+      time: '02:30 PM',
+      organizer: 'Mike R.',
       seats: 4,
-      members: 1,
-    },
-    {
-      id: 3,
-      destination: 'Airport',
-      date: '2025-12-06',
-      time: '10:30 AM',
-      organizer: 'Emily R.',
-      seats: 4,
-      members: 3,
-    },
-    {
-      id: 4,
-      destination: 'Downtown',
-      date: '2025-12-04',
-      time: '06:00 PM',
-      organizer: 'Mike T.',
-      seats: 3,
       members: 1,
     },
   ];
@@ -132,69 +116,38 @@ export default function Rides() {
 
   return (
     <div ref={containerRef} className="w-full pb-32">
-      {/* Filters Section - Glassmorphism */}
-      <div className="sticky top-0 z-30 backdrop-blur-2xl bg-[#0A0A0A]/60 border-b border-white/5">
-        <div className="max-w-2xl mx-auto px-6 py-6">
+      {/* Filters Section - Uber Style */}
+      <div className="sticky top-0 z-30 backdrop-blur-2xl border-b border-white/5 pb-8">
+        <div className="max-w-2xl mx-auto px-6 pt-8">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="space-y-4"
           >
-            {/* Destination Filter */}
+            {/* Single Destination Input - Uber Style */}
             <motion.div
-              whileFocus={{ scale: 1.01 }}
+              whileFocus={{ scale: 1.005 }}
               className="relative group"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-[3rem] blur-2xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500" />
               <div className="relative">
-                <FiMapPin className="absolute left-5 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors duration-300" size={22} />
+                <FiMapPin className="absolute left-4 top-9 transform -translate-y-1/2 text-gray-200 group-focus-within:text-primary transition-colors duration-300" size={24} />
                 <input
                   type="text"
                   placeholder="Where to?"
                   value={destination}
                   onChange={(e) => setDestination(e.target.value)}
-                  className="w-full pl-14 pr-6 py-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl text-white text-lg placeholder-gray-500 focus:border-primary/50 focus:outline-none focus:bg-white/10 transition-all duration-300"
+                  style={{ height: '7vh',paddingLeft: '4.5rem' ,marginTop:"1vh"}}
+                  className="w-full pl-16 pr-12 bg-white/10 backdrop-blur-xl border-2 border-white/20 rounded-[3rem] text-white text-x font-bold placeholder-gray-400 focus:border-primary/50 focus:outline-none focus:bg-white/15 transition-all duration-300 shadow-2xl"
                 />
               </div>
             </motion.div>
-
-            {/* Date and Time Filters */}
-            <div className="grid grid-cols-2 gap-4">
-              {/* Date Picker */}
-              <motion.div
-                whileFocus={{ scale: 1.01 }}
-                className="relative group"
-              >
-                <FiCalendar className="absolute left-5 top-1/2 transform -translate-y-1/2 text-gray-400 z-10 pointer-events-none group-focus-within:text-primary transition-colors duration-300" size={20} />
-                <DatePicker
-                  selected={selectedDate}
-                  onChange={(date) => setSelectedDate(date)}
-                  placeholderText="Date"
-                  className="w-full pl-14 pr-4 py-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl text-white placeholder-gray-500 focus:border-primary/50 focus:outline-none focus:bg-white/10 transition-all duration-300"
-                  minDate={new Date()}
-                />
-              </motion.div>
-
-              {/* Time Input */}
-              <motion.div
-                whileFocus={{ scale: 1.01 }}
-                className="relative group"
-              >
-                <FiClock className="absolute left-5 top-1/2 transform -translate-y-1/2 text-gray-400 z-10 group-focus-within:text-primary transition-colors duration-300" size={20} />
-                <input
-                  type="time"
-                  value={selectedTime}
-                  onChange={(e) => setSelectedTime(e.target.value)}
-                  className="w-full pl-14 pr-4 py-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl text-white placeholder-gray-500 focus:border-primary/50 focus:outline-none focus:bg-white/10 transition-all duration-300"
-                />
-              </motion.div>
-            </div>
           </motion.div>
         </div>
       </div>
 
       {/* Rides Grid with Parallax */}
-      <motion.div style={{ y }} className="max-w-2xl mx-auto px-6 pt-8 pb-32">
+      <motion.div style={{ y }} className="w-full pl-5 pr-5 pt-8 pb-32">
+        <div className="max-w-2xl mx-auto">
         {filteredRides.length === 0 ? (
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -215,12 +168,24 @@ export default function Rides() {
             <p className="text-gray-400 text-lg">Create a new ride to get started!</p>
           </motion.div>
         ) : (
-          <div className="space-y-6">
+          <div style={{marginTop:"4vh"}}>
+            
             <AnimatePresence>
               {filteredRides.map((ride, index) => {
                 const theme = getDestinationTheme(ride.destination);
                 const DestIcon = theme.icon;
                 const seatsLeft = ride.seats - ride.members;
+                
+                const handleCardClick = () => {
+                  router.push(`/ride/${ride.id}`);
+                };
+
+                const handleJoinClick = async (e) => {
+                  e.stopPropagation(); // Prevent card click
+                  // Quick animation before navigation
+                  await new Promise(resolve => setTimeout(resolve, 150));
+                  router.push(`/ride/${ride.id}`);
+                };
                 
                 return (
                   <motion.div
@@ -231,84 +196,73 @@ export default function Rides() {
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ delay: index * 0.05 }}
                     whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                    className="group relative"
+                    className="group relative cursor-pointer"
+                    style={{marginBottom:"1vh"}}
+                    onClick={handleCardClick}
                   >
                     {/* Glow Effect */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${theme.gradient} rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                     
                     {/* Card */}
-                    <div className="relative bg-white/5 backdrop-blur-2xl rounded-[2rem] border border-white/10 overflow-hidden shadow-2xl group-hover:border-white/20 transition-all duration-300">
+                    <div className="relative bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 overflow-visible shadow-2xl group-hover:border-white/20 transition-all duration-300 flex flex-col" style={{ height: '20vh' }}>
                       {/* Gradient Background */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${theme.gradient} opacity-50`} />
+                      <div className={`absolute inset-0 bg-gradient-to-br ${theme.gradient} opacity-50 rounded-3xl`} />
                       
-                      <div className="relative p-8">
-                        {/* Header */}
-                        <div className="flex items-start justify-between mb-6">
-                          <div className="flex items-center gap-4">
-                            <motion.div
-                              whileHover={{ rotate: 360, scale: 1.1 }}
-                              transition={{ duration: 0.6 }}
-                              className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${theme.gradient} backdrop-blur-xl border border-white/20 flex items-center justify-center ${theme.glow} shadow-xl`}
-                            >
-                              <DestIcon className={theme.iconColor} size={32} />
-                            </motion.div>
-                            <div>
-                              <h3 className="text-2xl font-bold text-white mb-1">
-                                {ride.destination}
-                              </h3>
-                              <div className="flex items-center gap-2 text-sm text-gray-400">
-                                <FiUsers size={14} />
-                                <span>{ride.members}/{ride.seats} riders</span>
-                              </div>
-                            </div>
-                          </div>
+                      {/* Top Section - 70% - Icon, Location, Date, Time */}
+                      <div className="relative flex items-center pl-0" style={{ height: '70%' }}>
+                        {/* Icon */}
+                        <motion.div
+                          whileHover={{ rotate: 360, scale: 1.1 }}
+                          transition={{ duration: 0.6 }}
+                          className="h-full flex items-center justify-start flex-shrink-0 pl-3"
+                          style={{paddingLeft:"2vw",paddingRight:"6vw"}}
+                        >
+                          <DestIcon className={theme.iconColor} size={48} />
+                        </motion.div>
+
+                        {/* Text Content */}
+                        <div className="flex-1 px-4 flex flex-col justify-center space-y-2">
+                          {/* Location Name */}
+                          <h3 className="text-2xl font-bold text-white">
+                            {ride.destination}
+                          </h3>
                           
-                          {seatsLeft === 1 && (
-                            <motion.span
-                              initial={{ scale: 0 }}
-                              animate={{ scale: 1 }}
-                              className="px-4 py-1.5 bg-primary/20 backdrop-blur-xl border border-primary/30 rounded-full text-primary text-xs font-semibold"
-                            >
-                              Last Seat!
-                            </motion.span>
-                          )}
-                        </div>
-
-                        {/* Date & Time */}
-                        <div className="flex items-center gap-4 mb-8">
-                          <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            className="flex items-center gap-3 bg-white/5 backdrop-blur-xl px-5 py-3 rounded-2xl border border-white/10"
-                          >
-                            <FiCalendar className="text-gray-400" size={18} />
-                            <span className="text-white font-medium">
-                              {new Date(ride.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
-                            </span>
-                          </motion.div>
-                          <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            className="flex items-center gap-3 bg-white/5 backdrop-blur-xl px-5 py-3 rounded-2xl border border-white/10"
-                          >
-                            <FiClock className="text-gray-400" size={18} />
-                            <span className="text-white font-medium">{ride.time}</span>
-                          </motion.div>
-                        </div>
-
-                        {/* Footer */}
-                        <div className="flex items-center justify-between">
-                          <div className="text-sm text-gray-400">
-                            Organized by <span className="text-white font-semibold">{ride.organizer}</span>
+                          {/* Date and Time */}
+                          <div className="flex items-center gap-3">
+                            <p className="text-lg text-gray-300 font-medium">
+                              {new Date(ride.date).toLocaleDateString('en-US', { 
+                                weekday: 'short', 
+                                month: 'short', 
+                                day: 'numeric' 
+                              })}
+                            </p>
+                            <span className="text-gray-500">•</span>
+                            <p className="text-lg text-gray-400 font-medium">
+                              {ride.time}
+                            </p>
                           </div>
-                          <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            onClick={() => handleJoinRide(ride.id)}
-                            className="px-8 py-3.5 bg-gradient-to-r from-primary to-accent rounded-2xl text-white font-bold shadow-xl shadow-primary/30 hover:shadow-2xl hover:shadow-primary/50 transition-all duration-300 flex items-center gap-2"
-                          >
-                            Join
-                            <FiChevronRight size={18} />
-                          </motion.button>
                         </div>
+                      </div>
+
+                      {/* Bottom Section - 30% - Created by & Join Button */}
+                      <div className="relative flex items-center justify-between px-6" style={{ height: '30%' }}>
+                        {/* Created By & Seats */}
+                        <div className="flex items-center gap-3" style={{marginLeft:"2vw"}}>
+                          <span className="text-gray-400 text-sm">{ride.organizer}</span>
+                          <span className="text-gray-500 text-xs">{ride.members}/{ride.seats} Seats</span>
+                        </div>
+
+                        {/* Join Button */}
+                        <motion.button
+                          whileHover={{ scale: 1.05, x: 5 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={handleJoinClick}
+                          className="flex items-center gap-0 px-4 py-2  text-primary font-semibold text-sm transition-all"
+                          style={{paddingRight:"1vw"}}
+                        >
+                          Join
+                          <MdArrowRightAlt size={30} />
+                        </motion.button>
                       </div>
                     </div>
                   </motion.div>
@@ -317,6 +271,7 @@ export default function Rides() {
             </AnimatePresence>
           </div>
         )}
+        </div>
       </motion.div>
 
       {/* Floating Action Button */}
