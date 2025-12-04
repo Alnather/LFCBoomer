@@ -142,27 +142,28 @@ const colorPalettes = {
         navbar: "#171717",
         text: "#F5F5F5"
     },
-    "Ocean Blue": {
-        primary: "#3B82F6",
-        accent: "#0EA5E9",
-        background: "#0F172A",
-        navbar: "#1E293B",
-        text: "#F1F5F9"
-    },
-    "Forest Green": {
-        primary: "#10B981",
-        accent: "#34D399",
-        background: "#064E3B",
-        navbar: "#065F46",
-        text: "#ECFCCB"
-    },
-    "Purple Haze": {
-        primary: "#8B5CF6",
-        accent: "#EC4899",
-        background: "#1E1B4B",
-        navbar: "#312E81",
-        text: "#F5F3FF"
-    },
+    // "Ocean Blue": {
+    //   primary: "#3B82F6",
+    //   accent: "#0EA5E9",
+    //   background: "#0F172A",
+    //   navbar: "#1E293B",
+    //   text: "#F1F5F9"
+    // }
+    // },
+    // "Forest Green": {
+    //   primary: "#10B981",
+    //   accent: "#34D399",
+    //   background: "#064E3B",
+    //   navbar: "#065F46",
+    //   text: "#ECFCCB"
+    // },
+    // "Purple Haze": {
+    //   primary: "#8B5CF6",
+    //   accent: "#EC4899",
+    //   background: "#1E1B4B",
+    //   navbar: "#312E81",
+    //   text: "#F5F3FF"
+    // },
     "Sunset Orange": {
         primary: "#F97316",
         accent: "#FACC15",
@@ -170,117 +171,26 @@ const colorPalettes = {
         navbar: "#292524",
         text: "#FEF3C7"
     },
-    "Deep Ocean": {
-        primary: "#06B6D4",
-        accent: "#0284C7",
-        background: "#164E63",
-        navbar: "#155E75",
-        text: "#E0F2FE"
-    },
-    "Cherry Blossom": {
-        primary: "#EC4899",
-        accent: "#F472B6",
-        background: "#FDF2F8",
-        navbar: "#FCE7F3",
-        text: "#831843"
-    },
+    // "Deep Ocean": {
+    //   primary: "#06B6D4",
+    //   accent: "#0284C7",
+    //   background: "#164E63",
+    //   navbar: "#155E75",
+    //   text: "#E0F2FE"
+    // },
+    // "Cherry Blossom": {
+    //   primary: "#EC4899",
+    //   accent: "#F472B6",
+    //   background: "#FDF2F8",
+    //   navbar: "#FCE7F3",
+    //   text: "#831843"
+    // },
     "Arctic Blue": {
         primary: "#0EA5E9",
         accent: "#38BDF8",
         background: "#F0F9FF",
         navbar: "#E0F2FE",
         text: "#0C4A6E"
-    },
-    "Lime Fresh": {
-        primary: "#84CC16",
-        accent: "#BEF264",
-        background: "#F7FEE7",
-        navbar: "#ECFCCB",
-        text: "#365314"
-    },
-    "Royal Purple": {
-        primary: "#7C3AED",
-        accent: "#A78BFA",
-        background: "#FAF5FF",
-        navbar: "#F3E8FF",
-        text: "#4C1D95"
-    },
-    "Charcoal": {
-        primary: "#64748B",
-        accent: "#94A3B8",
-        background: "#020617",
-        navbar: "#0F172A",
-        text: "#F1F5F9"
-    },
-    "Campus Core": {
-        primary: "#2563EB",
-        accent: "#F97316",
-        background: "#F9FAFB",
-        navbar: "#E5E7EB",
-        text: "#0F172A"
-    },
-    "Eco Ride": {
-        primary: "#16A34A",
-        accent: "#22C55E",
-        background: "#F0FDF4",
-        navbar: "#DCFCE7",
-        text: "#052E16"
-    },
-    "Night Shuttle": {
-        primary: "#0EA5E9",
-        accent: "#FACC15",
-        background: "#020617",
-        navbar: "#020817",
-        text: "#F9FAFB"
-    },
-    "Marketplace Sunset": {
-        primary: "#FB923C",
-        accent: "#EC4899",
-        background: "#FFFBEB",
-        navbar: "#FEF3C7",
-        text: "#1F2937"
-    },
-    "Social Grape": {
-        primary: "#6366F1",
-        accent: "#E11D48",
-        background: "#EEF2FF",
-        navbar: "#E0E7FF",
-        text: "#020617"
-    },
-    "Tech Minimal": {
-        primary: "#0F172A",
-        accent: "#3B82F6",
-        background: "#FFFFFF",
-        navbar: "#F3F4F6",
-        text: "#020617"
-    },
-    "Cafe Commons": {
-        primary: "#65A30D",
-        accent: "#EA580C",
-        background: "#F5F5F4",
-        navbar: "#E7E5E4",
-        text: "#1C1917"
-    },
-    "Pastel Campus": {
-        primary: "#38BDF8",
-        accent: "#F472B6",
-        background: "#FDF2FF",
-        navbar: "#FCE7F3",
-        text: "#0F172A"
-    },
-    "Urban Transit": {
-        primary: "#111827",
-        accent: "#F97316",
-        background: "#E5E7EB",
-        navbar: "#D1D5DB",
-        text: "#020617"
-    },
-    "Library Calm": {
-        primary: "#0284C7",
-        accent: "#14B8A6",
-        background: "#ECFEFF",
-        navbar: "#CFFAFE",
-        text: "#082F49"
     }
 };
 function TopBar() {
@@ -303,6 +213,11 @@ function TopBar() {
         }
         // Update background color for all pages
         document.body.style.backgroundColor = palette.background;
+        // Update theme-color meta tag for Safari UI blending
+        let themeColorMeta = document.querySelector('meta[name="theme-color"]');
+        if (themeColorMeta) {
+            themeColorMeta.setAttribute('content', palette.background);
+        }
         // Create style element to override Tailwind text colors and backgrounds
         let styleEl = document.getElementById('theme-override');
         if (!styleEl) {
@@ -348,7 +263,8 @@ function TopBar() {
         className: "fixed top-0 left-0 right-0 bg-[#171717]/95 backdrop-blur-lg border-b border-white/10 z-40 px-5",
         style: {
             paddingLeft: "2vw",
-            paddingRight: "2vw"
+            paddingRight: "2vw",
+            paddingTop: "env(safe-area-inset-top)"
         },
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
             className: "flex justify-between items-center h-16 max-w-2xl mx-auto",
@@ -360,12 +276,12 @@ function TopBar() {
                         children: "Connect"
                     }, void 0, false, {
                         fileName: "[project]/components/TopBar.jsx",
-                        lineNumber: 229,
+                        lineNumber: 236,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/TopBar.jsx",
-                    lineNumber: 227,
+                    lineNumber: 234,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("select", {
@@ -378,12 +294,12 @@ function TopBar() {
                             children: name
                         }, name, false, {
                             fileName: "[project]/components/TopBar.jsx",
-                            lineNumber: 239,
+                            lineNumber: 246,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/components/TopBar.jsx",
-                    lineNumber: 233,
+                    lineNumber: 240,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
@@ -397,23 +313,23 @@ function TopBar() {
                         className: "text-primary"
                     }, void 0, false, {
                         fileName: "[project]/components/TopBar.jsx",
-                        lineNumber: 250,
+                        lineNumber: 257,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/TopBar.jsx",
-                    lineNumber: 245,
+                    lineNumber: 252,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/TopBar.jsx",
-            lineNumber: 226,
+            lineNumber: 233,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/TopBar.jsx",
-        lineNumber: 225,
+        lineNumber: 232,
         columnNumber: 5
     }, this);
 }
@@ -466,6 +382,9 @@ function BottomNav() {
     const isActive = (path)=>currentPath === path;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("nav", {
         className: "fixed bottom-0 left-0 right-0 bg-[#171717]/95 backdrop-blur-lg border-t border-white/10 z-50",
+        style: {
+            paddingBottom: "env(safe-area-inset-bottom)"
+        },
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
             className: "flex justify-around items-center h-20 max-w-2xl mx-auto px-6",
             children: navItems.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {

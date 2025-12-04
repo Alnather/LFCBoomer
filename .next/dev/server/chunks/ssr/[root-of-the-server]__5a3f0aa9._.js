@@ -148,10 +148,20 @@ function Rides() {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("meta", {
                         name: "theme-color",
-                        content: "#0A0A0A"
+                        content: "#0A0A0A",
+                        media: "(prefers-color-scheme: dark)"
                     }, void 0, false, {
                         fileName: "[project]/pages/rides.jsx",
                         lineNumber: 121,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("meta", {
+                        name: "theme-color",
+                        content: "#F9FAFB",
+                        media: "(prefers-color-scheme: light)"
+                    }, void 0, false, {
+                        fileName: "[project]/pages/rides.jsx",
+                        lineNumber: 122,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("meta", {
@@ -159,7 +169,7 @@ function Rides() {
                         content: "yes"
                     }, void 0, false, {
                         fileName: "[project]/pages/rides.jsx",
-                        lineNumber: 122,
+                        lineNumber: 123,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("meta", {
@@ -167,7 +177,15 @@ function Rides() {
                         content: "black-translucent"
                     }, void 0, false, {
                         fileName: "[project]/pages/rides.jsx",
-                        lineNumber: 123,
+                        lineNumber: 124,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("meta", {
+                        name: "viewport",
+                        content: "width=device-width, initial-scale=1, viewport-fit=cover"
+                    }, void 0, false, {
+                        fileName: "[project]/pages/rides.jsx",
+                        lineNumber: 125,
                         columnNumber: 9
                     }, this)
                 ]
@@ -203,7 +221,7 @@ function Rides() {
                                             className: "jsx-1bfe117c79888d07" + " " + "absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-[3rem] blur-2xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/rides.jsx",
-                                            lineNumber: 138,
+                                            lineNumber: 140,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -214,7 +232,7 @@ function Rides() {
                                                     size: 24
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/rides.jsx",
-                                                    lineNumber: 140,
+                                                    lineNumber: 142,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
@@ -225,39 +243,40 @@ function Rides() {
                                                     style: {
                                                         height: '7vh',
                                                         paddingLeft: '4.5rem',
-                                                        marginTop: "1vh"
+                                                        marginTop: "1vh",
+                                                        background: '#5a6f8226'
                                                     },
-                                                    className: "jsx-1bfe117c79888d07" + " " + "w-full pl-16 pr-12 bg-white/10 backdrop-blur-xl border-2 border-white/20 rounded-[3rem] text-white text-x font-bold placeholder-gray-400 focus:border-primary/50 focus:outline-none focus:bg-white/15 transition-all duration-300 shadow-2xl"
+                                                    className: "jsx-1bfe117c79888d07" + " " + "w-full pl-16 pr-12 backdrop-blur-xl border-2 border-white/20 rounded-[3rem] text-white text-x font-bold placeholder-gray-400 focus:border-primary/50 focus:outline-none transition-all duration-300 shadow-2xl"
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/rides.jsx",
-                                                    lineNumber: 141,
+                                                    lineNumber: 143,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/pages/rides.jsx",
-                                            lineNumber: 139,
+                                            lineNumber: 141,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/pages/rides.jsx",
-                                    lineNumber: 134,
+                                    lineNumber: 136,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/pages/rides.jsx",
-                                lineNumber: 129,
+                                lineNumber: 131,
                                 columnNumber: 11
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/rides.jsx",
-                            lineNumber: 128,
+                            lineNumber: 130,
                             columnNumber: 9
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/pages/rides.jsx",
-                        lineNumber: 127,
+                        lineNumber: 129,
                         columnNumber: 7
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
@@ -302,12 +321,12 @@ function Rides() {
                                             className: "text-gray-400"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/rides.jsx",
-                                            lineNumber: 172,
+                                            lineNumber: 174,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/pages/rides.jsx",
-                                        lineNumber: 164,
+                                        lineNumber: 166,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
@@ -315,7 +334,7 @@ function Rides() {
                                         children: "No rides found"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/rides.jsx",
-                                        lineNumber: 174,
+                                        lineNumber: 176,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -323,13 +342,13 @@ function Rides() {
                                         children: "Create a new ride to get started!"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/rides.jsx",
-                                        lineNumber: 175,
+                                        lineNumber: 177,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/rides.jsx",
-                                lineNumber: 159,
+                                lineNumber: 161,
                                 columnNumber: 11
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                 style: {
@@ -383,7 +402,7 @@ function Rides() {
                                                     className: "jsx-1bfe117c79888d07" + " " + `absolute inset-0 bg-gradient-to-br ${theme.gradient} rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/rides.jsx",
-                                                    lineNumber: 211,
+                                                    lineNumber: 213,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -396,7 +415,7 @@ function Rides() {
                                                             className: "jsx-1bfe117c79888d07" + " " + `absolute inset-0 bg-gradient-to-br ${theme.gradient} opacity-50 rounded-3xl`
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/rides.jsx",
-                                                            lineNumber: 216,
+                                                            lineNumber: 218,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -423,12 +442,12 @@ function Rides() {
                                                                         className: "jsx-1bfe117c79888d07" + " " + (theme.iconColor || "")
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/pages/rides.jsx",
-                                                                        lineNumber: 227,
+                                                                        lineNumber: 229,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/pages/rides.jsx",
-                                                                    lineNumber: 221,
+                                                                    lineNumber: 223,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -439,7 +458,7 @@ function Rides() {
                                                                             children: ride.destination
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/pages/rides.jsx",
-                                                                            lineNumber: 233,
+                                                                            lineNumber: 235,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -454,7 +473,7 @@ function Rides() {
                                                                                     })
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/pages/rides.jsx",
-                                                                                    lineNumber: 239,
+                                                                                    lineNumber: 241,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -462,7 +481,7 @@ function Rides() {
                                                                                     children: "•"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/pages/rides.jsx",
-                                                                                    lineNumber: 246,
+                                                                                    lineNumber: 248,
                                                                                     columnNumber: 29
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -470,25 +489,25 @@ function Rides() {
                                                                                     children: ride.time
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/pages/rides.jsx",
-                                                                                    lineNumber: 247,
+                                                                                    lineNumber: 249,
                                                                                     columnNumber: 29
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/pages/rides.jsx",
-                                                                            lineNumber: 238,
+                                                                            lineNumber: 240,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/pages/rides.jsx",
-                                                                    lineNumber: 231,
+                                                                    lineNumber: 233,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/pages/rides.jsx",
-                                                            lineNumber: 219,
+                                                            lineNumber: 221,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -508,7 +527,7 @@ function Rides() {
                                                                             children: ride.organizer
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/pages/rides.jsx",
-                                                                            lineNumber: 258,
+                                                                            lineNumber: 260,
                                                                             columnNumber: 27
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -521,13 +540,13 @@ function Rides() {
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/pages/rides.jsx",
-                                                                            lineNumber: 259,
+                                                                            lineNumber: 261,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/pages/rides.jsx",
-                                                                    lineNumber: 257,
+                                                                    lineNumber: 259,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
@@ -549,52 +568,52 @@ function Rides() {
                                                                             size: 30
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/pages/rides.jsx",
-                                                                            lineNumber: 271,
+                                                                            lineNumber: 273,
                                                                             columnNumber: 27
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/pages/rides.jsx",
-                                                                    lineNumber: 263,
+                                                                    lineNumber: 265,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/pages/rides.jsx",
-                                                            lineNumber: 255,
+                                                            lineNumber: 257,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/pages/rides.jsx",
-                                                    lineNumber: 214,
+                                                    lineNumber: 216,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, ride.id, true, {
                                             fileName: "[project]/pages/rides.jsx",
-                                            lineNumber: 198,
+                                            lineNumber: 200,
                                             columnNumber: 19
                                         }, this);
                                     })
                                 }, void 0, false, {
                                     fileName: "[project]/pages/rides.jsx",
-                                    lineNumber: 180,
+                                    lineNumber: 182,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/pages/rides.jsx",
-                                lineNumber: 178,
+                                lineNumber: 180,
                                 columnNumber: 11
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/rides.jsx",
-                            lineNumber: 157,
+                            lineNumber: 159,
                             columnNumber: 9
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/pages/rides.jsx",
-                        lineNumber: 156,
+                        lineNumber: 158,
                         columnNumber: 7
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
@@ -626,12 +645,12 @@ function Rides() {
                             strokeWidth: 3
                         }, void 0, false, {
                             fileName: "[project]/pages/rides.jsx",
-                            lineNumber: 293,
+                            lineNumber: 295,
                             columnNumber: 9
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/pages/rides.jsx",
-                        lineNumber: 285,
+                        lineNumber: 287,
                         columnNumber: 7
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$styled$2d$jsx$2f$style$2e$js__$5b$external$5d$__$28$styled$2d$jsx$2f$style$2e$js$2c$__cjs$29$__["default"], {
@@ -641,7 +660,7 @@ function Rides() {
                 ]
             }, void 0, true, {
                 fileName: "[project]/pages/rides.jsx",
-                lineNumber: 125,
+                lineNumber: 127,
                 columnNumber: 7
             }, this)
         ]

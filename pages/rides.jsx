@@ -118,9 +118,11 @@ export default function Rides() {
   return (
     <>
       <Head>
-        <meta name="theme-color" content="#0A0A0A" />
+        <meta name="theme-color" content="#0A0A0A" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#F9FAFB" media="(prefers-color-scheme: light)" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       </Head>
       <div ref={containerRef} className="w-full pb-32">
       {/* Filters Section - Uber Style */}
@@ -143,8 +145,8 @@ export default function Rides() {
                   placeholder="Where to?"
                   value={destination}
                   onChange={(e) => setDestination(e.target.value)}
-                  style={{ height: '7vh',paddingLeft: '4.5rem' ,marginTop:"1vh"}}
-                  className="w-full pl-16 pr-12 bg-white/10 backdrop-blur-xl border-2 border-white/20 rounded-[3rem] text-white text-x font-bold placeholder-gray-400 focus:border-primary/50 focus:outline-none focus:bg-white/15 transition-all duration-300 shadow-2xl"
+                  style={{ height: '7vh',paddingLeft: '4.5rem' ,marginTop:"1vh", background: '#5a6f8226' }}
+                  className="w-full pl-16 pr-12 backdrop-blur-xl border-2 border-white/20 rounded-[3rem] text-white text-x font-bold placeholder-gray-400 focus:border-primary/50 focus:outline-none transition-all duration-300 shadow-2xl"
                 />
               </div>
             </motion.div>

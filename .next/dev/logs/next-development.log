@@ -425,3 +425,103 @@ Debug info:
 [06:38:35.491] Server  LOG      ✓ Compiled in 49ms
 [06:38:39.251] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
 [06:38:39.251] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[06:42:31.058] Server  LOG      ✓ Compiled in 53ms
+[06:42:52.877] Server  LOG      ✓ Compiled in 48ms
+[06:42:53.573] Browser ERROR   ./components/TopBar.jsx:21:3
+Parsing ecmascript source code failed
+  19 |   //   text: "#F1F5F9"
+  20 |   // },
+> 21 |   "Forest Green": {
+     |   ^^^^^^^^^^^^^^
+  22 |     primary: "#10B981",
+  23 |     accent: "#34D399",
+  24 |     background: "#064E3B",
+
+Expected ',', got 'string literal (Forest Green, "Forest Green")'
+
+Import trace:
+  SSR:
+    ./components/TopBar.jsx
+    ./pages/_app.jsx
+[06:42:53.573] Browser ERROR   ./components/TopBar.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/components/TopBar.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/components/TopBar.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+
+Import trace:
+  SSR:
+    ./components/TopBar.jsx
+    ./pages/_app.jsx
+[06:42:59.324] Server  LOG      ✓ Compiled in 44ms
+[06:43:12.089] Server  LOG      ✓ Compiled in 46ms
+[06:43:12.573] Browser ERROR   ./components/TopBar.jsx:36:3
+Parsing ecmascript source code failed
+  34 |   //   text: "#F5F3FF"
+  35 |   // },
+> 36 |   "Sunset Orange": {
+     |   ^^^^^^^^^^^^^^^
+  37 |     primary: "#F97316",
+  38 |     accent: "#FACC15",
+  39 |     background: "#1C1917",
+
+Expected ',', got 'string literal (Sunset Orange, "Sunset Orange")'
+
+Import trace:
+  SSR:
+    ./components/TopBar.jsx
+    ./pages/_app.jsx
+[06:43:12.573] Browser ERROR   ./components/TopBar.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/components/TopBar.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/components/TopBar.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+
+Import trace:
+  SSR:
+    ./components/TopBar.jsx
+    ./pages/_app.jsx
+[06:43:20.627] Server  LOG      ✓ Compiled in 56ms
+[06:43:41.693] Server  LOG      ✓ Compiled in 53ms
+[06:45:58.401] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[06:45:58.401] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[06:46:01.121] Server  LOG      ✓ Compiled in 105ms
+[06:46:06.943] Server  LOG      ✓ Compiled in 47ms
+[06:46:09.509] Server  LOG      ✓ Compiled in 132ms
+[06:46:11.677] Server  LOG      ✓ Compiled in 50ms
+[06:46:15.076] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[06:46:17.548] Server  LOG      ✓ Compiled in 100ms
+[06:46:24.197] Server  LOG      ✓ Compiled in 104ms
+[06:46:33.201] Server  LOG      ✓ Compiled in 45ms
+[06:46:46.224] Server  LOG      ✓ Compiled in 48ms
+[06:49:01.288] Server  LOG      ✓ Compiled in 107ms
+[06:49:01.559] Browser ERROR   %o
+
+%s
+
+%s
+ {} The above error occurred in the <Rides> component. React will try to recreate this component tree from scratch using the error boundary you provided, PagesDevOverlayErrorBoundary.
+[06:49:28.933] Server  ERROR   C:\Users\Hani\ForesterSwap\.next\dev\server\chunks\ssr\[root-of-the-server]__5a3f0aa9._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[06:49:28.938] Server  ERROR   ReferenceError: colorpa is not defined
+[06:49:28.946] Server  ERROR   C:\Users\Hani\ForesterSwap\.next\dev\server\chunks\ssr\[root-of-the-server]__5a3f0aa9._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[06:49:28.948] Server  ERROR    ⨯ ReferenceError: colorpa is not defined
+[06:49:28.958] Server  ERROR   C:\Users\Hani\ForesterSwap\.next\dev\server\chunks\ssr\[root-of-the-server]__5a3f0aa9._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[06:49:28.962] Server  ERROR    ⨯ ReferenceError: colorpa is not defined
+[06:49:31.640] Browser ERROR   uncaughtError: ReferenceError: colorpa is not defined
+[06:49:39.006] Server  LOG      ✓ Compiled in 45ms
+[06:50:06.975] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[06:50:57.313] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.

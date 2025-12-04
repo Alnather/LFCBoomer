@@ -24,6 +24,9 @@ html {
   font-family: 'Uber Move', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  background: #0A0A0A;
 }
 
 body {
@@ -31,6 +34,8 @@ body {
   color: #F5F5F5;
   overflow-x: hidden;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 /* Mobile-first approach */
