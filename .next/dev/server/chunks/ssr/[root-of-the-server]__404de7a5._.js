@@ -80,7 +80,7 @@ function Campus() {
         className: "w-full bg-transparent pb-24 relative",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                className: "blur-sm opacity-40 pointer-events-none max-h-[90vh] overflow-hidden flex",
+                className: "blur-sm opacity-25 pointer-events-none max-h-[90vh] overflow-hidden flex ",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                         className: "hidden md:block w-64 min-h-screen border-r border-white/5 pt-8 px-4",
@@ -503,7 +503,10 @@ function Campus() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                className: "absolute inset-0 flex items-center justify-center px-6 pointer-events-none",
+                className: "fixed inset-0 flex items-center justify-center px-6 pointer-events-none",
+                style: {
+                    maxHeight: '100vh'
+                },
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
                     initial: {
                         opacity: 0,
@@ -513,7 +516,10 @@ function Campus() {
                         opacity: 1,
                         y: 0
                     },
-                    className: "text-center max-w-md backdrop-blur-xl bg-white/5 p-8 rounded-3xl border border-white/20 shadow-2xl pointer-events-auto",
+                    style: {
+                        padding: "4vw"
+                    },
+                    className: "text-center max-w-md backdrop-blur-xl bg-white/5 p-8 rounded-3xl shadow-2xl pointer-events-auto flex flex-col items- bg-gradient-to-b from-black/40 to-black/20",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
                             animate: {
@@ -528,18 +534,18 @@ function Campus() {
                                 repeat: Infinity,
                                 repeatType: 'reverse'
                             },
-                            className: "w-32 h-32 mx-auto mb-8 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-xl border border-white/10 flex items-center justify-center shadow-2xl shadow-primary/10",
+                            className: "w-32 h-32 mb-8 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-xl flex items-center justify-center shadow-2xl shadow-primary/10",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiInfo"], {
                                 size: 64,
                                 className: "text-primary"
                             }, void 0, false, {
                                 fileName: "[project]/pages/campus.jsx",
-                                lineNumber: 181,
+                                lineNumber: 182,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/campus.jsx",
-                            lineNumber: 176,
+                            lineNumber: 177,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h2", {
@@ -547,7 +553,7 @@ function Campus() {
                             children: "Campus Info"
                         }, void 0, false, {
                             fileName: "[project]/pages/campus.jsx",
-                            lineNumber: 184,
+                            lineNumber: 185,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -555,7 +561,7 @@ function Campus() {
                             children: "Coming Soon"
                         }, void 0, false, {
                             fileName: "[project]/pages/campus.jsx",
-                            lineNumber: 187,
+                            lineNumber: 188,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -563,7 +569,7 @@ function Campus() {
                             children: "Get real-time information about campus facilities. Stay tuned!"
                         }, void 0, false, {
                             fileName: "[project]/pages/campus.jsx",
-                            lineNumber: 188,
+                            lineNumber: 189,
                             columnNumber: 11
                         }, this)
                     ]

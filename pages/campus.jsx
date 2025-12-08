@@ -20,7 +20,7 @@ export default function Campus() {
   return (
     <div className="w-full bg-transparent pb-24 relative">
       {/* Background skeleton - blurred */}
-      <div className="blur-sm opacity-40 pointer-events-none max-h-[90vh] overflow-hidden flex">
+      <div className="blur-sm opacity-25 pointer-events-none max-h-[90vh] overflow-hidden flex ">
         {/* Left sidebar - Categories */}
         <div className="hidden md:block w-64 min-h-screen border-r border-white/5 pt-8 px-4">
           <h3 className="text-lg font-bold text-white mb-4 px-2">Categories</h3>
@@ -167,16 +167,17 @@ export default function Campus() {
       </div>
 
       {/* Coming soon overlay - centered on top */}
-      <div className="absolute inset-0 flex items-center justify-center px-6 pointer-events-none">
+      <div className="fixed inset-0 flex items-center justify-center px-6 pointer-events-none" style={{ maxHeight: '100vh' }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center max-w-md backdrop-blur-xl bg-white/5 p-8 rounded-3xl border border-white/20 shadow-2xl pointer-events-auto"
+          style={{padding:"4vw"}}
+          className="text-center max-w-md backdrop-blur-xl bg-white/5 p-8 rounded-3xl shadow-2xl pointer-events-auto flex flex-col items- bg-gradient-to-b from-black/40 to-black/20"
         >
           <motion.div
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 3, repeat: Infinity, repeatType: 'reverse' }}
-            className="w-32 h-32 mx-auto mb-8 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-xl border border-white/10 flex items-center justify-center shadow-2xl shadow-primary/10"
+            className="w-32 h-32 mb-8 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 backdrop-blur-xl flex items-center justify-center shadow-2xl shadow-primary/10"
           >
             <FiInfo size={64} className="text-primary" />
           </motion.div>

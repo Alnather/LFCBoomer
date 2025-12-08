@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
-import { FiShoppingBag, FiInfo, FiMessageCircle } from 'react-icons/fi';
+import { FiShoppingBag, FiInfo, FiMessageCircle,FiUsers } from 'react-icons/fi';
 import { IoCarSport } from 'react-icons/io5';
 import { useState, useEffect } from 'react';
 import { db, auth } from '../lib/firebase';
@@ -149,7 +149,7 @@ export default function BottomNav({ user, isAuthPage }) {
   const isActive = (path) => currentPath === path;
 
   return (
-    <nav className="md:hidden sticky bottom-0 left-0 right-0 bg-[#171717]/95 backdrop-blur-lg border-t border-white/10 z-50" style={{paddingBottom: "env(safe-area-inset-bottom)"}}>
+    <nav className="md:hidden sticky bottom-0 left-0 right-0 bg-[#0a0a0a]/95 backdrop-blur-lg border-t border-white/10 z-50" style={{paddingBottom: "env(safe-area-inset-bottom)"}}>
       <div className="flex justify-center">
         <div className="flex justify-around items-center h-20 w-full max-w-2xl px-6">
         {navItems.map((item) => (

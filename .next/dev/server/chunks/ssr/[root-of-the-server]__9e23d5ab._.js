@@ -228,6 +228,16 @@ function TopBar({ user, isAuthPage }) {
     const [selectedPalette, setSelectedPalette] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])("Midnight Red");
     const [currentUser, setCurrentUser] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(null);
     const [unreadCount, setUnreadCount] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(0);
+    const [isMobile, setIsMobile] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(false);
+    // Check if mobile
+    (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
+        const checkMobile = ()=>{
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return ()=>window.removeEventListener('resize', checkMobile);
+    }, []);
     // Check authentication
     (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
         const unsubscribe = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__["onAuthStateChanged"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["auth"], (authUser)=>{
@@ -347,7 +357,7 @@ function TopBar({ user, isAuthPage }) {
         {
             id: 'signup',
             label: 'Sign Up',
-            icon: FiUsers,
+            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiUsers"],
             path: '/signup'
         },
         {
@@ -429,7 +439,11 @@ function TopBar({ user, isAuthPage }) {
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
             className: "flex justify-center",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                className: "flex items-center h-16 w-full max-w-7xl px-6 justify-between",
+                className: "flex items-center h-16 w-full max-w-7xl justify-between",
+                style: {
+                    paddingLeft: isMobile ? '2.5vw' : '0',
+                    paddingRight: isMobile ? '2.5vw' : '0'
+                },
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
                         className: "text-2xl font-bold",
@@ -440,21 +454,21 @@ function TopBar({ user, isAuthPage }) {
                                 children: "Boomer"
                             }, void 0, false, {
                                 fileName: "[project]/components/TopBar.jsx",
-                                lineNumber: 371,
+                                lineNumber: 389,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/TopBar.jsx",
-                            lineNumber: 370,
+                            lineNumber: 388,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/TopBar.jsx",
-                        lineNumber: 369,
+                        lineNumber: 387,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("nav", {
-                        className: "hidden md:flex items-center h-16",
+                        className: `hidden md:flex items-center h-16 ${!user ? 'flex-1 justify-center' : ''}`,
                         children: navItems.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
                                 onClick: ()=>router.push(item.path),
                                 whileTap: {
@@ -477,7 +491,7 @@ function TopBar({ user, isAuthPage }) {
                                                         className: `transition-colors ${isActive(item.path) ? 'text-primary drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]' : 'text-gray-400 hover:text-white'}`
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/TopBar.jsx",
-                                                        lineNumber: 387,
+                                                        lineNumber: 405,
                                                         columnNumber: 21
                                                     }, this),
                                                     item.badge > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -485,13 +499,13 @@ function TopBar({ user, isAuthPage }) {
                                                         children: item.badge > 9 ? '9+' : item.badge
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/TopBar.jsx",
-                                                        lineNumber: 396,
+                                                        lineNumber: 414,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/TopBar.jsx",
-                                                lineNumber: 386,
+                                                lineNumber: 404,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -503,13 +517,13 @@ function TopBar({ user, isAuthPage }) {
                                                 children: item.label
                                             }, void 0, false, {
                                                 fileName: "[project]/components/TopBar.jsx",
-                                                lineNumber: 403,
+                                                lineNumber: 421,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/TopBar.jsx",
-                                        lineNumber: 385,
+                                        lineNumber: 403,
                                         columnNumber: 17
                                     }, this),
                                     isActive(item.path) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
@@ -522,18 +536,18 @@ function TopBar({ user, isAuthPage }) {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/components/TopBar.jsx",
-                                        lineNumber: 415,
+                                        lineNumber: 433,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, item.id, true, {
                                 fileName: "[project]/components/TopBar.jsx",
-                                lineNumber: 378,
+                                lineNumber: 396,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/components/TopBar.jsx",
-                        lineNumber: 376,
+                        lineNumber: 394,
                         columnNumber: 11
                     }, this),
                     user && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
@@ -547,28 +561,28 @@ function TopBar({ user, isAuthPage }) {
                             className: "text-primary"
                         }, void 0, false, {
                             fileName: "[project]/components/TopBar.jsx",
-                            lineNumber: 431,
+                            lineNumber: 449,
                             columnNumber: 15
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/TopBar.jsx",
-                        lineNumber: 426,
+                        lineNumber: 444,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/TopBar.jsx",
-                lineNumber: 368,
+                lineNumber: 379,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/components/TopBar.jsx",
-            lineNumber: 367,
+            lineNumber: 378,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/TopBar.jsx",
-        lineNumber: 366,
+        lineNumber: 377,
         columnNumber: 5
     }, this);
 }
@@ -741,7 +755,7 @@ function BottomNav({ user, isAuthPage }) {
         {
             id: 'signup',
             label: 'Sign Up',
-            icon: FiUsers,
+            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiUsers"],
             path: '/signup'
         },
         {
@@ -753,7 +767,7 @@ function BottomNav({ user, isAuthPage }) {
     ];
     const isActive = (path)=>currentPath === path;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("nav", {
-        className: "md:hidden sticky bottom-0 left-0 right-0 bg-[#171717]/95 backdrop-blur-lg border-t border-white/10 z-50",
+        className: "md:hidden sticky bottom-0 left-0 right-0 bg-[#0a0a0a]/95 backdrop-blur-lg border-t border-white/10 z-50",
         style: {
             paddingBottom: "env(safe-area-inset-bottom)"
         },

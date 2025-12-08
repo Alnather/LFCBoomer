@@ -2,26 +2,8 @@ self.__BUILD_MANIFEST = {
   "/": [
     "static/chunks/pages/index.js"
   ],
-  "/_error": [
-    "static/chunks/pages/_error.js"
-  ],
-  "/auth-test": [
-    "static/chunks/pages/auth-test.js"
-  ],
-  "/auth/action": [
-    "static/chunks/pages/auth/action.js"
-  ],
   "/campus": [
     "static/chunks/pages/campus.js"
-  ],
-  "/create-ride": [
-    "static/chunks/pages/create-ride.js"
-  ],
-  "/icon-test": [
-    "static/chunks/pages/icon-test.js"
-  ],
-  "/login": [
-    "static/chunks/pages/login.js"
   ],
   "/marketplace": [
     "static/chunks/pages/marketplace.js"
@@ -29,23 +11,8 @@ self.__BUILD_MANIFEST = {
   "/messages": [
     "static/chunks/pages/messages.js"
   ],
-  "/my-rides": [
-    "static/chunks/pages/my-rides.js"
-  ],
-  "/profile": [
-    "static/chunks/pages/profile.js"
-  ],
-  "/ride/[id]": [
-    "static/chunks/pages/ride/[id].js"
-  ],
   "/rides": [
     "static/chunks/pages/rides.js"
-  ],
-  "/signup": [
-    "static/chunks/pages/signup.js"
-  ],
-  "/verify-email": [
-    "static/chunks/pages/verify-email.js"
   ],
   "__rewrites": {
     "afterFiles": [],

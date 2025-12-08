@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
-import { FiUser, FiShoppingBag, FiInfo, FiMessageCircle } from 'react-icons/fi';
+import { FiUser, FiShoppingBag, FiInfo, FiMessageCircle,FiUsers } from 'react-icons/fi';
 import { IoCarSport } from 'react-icons/io5';
 import Link from 'next/link';
 import { db, auth } from '../lib/firebase';
@@ -165,6 +165,17 @@ export default function TopBar({ user, isAuthPage }) {
   const [selectedPalette, setSelectedPalette] = useState("Midnight Red");
   const [currentUser, setCurrentUser] = useState(null);
   const [unreadCount, setUnreadCount] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Check authentication
   useEffect(() => {
@@ -365,7 +376,14 @@ export default function TopBar({ user, isAuthPage }) {
   return (
     <header className="fixed top-0 left-0 right-0 bg-[#0A0A0A]/95 backdrop-blur-lg border-b border-white/10 z-40 group" style={{paddingTop: "env(safe-area-inset-top)"}}>
       <div className="flex justify-center">
-        <div className="flex items-center h-16 w-full max-w-7xl px-6 justify-between">
+        <div 
+          className="flex items-center h-16 w-full max-w-7xl justify-between"
+          style={{ 
+            paddingLeft: isMobile ? '2.5vw' : '0', 
+            paddingRight: isMobile ? '2.5vw' : '0' 
+          }}
+        >
+          
           <h1 className="text-2xl font-bold">
             <Link href="/">
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Boomer</span>
@@ -373,7 +391,7 @@ export default function TopBar({ user, isAuthPage }) {
           </h1>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center h-16">
+          <nav className={`hidden md:flex items-center h-16 ${!user ? 'flex-1 justify-center' : ''}`}>
             {navItems.map((item) => (
               <motion.button
                 key={item.id}
