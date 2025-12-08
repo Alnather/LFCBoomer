@@ -471,7 +471,9 @@ __turbopack_context__.s([
     "db",
     ()=>db,
     "default",
-    ()=>__TURBOPACK__default__export__
+    ()=>__TURBOPACK__default__export__,
+    "storage",
+    ()=>storage
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$firebase$2f$app$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/firebase/app/dist/esm/index.esm.js [client] (ecmascript) <locals>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$app$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@firebase/app/dist/esm/index.esm.js [client] (ecmascript)");
@@ -479,6 +481,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$firebase$2f$
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@firebase/auth/dist/esm/index.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$firebase$2f$firestore$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/firebase/firestore/dist/esm/index.esm.js [client] (ecmascript) <locals>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@firebase/firestore/dist/index.esm.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$firebase$2f$storage$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/firebase/storage/dist/esm/index.esm.js [client] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$storage$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@firebase/storage/dist/index.esm.js [client] (ecmascript)");
+;
 ;
 ;
 ;
@@ -496,6 +501,7 @@ const firebaseConfig = {
 const app = !(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$app$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["getApps"])().length ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$app$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["initializeApp"])(firebaseConfig) : (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$app$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["getApps"])()[0];
 const auth = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["getAuth"])(app);
 const db = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["getFirestore"])(app);
+const storage = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$storage$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["getStorage"])(app);
 const __TURBOPACK__default__export__ = app;
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
@@ -513,8 +519,20 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$ind
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/router.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-icons/fi/index.mjs [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$io5$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-icons/io5/index.mjs [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/link.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/firebase.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$firebase$2f$firestore$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/firebase/firestore/dist/esm/index.esm.js [client] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@firebase/firestore/dist/index.esm.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$firebase$2f$auth$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/firebase/auth/dist/esm/index.esm.js [client] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@firebase/auth/dist/esm/index.js [client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
+;
+;
+;
+;
+;
 ;
 ;
 ;
@@ -578,10 +596,175 @@ const colorPalettes = {
         text: "#0C4A6E"
     }
 };
-function TopBar() {
+function TopBar({ user, isAuthPage }) {
     _s();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"])();
+    const currentPath = router.pathname;
     const [selectedPalette, setSelectedPalette] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])("Midnight Red");
+    const [currentUser, setCurrentUser] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [unreadCount, setUnreadCount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(0);
+    // Check authentication
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "TopBar.useEffect": ()=>{
+            const unsubscribe = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["onAuthStateChanged"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["auth"], {
+                "TopBar.useEffect.unsubscribe": (authUser)=>{
+                    setCurrentUser(authUser);
+                }
+            }["TopBar.useEffect.unsubscribe"]);
+            return ({
+                "TopBar.useEffect": ()=>unsubscribe()
+            })["TopBar.useEffect"];
+        }
+    }["TopBar.useEffect"], []);
+    // Track unread messages
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "TopBar.useEffect": ()=>{
+            if (!currentUser) {
+                setUnreadCount(0);
+                return;
+            }
+            const threadCounts = new Map();
+            const messageUnsubscribers = new Map();
+            const unsubscribers = [];
+            const updateTotalUnread = {
+                "TopBar.useEffect.updateTotalUnread": ()=>{
+                    const total = Array.from(threadCounts.values()).reduce({
+                        "TopBar.useEffect.updateTotalUnread.total": (sum, count)=>sum + count
+                    }["TopBar.useEffect.updateTotalUnread.total"], 0);
+                    setUnreadCount(total);
+                }
+            }["TopBar.useEffect.updateTotalUnread"];
+            // Track rides
+            const ridesRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["db"], 'rides');
+            const ridesQuery = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])(ridesRef, (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])('participants', 'array-contains', currentUser.uid));
+            const unsubRides = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["onSnapshot"])(ridesQuery, {
+                "TopBar.useEffect.unsubRides": (snapshot)=>{
+                    snapshot.docs.forEach({
+                        "TopBar.useEffect.unsubRides": async (rideDoc)=>{
+                            const rideData = rideDoc.data();
+                            const lastReadTimestamp = rideData[`lastRead_${currentUser.uid}`];
+                            if (lastReadTimestamp === null) return;
+                            const threadKey = 'ride_' + rideDoc.id;
+                            if (messageUnsubscribers.has(threadKey)) {
+                                messageUnsubscribers.get(threadKey)();
+                                messageUnsubscribers.delete(threadKey);
+                            }
+                            const messagesRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["db"], 'rides', rideDoc.id, 'messages');
+                            let messagesQuery;
+                            if (lastReadTimestamp) {
+                                messagesQuery = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])('timestamp', '>', lastReadTimestamp), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])('senderId', '!=', currentUser.uid));
+                            } else {
+                                messagesQuery = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])('senderId', '!=', currentUser.uid));
+                            }
+                            const unsubMsg = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["onSnapshot"])(messagesQuery, {
+                                "TopBar.useEffect.unsubRides.unsubMsg": (msgSnap)=>{
+                                    threadCounts.set(threadKey, msgSnap.size);
+                                    updateTotalUnread();
+                                }
+                            }["TopBar.useEffect.unsubRides.unsubMsg"]);
+                            messageUnsubscribers.set(threadKey, unsubMsg);
+                        }
+                    }["TopBar.useEffect.unsubRides"]);
+                }
+            }["TopBar.useEffect.unsubRides"]);
+            // Track direct messages
+            const directRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["db"], 'directMessages');
+            const directQuery = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])(directRef, (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])('participants', 'array-contains', currentUser.uid));
+            const unsubDirect = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["onSnapshot"])(directQuery, {
+                "TopBar.useEffect.unsubDirect": (snapshot)=>{
+                    snapshot.docs.forEach({
+                        "TopBar.useEffect.unsubDirect": async (threadDoc)=>{
+                            const threadData = threadDoc.data();
+                            const lastReadTimestamp = threadData[`lastRead_${currentUser.uid}`];
+                            const otherUserId = threadData.participants.find({
+                                "TopBar.useEffect.unsubDirect.otherUserId": (id)=>id !== currentUser.uid
+                            }["TopBar.useEffect.unsubDirect.otherUserId"]);
+                            if (lastReadTimestamp === null) return;
+                            const threadKey = 'direct_' + threadDoc.id;
+                            if (messageUnsubscribers.has(threadKey)) {
+                                messageUnsubscribers.get(threadKey)();
+                                messageUnsubscribers.delete(threadKey);
+                            }
+                            const messagesRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["db"], 'directMessages', threadDoc.id, 'messages');
+                            let messagesQuery;
+                            if (lastReadTimestamp) {
+                                messagesQuery = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])('timestamp', '>', lastReadTimestamp), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])('senderId', '==', otherUserId));
+                            } else {
+                                messagesQuery = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])('senderId', '==', otherUserId));
+                            }
+                            const unsubMsg = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["onSnapshot"])(messagesQuery, {
+                                "TopBar.useEffect.unsubDirect.unsubMsg": (msgSnap)=>{
+                                    threadCounts.set(threadKey, msgSnap.size);
+                                    updateTotalUnread();
+                                }
+                            }["TopBar.useEffect.unsubDirect.unsubMsg"]);
+                            messageUnsubscribers.set(threadKey, unsubMsg);
+                        }
+                    }["TopBar.useEffect.unsubDirect"]);
+                }
+            }["TopBar.useEffect.unsubDirect"]);
+            unsubscribers.push(unsubRides, unsubDirect);
+            return ({
+                "TopBar.useEffect": ()=>{
+                    unsubscribers.forEach({
+                        "TopBar.useEffect": (unsub)=>unsub()
+                    }["TopBar.useEffect"]);
+                    messageUnsubscribers.forEach({
+                        "TopBar.useEffect": (unsub)=>unsub()
+                    }["TopBar.useEffect"]);
+                }
+            })["TopBar.useEffect"];
+        }
+    }["TopBar.useEffect"], [
+        currentUser
+    ]);
+    const navItems = user ? [
+        {
+            id: 'campus',
+            label: 'Campus',
+            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["FiInfo"],
+            path: '/campus'
+        },
+        {
+            id: 'marketplace',
+            label: 'Market',
+            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["FiShoppingBag"],
+            path: '/marketplace'
+        },
+        {
+            id: 'rides',
+            label: 'Rides',
+            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$io5$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["IoCarSport"],
+            path: '/rides'
+        },
+        {
+            id: 'messages',
+            label: 'Messages',
+            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["FiMessageCircle"],
+            path: '/messages',
+            badge: unreadCount
+        }
+    ] : [
+        {
+            id: 'home',
+            label: 'Home',
+            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["FiInfo"],
+            path: '/'
+        },
+        {
+            id: 'signup',
+            label: 'Sign Up',
+            icon: FiUsers,
+            path: '/signup'
+        },
+        {
+            id: 'login',
+            label: 'Sign In',
+            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["FiMessageCircle"],
+            path: '/login'
+        }
+    ];
+    const isActive = (path)=>currentPath === path;
     const handlePaletteChange = (e)=>{
         const paletteName = e.target.value;
         setSelectedPalette(paletteName);
@@ -646,49 +829,121 @@ function TopBar() {
     `;
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
-        className: "fixed top-0 left-0 right-0 bg-[#171717]/95 backdrop-blur-lg border-b border-white/10 z-40",
+        className: "fixed top-0 left-0 right-0 bg-[#0A0A0A]/95 backdrop-blur-lg border-b border-white/10 z-40 group",
         style: {
             paddingTop: "env(safe-area-inset-top)"
         },
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "flex justify-center",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex justify-between items-center h-16 w-full max-w-2xl px-6",
+                className: "flex items-center h-16 w-full max-w-7xl px-6 justify-between",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
                         className: "text-2xl font-bold",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                            className: "bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent",
-                            children: "Forester"
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                            href: "/",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent",
+                                children: "Boomer"
+                            }, void 0, false, {
+                                fileName: "[project]/components/TopBar.jsx",
+                                lineNumber: 371,
+                                columnNumber: 15
+                            }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/TopBar.jsx",
-                            lineNumber: 237,
-                            columnNumber: 11
+                            lineNumber: 370,
+                            columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/TopBar.jsx",
-                        lineNumber: 235,
-                        columnNumber: 9
+                        lineNumber: 369,
+                        columnNumber: 11
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                        value: selectedPalette,
-                        onChange: handlePaletteChange,
-                        className: "px-4 py-2 bg-white/5 border border-white/10 rounded-full text-white text-sm font-medium hover:bg-white/10 focus:outline-none focus:border-primary/50 transition-all cursor-pointer",
-                        children: Object.keys(colorPalettes).map((name)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                value: name,
-                                className: "bg-[#171717] text-white",
-                                children: name
-                            }, name, false, {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
+                        className: "hidden md:flex items-center h-16",
+                        children: navItems.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].button, {
+                                onClick: ()=>router.push(item.path),
+                                whileTap: {
+                                    scale: 0.95
+                                },
+                                className: "flex flex-col items-center justify-center relative h-full px-[2vw]",
+                                style: {
+                                    paddingLeft: "3vw",
+                                    paddingRight: "3vw"
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex flex-col items-center transition-transform duration-300 ease-in-out translate-y-2 group-hover:translate-y-0",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "relative",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(item.icon, {
+                                                        size: 32,
+                                                        className: `transition-colors ${isActive(item.path) ? 'text-primary drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]' : 'text-gray-400 hover:text-white'}`
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/TopBar.jsx",
+                                                        lineNumber: 387,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    item.badge > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "absolute -top-2 -right-2 bg-red-500 text-white text-[10px] font-bold rounded-full min-w-[18px] h-[18px] flex items-center justify-center px-1",
+                                                        children: item.badge > 9 ? '9+' : item.badge
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/components/TopBar.jsx",
+                                                        lineNumber: 396,
+                                                        columnNumber: 23
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/components/TopBar.jsx",
+                                                lineNumber: 386,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: `text-xs font-medium mt-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out ${isActive(item.path) ? 'text-white' : 'text-gray-400'}`,
+                                                style: {
+                                                    display: 'block',
+                                                    minHeight: '1rem'
+                                                },
+                                                children: item.label
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/TopBar.jsx",
+                                                lineNumber: 403,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/components/TopBar.jsx",
+                                        lineNumber: 385,
+                                        columnNumber: 17
+                                    }, this),
+                                    isActive(item.path) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].div, {
+                                        layoutId: "activeNavTab",
+                                        className: "absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-t-full shadow-lg shadow-primary/50",
+                                        transition: {
+                                            type: 'spring',
+                                            stiffness: 500,
+                                            damping: 30
+                                        }
+                                    }, void 0, false, {
+                                        fileName: "[project]/components/TopBar.jsx",
+                                        lineNumber: 415,
+                                        columnNumber: 19
+                                    }, this)
+                                ]
+                            }, item.id, true, {
                                 fileName: "[project]/components/TopBar.jsx",
-                                lineNumber: 247,
-                                columnNumber: 13
+                                lineNumber: 378,
+                                columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/components/TopBar.jsx",
-                        lineNumber: 241,
-                        columnNumber: 9
+                        lineNumber: 376,
+                        columnNumber: 11
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].button, {
+                    user && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].button, {
                         whileTap: {
                             scale: 0.9
                         },
@@ -699,32 +954,32 @@ function TopBar() {
                             className: "text-primary"
                         }, void 0, false, {
                             fileName: "[project]/components/TopBar.jsx",
-                            lineNumber: 258,
-                            columnNumber: 11
+                            lineNumber: 431,
+                            columnNumber: 15
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/TopBar.jsx",
-                        lineNumber: 253,
-                        columnNumber: 9
+                        lineNumber: 426,
+                        columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/TopBar.jsx",
-                lineNumber: 234,
+                lineNumber: 368,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/components/TopBar.jsx",
-            lineNumber: 233,
+            lineNumber: 367,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/TopBar.jsx",
-        lineNumber: 232,
+        lineNumber: 366,
         columnNumber: 5
     }, this);
 }
-_s(TopBar, "0Gkc2fd0whIFBVlHjYRxQvc18v4=", false, function() {
+_s(TopBar, "dkPZkyoq8lTIIRRc7n7BCEDUgNA=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"]
     ];
@@ -747,38 +1002,202 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/router.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-icons/fi/index.mjs [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$io5$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-icons/io5/index.mjs [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react/index.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/firebase.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$firebase$2f$firestore$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/firebase/firestore/dist/esm/index.esm.js [client] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@firebase/firestore/dist/index.esm.js [client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$firebase$2f$auth$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/firebase/auth/dist/esm/index.esm.js [client] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@firebase/auth/dist/esm/index.js [client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-function BottomNav() {
+;
+;
+;
+;
+;
+function BottomNav({ user, isAuthPage }) {
     _s();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const currentPath = router.pathname;
-    const navItems = [
+    const [currentUser, setCurrentUser] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [unreadCount, setUnreadCount] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useState"])(0);
+    // Check authentication
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "BottomNav.useEffect": ()=>{
+            const unsubscribe = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["onAuthStateChanged"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["auth"], {
+                "BottomNav.useEffect.unsubscribe": (authUser)=>{
+                    setCurrentUser(authUser);
+                }
+            }["BottomNav.useEffect.unsubscribe"]);
+            return ({
+                "BottomNav.useEffect": ()=>unsubscribe()
+            })["BottomNav.useEffect"];
+        }
+    }["BottomNav.useEffect"], []);
+    // Track unread messages from all threads
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "BottomNav.useEffect": ()=>{
+            if (!currentUser) {
+                setUnreadCount(0);
+                return;
+            }
+            const threadCounts = new Map();
+            const messageUnsubscribers = new Map(); // Track message listeners per thread
+            const unsubscribers = [];
+            const updateTotalUnread = {
+                "BottomNav.useEffect.updateTotalUnread": ()=>{
+                    const total = Array.from(threadCounts.values()).reduce({
+                        "BottomNav.useEffect.updateTotalUnread.total": (sum, count)=>sum + count
+                    }["BottomNav.useEffect.updateTotalUnread.total"], 0);
+                    setUnreadCount(total);
+                }
+            }["BottomNav.useEffect.updateTotalUnread"];
+            // Track rides
+            const ridesRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["db"], 'rides');
+            const ridesQuery = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])(ridesRef, (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])('participants', 'array-contains', currentUser.uid));
+            const unsubRides = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["onSnapshot"])(ridesQuery, {
+                "BottomNav.useEffect.unsubRides": (snapshot)=>{
+                    snapshot.docs.forEach({
+                        "BottomNav.useEffect.unsubRides": async (rideDoc)=>{
+                            const rideData = rideDoc.data();
+                            const lastReadTimestamp = rideData[`lastRead_${currentUser.uid}`];
+                            // Skip if this is a null value from pending serverTimestamp
+                            if (lastReadTimestamp === null) {
+                                return;
+                            }
+                            const threadKey = 'ride_' + rideDoc.id;
+                            // If listener exists, unsubscribe it first (lastRead may have changed)
+                            if (messageUnsubscribers.has(threadKey)) {
+                                messageUnsubscribers.get(threadKey)();
+                                messageUnsubscribers.delete(threadKey);
+                            }
+                            const messagesRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["db"], 'rides', rideDoc.id, 'messages');
+                            let messagesQuery;
+                            if (lastReadTimestamp) {
+                                messagesQuery = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])('timestamp', '>', lastReadTimestamp), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])('senderId', '!=', currentUser.uid));
+                            } else {
+                                messagesQuery = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])('senderId', '!=', currentUser.uid));
+                            }
+                            const unsubMsg = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["onSnapshot"])(messagesQuery, {
+                                "BottomNav.useEffect.unsubRides.unsubMsg": (msgSnap)=>{
+                                    threadCounts.set(threadKey, msgSnap.size);
+                                    updateTotalUnread();
+                                }
+                            }["BottomNav.useEffect.unsubRides.unsubMsg"]);
+                            messageUnsubscribers.set(threadKey, unsubMsg);
+                        }
+                    }["BottomNav.useEffect.unsubRides"]);
+                }
+            }["BottomNav.useEffect.unsubRides"]);
+            // Track direct messages
+            const directRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["db"], 'directMessages');
+            const directQuery = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])(directRef, (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])('participants', 'array-contains', currentUser.uid));
+            const unsubDirect = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["onSnapshot"])(directQuery, {
+                "BottomNav.useEffect.unsubDirect": (snapshot)=>{
+                    snapshot.docs.forEach({
+                        "BottomNav.useEffect.unsubDirect": async (threadDoc)=>{
+                            const threadData = threadDoc.data();
+                            const lastReadTimestamp = threadData[`lastRead_${currentUser.uid}`];
+                            const otherUserId = threadData.participants.find({
+                                "BottomNav.useEffect.unsubDirect.otherUserId": (id)=>id !== currentUser.uid
+                            }["BottomNav.useEffect.unsubDirect.otherUserId"]);
+                            // Skip if this is a null value from pending serverTimestamp
+                            if (lastReadTimestamp === null) {
+                                return;
+                            }
+                            const threadKey = 'direct_' + threadDoc.id;
+                            // If listener exists, unsubscribe it first (lastRead may have changed)
+                            if (messageUnsubscribers.has(threadKey)) {
+                                messageUnsubscribers.get(threadKey)();
+                                messageUnsubscribers.delete(threadKey);
+                            }
+                            const messagesRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["db"], 'directMessages', threadDoc.id, 'messages');
+                            let messagesQuery;
+                            if (lastReadTimestamp) {
+                                messagesQuery = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])('timestamp', '>', lastReadTimestamp), (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])('senderId', '==', otherUserId));
+                            } else {
+                                messagesQuery = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["where"])('senderId', '==', otherUserId));
+                            }
+                            const unsubMsg = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["onSnapshot"])(messagesQuery, {
+                                "BottomNav.useEffect.unsubDirect.unsubMsg": (msgSnap)=>{
+                                    threadCounts.set(threadKey, msgSnap.size);
+                                    updateTotalUnread();
+                                }
+                            }["BottomNav.useEffect.unsubDirect.unsubMsg"]);
+                            messageUnsubscribers.set(threadKey, unsubMsg);
+                        }
+                    }["BottomNav.useEffect.unsubDirect"]);
+                }
+            }["BottomNav.useEffect.unsubDirect"]);
+            unsubscribers.push(unsubRides, unsubDirect);
+            return ({
+                "BottomNav.useEffect": ()=>{
+                    unsubscribers.forEach({
+                        "BottomNav.useEffect": (unsub)=>unsub()
+                    }["BottomNav.useEffect"]);
+                    messageUnsubscribers.forEach({
+                        "BottomNav.useEffect": (unsub)=>unsub()
+                    }["BottomNav.useEffect"]);
+                }
+            })["BottomNav.useEffect"];
+        }
+    }["BottomNav.useEffect"], [
+        currentUser
+    ]);
+    // Define navigation items based on auth state
+    const navItems = user ? [
+        {
+            id: 'campus',
+            label: 'Campus',
+            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["FiInfo"],
+            path: '/campus'
+        },
         {
             id: 'marketplace',
-            label: 'Marketplace',
+            label: 'Market',
             icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["FiShoppingBag"],
             path: '/marketplace'
         },
         {
             id: 'rides',
             label: 'Rides',
-            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["FiUsers"],
+            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$io5$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["IoCarSport"],
             path: '/rides'
         },
         {
-            id: 'campus',
-            label: 'Campus',
+            id: 'messages',
+            label: 'Messages',
+            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["FiMessageCircle"],
+            path: '/messages',
+            badge: unreadCount
+        }
+    ] : [
+        {
+            id: 'home',
+            label: 'Home',
             icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["FiInfo"],
-            path: '/campus'
+            path: '/'
+        },
+        {
+            id: 'signup',
+            label: 'Sign Up',
+            icon: FiUsers,
+            path: '/signup'
+        },
+        {
+            id: 'login',
+            label: 'Sign In',
+            icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["FiMessageCircle"],
+            path: '/login'
         }
     ];
     const isActive = (path)=>currentPath === path;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-        className: "fixed bottom-0 left-0 right-0 bg-[#171717]/95 backdrop-blur-lg border-t border-white/10 z-50",
+        className: "md:hidden sticky bottom-0 left-0 right-0 bg-[#171717]/95 backdrop-blur-lg border-t border-white/10 z-50",
         style: {
             paddingBottom: "env(safe-area-inset-bottom)"
         },
@@ -794,14 +1213,31 @@ function BottomNav() {
                                 whileTap: {
                                     scale: 0.9
                                 },
-                                className: "flex flex-col items-center gap-1",
+                                className: "flex flex-col items-center gap-1 relative",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(item.icon, {
-                                        size: 26,
-                                        className: `transition-colors ${isActive(item.path) ? 'text-primary drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]' : 'text-gray-500'}`
-                                    }, void 0, false, {
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "relative",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(item.icon, {
+                                                size: 26,
+                                                className: `transition-colors ${isActive(item.path) ? 'text-primary drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]' : 'text-gray-500'}`
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/BottomNav.jsx",
+                                                lineNumber: 166,
+                                                columnNumber: 17
+                                            }, this),
+                                            item.badge > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full min-w-[16px] h-4 flex items-center justify-center px-1",
+                                                children: item.badge > 9 ? '9+' : item.badge
+                                            }, void 0, false, {
+                                                fileName: "[project]/components/BottomNav.jsx",
+                                                lineNumber: 175,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "[project]/components/BottomNav.jsx",
-                                        lineNumber: 31,
+                                        lineNumber: 165,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -809,13 +1245,13 @@ function BottomNav() {
                                         children: item.label
                                     }, void 0, false, {
                                         fileName: "[project]/components/BottomNav.jsx",
-                                        lineNumber: 39,
+                                        lineNumber: 180,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/BottomNav.jsx",
-                                lineNumber: 27,
+                                lineNumber: 161,
                                 columnNumber: 13
                             }, this),
                             isActive(item.path) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -828,32 +1264,32 @@ function BottomNav() {
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/components/BottomNav.jsx",
-                                lineNumber: 50,
+                                lineNumber: 191,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, item.id, true, {
                         fileName: "[project]/components/BottomNav.jsx",
-                        lineNumber: 22,
+                        lineNumber: 156,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/components/BottomNav.jsx",
-                lineNumber: 20,
+                lineNumber: 154,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/components/BottomNav.jsx",
-            lineNumber: 19,
+            lineNumber: 153,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/BottomNav.jsx",
-        lineNumber: 18,
+        lineNumber: 152,
         columnNumber: 5
     }, this);
 }
-_s(BottomNav, "fN7XvhJ+p5oE6+Xlo0NJmXpxjC8=", false, function() {
+_s(BottomNav, "7c4mazZ9fmG9KSvlNM2CK05iiLY=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useRouter"]
     ];
@@ -897,8 +1333,27 @@ function App({ Component, pageProps }) {
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "App.useEffect": ()=>{
             const unsubscribe = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["onAuthStateChanged"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["auth"], {
-                "App.useEffect.unsubscribe": (currentUser)=>{
-                    setUser(currentUser);
+                "App.useEffect.unsubscribe": async (currentUser)=>{
+                    if (currentUser) {
+                        // Reload user to get latest verification status
+                        await currentUser.reload();
+                        const refreshedUser = __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["auth"].currentUser;
+                        setUser(refreshedUser);
+                        // Check if user is logged in but email is not verified
+                        if (refreshedUser && !refreshedUser.emailVerified) {
+                            // Allow access to verification and auth pages
+                            const allowedPages = [
+                                '/verify-email',
+                                '/login',
+                                '/signup'
+                            ];
+                            if (!allowedPages.includes(router.pathname)) {
+                                router.push('/verify-email');
+                            }
+                        }
+                    } else {
+                        setUser(null);
+                    }
                     setLoading(false);
                 }
             }["App.useEffect.unsubscribe"]);
@@ -906,57 +1361,66 @@ function App({ Component, pageProps }) {
                 "App.useEffect": ()=>unsubscribe()
             })["App.useEffect"];
         }
-    }["App.useEffect"], []);
+    }["App.useEffect"], [
+        router.pathname
+    ]);
     // Pages that don't need navigation
-    const noNavPages = [
+    const authPages = [
         '/login',
         '/signup',
-        '/auth-test'
+        '/verify-email'
     ];
-    const showNav = !noNavPages.includes(router.pathname);
+    const isAuthPage = authPages.includes(router.pathname);
+    const showNav = !isAuthPage || !user; // Show nav on auth pages when not logged in
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "app-layout",
         children: [
-            showNav && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$TopBar$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$TopBar$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                user: user,
+                isAuthPage: isAuthPage
+            }, void 0, false, {
                 fileName: "[project]/pages/_app.jsx",
-                lineNumber: 29,
-                columnNumber: 19
+                lineNumber: 46,
+                columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
                 className: "flex-1 w-full flex justify-center",
                 style: {
-                    marginTop: showNav ? '74px' : '0'
+                    marginTop: '10vh'
                 },
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "w-full max-w-2xl px-6",
+                    className: "w-full max-w-2xl md:max-w-7xl px-6",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(Component, {
                         ...pageProps,
                         user: user,
                         loading: loading
                     }, void 0, false, {
                         fileName: "[project]/pages/_app.jsx",
-                        lineNumber: 32,
+                        lineNumber: 49,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/pages/_app.jsx",
-                    lineNumber: 31,
+                    lineNumber: 48,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/pages/_app.jsx",
-                lineNumber: 30,
+                lineNumber: 47,
                 columnNumber: 7
             }, this),
-            showNav && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$BottomNav$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$BottomNav$2e$jsx__$5b$client$5d$__$28$ecmascript$29$__["default"], {
+                user: user,
+                isAuthPage: isAuthPage
+            }, void 0, false, {
                 fileName: "[project]/pages/_app.jsx",
-                lineNumber: 35,
-                columnNumber: 19
+                lineNumber: 52,
+                columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/pages/_app.jsx",
-        lineNumber: 28,
+        lineNumber: 45,
         columnNumber: 5
     }, this);
 }

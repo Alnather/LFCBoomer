@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { motion } from "framer-motion";
+import { signInWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 
 export default function Login() {
@@ -9,40 +10,87 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showResendVerification, setShowResendVerification] = useState(false);
+  const [verificationResent, setVerificationResent] = useState(false);
   const router = useRouter();
 
   async function handleLogin(e) {
     e.preventDefault();
     setError("");
     setLoading(true);
+    setShowResendVerification(false);
 
     try {
       // Sign in with Firebase Auth (client-side)
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      
+      // Reload user to get latest verification status from server
+      await userCredential.user.reload();
+      const refreshedUser = auth.currentUser;
+      
+      // Check if email is verified
+      if (!refreshedUser || !refreshedUser.emailVerified) {
+        setError("Please verify your email address before logging in. Check your inbox for the verification link.");
+        setShowResendVerification(true);
+        // Sign out the user since they haven't verified
+        await auth.signOut();
+        setLoading(false);
+        return;
+      }
       
       // Redirect to home after successful login
-      router.push("/");
+      router.push("/rides");
     } catch (err) {
       setError(err.message || "Login failed");
       setLoading(false);
     }
   }
 
+  async function handleResendVerification() {
+    setError("");
+    setVerificationResent(false);
+    
+    try {
+      // Sign in temporarily to get the user object
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      
+      // Send verification email
+      await sendEmailVerification(userCredential.user);
+      setVerificationResent(true);
+      
+      // Sign out again
+      await auth.signOut();
+    } catch (err) {
+      setError("Failed to resend verification email. Please try again.");
+    }
+  }
+
   return (
-    <div className="min-h-screen flex items-center justify-center gradient-bg">
-      <div className="bg-[#2a2a2a] p-8 rounded-2xl shadow-xl w-full max-w-md">
+    <div className=" flex items-center justify-center bg-[#171717] py-12 px-4 custom-app-layout-mobile"  style={{minHeight:"80vh"}} >
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="bg-[#171717] border border-white/10 p-8 rounded-2xl shadow-xl w-full max-w-md" 
+        style={{alignSelf:"center"}} 
+      >
         <div className="text-center mb-8">
           <Link href="/" className="inline-block mb-4">
-            <h1 className="text-3xl font-bold gradient-text">🌲 ForesterSwap</h1>
+            <h1 className="text-3xl font-bold text-white" >Welcome Back</h1>
           </Link>
-          <h2 className="text-2xl font-bold text-gray-100 mb-2">Welcome Back</h2>
-          <p className="text-gray-400">Sign in to your account</p>
+          <p className="text-gray-400" style={{marginBottom:"6vh"}}>Sign in to continue</p>
         </div>
 
-        <form onSubmit={handleLogin} className="space-y-6">
+        <form onSubmit={handleLogin} className="space-y-5">
           {error && (
-            <div className="bg-red-900/30 border border-red-700 text-red-300 px-4 py-3 rounded-lg text-sm">
+            <div className="bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 rounded-xl text-sm">
               {error}
+            </div>
+          )}
+
+          {verificationResent && (
+            <div className="bg-green-500/10 border border-green-500/30 text-green-400 px-4 py-3 rounded-xl text-sm">
+              Verification email sent! Please check your inbox.
             </div>
           )}
 
@@ -78,22 +126,33 @@ export default function Login() {
 
           <button
             type="submit"
+            style={{height:"5vh",marginTop:"3vh"}}
             disabled={loading}
-            className="btn-primary w-full"
+            className="w-full py-3 px-4 bg-gradient-to-r from-primary to-accent hover:from-primary-dark hover:to-primary text-white font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? "Signing in..." : "Sign In"}
           </button>
+
+          {showResendVerification && (
+            <button
+              type="button"
+              onClick={handleResendVerification}
+              className="w-full py-3 px-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl transition-all border border-white/10"
+            >
+              Resend Verification Email
+            </button>
+          )}
         </form>
 
-        <div className="mt-6 text-center">
+        <div className="mt-6 text-center" style={{marginBottom:"1vh"}}>
           <p className="text-gray-400">
             Don't have an account?{" "}
-            <Link href="/signup" className="text-primary-500 hover:text-primary-400 font-semibold">
+            <Link href="/signup" className="text-primary hover:text-primary-light font-semibold transition-colors">
               Sign up
             </Link>
           </p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

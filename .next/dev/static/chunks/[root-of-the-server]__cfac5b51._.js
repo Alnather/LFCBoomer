@@ -1103,14 +1103,14 @@ function Rides() {
                         whileTap: {
                             scale: 0.9
                         },
-                        // onClick={handleCreateRide}
+                        onClick: handleCreateRide,
                         className: "fixed bottom-28 right-6 w-16 h-16 bg-gradient-to-r from-primary via-accent to-primary rounded-full shadow-2xl shadow-primary/50 flex items-center justify-center z-50 border-2 border-white/20 backdrop-blur-xl",
                         style: {
                             backgroundSize: '200% 200%',
                             animation: 'gradient 3s ease infinite'
                         },
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["FiPlus"], {
-                            size: 16,
+                            size: 28,
                             className: "text-white",
                             strokeWidth: 3
                         }, void 0, false, {

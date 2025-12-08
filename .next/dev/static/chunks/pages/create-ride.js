@@ -1,5 +1,5 @@
 __turbopack_load_page_chunks__("/create-ride", [
-  "static/chunks/node_modules_next_dist_compiled_8ca6b690._.js",
+  "static/chunks/node_modules_next_dist_compiled_928382e4._.js",
   "static/chunks/node_modules_next_dist_shared_lib_cf5b50a6._.js",
   "static/chunks/node_modules_next_dist_client_d0aa886c._.js",
   "static/chunks/node_modules_next_dist_6024eba3._.js",
@@ -11,9 +11,12 @@ __turbopack_load_page_chunks__("/create-ride", [
   "static/chunks/node_modules_date-fns_6c1479f4._.js",
   "static/chunks/node_modules_@floating-ui_react_dist_ca3caa08._.js",
   "static/chunks/node_modules_react-datepicker_dist_index_es_0a0b086b.js",
-  "static/chunks/node_modules_5f91000f._.js",
-  "static/chunks/[root-of-the-server]__84bc67f7._.js",
+  "static/chunks/node_modules_@firebase_auth_dist_esm_40b5261f._.js",
+  "static/chunks/node_modules_@firebase_firestore_dist_index_esm_a1d87665.js",
+  "static/chunks/node_modules_@firebase_storage_dist_index_esm_c28a6df1.js",
+  "static/chunks/node_modules_fda4c942._.js",
+  "static/chunks/[root-of-the-server]__c3e8e709._.js",
   "static/chunks/node_modules_react-datepicker_dist_react-datepicker_7a114146.css",
   "static/chunks/pages_create-ride_2da965e7._.js",
-  "static/chunks/turbopack-pages_create-ride_facb3ff2._.js"
+  "static/chunks/turbopack-pages_create-ride_4eecc21a._.js"
 ])

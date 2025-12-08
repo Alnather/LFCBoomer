@@ -1,5 +1,7 @@
 __turbopack_load_page_chunks__("/ride/[id]", [
-  "static/chunks/node_modules_next_dist_compiled_8ca6b690._.js",
+  "static/chunks/node_modules_firebase_cb2798c6._.js",
+  "static/chunks/[root-of-the-server]__dd28b086._.js",
+  "static/chunks/node_modules_next_dist_compiled_caaa605a._.js",
   "static/chunks/node_modules_next_dist_shared_lib_82dc2e9d._.js",
   "static/chunks/node_modules_next_dist_client_d0aa886c._.js",
   "static/chunks/node_modules_next_dist_6024eba3._.js",
@@ -11,8 +13,10 @@ __turbopack_load_page_chunks__("/ride/[id]", [
   "static/chunks/node_modules_react-icons_md_index_mjs_244d37ff._.js",
   "static/chunks/node_modules_react-icons_hi_index_mjs_3b61d17e._.js",
   "static/chunks/node_modules_react-icons_lib_7cd2a28b._.js",
-  "static/chunks/node_modules_63a4c1ae._.js",
-  "static/chunks/[root-of-the-server]__0ef4fa14._.js",
+  "static/chunks/node_modules_@firebase_auth_dist_esm_40b5261f._.js",
+  "static/chunks/node_modules_@firebase_firestore_dist_index_esm_a1d87665.js",
+  "static/chunks/node_modules_@firebase_storage_dist_index_esm_c28a6df1.js",
+  "static/chunks/node_modules_3bff678e._.js",
   "static/chunks/pages_ride_[id]_jsx_2da965e7._.js",
-  "static/chunks/turbopack-pages_ride_[id]_jsx_1c42b9d5._.js"
+  "static/chunks/turbopack-pages_ride_[id]_jsx_3a87710e._.js"
 ])

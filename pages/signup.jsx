@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { motion } from "framer-motion";
+import { createUserWithEmailAndPassword, updateProfile, sendEmailVerification } from "firebase/auth";
+import { doc, setDoc, Timestamp } from "firebase/firestore";
 import { auth, db } from "@/lib/firebase";
 
 export default function Signup() {
@@ -45,16 +46,24 @@ export default function Signup() {
       const userCred = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(userCred.user, { displayName: name });
 
-      // Create user document in Firestore
-      await setDoc(doc(db, "Users", userCred.user.uid), {
+      // Send email verification
+      await sendEmailVerification(userCred.user);
+
+      // Create user document in Firestore (lowercase "users")
+      const userData = {
+        name: name,
         firstName: firstName,
         lastName: lastName,
+        email: email,
+        createdAt: Timestamp.now(),
         products: [],
-        preferences: {}, // Initialize empty preferences object
-      });
+        preferences: {},
+      };
+      
+      await setDoc(doc(db, "users", userCred.user.uid), userData);
 
-      // Redirect to homepage - user is now authenticated
-      router.push("/");
+      // Redirect to verification page
+      router.push("/verify-email");
     } catch (err) {
       setError(err.message || "Signup failed");
       setLoading(false);
@@ -62,19 +71,24 @@ export default function Signup() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center gradient-bg py-12">
-      <div className="bg-[#2a2a2a] p-8 rounded-2xl shadow-xl w-full max-w-md">
+    <div className=" flex items-center justify-center bg-[#171717] py-12 px-4 custom-app-layout-mobile"  style={{minHeight:"80vh"}} >
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="bg-[#171717] border border-white/10 p-8 rounded-2xl shadow-xl w-full max-w-md" 
+        style={{alignSelf:"center"}} 
+      >
         <div className="text-center mb-8">
           <Link href="/" className="inline-block mb-4">
-            <h1 className="text-3xl font-bold gradient-text">🌲 ForesterSwap</h1>
+            <h1 className="text-3xl font-bold text-white" >Create An Account</h1>
           </Link>
-          <h2 className="text-2xl font-bold text-gray-100 mb-2">Create Account</h2>
-          <p className="text-gray-400">Join ForesterSwap today</p>
+          <p className="text-gray-400" style={{marginBottom:"6vh"}}>Join the Lake Forest community</p>
         </div>
 
         <form onSubmit={handleSignup} className="space-y-5">
           {error && (
-            <div className="bg-red-900/30 border border-red-700 text-red-300 px-4 py-3 rounded-lg text-sm">
+            <div className="bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 rounded-xl text-sm">
               {error}
             </div>
           )}
@@ -161,22 +175,23 @@ export default function Signup() {
 
           <button
             type="submit"
+            style={{height:"5vh",marginTop:"3vh"}}
             disabled={loading}
-            className="btn-primary w-full"
+            className="w-full py-3 px-4 bg-gradient-to-r from-primary to-accent hover:from-primary-dark hover:to-primary text-white font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? "Creating account..." : "Create Account"}
           </button>
         </form>
 
-        <div className="mt-6 text-center">
+        <div className="mt-6 text-center" style={{marginBottom:"1vh"}}>
           <p className="text-gray-400">
             Already have an account?{" "}
-            <Link href="/login" className="text-primary-500 hover:text-primary-400 font-semibold">
+            <Link href="/login" className="text-primary hover:text-primary-light font-semibold transition-colors">
               Sign in
             </Link>
           </p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -12,27 +12,44 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      if (currentUser) {
+        // Reload user to get latest verification status
+        await currentUser.reload();
+        const refreshedUser = auth.currentUser;
+        setUser(refreshedUser);
+        
+        // Check if user is logged in but email is not verified
+        if (refreshedUser && !refreshedUser.emailVerified) {
+          // Allow access to verification and auth pages
+          const allowedPages = ['/verify-email', '/login', '/signup'];
+          if (!allowedPages.includes(router.pathname)) {
+            router.push('/verify-email');
+          }
+        }
+      } else {
+        setUser(null);
+      }
       setLoading(false);
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [router.pathname]);
 
   // Pages that don't need navigation
-  const noNavPages = ['/login', '/signup', '/auth-test'];
-  const showNav = !noNavPages.includes(router.pathname);
+  const authPages = ['/login', '/signup', '/verify-email'];
+  const isAuthPage = authPages.includes(router.pathname);
+  const showNav = !isAuthPage || !user; // Show nav on auth pages when not logged in
 
   return (
     <div className="app-layout">
-      {showNav && <TopBar />}
-      <main className="flex-1 w-full flex justify-center" style={{ marginTop: showNav ? '74px' : '0' }}>
-        <div className="w-full max-w-2xl px-6">
+      <TopBar user={user} isAuthPage={isAuthPage} />
+      <main className="flex-1 w-full flex justify-center" style={{ marginTop: '10vh' }}>
+        <div className="w-full max-w-2xl md:max-w-7xl px-6">
           <Component {...pageProps} user={user} loading={loading} />
         </div>
       </main>
-      {showNav && <BottomNav />}
+      <BottomNav user={user} isAuthPage={isAuthPage} />
     </div>
   );
 }

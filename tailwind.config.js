@@ -8,9 +8,14 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#DC2626', // Red
+          DEFAULT: '#DC2626', // Premium Red
           light: '#EF4444',
           dark: '#991B1B',
+        },
+        accent: {
+          DEFAULT: '#B91C1C', // Deep Red accent
+          light: '#DC2626',
+          dark: '#7F1D1D',
         },
         dark: {
           DEFAULT: '#0F0F0F', // Near black

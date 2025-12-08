@@ -9,7 +9,8 @@
   "static/chunks/node_modules_react-dom_4411d9bd._.js",
   "static/chunks/node_modules_@firebase_auth_dist_esm_40b5261f._.js",
   "static/chunks/node_modules_@firebase_firestore_dist_index_esm_a1d87665.js",
-  "static/chunks/node_modules_fcc89ab0._.js",
+  "static/chunks/node_modules_@firebase_storage_dist_index_esm_c28a6df1.js",
+  "static/chunks/node_modules_37f84f20._.js",
   "static/chunks/[root-of-the-server]__28c2dc2a._.js"
 ],
     source: "entry"

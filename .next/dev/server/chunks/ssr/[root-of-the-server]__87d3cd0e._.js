@@ -284,24 +284,6 @@ function TopBar() {
                         lineNumber: 235,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("select", {
-                        value: selectedPalette,
-                        onChange: handlePaletteChange,
-                        className: "px-4 py-2 bg-white/5 border border-white/10 rounded-full text-white text-sm font-medium hover:bg-white/10 focus:outline-none focus:border-primary/50 transition-all cursor-pointer",
-                        children: Object.keys(colorPalettes).map((name)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("option", {
-                                value: name,
-                                className: "bg-[#171717] text-white",
-                                children: name
-                            }, name, false, {
-                                fileName: "[project]/components/TopBar.jsx",
-                                lineNumber: 247,
-                                columnNumber: 13
-                            }, this))
-                    }, void 0, false, {
-                        fileName: "[project]/components/TopBar.jsx",
-                        lineNumber: 241,
-                        columnNumber: 9
-                    }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
                         whileTap: {
                             scale: 0.9
@@ -386,7 +368,7 @@ function BottomNav() {
     ];
     const isActive = (path)=>currentPath === path;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("nav", {
-        className: "fixed bottom-0 left-0 right-0 bg-[#171717]/95 backdrop-blur-lg border-t border-white/10 z-50",
+        className: "sticky bottom-0 left-0 right-0 bg-[#171717]/95 backdrop-blur-lg border-t border-white/10 z-50",
         style: {
             paddingBottom: "env(safe-area-inset-bottom)"
         },

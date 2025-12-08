@@ -15,10 +15,16 @@ var __TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$exte
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-icons/fi/index.mjs [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-icons/md/index.mjs [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$hi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-icons/hi/index.mjs [ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/firebase.js [ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__ = __turbopack_context__.i("[externals]/firebase/firestore [external] (firebase/firestore, esm_import)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__ = __turbopack_context__.i("[externals]/firebase/auth [external] (firebase/auth, esm_import)");
 var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
-    __TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__
+    __TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__,
+    __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__,
+    __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__,
+    __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__
 ]);
-[__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__;
+[__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__;
 ;
 ;
 ;
@@ -27,8 +33,48 @@ var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
 ;
 ;
 ;
+;
+;
+;
+// Utility function to capitalize first letters
+const capitalizeName = (name)=>{
+    if (!name) return '';
+    return name.split(' ').map((word)=>word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+};
+// Shopping destinations
+const shoppingLocations = [
+    'target',
+    'walmart',
+    'costco',
+    'whole foods',
+    'trader joe',
+    'jewel',
+    'mariano',
+    'mall',
+    'outlet'
+];
+// Downtown keywords
+const downtownKeywords = [
+    'downtown',
+    'city center',
+    'downtown chicago',
+    'magnificent mile',
+    'loop'
+];
+// College keywords
+const collegeKeywords = [
+    'lake forest',
+    'college',
+    'university',
+    'campus',
+    'northwestern',
+    'depaul',
+    'loyola',
+    'uic',
+    'uchicago'
+];
 const destinationThemes = {
-    'Airport': {
+    'airport': {
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["MdFlight"],
         gradient: 'from-blue-500/20 via-cyan-500/10 to-transparent',
         iconColor: 'text-cyan-400',
@@ -36,7 +82,7 @@ const destinationThemes = {
         borderColor: 'border-cyan-500/50',
         bgColor: 'bg-cyan-500/20'
     },
-    'Target': {
+    'shopping': {
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["MdShoppingCart"],
         gradient: 'from-red-500/20 via-pink-500/10 to-transparent',
         iconColor: 'text-pink-400',
@@ -44,79 +90,464 @@ const destinationThemes = {
         borderColor: 'border-pink-500/50',
         bgColor: 'bg-pink-500/20'
     },
-    'Downtown': {
+    'downtown': {
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["MdLocationCity"],
         gradient: 'from-purple-500/20 via-indigo-500/10 to-transparent',
         iconColor: 'text-indigo-400',
         accentColor: 'text-indigo-400',
         borderColor: 'border-indigo-500/50',
         bgColor: 'bg-indigo-500/20'
+    },
+    'college': {
+        icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["MdSchool"],
+        gradient: 'from-green-500/20 via-emerald-500/10 to-transparent',
+        iconColor: 'text-emerald-400',
+        accentColor: 'text-emerald-400',
+        borderColor: 'border-emerald-500/50',
+        bgColor: 'bg-emerald-500/20'
+    },
+    'default': {
+        icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiMapPin"],
+        gradient: 'from-gray-500/20 via-gray-500/10 to-transparent',
+        iconColor: 'text-gray-400',
+        accentColor: 'text-gray-400',
+        borderColor: 'border-gray-500/50',
+        bgColor: 'bg-gray-500/20'
     }
+};
+// Function to detect theme based on destination name
+const detectTheme = (destination)=>{
+    const lowerDest = destination.toLowerCase();
+    // Check for airport
+    if (lowerDest.includes('airport') || lowerDest.includes('ord') || lowerDest.includes('mdw')) {
+        return 'airport';
+    }
+    // Check for shopping
+    if (shoppingLocations.some((shop)=>lowerDest.includes(shop))) {
+        return 'shopping';
+    }
+    // Check for downtown
+    if (downtownKeywords.some((keyword)=>lowerDest.includes(keyword))) {
+        return 'downtown';
+    }
+    // Check for college
+    if (collegeKeywords.some((keyword)=>lowerDest.includes(keyword))) {
+        return 'college';
+    }
+    return 'default';
 };
 function RideDetail() {
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const { id } = router.query;
     const [ride, setRide] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(null);
+    const [user, setUser] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(null);
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(true);
+    const [messages, setMessages] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])([]);
+    const [newMessage, setNewMessage] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])('');
+    const [deleteModal, setDeleteModal] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])({
+        show: false,
+        rideId: null,
+        rideName: ''
+    });
+    const [usersData, setUsersData] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])({});
+    const [isHoveringJoined, setIsHoveringJoined] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(false);
+    const [toast, setToast] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])({
+        show: false,
+        message: '',
+        type: 'success'
+    });
+    const [isChatOpen, setIsChatOpen] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(false);
+    const [colorTheme, setColorTheme] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])('midnight'); // 'midnight' or 'arctic'
+    const [uploadingImage, setUploadingImage] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(false);
+    // Auto-hide toast after 3 seconds
     (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
-        if (id) {
-            // Mock data - replace with API call
-            const mockRide = {
-                id: id,
-                destination: 'Airport',
-                date: '2025-12-05',
-                time: '08:00',
-                organizer: 'Sarah M.',
-                organizerId: '123',
-                seats: 3,
-                members: 2,
-                description: 'Heading to LAX for an early morning flight. Happy to pick up anyone along the way from campus. I have space for luggage too!',
-                meetingPoint: 'Main Campus Parking Lot',
-                route: 'Campus → Highway 101 → LAX Terminal B'
-            };
-            setRide(mockRide);
+        if (toast.show) {
+            const timer = setTimeout(()=>{
+                setToast({
+                    ...toast,
+                    show: false
+                });
+            }, 3000);
+            return ()=>clearTimeout(timer);
         }
     }, [
-        id
+        toast.show
     ]);
-    if (!ride) {
+    // Check authentication
+    (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
+        const unsubscribe = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__["onAuthStateChanged"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["auth"], (currentUser)=>{
+            setUser(currentUser);
+        });
+        return ()=>unsubscribe();
+    }, []);
+    // Fetch ride data in real-time
+    (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
+        if (!id) return;
+        const rideRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["doc"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'rides', id);
+        const unsubscribe = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["onSnapshot"])(rideRef, (docSnap)=>{
+            if (docSnap.exists()) {
+                const data = docSnap.data();
+                setRide({
+                    id: docSnap.id,
+                    destination: data.destination,
+                    city: data.city || '',
+                    fullAddress: data.fullAddress || data.destination,
+                    date: data.date?.toDate ? data.date.toDate().toISOString().split('T')[0] : '',
+                    time: data.time,
+                    organizer: capitalizeName(data.organizerName),
+                    organizerId: data.organizerId,
+                    seats: data.seats,
+                    members: data.participants?.length || 1,
+                    description: data.description || 'No description provided',
+                    pickup: data.pickup || 'To be determined',
+                    participants: data.participants || [],
+                    status: data.status
+                });
+            } else {
+                console.error('Ride not found');
+                router.push('/rides');
+            }
+            setLoading(false);
+        }, (error)=>{
+            // Silently handle permission errors
+            if (error.code !== 'permission-denied') {
+                console.error('Error fetching ride:', error);
+            }
+            setLoading(false);
+        });
+        return ()=>unsubscribe();
+    }, [
+        id,
+        router
+    ]);
+    // Fetch chat messages in real-time (only for participants)
+    (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
+        if (!id || !ride || !user) return;
+        if (!ride.participants.includes(user.uid)) return;
+        const messagesRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'rides', id, 'messages');
+        const q = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["orderBy"])('timestamp', 'asc'));
+        const unsubscribe = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["onSnapshot"])(q, (snapshot)=>{
+            const msgs = snapshot.docs.map((doc)=>({
+                    id: doc.id,
+                    ...doc.data(),
+                    timestamp: doc.data().timestamp?.toDate ? doc.data().timestamp.toDate() : new Date()
+                }));
+            setMessages(msgs);
+        }, (error)=>{
+            // Silently handle permission errors
+            if (error.code !== 'permission-denied') {
+                console.error('Error fetching messages:', error);
+            }
+        });
+        return ()=>unsubscribe();
+    }, [
+        id,
+        ride,
+        user
+    ]);
+    // Fetch user data for participants
+    (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
+        const fetchUsersData = async ()=>{
+            if (!ride || !ride.participants) {
+                return;
+            }
+            const { doc: firestoreDoc, getDoc } = await __turbopack_context__.A("[externals]/firebase/firestore [external] (firebase/firestore, esm_import, async loader)");
+            const userData = {};
+            for (const uid of ride.participants){
+                try {
+                    const userDocRef = firestoreDoc(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'users', uid);
+                    const userDoc = await getDoc(userDocRef);
+                    if (userDoc.exists()) {
+                        const data = userDoc.data();
+                        userData[uid] = data;
+                    }
+                } catch (error) {
+                    console.error(`✗ Error fetching user ${uid}:`, error.code, error.message);
+                    // Silently handle permission errors - they're temporary on page load
+                    if (error.code !== 'permission-denied') {
+                        console.error(`Error fetching user ${uid}:`, error);
+                    }
+                }
+            }
+            setUsersData(userData);
+        };
+        fetchUsersData();
+    }, [
+        ride
+    ]);
+    const getUserDisplayName = (uid)=>{
+        if (uid === user?.uid) return 'You';
+        const userData = usersData[uid];
+        if (!userData) return 'Rider';
+        const firstName = userData.firstName || userData.name?.split(' ')[0] || 'Rider';
+        const lastName = userData.lastName || userData.name?.split(' ')[1] || '';
+        const lastInitial = lastName ? lastName.charAt(0).toUpperCase() + '.' : '';
+        return `${firstName} ${lastInitial}`.trim();
+    };
+    const getUserInitials = (uid)=>{
+        if (uid === user?.uid) return 'You'.substring(0, 2).toUpperCase();
+        const userData = usersData[uid];
+        if (!userData) return 'R';
+        const firstName = userData.firstName || userData.name?.split(' ')[0] || 'R';
+        const lastName = userData.lastName || userData.name?.split(' ')[1] || '';
+        return (firstName.charAt(0) + (lastName.charAt(0) || '')).toUpperCase();
+    };
+    const confirmDelete = ()=>{
+        setDeleteModal({
+            show: true,
+            rideId: ride.id,
+            rideName: ride.destination
+        });
+    };
+    const handleDeleteRide = async ()=>{
+        try {
+            const { deleteDoc } = await __turbopack_context__.A("[externals]/firebase/firestore [external] (firebase/firestore, esm_import, async loader)");
+            await deleteDoc((0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["doc"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'rides', deleteModal.rideId));
+            setDeleteModal({
+                show: false,
+                rideId: null,
+                rideName: ''
+            });
+            router.push('/my-rides');
+        } catch (error) {
+            console.error('Error deleting ride:', error);
+            alert('Failed to delete ride');
+        }
+    };
+    const handleSendMessage = async ()=>{
+        if (!newMessage.trim() || !user) return;
+        try {
+            const { collection, addDoc, serverTimestamp } = await __turbopack_context__.A("[externals]/firebase/firestore [external] (firebase/firestore, esm_import, async loader)");
+            const messagesRef = collection(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'rides', id, 'messages');
+            // Get sender name and capitalize first letters
+            const senderEmail = user.email?.split('@')[0] || 'Anonymous';
+            const senderName = user.displayName || senderEmail;
+            const capitalizedName = senderName.split(' ').map((word)=>word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+            await addDoc(messagesRef, {
+                text: newMessage,
+                senderId: user.uid,
+                senderName: capitalizedName,
+                timestamp: serverTimestamp()
+            });
+            setNewMessage('');
+        } catch (error) {
+            console.error('Error sending message:', error);
+        }
+    };
+    const handleImageUpload = async (file)=>{
+        if (!file || !user) return;
+        setUploadingImage(true);
+        try {
+            const { ref: storageRef, uploadBytesResumable, getDownloadURL } = await __turbopack_context__.A("[externals]/firebase/storage [external] (firebase/storage, esm_import, async loader)");
+            const { collection, addDoc, serverTimestamp } = await __turbopack_context__.A("[externals]/firebase/firestore [external] (firebase/firestore, esm_import, async loader)");
+            // Create a unique filename
+            const timestamp = Date.now();
+            const filename = `${timestamp}_${file.name}`;
+            const fileRef = storageRef(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["storage"], `ride-images/${id}/${filename}`);
+            // Upload the file with resumable upload
+            const uploadTask = uploadBytesResumable(fileRef, file);
+            // Wait for upload to complete
+            await new Promise((resolve, reject)=>{
+                uploadTask.on('state_changed', (snapshot)=>{
+                    // Progress monitoring (optional)
+                    const progress = snapshot.bytesTransferred / snapshot.totalBytes * 100;
+                    console.log('Upload is ' + progress + '% done');
+                }, (error)=>{
+                    console.error('Upload error:', error);
+                    reject(error);
+                }, ()=>{
+                    resolve();
+                });
+            });
+            // Get download URL
+            const downloadURL = await getDownloadURL(fileRef);
+            // Get sender name and capitalize first letters
+            const senderEmail = user.email?.split('@')[0] || 'Anonymous';
+            const senderName = user.displayName || senderEmail;
+            const capitalizedName = senderName.split(' ').map((word)=>word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+            // Send message with image URL
+            const messagesRef = collection(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'rides', id, 'messages');
+            await addDoc(messagesRef, {
+                text: '',
+                imageUrl: downloadURL,
+                senderId: user.uid,
+                senderName: capitalizedName,
+                timestamp: serverTimestamp()
+            });
+            setToast({
+                show: true,
+                message: 'Image sent successfully!',
+                type: 'success'
+            });
+        } catch (error) {
+            console.error('Error uploading image:', error);
+            setToast({
+                show: true,
+                message: 'Failed to upload image',
+                type: 'error'
+            });
+        } finally{
+            setUploadingImage(false);
+        }
+    };
+    if (loading || !ride) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
             className: "min-h-screen flex items-center justify-center",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                className: "text-gray-400 text-lg",
-                children: "Loading..."
-            }, void 0, false, {
+                className: "text-center",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                        className: "w-16 h-16 mx-auto mb-4 border-4 border-primary/30 border-t-primary rounded-full animate-spin"
+                    }, void 0, false, {
+                        fileName: "[project]/pages/ride/[id].jsx",
+                        lineNumber: 364,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                        className: "text-gray-400 text-lg",
+                        children: "Loading ride details..."
+                    }, void 0, false, {
+                        fileName: "[project]/pages/ride/[id].jsx",
+                        lineNumber: 365,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "[project]/pages/ride/[id].jsx",
-                lineNumber: 64,
+                lineNumber: 363,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/pages/ride/[id].jsx",
-            lineNumber: 63,
+            lineNumber: 362,
             columnNumber: 7
         }, this);
     }
-    const theme = destinationThemes[ride.destination] || destinationThemes['Airport'];
+    const themeKey = detectTheme(ride.destination);
+    const theme = destinationThemes[themeKey];
     const DestIcon = theme.icon;
     const seatsLeft = ride.seats - ride.members;
-    const handleRequestJoin = ()=>{
-        // Handle join request
-        console.log('Join request for ride:', ride.id);
+    const isOrganizer = user && ride.organizerId === user.uid;
+    const isParticipant = user && ride.participants.includes(user.uid);
+    const isFull = ride.members >= ride.seats;
+    // Theme-aware color helpers
+    const getTextColor = (opacity = 'primary')=>{
+        if (colorTheme === 'arctic') {
+            return opacity === 'primary' ? 'text-gray-900' : opacity === 'secondary' ? 'text-gray-700' : 'text-gray-500';
+        }
+        return opacity === 'primary' ? 'text-white' : opacity === 'secondary' ? 'text-gray-300' : 'text-gray-400';
+    };
+    const getBgColor = ()=>colorTheme === 'arctic' ? 'bg-white' : 'bg-white/5';
+    const getBorderColor = ()=>colorTheme === 'arctic' ? 'border-gray-200' : 'border-white/10';
+    const getHoverBg = ()=>colorTheme === 'arctic' ? 'hover:bg-gray-100' : 'hover:bg-white/5';
+    const handleRequestJoin = async ()=>{
+        if (!user) {
+            setToast({
+                show: true,
+                message: 'Please log in to join this ride',
+                type: 'error'
+            });
+            setTimeout(()=>router.push('/login'), 1500);
+            return;
+        }
+        if (isParticipant) {
+            setToast({
+                show: true,
+                message: 'You are already part of this ride',
+                type: 'info'
+            });
+            return;
+        }
+        if (isFull) {
+            setToast({
+                show: true,
+                message: 'This ride is full',
+                type: 'error'
+            });
+            return;
+        }
+        console.log('🔵 JOIN RIDE ATTEMPT');
+        console.log('User UID:', user.uid);
+        console.log('Ride ID:', ride.id);
+        console.log('Current participants:', ride.participants);
+        console.log('Is already participant?', isParticipant);
+        try {
+            const { doc, updateDoc, arrayUnion } = await __turbopack_context__.A("[externals]/firebase/firestore [external] (firebase/firestore, esm_import, async loader)");
+            const rideRef = doc(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'rides', ride.id);
+            console.log('Attempting updateDoc with arrayUnion...');
+            await updateDoc(rideRef, {
+                participants: arrayUnion(user.uid)
+            });
+            console.log('✅ Successfully joined the ride!');
+            setToast({
+                show: true,
+                message: 'Successfully joined the ride!',
+                type: 'success'
+            });
+        } catch (error) {
+            console.error('❌ Error joining ride:', error);
+            console.error('Error code:', error.code);
+            console.error('Error message:', error.message);
+            setToast({
+                show: true,
+                message: `Failed to join: ${error.message}`,
+                type: 'error'
+            });
+        }
+    };
+    const handleLeaveRide = async ()=>{
+        if (!user) return;
+        console.log('🔴 LEAVE RIDE ATTEMPT');
+        console.log('User UID:', user.uid);
+        console.log('Ride ID:', ride.id);
+        console.log('Current participants:', ride.participants);
+        console.log('Is participant?', isParticipant);
+        console.log('Is organizer?', isOrganizer);
+        try {
+            const { doc, updateDoc, arrayRemove } = await __turbopack_context__.A("[externals]/firebase/firestore [external] (firebase/firestore, esm_import, async loader)");
+            const rideRef = doc(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'rides', ride.id);
+            console.log('Attempting updateDoc with arrayRemove...');
+            await updateDoc(rideRef, {
+                participants: arrayRemove(user.uid)
+            });
+            console.log('✅ Successfully left the ride!');
+            setToast({
+                show: true,
+                message: 'You have left the ride',
+                type: 'success'
+            });
+        } catch (error) {
+            console.error('❌ Error leaving ride:', error);
+            console.error('Error code:', error.code);
+            console.error('Error message:', error.message);
+            setToast({
+                show: true,
+                message: `Failed to leave: ${error.message}`,
+                type: 'error'
+            });
+        }
     };
     const handleMessageHost = ()=>{
-        // Navigate to chat with host
-        router.push(`/chat/${ride.organizerId}`);
+        // Navigate to messages page with query params to open direct message with host
+        router.push({
+            pathname: '/messages',
+            query: {
+                category: 'direct',
+                userId: ride.organizerId
+            }
+        });
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-        className: "pb-32 min-h-screen",
+        className: `pb-32 min-h-screen transition-colors duration-300 ${colorTheme === 'arctic' ? 'bg-gray-50' : ''}`,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                className: "backdrop-blur-2xl ",
+                className: "backdrop-blur-2xl",
                 style: {
                     marginTop: "2vh",
                     marginBottom: "2vh"
                 },
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                    className: "max-w-2xl mx-auto px-6 py-4 flex items-center gap-6",
+                    className: "max-w-2xl mx-auto px-6 py-4 flex items-center justify-between",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
                         whileHover: {
                             scale: 1.05,
@@ -126,33 +557,48 @@ function RideDetail() {
                             scale: 0.95
                         },
                         onClick: ()=>router.back(),
-                        className: "p-2 rounded-full hover:bg-white/5 transition-all",
+                        className: `p-2 rounded-full transition-all ${colorTheme === 'arctic' ? 'hover:bg-gray-200 text-gray-900' : 'hover:bg-white/5 text-white'}`,
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$hi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["HiArrowLeft"], {
-                            size: 28,
-                            className: "text-white"
+                            size: 28
                         }, void 0, false, {
                             fileName: "[project]/pages/ride/[id].jsx",
-                            lineNumber: 95,
+                            lineNumber: 492,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/pages/ride/[id].jsx",
-                        lineNumber: 89,
+                        lineNumber: 482,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/pages/ride/[id].jsx",
-                    lineNumber: 87,
+                    lineNumber: 480,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/pages/ride/[id].jsx",
-                lineNumber: 86,
+                lineNumber: 479,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                className: "max-w-2xl mx-auto px-6 pt-8",
+                className: "max-w-2xl mx-auto px-6 pt-8 custom-app-layout-mobile",
                 children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].h1, {
+                        initial: {
+                            opacity: 0,
+                            y: -20
+                        },
+                        animate: {
+                            opacity: 1,
+                            y: 0
+                        },
+                        className: "text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent",
+                        children: "Ride Details"
+                    }, void 0, false, {
+                        fileName: "[project]/pages/ride/[id].jsx",
+                        lineNumber: 500,
+                        columnNumber: 9
+                    }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
                         initial: {
                             opacity: 0,
@@ -162,17 +608,17 @@ function RideDetail() {
                             opacity: 1,
                             y: 0
                         },
-                        className: "relative p-8 rounded-3xl overflow-hidden",
+                        className: `relative p-8 rounded-3xl overflow-hidden ${colorTheme === 'arctic' ? 'bg-white shadow-lg' : ''}`,
                         style: {
                             marginBottom: '24px',
                             minHeight: '15vh'
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                className: `absolute inset-0 bg-gradient-to-br ${theme.gradient} opacity-50 rounded-3xl`
+                                className: `absolute inset-0 bg-gradient-to-br ${theme.gradient} ${colorTheme === 'arctic' ? 'opacity-20' : 'opacity-50'} rounded-3xl`
                             }, void 0, false, {
                                 fileName: "[project]/pages/ride/[id].jsx",
-                                lineNumber: 110,
+                                lineNumber: 518,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -195,42 +641,99 @@ function RideDetail() {
                                                     size: 56
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/ride/[id].jsx",
-                                                    lineNumber: 116,
+                                                    lineNumber: 526,
                                                     columnNumber: 17
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/ride/[id].jsx",
-                                                lineNumber: 115,
+                                                lineNumber: 525,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                className: "flex-1",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h2", {
-                                                        className: "text-4xl font-bold text-white mb-2",
+                                                        className: `text-4xl font-bold mb-2 ${getTextColor('primary')}`,
                                                         children: ride.destination
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/ride/[id].jsx",
-                                                        lineNumber: 119,
+                                                        lineNumber: 529,
                                                         columnNumber: 17
                                                     }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                                                        className: "text-gray-400 text-lg",
-                                                        children: ride.meetingPoint
+                                                    ride.city && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                                                        className: `text-lg mb-1 ${getTextColor('secondary')}`,
+                                                        children: ride.city
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/ride/[id].jsx",
-                                                        lineNumber: 120,
+                                                        lineNumber: 531,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                                                        className: `text-sm ${getTextColor('tertiary')}`,
+                                                        children: ride.fullAddress
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/pages/ride/[id].jsx",
+                                                        lineNumber: 533,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pages/ride/[id].jsx",
-                                                lineNumber: 118,
+                                                lineNumber: 528,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
+                                                whileHover: {
+                                                    scale: 1.1
+                                                },
+                                                whileTap: {
+                                                    scale: 0.9
+                                                },
+                                                onClick: async ()=>{
+                                                    const shareData = {
+                                                        title: `Ride to ${ride.destination}`,
+                                                        text: `Join me on a ride to ${ride.destination} on ${new Date(ride.date).toLocaleDateString()} at ${ride.time}`,
+                                                        url: window.location.href
+                                                    };
+                                                    if (navigator.share) {
+                                                        try {
+                                                            await navigator.share(shareData);
+                                                        } catch (err) {
+                                                            if (err.name !== 'AbortError') {
+                                                                console.error('Error sharing:', err);
+                                                            }
+                                                        }
+                                                    } else {
+                                                        // Fallback: Copy to clipboard
+                                                        navigator.clipboard.writeText(window.location.href);
+                                                        setToast({
+                                                            show: true,
+                                                            message: 'Link copied to clipboard!',
+                                                            type: 'success'
+                                                        });
+                                                    }
+                                                },
+                                                className: `p-3 rounded-full transition-all backdrop-blur-sm flex-shrink-0 `,
+                                                style: {
+                                                    padding: "1vh"
+                                                },
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiShare2"], {
+                                                    className: colorTheme === 'arctic' ? 'text-gray-900' : 'text-white',
+                                                    size: "4vh"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/pages/ride/[id].jsx",
+                                                    lineNumber: 562,
+                                                    columnNumber: 17
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/pages/ride/[id].jsx",
+                                                lineNumber: 536,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pages/ride/[id].jsx",
-                                        lineNumber: 114,
+                                        lineNumber: 524,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -240,81 +743,81 @@ function RideDetail() {
                                                 className: "flex items-center gap-3",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiCalendar"], {
-                                                        className: "text-gray-400",
+                                                        className: getTextColor('tertiary'),
                                                         size: 20
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/ride/[id].jsx",
-                                                        lineNumber: 127,
+                                                        lineNumber: 569,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                                                            className: "text-white font-semibold",
+                                                            className: `font-semibold ${getTextColor('primary')}`,
                                                             children: new Date(ride.date).toLocaleDateString('en-US', {
                                                                 month: 'short',
                                                                 day: 'numeric'
                                                             })
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/ride/[id].jsx",
-                                                            lineNumber: 130,
+                                                            lineNumber: 571,
                                                             columnNumber: 19
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/ride/[id].jsx",
-                                                        lineNumber: 128,
+                                                        lineNumber: 570,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pages/ride/[id].jsx",
-                                                lineNumber: 126,
+                                                lineNumber: 568,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                                 className: "flex items-center gap-3",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiClock"], {
-                                                        className: "text-gray-400",
+                                                        className: getTextColor('tertiary'),
                                                         size: 20
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/ride/[id].jsx",
-                                                        lineNumber: 140,
+                                                        lineNumber: 581,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                                                            className: "text-white font-semibold",
+                                                            className: `font-semibold ${getTextColor('primary')}`,
                                                             children: ride.time
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/ride/[id].jsx",
-                                                            lineNumber: 143,
+                                                            lineNumber: 583,
                                                             columnNumber: 19
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/ride/[id].jsx",
-                                                        lineNumber: 141,
+                                                        lineNumber: 582,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pages/ride/[id].jsx",
-                                                lineNumber: 139,
+                                                lineNumber: 580,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                                 className: "flex items-center gap-3",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiUsers"], {
-                                                        className: "text-gray-400",
+                                                        className: getTextColor('tertiary'),
                                                         size: 20
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/ride/[id].jsx",
-                                                        lineNumber: 148,
+                                                        lineNumber: 588,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                                                            className: "text-white font-semibold",
+                                                            className: `font-semibold ${getTextColor('primary')}`,
                                                             children: [
                                                                 ride.members,
                                                                 "/",
@@ -322,95 +825,542 @@ function RideDetail() {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/pages/ride/[id].jsx",
-                                                            lineNumber: 151,
+                                                            lineNumber: 590,
                                                             columnNumber: 19
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/ride/[id].jsx",
-                                                        lineNumber: 149,
+                                                        lineNumber: 589,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pages/ride/[id].jsx",
-                                                lineNumber: 147,
+                                                lineNumber: 587,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pages/ride/[id].jsx",
-                                        lineNumber: 125,
+                                        lineNumber: 567,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/ride/[id].jsx",
-                                lineNumber: 112,
+                                lineNumber: 522,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/ride/[id].jsx",
-                        lineNumber: 103,
+                        lineNumber: 509,
                         columnNumber: 9
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                        className: "border-t border-white/10",
-                        style: {
-                            marginBottom: '24px'
-                        }
-                    }, void 0, false, {
-                        fileName: "[project]/pages/ride/[id].jsx",
-                        lineNumber: 159,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
-                        initial: {
-                            opacity: 0,
-                            y: 20
-                        },
-                        animate: {
-                            opacity: 1,
-                            y: 0
-                        },
-                        transition: {
-                            delay: 0.1
-                        },
-                        className: "p-6",
-                        style: {
-                            marginBottom: '24px'
-                        },
+                    isParticipant && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
-                                className: "text-lg font-bold text-white mb-3",
-                                children: "Description"
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                className: `border-t ${getBorderColor()}`,
+                                style: {
+                                    marginBottom: '24px'
+                                }
                             }, void 0, false, {
                                 fileName: "[project]/pages/ride/[id].jsx",
-                                lineNumber: 169,
-                                columnNumber: 11
+                                lineNumber: 601,
+                                columnNumber: 13
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                                className: "text-gray-300 leading-relaxed",
-                                children: ride.description
-                            }, void 0, false, {
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
+                                initial: {
+                                    opacity: 0,
+                                    y: 20
+                                },
+                                animate: {
+                                    opacity: 1,
+                                    y: 0
+                                },
+                                transition: {
+                                    delay: 0.1
+                                },
+                                className: `relative rounded-2xl border overflow-hidden ${colorTheme === 'arctic' ? 'bg-gradient-to-r from-purple-50 via-pink-50 to-blue-50 border-purple-200' : 'bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-blue-500/10 border-white/10'}`,
+                                style: {
+                                    marginBottom: '24px'
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
+                                        onClick: ()=>setIsChatOpen(!isChatOpen),
+                                        whileHover: {
+                                            scale: 1.01
+                                        },
+                                        whileTap: {
+                                            scale: 0.99
+                                        },
+                                        style: {
+                                            padding: "1vw"
+                                        },
+                                        className: "w-full p-6 hover:bg-white/5 transition-all relative",
+                                        children: [
+                                            !isChatOpen && messages.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
+                                                className: "absolute inset-0 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-blue-500/20",
+                                                animate: {
+                                                    opacity: [
+                                                        0.3,
+                                                        0.6,
+                                                        0.3
+                                                    ]
+                                                },
+                                                transition: {
+                                                    duration: 2,
+                                                    repeat: Infinity,
+                                                    ease: "easeInOut"
+                                                }
+                                            }, void 0, false, {
+                                                fileName: "[project]/pages/ride/[id].jsx",
+                                                lineNumber: 624,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                className: "relative flex items-center justify-between",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                        className: "flex items-center gap-3",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
+                                                                animate: {
+                                                                    rotate: isChatOpen ? 0 : [
+                                                                        0,
+                                                                        -10,
+                                                                        10,
+                                                                        -10,
+                                                                        0
+                                                                    ]
+                                                                },
+                                                                transition: {
+                                                                    duration: 0.5,
+                                                                    repeat: isChatOpen ? 0 : Infinity,
+                                                                    repeatDelay: 3
+                                                                },
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiMessageCircle"], {
+                                                                    className: "text-purple-400",
+                                                                    size: 24
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/pages/ride/[id].jsx",
+                                                                    lineNumber: 637,
+                                                                    columnNumber: 23
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/pages/ride/[id].jsx",
+                                                                lineNumber: 633,
+                                                                columnNumber: 21
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                                className: "text-left",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
+                                                                        className: "text-lg font-bold text-white",
+                                                                        children: "Group Chat"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/pages/ride/[id].jsx",
+                                                                        lineNumber: 640,
+                                                                        columnNumber: 23
+                                                                    }, this),
+                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                                                                        className: "text-sm text-gray-400",
+                                                                        children: messages.length === 0 ? 'Start the conversation' : `${messages.length} message${messages.length !== 1 ? 's' : ''}`
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/pages/ride/[id].jsx",
+                                                                        lineNumber: 641,
+                                                                        columnNumber: 23
+                                                                    }, this)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/pages/ride/[id].jsx",
+                                                                lineNumber: 639,
+                                                                columnNumber: 21
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/pages/ride/[id].jsx",
+                                                        lineNumber: 632,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
+                                                        animate: {
+                                                            rotate: isChatOpen ? 180 : 0
+                                                        },
+                                                        transition: {
+                                                            duration: 0.3
+                                                        },
+                                                        className: "text-gray-400",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("svg", {
+                                                            width: "24",
+                                                            height: "24",
+                                                            viewBox: "0 0 24 24",
+                                                            fill: "none",
+                                                            stroke: "currentColor",
+                                                            strokeWidth: "2",
+                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("path", {
+                                                                d: "M6 9l6 6 6-6"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/pages/ride/[id].jsx",
+                                                                lineNumber: 652,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/pages/ride/[id].jsx",
+                                                            lineNumber: 651,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/pages/ride/[id].jsx",
+                                                        lineNumber: 646,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/pages/ride/[id].jsx",
+                                                lineNumber: 631,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/pages/ride/[id].jsx",
+                                        lineNumber: 615,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
+                                        initial: false,
+                                        animate: {
+                                            height: isChatOpen ? 'auto' : 0,
+                                            opacity: isChatOpen ? 1 : 0
+                                        },
+                                        transition: {
+                                            duration: 0.3,
+                                            ease: 'easeInOut'
+                                        },
+                                        className: "overflow-hidden",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                            className: `bg-gradient-to-br backdrop-blur-xl border-t ${colorTheme === 'arctic' ? 'from-gray-50/80 via-white/80 to-gray-50/80 border-gray-200' : 'from-black/40 via-gray-900/40 to-black/40 border-white/10'}`,
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                    className: "p-6 space-y-4 max-h-96 overflow-y-auto custom-scrollbar",
+                                                    style: {
+                                                        padding: "1vw"
+                                                    },
+                                                    children: messages.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                        className: "text-center py-12",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                                className: `w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br flex items-center justify-center ${colorTheme === 'arctic' ? 'from-purple-200/60 to-pink-200/60' : 'from-purple-500/20 to-pink-500/20'}`,
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiMessageCircle"], {
+                                                                    className: colorTheme === 'arctic' ? 'text-purple-600' : 'text-purple-400',
+                                                                    size: 32
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/pages/ride/[id].jsx",
+                                                                    lineNumber: 682,
+                                                                    columnNumber: 27
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/pages/ride/[id].jsx",
+                                                                lineNumber: 677,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                                                                className: `text-sm ${getTextColor('tertiary')}`,
+                                                                children: "No messages yet"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/pages/ride/[id].jsx",
+                                                                lineNumber: 684,
+                                                                columnNumber: 25
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                                                                className: `text-xs mt-1 ${colorTheme === 'arctic' ? 'text-gray-400' : 'text-gray-500'}`,
+                                                                children: "Be the first to say hi! 👋"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/pages/ride/[id].jsx",
+                                                                lineNumber: 685,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/pages/ride/[id].jsx",
+                                                        lineNumber: 676,
+                                                        columnNumber: 23
+                                                    }, this) : messages.map((msg, index)=>{
+                                                        // Check if we need to show timestamp (if >30 mins since last message)
+                                                        const showTimestamp = index === 0 || messages[index - 1].timestamp && msg.timestamp && msg.timestamp - messages[index - 1].timestamp > 30 * 60 * 1000;
+                                                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                            children: [
+                                                                showTimestamp && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                                    className: "flex items-center justify-center my-4",
+                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
+                                                                        className: `text-xs px-3 py-1 rounded-full ${colorTheme === 'arctic' ? 'text-gray-600 bg-gray-200/60' : 'text-gray-500'}`,
+                                                                        children: msg.timestamp?.toLocaleString([], {
+                                                                            month: 'short',
+                                                                            day: 'numeric',
+                                                                            hour: '2-digit',
+                                                                            minute: '2-digit'
+                                                                        })
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/pages/ride/[id].jsx",
+                                                                        lineNumber: 699,
+                                                                        columnNumber: 33
+                                                                    }, this)
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/pages/ride/[id].jsx",
+                                                                    lineNumber: 698,
+                                                                    columnNumber: 31
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
+                                                                    initial: {
+                                                                        opacity: 0,
+                                                                        y: 20
+                                                                    },
+                                                                    animate: {
+                                                                        opacity: 1,
+                                                                        y: 0
+                                                                    },
+                                                                    transition: {
+                                                                        delay: index * 0.05
+                                                                    },
+                                                                    className: `flex items-end gap-2 ${msg.senderId === user?.uid ? 'justify-end' : 'justify-start'}`,
+                                                                    children: [
+                                                                        msg.senderId !== user?.uid && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                                            className: `w-8 h-8 rounded-full bg-gradient-to-br flex items-center justify-center flex-shrink-0 mb-1 ${colorTheme === 'arctic' ? 'from-purple-300/70 to-pink-300/70' : 'from-purple-500/30 to-pink-500/30'}`,
+                                                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
+                                                                                className: `font-semibold text-xs ${colorTheme === 'arctic' ? 'text-purple-900' : 'text-white'}`,
+                                                                                children: msg.senderName?.charAt(0).toUpperCase()
+                                                                            }, void 0, false, {
+                                                                                fileName: "[project]/pages/ride/[id].jsx",
+                                                                                lineNumber: 727,
+                                                                                columnNumber: 35
+                                                                            }, this)
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/pages/ride/[id].jsx",
+                                                                            lineNumber: 722,
+                                                                            columnNumber: 33
+                                                                        }, this),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                                            className: `flex flex-col ${msg.senderId === user?.uid ? 'items-end' : 'items-start'}`,
+                                                                            children: [
+                                                                                msg.senderId !== user?.uid && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                                                                                    className: `text-xs mb-1 ml-2 ${getTextColor('tertiary')}`,
+                                                                                    children: msg.senderName
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/pages/ride/[id].jsx",
+                                                                                    lineNumber: 738,
+                                                                                    columnNumber: 35
+                                                                                }, this),
+                                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                                                    className: `rounded-2xl backdrop-blur-sm ${msg.senderId === user?.uid ? 'bg-gradient-to-br from-primary via-primary/90 to-accent text-white rounded-br-md shadow-lg shadow-primary/20' : colorTheme === 'arctic' ? 'bg-gray-200 text-gray-900 border border-gray-300 rounded-bl-md' : 'bg-white/10 text-white border border-white/10 rounded-bl-md'} ${msg.imageUrl ? 'p-2' : 'px-5 py-3.5'}`,
+                                                                                    style: msg.imageUrl ? {} : {
+                                                                                        paddingLeft: '3vw',
+                                                                                        paddingRight: '3vw',
+                                                                                        textAlign: 'center',
+                                                                                        paddingTop: '0.5vh',
+                                                                                        paddingBottom: '0.5vh',
+                                                                                        marginBottom: '0.5vh'
+                                                                                    },
+                                                                                    children: msg.imageUrl ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                                                        className: "max-w-xs",
+                                                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("img", {
+                                                                                            src: msg.imageUrl,
+                                                                                            alt: "Shared image",
+                                                                                            className: "rounded-xl w-full h-auto cursor-pointer hover:opacity-90 transition-opacity",
+                                                                                            onClick: ()=>window.open(msg.imageUrl, '_blank')
+                                                                                        }, void 0, false, {
+                                                                                            fileName: "[project]/pages/ride/[id].jsx",
+                                                                                            lineNumber: 761,
+                                                                                            columnNumber: 39
+                                                                                        }, this)
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/pages/ride/[id].jsx",
+                                                                                        lineNumber: 760,
+                                                                                        columnNumber: 37
+                                                                                    }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                                                                                        className: "text-sm leading-relaxed break-words",
+                                                                                        children: msg.text
+                                                                                    }, void 0, false, {
+                                                                                        fileName: "[project]/pages/ride/[id].jsx",
+                                                                                        lineNumber: 769,
+                                                                                        columnNumber: 37
+                                                                                    }, this)
+                                                                                }, void 0, false, {
+                                                                                    fileName: "[project]/pages/ride/[id].jsx",
+                                                                                    lineNumber: 742,
+                                                                                    columnNumber: 33
+                                                                                }, this)
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/pages/ride/[id].jsx",
+                                                                            lineNumber: 735,
+                                                                            columnNumber: 31
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/pages/ride/[id].jsx",
+                                                                    lineNumber: 714,
+                                                                    columnNumber: 29
+                                                                }, this)
+                                                            ]
+                                                        }, msg.id, true, {
+                                                            fileName: "[project]/pages/ride/[id].jsx",
+                                                            lineNumber: 695,
+                                                            columnNumber: 27
+                                                        }, this);
+                                                    })
+                                                }, void 0, false, {
+                                                    fileName: "[project]/pages/ride/[id].jsx",
+                                                    lineNumber: 674,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                    className: `p-4 backdrop-blur-xl ${colorTheme === 'arctic' ? 'bg-gray-100/80' : 'bg-black/20'}`,
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                        className: `flex items-center gap-2 px-4 py-2 focus-within:border-primary/50 transition-all ${colorTheme === 'arctic' ? 'bg-white border border-gray-300' : 'bg-white/5'}`,
+                                                        style: {
+                                                            paddingRight: "1vw",
+                                                            paddingLeft: "1vw"
+                                                        },
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
+                                                                type: "text",
+                                                                value: newMessage,
+                                                                style: {
+                                                                    height: "6vh",
+                                                                    paddingLeft: "1vw"
+                                                                },
+                                                                onChange: (e)=>setNewMessage(e.target.value),
+                                                                onKeyPress: (e)=>e.key === 'Enter' && !e.shiftKey && handleSendMessage(),
+                                                                placeholder: "Message...",
+                                                                className: `flex-1 bg-transparent border-none focus:outline-none text-sm py-1 ${colorTheme === 'arctic' ? 'text-gray-900 placeholder-gray-500' : 'text-white placeholder-gray-400'}`
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/pages/ride/[id].jsx",
+                                                                lineNumber: 791,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
+                                                                whileHover: {
+                                                                    scale: 1.1
+                                                                },
+                                                                whileTap: {
+                                                                    scale: 0.9
+                                                                },
+                                                                onClick: handleSendMessage,
+                                                                disabled: !newMessage.trim(),
+                                                                className: `flex-shrink-0 transition-all ${newMessage.trim() ? 'text-primary' : colorTheme === 'arctic' ? 'text-gray-400 cursor-not-allowed' : 'text-gray-500 cursor-not-allowed'}`,
+                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("svg", {
+                                                                    width: "24",
+                                                                    height: "24",
+                                                                    viewBox: "0 0 24 24",
+                                                                    fill: "currentColor",
+                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("path", {
+                                                                        d: "M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+                                                                    }, void 0, false, {
+                                                                        fileName: "[project]/pages/ride/[id].jsx",
+                                                                        lineNumber: 816,
+                                                                        columnNumber: 27
+                                                                    }, this)
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/pages/ride/[id].jsx",
+                                                                    lineNumber: 815,
+                                                                    columnNumber: 25
+                                                                }, this)
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/pages/ride/[id].jsx",
+                                                                lineNumber: 804,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/pages/ride/[id].jsx",
+                                                        lineNumber: 784,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                }, void 0, false, {
+                                                    fileName: "[project]/pages/ride/[id].jsx",
+                                                    lineNumber: 781,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/pages/ride/[id].jsx",
+                                            lineNumber: 668,
+                                            columnNumber: 17
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/pages/ride/[id].jsx",
+                                        lineNumber: 659,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
                                 fileName: "[project]/pages/ride/[id].jsx",
-                                lineNumber: 170,
-                                columnNumber: 11
+                                lineNumber: 603,
+                                columnNumber: 13
                             }, this)
                         ]
-                    }, void 0, true, {
-                        fileName: "[project]/pages/ride/[id].jsx",
-                        lineNumber: 162,
-                        columnNumber: 9
-                    }, this),
+                    }, void 0, true),
+                    ride.description && ride.description !== 'No description provided' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                className: `border-t ${getBorderColor()}`,
+                                style: {
+                                    marginBottom: '24px'
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/pages/ride/[id].jsx",
+                                lineNumber: 831,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
+                                initial: {
+                                    opacity: 0,
+                                    y: 20
+                                },
+                                animate: {
+                                    opacity: 1,
+                                    y: 0
+                                },
+                                transition: {
+                                    delay: 0.1
+                                },
+                                className: "p-6",
+                                style: {
+                                    marginBottom: '24px'
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
+                                        className: `text-lg font-bold mb-3 ${getTextColor('primary')}`,
+                                        children: "Description"
+                                    }, void 0, false, {
+                                        fileName: "[project]/pages/ride/[id].jsx",
+                                        lineNumber: 840,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                                        className: `leading-relaxed ${getTextColor('secondary')}`,
+                                        children: ride.description
+                                    }, void 0, false, {
+                                        fileName: "[project]/pages/ride/[id].jsx",
+                                        lineNumber: 841,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/pages/ride/[id].jsx",
+                                lineNumber: 833,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                        className: "border-t border-white/10",
+                        className: `border-t ${getBorderColor()}`,
                         style: {
                             marginBottom: '24px'
                         }
                     }, void 0, false, {
                         fileName: "[project]/pages/ride/[id].jsx",
-                        lineNumber: 174,
+                        lineNumber: 847,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
@@ -431,45 +1381,45 @@ function RideDetail() {
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
-                                className: "text-lg font-bold text-white mb-3 flex items-center gap-2",
+                                className: `text-lg font-bold mb-3 flex items-center gap-2 ${getTextColor('primary')}`,
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiMapPin"], {
                                         className: theme.accentColor,
                                         size: 20
                                     }, void 0, false, {
                                         fileName: "[project]/pages/ride/[id].jsx",
-                                        lineNumber: 185,
+                                        lineNumber: 858,
                                         columnNumber: 13
                                     }, this),
-                                    "Route"
+                                    "Pickup Location"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/ride/[id].jsx",
-                                lineNumber: 184,
+                                lineNumber: 857,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                                className: "text-gray-300",
-                                children: ride.route
+                                className: getTextColor('secondary'),
+                                children: ride.pickup
                             }, void 0, false, {
                                 fileName: "[project]/pages/ride/[id].jsx",
-                                lineNumber: 188,
+                                lineNumber: 861,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/ride/[id].jsx",
-                        lineNumber: 177,
+                        lineNumber: 850,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                        className: "border-t border-white/10",
+                        className: `border-t ${getBorderColor()}`,
                         style: {
                             marginBottom: '24px'
                         }
                     }, void 0, false, {
                         fileName: "[project]/pages/ride/[id].jsx",
-                        lineNumber: 192,
+                        lineNumber: 865,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
@@ -490,102 +1440,86 @@ function RideDetail() {
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h3", {
-                                className: "text-lg font-bold text-white mb-4",
+                                className: `text-lg font-bold mb-3 flex items-center gap-2 ${getTextColor('primary')}`,
                                 style: {
                                     marginBottom: "1vh"
                                 },
-                                children: "Organizer"
-                            }, void 0, false, {
-                                fileName: "[project]/pages/ride/[id].jsx",
-                                lineNumber: 202,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                className: "flex items-center justify-between",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                        className: "flex items-center gap-4",
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                                className: "w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-bold text-lg",
-                                                children: ride.organizer.charAt(0)
-                                            }, void 0, false, {
-                                                fileName: "[project]/pages/ride/[id].jsx",
-                                                lineNumber: 205,
-                                                columnNumber: 15
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                                                children: [
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                                                        className: "text-white font-semibold",
-                                                        children: ride.organizer
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/pages/ride/[id].jsx",
-                                                        lineNumber: 209,
-                                                        columnNumber: 17
-                                                    }, this),
-                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
-                                                        className: "text-gray-400 text-sm",
-                                                        children: "Ride Host"
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/pages/ride/[id].jsx",
-                                                        lineNumber: 210,
-                                                        columnNumber: 17
-                                                    }, this)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "[project]/pages/ride/[id].jsx",
-                                                lineNumber: 208,
-                                                columnNumber: 15
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/pages/ride/[id].jsx",
-                                        lineNumber: 204,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
-                                        whileHover: {
-                                            scale: 1.05
-                                        },
-                                        whileTap: {
-                                            scale: 0.95
-                                        },
-                                        onClick: handleMessageHost,
-                                        className: "p-3 rounded-full hover:bg-white/5 transition-all",
-                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiMessageCircle"], {
-                                            className: "text-gray-300",
-                                            size: 20
-                                        }, void 0, false, {
-                                            fileName: "[project]/pages/ride/[id].jsx",
-                                            lineNumber: 219,
-                                            columnNumber: 15
-                                        }, this)
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiUsers"], {
+                                        className: theme.accentColor,
+                                        size: 20
                                     }, void 0, false, {
                                         fileName: "[project]/pages/ride/[id].jsx",
-                                        lineNumber: 213,
+                                        lineNumber: 876,
                                         columnNumber: 13
-                                    }, this)
+                                    }, this),
+                                    "Participants (",
+                                    ride.members,
+                                    "/",
+                                    ride.seats,
+                                    ")"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/ride/[id].jsx",
-                                lineNumber: 203,
+                                lineNumber: 875,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                className: "flex flex-wrap gap-3",
+                                children: ride.participants.map((participantId)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            paddingRight: "1vw"
+                                        },
+                                        className: `flex items-center gap-3 px-4 py-2 rounded-full border ${colorTheme === 'arctic' ? 'bg-gray-100 border-gray-300' : 'bg-white/5 border-white/10'}`,
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                                className: `w-8 h-8 rounded-full bg-gradient-to-br flex items-center justify-center ${colorTheme === 'arctic' ? 'from-primary/50 to-accent/50' : 'from-primary/30 to-accent/30'}`,
+                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
+                                                    className: `font-semibold text-xs ${colorTheme === 'arctic' ? 'text-white' : 'text-white'}`,
+                                                    children: getUserInitials(participantId)
+                                                }, void 0, false, {
+                                                    fileName: "[project]/pages/ride/[id].jsx",
+                                                    lineNumber: 891,
+                                                    columnNumber: 19
+                                                }, this)
+                                            }, void 0, false, {
+                                                fileName: "[project]/pages/ride/[id].jsx",
+                                                lineNumber: 886,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                                                className: `font-medium text-sm ${getTextColor('primary')}`,
+                                                children: getUserDisplayName(participantId)
+                                            }, void 0, false, {
+                                                fileName: "[project]/pages/ride/[id].jsx",
+                                                lineNumber: 895,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, participantId, true, {
+                                        fileName: "[project]/pages/ride/[id].jsx",
+                                        lineNumber: 881,
+                                        columnNumber: 15
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/pages/ride/[id].jsx",
+                                lineNumber: 879,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/ride/[id].jsx",
-                        lineNumber: 195,
+                        lineNumber: 868,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                        className: "border-t border-white/10",
+                        className: `border-t ${getBorderColor()}`,
                         style: {
                             marginBottom: '24px'
                         }
                     }, void 0, false, {
                         fileName: "[project]/pages/ride/[id].jsx",
-                        lineNumber: 225,
+                        lineNumber: 904,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
@@ -601,8 +1535,12 @@ function RideDetail() {
                             delay: 0.4
                         },
                         className: "grid grid-cols-2 gap-4 pt-4",
+                        // if organizer, style add marginbottom 2vh
+                        style: {
+                            marginBottom: isOrganizer ? '2vh' : '0'
+                        },
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
+                            !isOrganizer && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
                                 whileHover: {
                                     scale: 1.02
                                 },
@@ -610,63 +1548,356 @@ function RideDetail() {
                                     scale: 0.98
                                 },
                                 onClick: handleMessageHost,
-                                className: "py-4 rounded-full text-white font-semibold hover:bg-white/5 transition-all flex items-center justify-center gap-2",
+                                className: `py-4 rounded-full font-semibold transition-all flex items-center justify-center gap-2 ${colorTheme === 'arctic' ? 'text-gray-900 hover:bg-gray-200' : 'text-white hover:bg-white/5'}`,
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiMessageCircle"], {
                                         size: 20
                                     }, void 0, false, {
                                         fileName: "[project]/pages/ride/[id].jsx",
-                                        lineNumber: 240,
-                                        columnNumber: 13
+                                        lineNumber: 926,
+                                        columnNumber: 15
                                     }, this),
                                     "Message Host"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/ride/[id].jsx",
-                                lineNumber: 234,
-                                columnNumber: 11
+                                lineNumber: 916,
+                                columnNumber: 13
                             }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
+                            isOrganizer ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
+                                        whileHover: {
+                                            scale: 1.02
+                                        },
+                                        whileTap: {
+                                            scale: 0.98
+                                        },
+                                        onClick: confirmDelete,
+                                        style: {
+                                            height: '7vh'
+                                        },
+                                        className: "rounded-full text-white font-bold transition-all flex items-center justify-center gap-2 text-red-500 hover:bg-red-500/10",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiTrash2"], {
+                                                size: 20
+                                            }, void 0, false, {
+                                                fileName: "[project]/pages/ride/[id].jsx",
+                                                lineNumber: 940,
+                                                columnNumber: 17
+                                            }, this),
+                                            "Delete Ride"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/pages/ride/[id].jsx",
+                                        lineNumber: 933,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
+                                        whileHover: {
+                                            scale: 1.02,
+                                            x: 2
+                                        },
+                                        whileTap: {
+                                            scale: 0.98
+                                        },
+                                        onClick: ()=>router.push(`/my-rides`),
+                                        style: {
+                                            height: '7vh'
+                                        },
+                                        className: "rounded-full from-primary to-accent text-white font-bold bg-gradient-to-r transition-all flex items-center justify-center gap-2",
+                                        children: [
+                                            "Manage Ride",
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["MdArrowRightAlt"], {
+                                                size: 32
+                                            }, void 0, false, {
+                                                fileName: "[project]/pages/ride/[id].jsx",
+                                                lineNumber: 951,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/pages/ride/[id].jsx",
+                                        lineNumber: 943,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
+                                onHoverStart: ()=>setIsHoveringJoined(true),
+                                onHoverEnd: ()=>setIsHoveringJoined(false),
                                 whileHover: {
-                                    scale: 1.02,
-                                    x: 2
+                                    scale: isParticipant || isFull ? isParticipant ? 1.02 : 1 : 1.02,
+                                    x: isParticipant || isFull ? 0 : 2
                                 },
                                 whileTap: {
-                                    scale: 0.98
+                                    scale: isParticipant || isFull ? isParticipant ? 0.98 : 1 : 0.98
                                 },
-                                onClick: handleRequestJoin,
-                                className: "py-4 rounded-full  from-primary to-accent text-white font-bold hover:bg-white/5 transition-all flex items-center justify-center gap-2",
+                                onClick: isParticipant ? handleLeaveRide : handleRequestJoin,
+                                disabled: isFull && !isParticipant,
+                                style: {
+                                    height: '7vh'
+                                },
+                                className: `rounded-full font-bold transition-all flex items-center justify-center gap-2 ${isParticipant ? isHoveringJoined ? 'bg-red-500/20 text-red-400' : 'bg-green-500/20 text-green-400' : isFull ? 'bg-gray-500/20 text-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-primary to-accent text-white'}`,
                                 children: [
-                                    "Request to Join",
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["MdArrowRightAlt"], {
+                                    isParticipant ? isHoveringJoined ? '✗ Leave Ride' : '✓ Joined' : isFull ? 'Ride Full' : 'Request to Join',
+                                    !isParticipant && !isFull && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$md$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["MdArrowRightAlt"], {
                                         size: 32
                                     }, void 0, false, {
                                         fileName: "[project]/pages/ride/[id].jsx",
-                                        lineNumber: 251,
-                                        columnNumber: 13
+                                        lineNumber: 974,
+                                        columnNumber: 45
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/ride/[id].jsx",
-                                lineNumber: 244,
-                                columnNumber: 11
+                                lineNumber: 955,
+                                columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/ride/[id].jsx",
-                        lineNumber: 228,
+                        lineNumber: 907,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/pages/ride/[id].jsx",
-                lineNumber: 101,
+                lineNumber: 498,
                 columnNumber: 7
+            }, this),
+            deleteModal.show && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                className: "fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
+                    initial: {
+                        opacity: 0,
+                        scale: 0.9
+                    },
+                    animate: {
+                        opacity: 1,
+                        scale: 1
+                    },
+                    style: {
+                        padding: "2vw"
+                    },
+                    className: `backdrop-blur-xl rounded-3xl border p-8 max-w-md w-full ${colorTheme === 'arctic' ? 'bg-white border-gray-200' : 'bg-gray-900/95 border-white/10'}`,
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                        className: "text-center",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                className: "flex items-center justify-center gap-3 mb-4",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                        className: "w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiTrash2"], {
+                                            className: "text-red-400",
+                                            size: 24
+                                        }, void 0, false, {
+                                            fileName: "[project]/pages/ride/[id].jsx",
+                                            lineNumber: 996,
+                                            columnNumber: 19
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/pages/ride/[id].jsx",
+                                        lineNumber: 995,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h2", {
+                                        className: `text-2xl font-bold ${getTextColor('primary')}`,
+                                        children: "Delete Ride?"
+                                    }, void 0, false, {
+                                        fileName: "[project]/pages/ride/[id].jsx",
+                                        lineNumber: 998,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/pages/ride/[id].jsx",
+                                lineNumber: 994,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                                className: `mb-6 ${getTextColor('tertiary')}`,
+                                children: [
+                                    "Are you sure you want to delete ",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
+                                        className: `font-semibold ${getTextColor('primary')}`,
+                                        children: deleteModal.rideName
+                                    }, void 0, false, {
+                                        fileName: "[project]/pages/ride/[id].jsx",
+                                        lineNumber: 1001,
+                                        columnNumber: 49
+                                    }, this),
+                                    "? This action cannot be undone."
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/pages/ride/[id].jsx",
+                                lineNumber: 1000,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                className: "flex gap-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
+                                        whileHover: {
+                                            scale: 1.02
+                                        },
+                                        whileTap: {
+                                            scale: 0.98
+                                        },
+                                        style: {
+                                            height: "6vh"
+                                        },
+                                        onClick: ()=>setDeleteModal({
+                                                show: false,
+                                                rideId: null,
+                                                rideName: ''
+                                            }),
+                                        className: `flex-1 py-3 rounded-full font-semibold transition-all ${colorTheme === 'arctic' ? 'bg-gray-200 text-gray-900 hover:bg-gray-300' : 'bg-white/5 text-white hover:bg-white/10'}`,
+                                        children: "Cancel"
+                                    }, void 0, false, {
+                                        fileName: "[project]/pages/ride/[id].jsx",
+                                        lineNumber: 1004,
+                                        columnNumber: 17
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
+                                        whileHover: {
+                                            scale: 1.02
+                                        },
+                                        whileTap: {
+                                            scale: 0.98
+                                        },
+                                        style: {
+                                            height: "6vh"
+                                        },
+                                        onClick: handleDeleteRide,
+                                        className: "flex-1 py-3 rounded-full bg-red-500 text-white font-bold hover:bg-red-600 transition-all",
+                                        children: "Delete"
+                                    }, void 0, false, {
+                                        fileName: "[project]/pages/ride/[id].jsx",
+                                        lineNumber: 1017,
+                                        columnNumber: 17
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/pages/ride/[id].jsx",
+                                lineNumber: 1003,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/pages/ride/[id].jsx",
+                        lineNumber: 993,
+                        columnNumber: 13
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/pages/ride/[id].jsx",
+                    lineNumber: 983,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/pages/ride/[id].jsx",
+                lineNumber: 982,
+                columnNumber: 9
+            }, this),
+            toast.show && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
+                initial: {
+                    opacity: 0,
+                    y: -50
+                },
+                animate: {
+                    opacity: 1,
+                    y: 0
+                },
+                exit: {
+                    opacity: 0,
+                    y: -50
+                },
+                className: "fixed top-20 left-1/2 transform -translate-x-1/2 z-50 px-6 py-4 rounded-2xl shadow-2xl backdrop-blur-xl border max-w-md",
+                style: {
+                    background: toast.type === 'success' ? 'linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.1))' : toast.type === 'error' ? 'linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.1))' : 'linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.1))',
+                    borderColor: toast.type === 'success' ? 'rgba(16, 185, 129, 0.3)' : toast.type === 'error' ? 'rgba(239, 68, 68, 0.3)' : 'rgba(59, 130, 246, 0.3)',
+                    padding: "1vw"
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                    className: "flex items-center gap-3",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                            className: "flex-shrink-0",
+                            children: [
+                                toast.type === 'success' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                    className: "w-8 h-8 rounded-full bg-green-500/30 flex items-center justify-center",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiCheck"], {
+                                        className: "text-green-400",
+                                        size: 18
+                                    }, void 0, false, {
+                                        fileName: "[project]/pages/ride/[id].jsx",
+                                        lineNumber: 1053,
+                                        columnNumber: 19
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/pages/ride/[id].jsx",
+                                    lineNumber: 1052,
+                                    columnNumber: 17
+                                }, this),
+                                toast.type === 'error' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                    className: "w-8 h-8 rounded-full bg-red-500/30 flex items-center justify-center",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__["FiX"], {
+                                        className: "text-red-400",
+                                        size: 18
+                                    }, void 0, false, {
+                                        fileName: "[project]/pages/ride/[id].jsx",
+                                        lineNumber: 1058,
+                                        columnNumber: 19
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/pages/ride/[id].jsx",
+                                    lineNumber: 1057,
+                                    columnNumber: 17
+                                }, this),
+                                toast.type === 'info' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                                    className: "w-8 h-8 rounded-full bg-blue-500/30 flex items-center justify-center",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
+                                        className: "text-blue-400 font-bold text-lg",
+                                        children: "i"
+                                    }, void 0, false, {
+                                        fileName: "[project]/pages/ride/[id].jsx",
+                                        lineNumber: 1063,
+                                        columnNumber: 19
+                                    }, this)
+                                }, void 0, false, {
+                                    fileName: "[project]/pages/ride/[id].jsx",
+                                    lineNumber: 1062,
+                                    columnNumber: 17
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/pages/ride/[id].jsx",
+                            lineNumber: 1050,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                            className: `font-medium ${colorTheme === 'arctic' ? 'text-gray-900' : 'text-white'}`,
+                            children: toast.message
+                        }, void 0, false, {
+                            fileName: "[project]/pages/ride/[id].jsx",
+                            lineNumber: 1067,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/pages/ride/[id].jsx",
+                    lineNumber: 1049,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/pages/ride/[id].jsx",
+                lineNumber: 1034,
+                columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/pages/ride/[id].jsx",
-        lineNumber: 84,
+        lineNumber: 475,
         columnNumber: 5
     }, this);
 }
