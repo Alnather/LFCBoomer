@@ -453,6 +453,8 @@ export default function Messages() {
     if (!selectedThread || !user) return;
 
     let messagesRef;
+    let retryTimeout;
+    let unsubscribe;
     
     // Determine the correct Firestore path based on thread type
     if (selectedThread.type === 'ride') {
@@ -465,16 +467,41 @@ export default function Messages() {
 
     const q = query(messagesRef, orderBy('timestamp', 'asc'));
 
-    const unsubscribe = onSnapshot(q, async (snapshot) => {
-      const msgs = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-      setMessages(msgs);
-      setTimeout(() => messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }), 100);
-    });
+    const setupListener = () => {
+      unsubscribe = onSnapshot(q, 
+        async (snapshot) => {
+          const msgs = snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+          }));
+          setMessages(msgs);
+          setTimeout(() => messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }), 100);
+        },
+        (error) => {
+          // Handle permission errors gracefully
+          if (error.code === 'permission-denied') {
+            console.log('Permission denied - waiting for participant access. Retrying in 2s...');
+            setMessages([]);
+            
+            // Retry after 2 seconds - user might be added as participant
+            retryTimeout = setTimeout(() => {
+              console.log('Retrying message listener...');
+              if (unsubscribe) unsubscribe();
+              setupListener();
+            }, 2000);
+          } else {
+            console.error('Error fetching messages:', error);
+          }
+        }
+      );
+    };
 
-    return () => unsubscribe();
+    setupListener();
+
+    return () => {
+      if (unsubscribe) unsubscribe();
+      if (retryTimeout) clearTimeout(retryTimeout);
+    };
   }, [selectedThread, user]);
 
   // Separate effect to update lastRead timestamp when viewing messages
@@ -513,6 +540,18 @@ export default function Messages() {
       // Determine the correct Firestore path based on thread type
       if (selectedThread.type === 'ride') {
         messagesRef = collection(db, 'rides', selectedThread.id, 'messages');
+        
+        // For rides, ensure user is a participant before sending
+        const rideRef = doc(db, 'rides', selectedThread.id);
+        const rideDoc = await getDoc(rideRef);
+        
+        if (rideDoc.exists()) {
+          const rideData = rideDoc.data();
+          if (!rideData.participants?.includes(user.uid)) {
+            // User is not a participant - shouldn't happen but handle gracefully
+            console.warn('User not a participant, message may fail');
+          }
+        }
       } else if (selectedThread.type === 'direct') {
         // For direct messages, ensure the thread document exists first
         const threadRef = doc(db, 'directMessages', selectedThread.id);
@@ -539,6 +578,18 @@ export default function Messages() {
         throw new Error('Invalid thread type');
       }
       
+      // Optimistically add the message to local state
+      const optimisticMessage = {
+        id: 'temp-' + Date.now(),
+        text: newMessage.trim(),
+        senderId: user.uid,
+        senderName: capitalizeName(user.displayName || user.email || 'Anonymous'),
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, optimisticMessage]);
+      setNewMessage('');
+      
+      // Send to Firestore
       await addDoc(messagesRef, {
         text: newMessage.trim(),
         senderId: user.uid,
@@ -549,12 +600,15 @@ export default function Messages() {
       // Note: We can't update other user's unread count due to security rules
       // Unread counts will be calculated based on lastRead timestamps instead
       
-      setNewMessage('');
     } catch (error) {
       console.error('❌ Error sending message:', error);
       console.error('Error code:', error.code);
       console.error('Error message:', error.message);
       console.error('Error stack:', error.stack);
+      
+      // Remove optimistic message on error
+      setMessages(prev => prev.filter(m => !m.id.startsWith('temp-')));
+      
       alert('Failed to send message: ' + error.message);
     }
   };
@@ -638,7 +692,7 @@ export default function Messages() {
       {/* Header */}
       <div className="flex-none border-b border-white/10 bg-[#0A0A0A]/95 backdrop-blur-lg ">
         <div className="px-6 py-4">
-          <div className="backdrop-blur-2xl border-b border-white/10" style={{marginTop:"2vh",marginBottom:"2vh"}}>
+          <div className="border-b border-white/10" style={{marginTop:"2vh",marginBottom:"2vh"}}>
             <div className="max-w-2xl mx-auto px-6 py-4 flex items-center gap-6">
               <motion.button
                 whileHover={{ scale: 1.05 }}

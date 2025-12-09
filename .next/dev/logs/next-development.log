@@ -619,3 +619,150 @@ Debug info:
 [17:57:53.895] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
 [17:59:43.918] Server  LOG      ✓ Compiled in 43ms
 [18:00:12.742] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[18:06:56.428] Server  LOG      ✓ Compiled in 40ms
+[18:09:42.807] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[18:09:50.238] Browser ERROR   [2025-12-09T03:20:12.837Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:09:53.180] Browser ERROR   [2025-12-09T03:20:15.768Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:09:53.180] Browser ERROR   [2025-12-09T03:20:15.769Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:12:35.432] Server  LOG      ✓ Compiled in 63ms
+[18:13:09.187] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[18:14:52.493] Server  LOG      ✓ Compiled in 46ms
+[18:15:04.079] Server  LOG      ✓ Compiled in 39ms
+[18:15:12.714] Server  LOG      ✓ Compiled in 36ms
+[18:15:15.777] Server  LOG      ✓ Compiled in 44ms
+[18:15:36.739] Browser LOG     🔵 JOIN RIDE ATTEMPT
+[18:15:36.739] Browser LOG     User UID: 3D2aIy1I7wTuAwIacVmZiCAjZnG2
+[18:15:36.739] Browser LOG     Ride ID: DaMAKQJ7D2G2cahzR29W
+[18:15:36.739] Browser LOG     Current participants: ["7dgHDAix6FOoOqWzerWsPIyseCy2"]
+[18:15:36.739] Browser LOG     Is already participant? false
+[18:15:36.739] Browser LOG     Attempting updateDoc with arrayUnion...
+[18:15:36.739] Browser ERROR   [2025-12-09T03:25:59.336Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:15:36.739] Browser ERROR   [2025-12-09T03:25:59.337Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:15:36.854] Browser LOG     ✅ Successfully joined the ride!
+[18:18:20.063] Server  LOG      ✓ Compiled in 55ms
+[18:19:08.833] Server  LOG      ✓ Compiled in 46ms
+[18:20:26.476] Browser LOG     🔴 LEAVE RIDE ATTEMPT
+[18:20:26.476] Browser LOG     User UID: 3D2aIy1I7wTuAwIacVmZiCAjZnG2
+[18:20:26.476] Browser LOG     Ride ID: DaMAKQJ7D2G2cahzR29W
+[18:20:26.476] Browser LOG     Current participants: ["7dgHDAix6FOoOqWzerWsPIyseCy2","3D2aIy1I7wTuAwIacVmZiCAjZnG2"]
+[18:20:26.476] Browser LOG     Is participant? true
+[18:20:26.476] Browser LOG     Is organizer? false
+[18:20:26.476] Browser LOG     Attempting updateDoc with arrayRemove...
+[18:20:26.476] Browser LOG     ✅ Successfully left the ride!
+[18:20:26.476] Browser ERROR   [2025-12-09T03:30:49.070Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:20:26.476] Browser ERROR   [2025-12-09T03:30:49.073Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:20:26.796] Browser ERROR   [2025-12-09T03:30:49.073Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:20:26.796] Browser ERROR   [2025-12-09T03:30:49.073Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:20:27.591] Browser LOG     🔵 JOIN RIDE ATTEMPT
+[18:20:27.591] Browser LOG     User UID: 3D2aIy1I7wTuAwIacVmZiCAjZnG2
+[18:20:27.591] Browser LOG     Ride ID: DaMAKQJ7D2G2cahzR29W
+[18:20:27.591] Browser LOG     Current participants: ["7dgHDAix6FOoOqWzerWsPIyseCy2"]
+[18:20:27.591] Browser LOG     Is already participant? false
+[18:20:27.591] Browser LOG     Attempting updateDoc with arrayUnion...
+[18:20:27.591] Browser LOG     ✅ Successfully joined the ride!
+[18:20:27.591] Browser ERROR   [2025-12-09T03:30:50.189Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:20:27.591] Browser ERROR   [2025-12-09T03:30:50.190Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:20:31.488] Browser LOG     🔵 JOIN RIDE ATTEMPT
+[18:20:31.488] Browser LOG     User UID: 3D2aIy1I7wTuAwIacVmZiCAjZnG2
+[18:20:31.488] Browser LOG     Ride ID: UppMSezFE37J4mfboDBX
+[18:20:31.488] Browser LOG     Current participants: ["7MW5B3pW3FS4pHKSSH0XpPCjJot2","SexuDSlWa9a2BhowNXUPj1uKhLb2"]
+[18:20:31.488] Browser LOG     Is already participant? false
+[18:20:31.488] Browser LOG     Attempting updateDoc with arrayUnion...
+[18:20:31.689] Browser ERROR   [2025-12-09T03:30:54.207Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:20:31.689] Browser ERROR   [2025-12-09T03:30:54.208Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:20:31.689] Browser LOG     ✅ Successfully joined the ride!
+[18:21:10.613] Browser LOG     🔴 LEAVE RIDE ATTEMPT
+[18:21:10.613] Browser LOG     User UID: 3D2aIy1I7wTuAwIacVmZiCAjZnG2
+[18:21:10.613] Browser LOG     Ride ID: UppMSezFE37J4mfboDBX
+[18:21:10.613] Browser LOG     Current participants: ["7MW5B3pW3FS4pHKSSH0XpPCjJot2","SexuDSlWa9a2BhowNXUPj1uKhLb2","3D2aIy1I7wTuAwIacVmZiCAjZnG2"]
+[18:21:10.613] Browser LOG     Is participant? true
+[18:21:10.613] Browser LOG     Is organizer? false
+[18:21:10.613] Browser LOG     Attempting updateDoc with arrayRemove...
+[18:21:10.835] Browser LOG     ✅ Successfully left the ride!
+[18:21:10.835] Browser ERROR   [2025-12-09T03:31:33.430Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:21:10.835] Browser ERROR   [2025-12-09T03:31:33.432Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:21:11.436] Browser LOG     🔵 JOIN RIDE ATTEMPT
+[18:21:11.436] Browser LOG     User UID: 3D2aIy1I7wTuAwIacVmZiCAjZnG2
+[18:21:11.436] Browser LOG     Ride ID: UppMSezFE37J4mfboDBX
+[18:21:11.436] Browser LOG     Current participants: ["7MW5B3pW3FS4pHKSSH0XpPCjJot2","SexuDSlWa9a2BhowNXUPj1uKhLb2"]
+[18:21:11.436] Browser LOG     Is already participant? false
+[18:21:11.436] Browser LOG     Attempting updateDoc with arrayUnion...
+[18:21:11.436] Browser ERROR   [2025-12-09T03:31:34.015Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:21:11.436] Browser ERROR   [2025-12-09T03:31:34.016Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:21:11.436] Browser LOG     ✅ Successfully joined the ride!
+[18:21:11.806] Browser ERROR   [2025-12-09T03:31:33.430Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:21:11.806] Browser ERROR   [2025-12-09T03:31:33.430Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:21:11.806] Browser ERROR   [2025-12-09T03:31:33.448Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:21:11.806] Browser ERROR   [2025-12-09T03:31:33.452Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:21:13.727] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[18:21:16.636] Browser LOG     🔵 JOIN RIDE ATTEMPT
+[18:21:16.636] Browser LOG     User UID: 3D2aIy1I7wTuAwIacVmZiCAjZnG2
+[18:21:16.636] Browser LOG     Ride ID: ENdWIU3L2heMbDNG4WhP
+[18:21:16.636] Browser LOG     Current participants: ["7MW5B3pW3FS4pHKSSH0XpPCjJot2","SexuDSlWa9a2BhowNXUPj1uKhLb2","7dgHDAix6FOoOqWzerWsPIyseCy2"]
+[18:21:16.636] Browser LOG     Is already participant? false
+[18:21:16.636] Browser LOG     Attempting updateDoc with arrayUnion...
+[18:21:16.636] Browser ERROR   [2025-12-09T03:31:39.138Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:21:16.636] Browser ERROR   [2025-12-09T03:31:39.138Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:21:16.636] Browser LOG     ✅ Successfully joined the ride!
+[18:21:21.341] Server  LOG      ✓ Compiled in 103ms
+[18:21:46.315] Browser LOG     🔴 LEAVE RIDE ATTEMPT
+[18:21:46.315] Browser LOG     User UID: 3D2aIy1I7wTuAwIacVmZiCAjZnG2
+[18:21:46.315] Browser LOG     Ride ID: ENdWIU3L2heMbDNG4WhP
+[18:21:46.315] Browser LOG     Current participants: ["7MW5B3pW3FS4pHKSSH0XpPCjJot2","SexuDSlWa9a2BhowNXUPj1uKhLb2","7dgHDAix6FOoOqWzerWsPIyseCy2","3D2aIy1I7wTuAwIacVmZiCAjZnG2"]
+[18:21:46.315] Browser LOG     Is participant? true
+[18:21:46.315] Browser LOG     Is organizer? false
+[18:21:46.315] Browser LOG     Attempting updateDoc with arrayRemove...
+[18:21:46.315] Browser LOG     ✅ Successfully left the ride!
+[18:21:46.797] Browser ERROR   [2025-12-09T03:32:08.940Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:21:46.797] Browser ERROR   [2025-12-09T03:32:08.941Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:21:46.797] Browser ERROR   [2025-12-09T03:32:08.943Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:21:46.797] Browser ERROR   [2025-12-09T03:32:08.945Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:21:51.218] Browser LOG     🔵 JOIN RIDE ATTEMPT
+[18:21:51.218] Browser LOG     User UID: 3D2aIy1I7wTuAwIacVmZiCAjZnG2
+[18:21:51.218] Browser LOG     Ride ID: ENdWIU3L2heMbDNG4WhP
+[18:21:51.218] Browser LOG     Current participants: ["7MW5B3pW3FS4pHKSSH0XpPCjJot2","SexuDSlWa9a2BhowNXUPj1uKhLb2","7dgHDAix6FOoOqWzerWsPIyseCy2"]
+[18:21:51.218] Browser LOG     Is already participant? false
+[18:21:51.218] Browser LOG     Attempting updateDoc with arrayUnion...
+[18:21:51.218] Browser ERROR   [2025-12-09T03:32:13.794Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:21:51.218] Browser ERROR   [2025-12-09T03:32:13.794Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:21:51.218] Browser LOG     ✅ Successfully joined the ride!
+[18:21:59.050] Browser LOG     🔵 JOIN RIDE ATTEMPT
+[18:21:59.050] Browser LOG     User UID: 3D2aIy1I7wTuAwIacVmZiCAjZnG2
+[18:21:59.050] Browser LOG     Ride ID: 0zgu1ttCYqEfmwGrKxmQ
+[18:21:59.050] Browser LOG     Current participants: ["7MW5B3pW3FS4pHKSSH0XpPCjJot2","SexuDSlWa9a2BhowNXUPj1uKhLb2","7dgHDAix6FOoOqWzerWsPIyseCy2"]
+[18:21:59.050] Browser LOG     Is already participant? false
+[18:21:59.050] Browser LOG     Attempting updateDoc with arrayUnion...
+[18:21:59.050] Browser ERROR   [2025-12-09T03:32:21.646Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:21:59.050] Browser ERROR   [2025-12-09T03:32:21.646Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:21:59.153] Browser LOG     ✅ Successfully joined the ride!
+[18:22:27.709] Server  LOG      ✓ Compiled in 47ms
+[18:23:04.834] Browser LOG     🔵 JOIN RIDE ATTEMPT
+[18:23:04.834] Browser LOG     User UID: 3D2aIy1I7wTuAwIacVmZiCAjZnG2
+[18:23:04.834] Browser LOG     Ride ID: ONERn9nYGilQNeMAvWS2
+[18:23:04.834] Browser LOG     Current participants: ["7dgHDAix6FOoOqWzerWsPIyseCy2"]
+[18:23:04.834] Browser LOG     Is already participant? false
+[18:23:04.834] Browser LOG     Attempting updateDoc with arrayUnion...
+[18:23:04.834] Browser LOG     Permission denied on messages - retrying in 1.5s...
+[18:23:04.834] Browser ERROR   [2025-12-09T03:33:27.378Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:23:04.834] Browser ERROR   [2025-12-09T03:33:27.378Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:23:04.834] Browser LOG     ✅ Successfully joined the ride!
+[18:23:06.256] Browser LOG     Retrying message listener after join...
+[18:24:30.351] Server  LOG      ✓ Compiled in 35ms
+[18:24:35.429] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[18:26:46.880] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[18:27:01.700] Browser LOG     Permission denied - waiting for participant access. Retrying in 2s...
+[18:27:03.187] Browser ERROR   [2025-12-09T03:37:25.785Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:27:03.187] Browser ERROR   [2025-12-09T03:37:25.785Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:27:03.714] Browser LOG     Retrying message listener...
+[18:27:08.394] Browser LOG     🔵 JOIN RIDE ATTEMPT
+[18:27:08.394] Browser LOG     User UID: 156frlYoyZQr5vyi0RMM6DRDHBc2
+[18:27:08.394] Browser LOG     Ride ID: DaMAKQJ7D2G2cahzR29W
+[18:27:08.394] Browser LOG     Current participants: ["7dgHDAix6FOoOqWzerWsPIyseCy2","3D2aIy1I7wTuAwIacVmZiCAjZnG2"]
+[18:27:08.394] Browser LOG     Is already participant? false
+[18:27:08.394] Browser LOG     Attempting updateDoc with arrayUnion...
+[18:27:08.394] Browser ERROR   [2025-12-09T03:37:30.864Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:27:08.394] Browser ERROR   [2025-12-09T03:37:30.864Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[18:27:08.394] Browser LOG     Permission denied on messages - retrying in 1.5s...
+[18:27:08.394] Browser LOG     ✅ Successfully joined the ride!
+[18:27:09.836] Browser LOG     Retrying message listener after join...
+[18:28:08.100] Server  LOG      ✓ Compiled in 42ms

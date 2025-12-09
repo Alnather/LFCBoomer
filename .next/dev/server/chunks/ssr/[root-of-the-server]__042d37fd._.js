@@ -80,9 +80,15 @@ function AuthAction() {
         }
     }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-        className: "min-h-screen flex items-center justify-center gradient-bg py-12",
+        className: " flex items-center justify-center bg-[#171717] py-12 px-4 custom-app-layout-mobile",
+        style: {
+            minHeight: "80vh"
+        },
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-            className: "bg-[#2a2a2a] p-8 rounded-2xl shadow-xl w-full max-w-md",
+            className: "bg-[#171717] border border-white/10 p-8 rounded-2xl shadow-xl w-full max-w-md",
+            style: {
+                alignSelf: "center"
+            },
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                     className: "text-center mb-8",
@@ -91,9 +97,14 @@ function AuthAction() {
                             href: "/",
                             className: "inline-block mb-4",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h1", {
-                                className: "text-3xl font-bold gradient-text",
-                                children: "🌲 ForesterSwap"
-                            }, void 0, false, {
+                                className: "text-3xl font-bold text-white",
+                                children: [
+                                    mode === "verifyEmail" && "Email Verification",
+                                    mode === "resetPassword" && "Reset Password",
+                                    mode === "recoverEmail" && "Recover Email",
+                                    !mode && "Processing..."
+                                ]
+                            }, void 0, true, {
                                 fileName: "[project]/pages/auth/action.jsx",
                                 lineNumber: 71,
                                 columnNumber: 13
@@ -103,17 +114,15 @@ function AuthAction() {
                             lineNumber: 70,
                             columnNumber: 11
                         }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h2", {
-                            className: "text-2xl font-bold text-gray-100 mb-2",
-                            children: [
-                                mode === "verifyEmail" && "Email Verification",
-                                mode === "resetPassword" && "Reset Password",
-                                mode === "recoverEmail" && "Recover Email",
-                                !mode && "Processing..."
-                            ]
-                        }, void 0, true, {
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
+                            className: "text-gray-400",
+                            style: {
+                                marginBottom: "6vh"
+                            },
+                            children: "Please wait while we process your request"
+                        }, void 0, false, {
                             fileName: "[project]/pages/auth/action.jsx",
-                            lineNumber: 73,
+                            lineNumber: 78,
                             columnNumber: 11
                         }, this)
                     ]
@@ -123,7 +132,7 @@ function AuthAction() {
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                    className: "space-y-4",
+                    className: "space-y-5",
                     children: [
                         status === "loading" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                             className: "text-center py-8",
@@ -150,7 +159,7 @@ function AuthAction() {
                             columnNumber: 13
                         }, this),
                         status === "success" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                            className: "bg-green-900/30 border border-green-700 text-green-300 px-4 py-4 rounded-lg",
+                            className: "bg-green-500/10 border border-green-500/30 text-green-400 px-4 py-4 rounded-xl",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                     className: "flex items-center mb-2",
@@ -204,7 +213,7 @@ function AuthAction() {
                             columnNumber: 13
                         }, this),
                         status === "error" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                            className: "bg-red-900/30 border border-red-700 text-red-300 px-4 py-4 rounded-lg",
+                            className: "bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-4 rounded-xl",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                     className: "flex items-center mb-2",
@@ -270,7 +279,14 @@ function AuthAction() {
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/login",
-                                    className: "btn-primary inline-block",
+                                    className: "inline-block w-full py-3 px-4 bg-gradient-to-r from-primary to-accent hover:from-primary-dark hover:to-primary text-white font-semibold rounded-xl transition-all text-center",
+                                    style: {
+                                        height: "5vh",
+                                        marginTop: "3vh",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center"
+                                    },
                                     children: "Go to Login"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/auth/action.jsx",
@@ -284,29 +300,31 @@ function AuthAction() {
                             columnNumber: 13
                         }, this),
                         status === "error" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                            className: "text-center pt-4",
+                            className: "text-center pt-4 space-y-3",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/verify-email",
-                                    className: "btn-primary inline-block mb-2",
+                                    className: "inline-block w-full py-3 px-4 bg-gradient-to-r from-primary to-accent hover:from-primary-dark hover:to-primary text-white font-semibold rounded-xl transition-all text-center",
+                                    style: {
+                                        height: "5vh",
+                                        marginTop: "3vh",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center"
+                                    },
                                     children: "Request New Verification Email"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/auth/action.jsx",
                                     lineNumber: 124,
                                     columnNumber: 15
                                 }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("br", {}, void 0, false, {
-                                    fileName: "[project]/pages/auth/action.jsx",
-                                    lineNumber: 127,
-                                    columnNumber: 15
-                                }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/login",
-                                    className: "text-gray-400 hover:text-gray-200 text-sm",
+                                    className: "block text-gray-400 hover:text-white text-sm transition-colors",
                                     children: "Back to Login"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/auth/action.jsx",
-                                    lineNumber: 128,
+                                    lineNumber: 127,
                                     columnNumber: 15
                                 }, this)
                             ]

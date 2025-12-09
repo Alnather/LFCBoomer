@@ -178,21 +178,39 @@ export default function RideDetail() {
     const messagesRef = collection(db, 'rides', id, 'messages');
     const q = query(messagesRef, orderBy('timestamp', 'asc'));
 
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const msgs = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-        timestamp: doc.data().timestamp?.toDate ? doc.data().timestamp.toDate() : new Date()
-      }));
-      setMessages(msgs);
-    }, (error) => {
-      // Silently handle permission errors
-      if (error.code !== 'permission-denied') {
-        console.error('Error fetching messages:', error);
-      }
-    });
+    let retryTimeout;
+    let unsubscribe;
 
-    return () => unsubscribe();
+    const setupListener = () => {
+      unsubscribe = onSnapshot(q, (snapshot) => {
+        const msgs = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+          timestamp: doc.data().timestamp?.toDate ? doc.data().timestamp.toDate() : new Date()
+        }));
+        setMessages(msgs);
+      }, (error) => {
+        // Handle permission errors with retry
+        if (error.code === 'permission-denied') {
+          console.log('Permission denied on messages - retrying in 1.5s...');
+          // Retry after 1.5 seconds - user was just added as participant
+          retryTimeout = setTimeout(() => {
+            console.log('Retrying message listener after join...');
+            if (unsubscribe) unsubscribe();
+            setupListener();
+          }, 1500);
+        } else {
+          console.error('Error fetching messages:', error);
+        }
+      });
+    };
+
+    setupListener();
+
+    return () => {
+      if (unsubscribe) unsubscribe();
+      if (retryTimeout) clearTimeout(retryTimeout);
+    };
   }, [id, ride, user]);
 
   // Fetch user data for participants

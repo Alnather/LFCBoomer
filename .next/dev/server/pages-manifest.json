@@ -3,6 +3,7 @@
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
   "/api/autocomplete": "pages/api/autocomplete.js",
+  "/auth/action": "pages/auth/action.js",
   "/campus": "pages/campus.js",
   "/create-ride": "pages/create-ride.js",
   "/edit-ride/[id]": "pages/edit-ride/[id].js",

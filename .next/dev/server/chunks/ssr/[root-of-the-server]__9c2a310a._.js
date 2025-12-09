@@ -57,7 +57,7 @@ function Signup() {
         // Validation - Check for @lakeforest.edu email
         if (!email.endsWith("@lakeforest.edu")) {
             setError("You must use a @lakeforest.edu email address to sign up");
-            return;
+        // return;
         }
         // Validation
         if (password !== confirmPassword) {
