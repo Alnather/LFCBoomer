@@ -33,11 +33,9 @@ export default function Login() {
     try {
       // Sign in with Firebase Auth (client-side)
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      
       // Reload user to get latest verification status from server
       await userCredential.user.reload();
       const refreshedUser = auth.currentUser;
-      
       // Check if email is verified
       if (!refreshedUser || !refreshedUser.emailVerified) {
         setError("Please verify your email address before logging in. Check your inbox for the verification link.");
@@ -47,11 +45,18 @@ export default function Login() {
         setLoading(false);
         return;
       }
-      
       // Redirect to home after successful login
       router.push("/rides");
     } catch (err) {
-      setError(err.message || "Login failed");
+      let friendly = "Login failed. Please try again.";
+      if (err.code === "auth/invalid-credential" || err.code === "auth/user-not-found" || err.code === "auth/wrong-password") {
+        friendly = "Incorrect email or password.";
+      } else if (err.code === "auth/too-many-requests") {
+        friendly = "Too many attempts. Please try again later.";
+      } else if (err.code === "auth/network-request-failed") {
+        friendly = "Network error. Please check your connection.";
+      }
+      setError(friendly);
       setLoading(false);
     }
   }

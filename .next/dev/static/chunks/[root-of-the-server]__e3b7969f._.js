@@ -488,14 +488,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2
 ;
 ;
 const firebaseConfig = {
-    apiKey: "AIzaSyDiNCO2trc8GFQouKD9B2peUM3Gg5InBhI",
-    authDomain: "forester-swap.firebaseapp.com",
-    databaseURL: "https://forester-swap-default-rtdb.firebaseio.com",
-    projectId: "forester-swap",
-    storageBucket: "forester-swap.firebasestorage.app",
-    messagingSenderId: "386036888086",
-    appId: "1:386036888086:web:db1e00c63ad4457c70bb37",
-    measurementId: "G-XGCCTCXV21"
+    apiKey: "AIzaSyAl56SCv-uBfILQGfdMkaJzs0IDwGOBUvA",
+    authDomain: "lfcboomer.firebaseapp.com",
+    projectId: "lfcboomer",
+    storageBucket: "lfcboomer.firebasestorage.app",
+    messagingSenderId: "579328875040",
+    appId: "1:579328875040:web:de58e2a358891dba5bfa45",
+    measurementId: "G-51G7NE56NH"
 };
 // where do i get the config values? from firebase console -> project settings -> general -> your apps -> firebase sdk snippet -> config
 const app = !(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$app$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["getApps"])().length ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$app$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["initializeApp"])(firebaseConfig) : (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$app$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["getApps"])()[0];
@@ -568,6 +567,10 @@ function Profile({ user }) {
         className: "w-full min-h-[calc(100vh-10rem)] bg-transparent px-6 py-8 pb-24",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "max-w-2xl mx-auto",
+            style: {
+                marginLeft: "auto",
+                marginRight: "auto"
+            },
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].div, {
                     initial: {

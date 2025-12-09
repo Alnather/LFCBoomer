@@ -20,6 +20,9 @@ self.__BUILD_MANIFEST = {
   "/my-rides": [
     "static/chunks/pages/my-rides.js"
   ],
+  "/profile": [
+    "static/chunks/pages/profile.js"
+  ],
   "/rides": [
     "static/chunks/pages/rides.js"
   ],

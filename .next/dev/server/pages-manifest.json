@@ -9,6 +9,7 @@
   "/marketplace": "pages/marketplace.js",
   "/messages": "pages/messages.js",
   "/my-rides": "pages/my-rides.js",
+  "/profile": "pages/profile.js",
   "/rides": "pages/rides.js",
   "/signup": "pages/signup.js",
   "/verify-email": "pages/verify-email.js"

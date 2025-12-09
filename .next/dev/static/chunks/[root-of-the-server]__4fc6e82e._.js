@@ -578,7 +578,15 @@ function Login() {
             // Redirect to home after successful login
             router.push("/rides");
         } catch (err) {
-            setError(err.message || "Login failed");
+            let friendly = "Login failed. Please try again.";
+            if (err.code === "auth/invalid-credential" || err.code === "auth/user-not-found" || err.code === "auth/wrong-password") {
+                friendly = "Incorrect email or password.";
+            } else if (err.code === "auth/too-many-requests") {
+                friendly = "Too many attempts. Please try again later.";
+            } else if (err.code === "auth/network-request-failed") {
+                friendly = "Network error. Please check your connection.";
+            }
+            setError(friendly);
             setLoading(false);
         }
     }
@@ -630,12 +638,12 @@ function Login() {
                                 children: "Welcome Back"
                             }, void 0, false, {
                                 fileName: "[project]/pages/login.jsx",
-                                lineNumber: 89,
+                                lineNumber: 94,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 88,
+                            lineNumber: 93,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -646,13 +654,13 @@ function Login() {
                             children: "Sign in to continue"
                         }, void 0, false, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 91,
+                            lineNumber: 96,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/login.jsx",
-                    lineNumber: 87,
+                    lineNumber: 92,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -664,7 +672,7 @@ function Login() {
                             children: error
                         }, void 0, false, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 96,
+                            lineNumber: 101,
                             columnNumber: 13
                         }, this),
                         verificationResent && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -672,7 +680,7 @@ function Login() {
                             children: "Verification email sent! Please check your inbox."
                         }, void 0, false, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 102,
+                            lineNumber: 107,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -683,7 +691,7 @@ function Login() {
                                     children: "Email Address"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/login.jsx",
-                                    lineNumber: 108,
+                                    lineNumber: 113,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -696,13 +704,13 @@ function Login() {
                                     placeholder: "you@example.com"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/login.jsx",
-                                    lineNumber: 111,
+                                    lineNumber: 116,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 107,
+                            lineNumber: 112,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -713,7 +721,7 @@ function Login() {
                                     children: "Password"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/login.jsx",
-                                    lineNumber: 123,
+                                    lineNumber: 128,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -726,13 +734,13 @@ function Login() {
                                     placeholder: "••••••••"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/login.jsx",
-                                    lineNumber: 126,
+                                    lineNumber: 131,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 122,
+                            lineNumber: 127,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -746,7 +754,7 @@ function Login() {
                             children: loading ? "Signing in..." : "Sign In"
                         }, void 0, false, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 137,
+                            lineNumber: 142,
                             columnNumber: 11
                         }, this),
                         showResendVerification && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -756,13 +764,13 @@ function Login() {
                             children: "Resend Verification Email"
                         }, void 0, false, {
                             fileName: "[project]/pages/login.jsx",
-                            lineNumber: 147,
+                            lineNumber: 152,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/login.jsx",
-                    lineNumber: 94,
+                    lineNumber: 99,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -781,29 +789,29 @@ function Login() {
                                 children: "Sign up"
                             }, void 0, false, {
                                 fileName: "[project]/pages/login.jsx",
-                                lineNumber: 160,
+                                lineNumber: 165,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/login.jsx",
-                        lineNumber: 158,
+                        lineNumber: 163,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/pages/login.jsx",
-                    lineNumber: 157,
+                    lineNumber: 162,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/pages/login.jsx",
-            lineNumber: 80,
+            lineNumber: 85,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/pages/login.jsx",
-        lineNumber: 79,
+        lineNumber: 84,
         columnNumber: 5
     }, this);
 }

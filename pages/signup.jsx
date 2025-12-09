@@ -51,14 +51,11 @@ export default function Signup() {
 
     try {
       const name = `${firstName} ${lastName}`.trim();
-      
       // Create user with Firebase Auth (client-side)
       const userCred = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(userCred.user, { displayName: name });
-
       // Send email verification
       await sendEmailVerification(userCred.user);
-
       // Create user document in Firestore (lowercase "users")
       const userData = {
         name: name,
@@ -69,13 +66,21 @@ export default function Signup() {
         products: [],
         preferences: {},
       };
-      
       await setDoc(doc(db, "users", userCred.user.uid), userData);
-
       // Redirect to verification page
       router.push("/verify-email");
     } catch (err) {
-      setError(err.message || "Signup failed");
+      let friendly = "Signup failed. Please try again.";
+      if (err.code === "auth/email-already-in-use") {
+        friendly = "This email is already registered. Try logging in or use another email.";
+      } else if (err.code === "auth/invalid-email") {
+        friendly = "Please enter a valid email address.";
+      } else if (err.code === "auth/weak-password") {
+        friendly = "Password is too weak. Please use at least 6 characters.";
+      } else if (err.code === "auth/network-request-failed") {
+        friendly = "Network error. Please check your connection.";
+      }
+      setError(friendly);
       setLoading(false);
     }
   }
