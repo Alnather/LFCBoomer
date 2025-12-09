@@ -731,7 +731,7 @@ function CreateRide() {
                                                                 onChange: (time)=>setTime(time),
                                                                 showTimeSelect: true,
                                                                 showTimeSelectOnly: true,
-                                                                timeIntervals: 15,
+                                                                timeIntervals: 30,
                                                                 timeCaption: "Time",
                                                                 dateFormat: "h:mm aa",
                                                                 placeholderText: "Time",

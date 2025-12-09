@@ -436,7 +436,7 @@ export default function EditRide() {
                     onChange={(newTime) => setTime(newTime)}
                     showTimeSelect
                     showTimeSelectOnly
-                    timeIntervals={15}
+                    timeIntervals={30}
                     timeCaption="Time"
                     dateFormat="h:mm aa"
                     placeholderText="Time"
