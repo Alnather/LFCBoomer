@@ -2,8 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMessageCircle, FiX } from 'react-icons/fi';
-import { db } from '../lib/firebase';
-import { collection, query, where, onSnapshot, orderBy, limit, doc, getDoc } from 'firebase/firestore';
+import { useUnread } from '@/context/UnreadContext';
 
 // Utility function to capitalize first letters
 const capitalizeName = (name) => {
@@ -17,157 +16,38 @@ export default function MessageNotification({ user }) {
   const router = useRouter();
   const [notification, setNotification] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
-  const lastMessageRef = useRef({}); // Track last message per thread to avoid duplicates
   const timeoutRef = useRef(null);
+  const processedRef = useRef(new Set());
+  const { latestMessage } = useUnread();
 
   // Check if user is currently viewing a specific thread
   const isOnMessagesPage = router.pathname === '/messages';
   const isOnRidePage = router.pathname.startsWith('/ride/');
   const currentRideId = isOnRidePage ? router.query.id : null;
-  const currentChatId = router.query.id; // For chat/[id] pages
 
+  // Handle new messages from context
   useEffect(() => {
-    if (!user) return;
-
-    const unsubscribers = [];
-
-    // Listen to rides where user is a participant
-    const ridesRef = collection(db, 'rides');
-    const ridesQuery = query(ridesRef, where('participants', 'array-contains', user.uid));
-
-    const ridesUnsubscribe = onSnapshot(ridesQuery, (snapshot) => {
-      snapshot.docs.forEach((rideDoc) => {
-        const rideId = rideDoc.id;
-        const rideData = rideDoc.data();
-
-        // Listen to messages in this ride
-        const messagesRef = collection(db, 'rides', rideId, 'messages');
-        const messagesQuery = query(messagesRef, orderBy('timestamp', 'desc'), limit(1));
-
-        const msgUnsubscribe = onSnapshot(messagesQuery, async (msgSnapshot) => {
-          if (msgSnapshot.empty) return;
-
-          const latestMsg = msgSnapshot.docs[0];
-          const msgData = latestMsg.data();
-          const msgId = latestMsg.id;
-
-          // Skip if it's from the current user
-          if (msgData.senderId === user.uid) return;
-
-          // Skip if we've already processed this message (mark as seen without showing)
-          if (lastMessageRef.current[rideId] === msgId) return;
-
-          // Always mark as processed immediately
-          lastMessageRef.current[rideId] = msgId;
-
-          // Don't show notification if user is on messages page or viewing this ride
-          if (isOnMessagesPage || currentRideId === rideId) return;
-
-          // Check if message is recent (within last 10 seconds)
-          const msgTime = msgData.timestamp?.toDate?.() || new Date();
-          const now = new Date();
-          if (now - msgTime > 10000) return;
-
-          // Show notification
-          showNotification({
-            type: 'ride',
-            threadId: rideId,
-            title: rideData.destination || 'Ride Chat',
-            message: msgData.text,
-            senderName: msgData.senderName || 'Someone',
-          });
-        });
-
-        unsubscribers.push(msgUnsubscribe);
-      });
-    });
-
-    unsubscribers.push(ridesUnsubscribe);
-
-    // Listen to direct messages
-    const directMsgsRef = collection(db, 'directMessages');
-    const directQuery = query(directMsgsRef, where('participants', 'array-contains', user.uid));
-
-    const directUnsubscribe = onSnapshot(directQuery, (snapshot) => {
-      snapshot.docs.forEach((threadDoc) => {
-        const threadId = threadDoc.id;
-        const threadData = threadDoc.data();
-
-        // Listen to messages in this thread
-        const messagesRef = collection(db, 'directMessages', threadId, 'messages');
-        const messagesQuery = query(messagesRef, orderBy('timestamp', 'desc'), limit(1));
-
-        const msgUnsubscribe = onSnapshot(messagesQuery, async (msgSnapshot) => {
-          if (msgSnapshot.empty) return;
-
-          const latestMsg = msgSnapshot.docs[0];
-          const msgData = latestMsg.data();
-          const msgId = latestMsg.id;
-
-          // Skip if it's from the current user
-          if (msgData.senderId === user.uid) return;
-
-          // Skip if we've already processed this message (mark as seen without showing)
-          if (lastMessageRef.current[threadId] === msgId) return;
-
-          // Always mark as processed immediately
-          lastMessageRef.current[threadId] = msgId;
-
-          // Don't show notification if user is on messages page
-          if (isOnMessagesPage) return;
-
-          // Check if message is recent (within last 10 seconds)
-          const msgTime = msgData.timestamp?.toDate?.() || new Date();
-          const now = new Date();
-          if (now - msgTime > 10000) return;
-
-          // Get sender name
-          const otherUserId = threadData.participants?.find(id => id !== user.uid);
-          let senderName = msgData.senderName || 'Someone';
-          
-          try {
-            if (otherUserId) {
-              const userDoc = await getDoc(doc(db, 'users', otherUserId));
-              if (userDoc.exists()) {
-                senderName = capitalizeName(userDoc.data().name || userDoc.data().email || 'Someone');
-              }
-            }
-          } catch (e) {
-            // Ignore errors
-          }
-
-          // Show notification
-          showNotification({
-            type: 'direct',
-            threadId: threadId,
-            title: senderName,
-            message: msgData.text,
-            senderName: senderName,
-          });
-        });
-
-        unsubscribers.push(msgUnsubscribe);
-      });
-    });
-
-    unsubscribers.push(directUnsubscribe);
-
-    return () => {
-      unsubscribers.forEach(unsub => unsub());
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
-  }, [user, currentRideId, isOnMessagesPage]);
-
-  const showNotification = ({ type, threadId, title, message, senderName }) => {
+    if (!latestMessage || !user) return;
+    
+    const msgKey = `${latestMessage.threadKey}_${latestMessage.timestamp?.getTime() || 0}`;
+    
+    // Skip if already processed
+    if (processedRef.current.has(msgKey)) return;
+    processedRef.current.add(msgKey);
+    
+    // Don't show if on messages page or viewing this specific ride
+    if (isOnMessagesPage) return;
+    if (latestMessage.type === 'ride' && currentRideId === latestMessage.threadId) return;
+    
     // Clear any existing timeout
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
     setNotification({
-      type,
-      threadId,
-      title,
-      message: message.length > 50 ? message.substring(0, 50) + '...' : message,
-      senderName,
+      type: latestMessage.type,
+      threadId: latestMessage.threadId,
+      title: latestMessage.type === 'ride' ? 'Ride Chat' : capitalizeName(latestMessage.senderName),
+      message: latestMessage.text.length > 50 ? latestMessage.text.substring(0, 50) + '...' : latestMessage.text,
+      senderName: latestMessage.senderName,
     });
     setIsVisible(true);
 
@@ -175,7 +55,14 @@ export default function MessageNotification({ user }) {
     timeoutRef.current = setTimeout(() => {
       setIsVisible(false);
     }, 1500);
-  };
+  }, [latestMessage, user, isOnMessagesPage, currentRideId]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []);
 
   const handleClick = () => {
     if (!notification) return;

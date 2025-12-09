@@ -6,8 +6,9 @@ import { MdFlight, MdShoppingCart, MdLocationCity, MdArrowRightAlt, MdArrowBack,
 import { IoArrowBack, IoChevronBack } from 'react-icons/io5';
 import { HiArrowLeft } from 'react-icons/hi';
 import { db, auth, storage } from '../../lib/firebase';
-import { doc, getDoc, onSnapshot, collection, query, orderBy, setDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, getDoc, onSnapshot, collection, query, orderBy, setDoc, serverTimestamp, updateDoc, addDoc, arrayUnion, arrayRemove, deleteDoc } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
+import { ref as storageRef, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 // Utility function to capitalize first letters
 const capitalizeName = (name) => {
@@ -171,9 +172,12 @@ export default function RideDetail() {
   }, [id, router]);
 
   // Fetch chat messages in real-time (only for participants)
+  // Using JSON.stringify for participants to avoid object reference changes causing re-renders
+  const participantsString = JSON.stringify(ride?.participants || []);
+  const isUserParticipant = ride?.participants?.includes(user?.uid);
+  
   useEffect(() => {
-    if (!id || !ride || !user) return;
-    if (!ride.participants.includes(user.uid)) return;
+    if (!id || !user || !isUserParticipant) return;
 
     const messagesRef = collection(db, 'rides', id, 'messages');
     const q = query(messagesRef, orderBy('timestamp', 'asc'));
@@ -192,10 +196,8 @@ export default function RideDetail() {
       }, (error) => {
         // Handle permission errors with retry
         if (error.code === 'permission-denied') {
-          console.log('Permission denied on messages - retrying in 1.5s...');
           // Retry after 1.5 seconds - user was just added as participant
           retryTimeout = setTimeout(() => {
-            console.log('Retrying message listener after join...');
             if (unsubscribe) unsubscribe();
             setupListener();
           }, 1500);
@@ -211,51 +213,51 @@ export default function RideDetail() {
       if (unsubscribe) unsubscribe();
       if (retryTimeout) clearTimeout(retryTimeout);
     };
-  }, [id, ride, user]);
+  }, [id, user?.uid, isUserParticipant]);
 
-  // Update lastRead when chat is open and messages change
+  // Mark messages as read when chat is opened
   useEffect(() => {
-    if (!id || !user || !ride) return;
-    if (!ride.participants.includes(user.uid)) return;
-    if (!isChatOpen) return;
-    if (messages.length === 0) return;
+    if (!id || !user?.uid || !isChatOpen || !isUserParticipant) return;
 
-    // Update lastRead timestamp when chat is open
-    const updateLastRead = async () => {
+    const markAsRead = async () => {
       try {
         const rideRef = doc(db, 'rides', id);
-        await setDoc(rideRef, {
+        await updateDoc(rideRef, {
           [`lastRead_${user.uid}`]: serverTimestamp()
-        }, { merge: true });
+        });
       } catch (error) {
-        console.error('Error updating lastRead:', error);
+        // Silently handle errors - non-critical operation
       }
     };
 
-    updateLastRead();
-  }, [id, user, ride, isChatOpen, messages.length]);
+    markAsRead();
+  }, [id, user?.uid, isChatOpen, isUserParticipant]);
 
-  // Fetch user data for participants
+  // Fetch user data for participants - use participantsString to avoid re-running on every ride update
   useEffect(() => {
     const fetchUsersData = async () => {
-      if (!ride || !ride.participants) {
+      const participants = JSON.parse(participantsString);
+      if (!participants || participants.length === 0) {
         return;
       }
 
-
-      const { doc: firestoreDoc, getDoc } = await import('firebase/firestore');
       const userData = {};
 
-      for (const uid of ride.participants) {
+      for (const uid of participants) {
+        // Skip if we already have this user's data
+        if (usersData[uid]) {
+          userData[uid] = usersData[uid];
+          continue;
+        }
+        
         try {
-          const userDocRef = firestoreDoc(db, 'users', uid);
+          const userDocRef = doc(db, 'users', uid);
           const userDoc = await getDoc(userDocRef);
           if (userDoc.exists()) {
             const data = userDoc.data();
             userData[uid] = data;
           }
         } catch (error) {
-          console.error(`✗ Error fetching user ${uid}:`, error.code, error.message);
           // Silently handle permission errors - they're temporary on page load
           if (error.code !== 'permission-denied') {
             console.error(`Error fetching user ${uid}:`, error);
@@ -263,11 +265,11 @@ export default function RideDetail() {
         }
       }
 
-      setUsersData(userData);
+      setUsersData(prev => ({ ...prev, ...userData }));
     };
 
     fetchUsersData();
-  }, [ride]);
+  }, [participantsString]);
 
   const getUserDisplayName = (uid) => {
     if (uid === user?.uid) return 'You';
@@ -298,7 +300,6 @@ export default function RideDetail() {
 
   const handleDeleteRide = async () => {
     try {
-      const { deleteDoc } = await import('firebase/firestore');
       await deleteDoc(doc(db, 'rides', deleteModal.rideId));
       setDeleteModal({ show: false, rideId: null, rideName: '' });
       router.push('/my-rides');
@@ -312,7 +313,6 @@ export default function RideDetail() {
     if (!newMessage.trim() || !user) return;
 
     try {
-      const { collection, addDoc, serverTimestamp } = await import('firebase/firestore');
       const messagesRef = collection(db, 'rides', id, 'messages');
       
       // Get sender name and capitalize first letters
@@ -339,9 +339,6 @@ export default function RideDetail() {
 
     setUploadingImage(true);
     try {
-      const { ref: storageRef, uploadBytesResumable, getDownloadURL } = await import('firebase/storage');
-      const { collection, addDoc, serverTimestamp } = await import('firebase/firestore');
-      
       // Create a unique filename
       const timestamp = Date.now();
       const filename = `${timestamp}_${file.name}`;
@@ -354,12 +351,9 @@ export default function RideDetail() {
       await new Promise((resolve, reject) => {
         uploadTask.on('state_changed',
           (snapshot) => {
-            // Progress monitoring (optional)
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log('Upload is ' + progress + '% done');
+            // Progress monitoring available: (snapshot.bytesTransferred / snapshot.totalBytes) * 100
           },
           (error) => {
-            console.error('Upload error:', error);
             reject(error);
           },
           () => {
@@ -449,27 +443,15 @@ export default function RideDetail() {
       return;
     }
 
-    console.log('🔵 JOIN RIDE ATTEMPT');
-    console.log('User UID:', user.uid);
-    console.log('Ride ID:', ride.id);
-    console.log('Current participants:', ride.participants);
-    console.log('Is already participant?', isParticipant);
-
     try {
-      const { doc, updateDoc, arrayUnion } = await import('firebase/firestore');
       const rideRef = doc(db, 'rides', ride.id);
 
-      console.log('Attempting updateDoc with arrayUnion...');
       await updateDoc(rideRef, {
         participants: arrayUnion(user.uid)
       });
 
-      console.log('✅ Successfully joined the ride!');
       setToast({ show: true, message: 'Successfully joined the ride!', type: 'success' });
     } catch (error) {
-      console.error('❌ Error joining ride:', error);
-      console.error('Error code:', error.code);
-      console.error('Error message:', error.message);
       setToast({ show: true, message: `Failed to join: ${error.message}`, type: 'error' });
     }
   };
@@ -477,28 +459,15 @@ export default function RideDetail() {
   const handleLeaveRide = async () => {
     if (!user) return;
 
-    console.log('🔴 LEAVE RIDE ATTEMPT');
-    console.log('User UID:', user.uid);
-    console.log('Ride ID:', ride.id);
-    console.log('Current participants:', ride.participants);
-    console.log('Is participant?', isParticipant);
-    console.log('Is organizer?', isOrganizer);
-
     try {
-      const { doc, updateDoc, arrayRemove } = await import('firebase/firestore');
       const rideRef = doc(db, 'rides', ride.id);
 
-      console.log('Attempting updateDoc with arrayRemove...');
       await updateDoc(rideRef, {
         participants: arrayRemove(user.uid)
       });
 
-      console.log('✅ Successfully left the ride!');
       setToast({ show: true, message: 'You have left the ride', type: 'success' });
     } catch (error) {
-      console.error('❌ Error leaving ride:', error);
-      console.error('Error code:', error.code);
-      console.error('Error message:', error.message);
       setToast({ show: true, message: `Failed to leave: ${error.message}`, type: 'error' });
     }
   };
@@ -748,10 +717,7 @@ export default function RideDetail() {
                               </div>
                             )}
                             
-                            <motion.div
-                              initial={{ opacity: 0, y: 20 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: index * 0.05 }}
+                            <div
                               className={`flex items-end gap-2 ${msg.senderId === user?.uid ? 'justify-end' : 'justify-start'}`}
                             >
                               {/* Avatar for other users */}
@@ -777,7 +743,7 @@ export default function RideDetail() {
                                 
                                 {/* Message Bubble */}
                                 <div 
-                                  className={`rounded-2xl backdrop-blur-sm ${
+                                  className={`rounded-2xl ${
                                     msg.senderId === user?.uid
                                       ? 'bg-gradient-to-br from-primary via-primary/90 to-accent text-white rounded-br-md shadow-lg shadow-primary/20'
                                       : (colorTheme === 'arctic'
@@ -807,7 +773,7 @@ export default function RideDetail() {
                                   )}
                                 </div>
                               </div>
-                            </motion.div>
+                            </div>
                           </div>
                         );
                       })

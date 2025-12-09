@@ -199,8 +199,6 @@ export default function CreateRide() {
 
       const docRef = await addDoc(collection(db, 'rides'), rideData);
       
-      console.log('Ride created with ID:', docRef.id);
-      
       // Add system welcome message to the ride
       const messagesRef = collection(db, 'rides', docRef.id, 'messages');
       await addDoc(messagesRef, {

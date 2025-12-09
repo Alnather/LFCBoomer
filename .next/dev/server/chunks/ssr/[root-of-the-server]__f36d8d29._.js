@@ -246,6 +246,10 @@ function TopBar({ user, isAuthPage }) {
     const [currentUser, setCurrentUser] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(null);
     const [unreadCount, setUnreadCount] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(0);
     const [isMobile, setIsMobile] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(false);
+    // Use refs for Maps to persist across re-renders and prevent listener leaks
+    const threadDataRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useRef"])(new Map());
+    const messageUnsubscribersRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useRef"])(new Map());
+    const docUnsubscribersRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useRef"])(new Map());
     // Check if mobile
     (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
         const checkMobile = ()=>{
@@ -268,9 +272,9 @@ function TopBar({ user, isAuthPage }) {
             setUnreadCount(0);
             return;
         }
-        const threadData = new Map();
-        const messageUnsubscribers = new Map();
-        const docUnsubscribers = new Map();
+        const threadData = threadDataRef.current;
+        const messageUnsubscribers = messageUnsubscribersRef.current;
+        const docUnsubscribers = docUnsubscribersRef.current;
         const unsubscribers = [];
         const calculateUnreadForThread = (threadKey)=>{
             const data = threadData.get(threadKey);
@@ -332,7 +336,7 @@ function TopBar({ user, isAuthPage }) {
                 // Set up messages listener
                 if (!messageUnsubscribers.has(threadKey)) {
                     const messagesRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'rides', rideDoc.id, 'messages');
-                    const messagesQuery = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["orderBy"])('timestamp', 'desc'));
+                    const messagesQuery = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["orderBy"])('timestamp', 'desc'), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["limit"])(50));
                     const unsubMsg = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["onSnapshot"])(messagesQuery, (msgSnap)=>{
                         const data = threadData.get(threadKey);
                         if (data) {
@@ -386,7 +390,7 @@ function TopBar({ user, isAuthPage }) {
                 // Set up messages listener
                 if (!messageUnsubscribers.has(threadKey)) {
                     const messagesRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'directMessages', threadDoc.id, 'messages');
-                    const messagesQuery = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["orderBy"])('timestamp', 'desc'));
+                    const messagesQuery = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["orderBy"])('timestamp', 'desc'), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["limit"])(50));
                     const unsubMsg = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["onSnapshot"])(messagesQuery, (msgSnap)=>{
                         const data = threadData.get(threadKey);
                         if (data) {
@@ -540,17 +544,17 @@ function TopBar({ user, isAuthPage }) {
                                 children: "Boomer"
                             }, void 0, false, {
                                 fileName: "[project]/components/TopBar.jsx",
-                                lineNumber: 451,
+                                lineNumber: 456,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/TopBar.jsx",
-                            lineNumber: 450,
+                            lineNumber: 455,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/TopBar.jsx",
-                        lineNumber: 449,
+                        lineNumber: 454,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("nav", {
@@ -577,7 +581,7 @@ function TopBar({ user, isAuthPage }) {
                                                         className: `transition-colors ${isActive(item.path) ? 'text-primary drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]' : 'text-gray-400 hover:text-white'}`
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/TopBar.jsx",
-                                                        lineNumber: 467,
+                                                        lineNumber: 472,
                                                         columnNumber: 21
                                                     }, this),
                                                     item.badge > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -585,13 +589,13 @@ function TopBar({ user, isAuthPage }) {
                                                         children: item.badge > 9 ? '9+' : item.badge
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/TopBar.jsx",
-                                                        lineNumber: 476,
+                                                        lineNumber: 481,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/TopBar.jsx",
-                                                lineNumber: 466,
+                                                lineNumber: 471,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -603,13 +607,13 @@ function TopBar({ user, isAuthPage }) {
                                                 children: item.label
                                             }, void 0, false, {
                                                 fileName: "[project]/components/TopBar.jsx",
-                                                lineNumber: 483,
+                                                lineNumber: 488,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/TopBar.jsx",
-                                        lineNumber: 465,
+                                        lineNumber: 470,
                                         columnNumber: 17
                                     }, this),
                                     isActive(item.path) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
@@ -622,18 +626,18 @@ function TopBar({ user, isAuthPage }) {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/components/TopBar.jsx",
-                                        lineNumber: 495,
+                                        lineNumber: 500,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, item.id, true, {
                                 fileName: "[project]/components/TopBar.jsx",
-                                lineNumber: 458,
+                                lineNumber: 463,
                                 columnNumber: 15
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/components/TopBar.jsx",
-                        lineNumber: 456,
+                        lineNumber: 461,
                         columnNumber: 11
                     }, this),
                     user && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
@@ -647,28 +651,28 @@ function TopBar({ user, isAuthPage }) {
                             className: "text-primary"
                         }, void 0, false, {
                             fileName: "[project]/components/TopBar.jsx",
-                            lineNumber: 511,
+                            lineNumber: 516,
                             columnNumber: 15
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/components/TopBar.jsx",
-                        lineNumber: 506,
+                        lineNumber: 511,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/TopBar.jsx",
-                lineNumber: 441,
+                lineNumber: 446,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/components/TopBar.jsx",
-            lineNumber: 440,
+            lineNumber: 445,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/TopBar.jsx",
-        lineNumber: 439,
+        lineNumber: 444,
         columnNumber: 5
     }, this);
 }
@@ -713,6 +717,10 @@ function BottomNav({ user, isAuthPage }) {
     const currentPath = router.pathname;
     const [currentUser, setCurrentUser] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(null);
     const [unreadCount, setUnreadCount] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(0);
+    // Use refs for Maps to persist across re-renders and prevent listener leaks
+    const threadDataRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useRef"])(new Map());
+    const messageUnsubscribersRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useRef"])(new Map());
+    const docUnsubscribersRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useRef"])(new Map());
     // Check authentication
     (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
         const unsubscribe = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__["onAuthStateChanged"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["auth"], (authUser)=>{
@@ -726,9 +734,9 @@ function BottomNav({ user, isAuthPage }) {
             setUnreadCount(0);
             return;
         }
-        const threadData = new Map(); // Store lastReadTimestamp and messages per thread
-        const messageUnsubscribers = new Map();
-        const docUnsubscribers = new Map();
+        const threadData = threadDataRef.current;
+        const messageUnsubscribers = messageUnsubscribersRef.current;
+        const docUnsubscribers = docUnsubscribersRef.current;
         const unsubscribers = [];
         const calculateUnreadForThread = (threadKey)=>{
             const data = threadData.get(threadKey);
@@ -792,7 +800,7 @@ function BottomNav({ user, isAuthPage }) {
                 // Set up messages listener (only once per thread)
                 if (!messageUnsubscribers.has(threadKey)) {
                     const messagesRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'rides', rideDoc.id, 'messages');
-                    const messagesQuery = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["orderBy"])('timestamp', 'desc'));
+                    const messagesQuery = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["orderBy"])('timestamp', 'desc'), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["limit"])(50));
                     const unsubMsg = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["onSnapshot"])(messagesQuery, (msgSnap)=>{
                         const data = threadData.get(threadKey);
                         if (data) {
@@ -847,7 +855,7 @@ function BottomNav({ user, isAuthPage }) {
                 // Set up messages listener (only once per thread)
                 if (!messageUnsubscribers.has(threadKey)) {
                     const messagesRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'directMessages', threadDoc.id, 'messages');
-                    const messagesQuery = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["orderBy"])('timestamp', 'desc'));
+                    const messagesQuery = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["orderBy"])('timestamp', 'desc'), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["limit"])(50));
                     const unsubMsg = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["onSnapshot"])(messagesQuery, (msgSnap)=>{
                         const data = threadData.get(threadKey);
                         if (data) {
@@ -943,7 +951,7 @@ function BottomNav({ user, isAuthPage }) {
                                                 className: `transition-colors ${isActive(item.path) ? 'text-primary drop-shadow-[0_0_8px_rgba(239,68,68,0.5)]' : 'text-gray-500'}`
                                             }, void 0, false, {
                                                 fileName: "[project]/components/BottomNav.jsx",
-                                                lineNumber: 223,
+                                                lineNumber: 228,
                                                 columnNumber: 17
                                             }, this),
                                             item.badge > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -951,13 +959,13 @@ function BottomNav({ user, isAuthPage }) {
                                                 children: item.badge > 9 ? '9+' : item.badge
                                             }, void 0, false, {
                                                 fileName: "[project]/components/BottomNav.jsx",
-                                                lineNumber: 232,
+                                                lineNumber: 237,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/BottomNav.jsx",
-                                        lineNumber: 222,
+                                        lineNumber: 227,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -965,13 +973,13 @@ function BottomNav({ user, isAuthPage }) {
                                         children: item.label
                                     }, void 0, false, {
                                         fileName: "[project]/components/BottomNav.jsx",
-                                        lineNumber: 237,
+                                        lineNumber: 242,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/BottomNav.jsx",
-                                lineNumber: 218,
+                                lineNumber: 223,
                                 columnNumber: 13
                             }, this),
                             isActive(item.path) && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
@@ -984,28 +992,28 @@ function BottomNav({ user, isAuthPage }) {
                                 }
                             }, void 0, false, {
                                 fileName: "[project]/components/BottomNav.jsx",
-                                lineNumber: 248,
+                                lineNumber: 253,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, item.id, true, {
                         fileName: "[project]/components/BottomNav.jsx",
-                        lineNumber: 213,
+                        lineNumber: 218,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/components/BottomNav.jsx",
-                lineNumber: 211,
+                lineNumber: 216,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/components/BottomNav.jsx",
-            lineNumber: 210,
+            lineNumber: 215,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/BottomNav.jsx",
-        lineNumber: 209,
+        lineNumber: 214,
         columnNumber: 5
     }, this);
 }
@@ -1051,21 +1059,48 @@ function MessageNotification({ user }) {
     const [isVisible, setIsVisible] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(false);
     const lastMessageRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useRef"])({}); // Track last message per thread to avoid duplicates
     const timeoutRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useRef"])(null);
+    const messageListenersRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useRef"])(new Map()); // Track message listeners per thread
     // Check if user is currently viewing a specific thread
     const isOnMessagesPage = router.pathname === '/messages';
     const isOnRidePage = router.pathname.startsWith('/ride/');
     const currentRideId = isOnRidePage ? router.query.id : null;
-    const currentChatId = router.query.id; // For chat/[id] pages
+    const showNotification = ({ type, threadId, title, message, senderName })=>{
+        // Clear any existing timeout
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        setNotification({
+            type,
+            threadId,
+            title,
+            message: message.length > 50 ? message.substring(0, 50) + '...' : message,
+            senderName
+        });
+        setIsVisible(true);
+        // Auto-hide after 1.5 seconds
+        timeoutRef.current = setTimeout(()=>{
+            setIsVisible(false);
+        }, 1500);
+    };
     (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
         if (!user) return;
-        const unsubscribers = [];
+        const mainUnsubscribers = [];
         // Listen to rides where user is a participant
         const ridesRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'rides');
         const ridesQuery = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])(ridesRef, (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])('participants', 'array-contains', user.uid));
         const ridesUnsubscribe = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["onSnapshot"])(ridesQuery, (snapshot)=>{
+            const currentRideIds = new Set(snapshot.docs.map((d)=>d.id));
+            // Clean up listeners for rides user is no longer part of
+            messageListenersRef.current.forEach((unsub, key)=>{
+                if (key.startsWith('ride_') && !currentRideIds.has(key.replace('ride_', ''))) {
+                    unsub();
+                    messageListenersRef.current.delete(key);
+                }
+            });
             snapshot.docs.forEach((rideDoc)=>{
                 const rideId = rideDoc.id;
                 const rideData = rideDoc.data();
+                const listenerKey = 'ride_' + rideId;
+                // Skip if we already have a listener for this ride
+                if (messageListenersRef.current.has(listenerKey)) return;
                 // Listen to messages in this ride
                 const messagesRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'rides', rideId, 'messages');
                 const messagesQuery = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["orderBy"])('timestamp', 'desc'), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["limit"])(1));
@@ -1076,7 +1111,7 @@ function MessageNotification({ user }) {
                     const msgId = latestMsg.id;
                     // Skip if it's from the current user
                     if (msgData.senderId === user.uid) return;
-                    // Skip if we've already processed this message (mark as seen without showing)
+                    // Skip if we've already processed this message
                     if (lastMessageRef.current[rideId] === msgId) return;
                     // Always mark as processed immediately
                     lastMessageRef.current[rideId] = msgId;
@@ -1095,17 +1130,28 @@ function MessageNotification({ user }) {
                         senderName: msgData.senderName || 'Someone'
                     });
                 });
-                unsubscribers.push(msgUnsubscribe);
+                messageListenersRef.current.set(listenerKey, msgUnsubscribe);
             });
         });
-        unsubscribers.push(ridesUnsubscribe);
+        mainUnsubscribers.push(ridesUnsubscribe);
         // Listen to direct messages
         const directMsgsRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'directMessages');
         const directQuery = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])(directMsgsRef, (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])('participants', 'array-contains', user.uid));
         const directUnsubscribe = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["onSnapshot"])(directQuery, (snapshot)=>{
+            const currentThreadIds = new Set(snapshot.docs.map((d)=>d.id));
+            // Clean up listeners for threads user is no longer part of
+            messageListenersRef.current.forEach((unsub, key)=>{
+                if (key.startsWith('direct_') && !currentThreadIds.has(key.replace('direct_', ''))) {
+                    unsub();
+                    messageListenersRef.current.delete(key);
+                }
+            });
             snapshot.docs.forEach((threadDoc)=>{
                 const threadId = threadDoc.id;
                 const threadData = threadDoc.data();
+                const listenerKey = 'direct_' + threadId;
+                // Skip if we already have a listener for this thread
+                if (messageListenersRef.current.has(listenerKey)) return;
                 // Listen to messages in this thread
                 const messagesRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'directMessages', threadId, 'messages');
                 const messagesQuery = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["orderBy"])('timestamp', 'desc'), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["limit"])(1));
@@ -1116,7 +1162,7 @@ function MessageNotification({ user }) {
                     const msgId = latestMsg.id;
                     // Skip if it's from the current user
                     if (msgData.senderId === user.uid) return;
-                    // Skip if we've already processed this message (mark as seen without showing)
+                    // Skip if we've already processed this message
                     if (lastMessageRef.current[threadId] === msgId) return;
                     // Always mark as processed immediately
                     lastMessageRef.current[threadId] = msgId;
@@ -1148,35 +1194,19 @@ function MessageNotification({ user }) {
                         senderName: senderName
                     });
                 });
-                unsubscribers.push(msgUnsubscribe);
+                messageListenersRef.current.set(listenerKey, msgUnsubscribe);
             });
         });
-        unsubscribers.push(directUnsubscribe);
+        mainUnsubscribers.push(directUnsubscribe);
         return ()=>{
-            unsubscribers.forEach((unsub)=>unsub());
+            mainUnsubscribers.forEach((unsub)=>unsub());
+            messageListenersRef.current.forEach((unsub)=>unsub());
+            messageListenersRef.current.clear();
             if (timeoutRef.current) clearTimeout(timeoutRef.current);
         };
     }, [
-        user,
-        currentRideId,
-        isOnMessagesPage
-    ]);
-    const showNotification = ({ type, threadId, title, message, senderName })=>{
-        // Clear any existing timeout
-        if (timeoutRef.current) clearTimeout(timeoutRef.current);
-        setNotification({
-            type,
-            threadId,
-            title,
-            message: message.length > 50 ? message.substring(0, 50) + '...' : message,
-            senderName
-        });
-        setIsVisible(true);
-        // Auto-hide after 1.5 seconds
-        timeoutRef.current = setTimeout(()=>{
-            setIsVisible(false);
-        }, 1500);
-    };
+        user
+    ]); // Removed currentRideId and isOnMessagesPage from deps to prevent re-creating listeners
     const handleClick = ()=>{
         if (!notification) return;
         setIsVisible(false);
@@ -1231,12 +1261,12 @@ function MessageNotification({ user }) {
                                     size: 20
                                 }, void 0, false, {
                                     fileName: "[project]/components/MessageNotification.jsx",
-                                    lineNumber: 213,
+                                    lineNumber: 243,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/MessageNotification.jsx",
-                                lineNumber: 212,
+                                lineNumber: 242,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -1250,7 +1280,7 @@ function MessageNotification({ user }) {
                                                 children: notification.title
                                             }, void 0, false, {
                                                 fileName: "[project]/components/MessageNotification.jsx",
-                                                lineNumber: 219,
+                                                lineNumber: 249,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("span", {
@@ -1258,13 +1288,13 @@ function MessageNotification({ user }) {
                                                 children: "now"
                                             }, void 0, false, {
                                                 fileName: "[project]/components/MessageNotification.jsx",
-                                                lineNumber: 222,
+                                                lineNumber: 252,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/MessageNotification.jsx",
-                                        lineNumber: 218,
+                                        lineNumber: 248,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -1272,13 +1302,13 @@ function MessageNotification({ user }) {
                                         children: notification.message
                                     }, void 0, false, {
                                         fileName: "[project]/components/MessageNotification.jsx",
-                                        lineNumber: 224,
+                                        lineNumber: 254,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/MessageNotification.jsx",
-                                lineNumber: 217,
+                                lineNumber: 247,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -1289,18 +1319,18 @@ function MessageNotification({ user }) {
                                     size: 16
                                 }, void 0, false, {
                                     fileName: "[project]/components/MessageNotification.jsx",
-                                    lineNumber: 234,
+                                    lineNumber: 264,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/MessageNotification.jsx",
-                                lineNumber: 230,
+                                lineNumber: 260,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/MessageNotification.jsx",
-                        lineNumber: 210,
+                        lineNumber: 240,
                         columnNumber: 13
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
@@ -1317,23 +1347,23 @@ function MessageNotification({ user }) {
                         className: "h-0.5 bg-gradient-to-r from-primary to-accent"
                     }, void 0, false, {
                         fileName: "[project]/components/MessageNotification.jsx",
-                        lineNumber: 239,
+                        lineNumber: 269,
                         columnNumber: 13
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/MessageNotification.jsx",
-                lineNumber: 209,
+                lineNumber: 239,
                 columnNumber: 11
             }, this)
         }, void 0, false, {
             fileName: "[project]/components/MessageNotification.jsx",
-            lineNumber: 200,
+            lineNumber: 230,
             columnNumber: 9
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/MessageNotification.jsx",
-        lineNumber: 198,
+        lineNumber: 228,
         columnNumber: 5
     }, this);
 }

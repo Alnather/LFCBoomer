@@ -226,8 +226,7 @@ export default function Rides() {
   };
 
   const handleJoinRide = (rideId) => {
-    // Handle join ride logic
-    console.log('Join ride:', rideId);
+    // Handle join ride logic - navigate to ride detail page
   };
 
   const getDestinationTheme = (dest) => {

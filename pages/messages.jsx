@@ -7,6 +7,7 @@ import { MdFlight, MdShoppingCart, MdLocationCity, MdSchool } from 'react-icons/
 import { db, auth } from '../lib/firebase';
 import { collection, query, where, onSnapshot, orderBy, limit, addDoc, serverTimestamp, getDoc, doc, updateDoc, setDoc, getDocs } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
+import { useUnread } from '../context/UnreadContext';
 
 // Utility function to capitalize first letters
 const capitalizeName = (name) => {
@@ -40,7 +41,6 @@ export default function Messages() {
   const [user, setUser] = useState(null);
   const [activeCategory, setActiveCategory] = useState('rides'); // 'rides', 'marketplace', 'direct'
   const [threads, setThreads] = useState([]);
-  const [allThreads, setAllThreads] = useState({ rides: [], direct: [] }); // Track ALL threads for unread counts
   const [selectedThread, setSelectedThread] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
@@ -50,17 +50,14 @@ export default function Messages() {
   const [unreadCounts, setUnreadCounts] = useState({}); // Track unread counts per thread
   const messagesEndRef = useRef(null);
   const threadsRef = useRef(threads); // Ref to access latest threads state in listeners
-  const allThreadsRef = useRef(allThreads); // Ref to access all threads in listeners
+  
+  // Get per-category unread counts from context
+  const { rideUnreadCount, directUnreadCount } = useUnread();
   
   // Keep threadsRef in sync with threads state
   useEffect(() => {
     threadsRef.current = threads;
   }, [threads]);
-  
-  // Keep allThreadsRef in sync
-  useEffect(() => {
-    allThreadsRef.current = allThreads;
-  }, [allThreads]);
 
   const categories = [
     { id: 'rides', label: 'Rides', icon: MdFlight },
@@ -268,7 +265,7 @@ export default function Messages() {
           
           // Set up real-time listener for messages
           const messagesRef = collection(db, 'rides', rideDoc.id, 'messages');
-          const messagesQuery = query(messagesRef, orderBy('timestamp', 'desc'));
+          const messagesQuery = query(messagesRef, orderBy('timestamp', 'desc'), limit(10));
           
           const unsubMsg = onSnapshot(messagesQuery, 
             (msgSnapshot) => {
@@ -408,7 +405,7 @@ export default function Messages() {
 
           // Listen to messages for unread count calculation
           const messagesRef = collection(db, 'directMessages', threadDoc.id, 'messages');
-          const messagesQuery = query(messagesRef, orderBy('timestamp', 'desc'));
+          const messagesQuery = query(messagesRef, orderBy('timestamp', 'desc'), limit(10));
           
           const unsubMsg = onSnapshot(messagesQuery, (msgSnapshot) => {
             const thread = directThreadsMap.get(threadDoc.id);
@@ -455,176 +452,6 @@ export default function Messages() {
     }
   }, [user, activeCategory]);
 
-  // Track ALL threads from both categories for unread badge counts
-  useEffect(() => {
-    if (!user) return;
-
-    const messageUnsubscribers = [];
-    const rideThreadsMap = new Map();
-    const directThreadsMap = new Map();
-
-    const updateAllThreadsState = () => {
-      setAllThreads({
-        rides: Array.from(rideThreadsMap.values()),
-        direct: Array.from(directThreadsMap.values())
-      });
-    };
-
-    // Listen to ride threads
-    const ridesRef = collection(db, 'rides');
-    const ridesQuery = query(ridesRef, where('participants', 'array-contains', user.uid));
-    
-    const unsubRides = onSnapshot(ridesQuery, (snapshot) => {
-      // Clear previous ride thread listeners
-      const rideIds = new Set(snapshot.docs.map(d => d.id));
-      
-      snapshot.docs.forEach((rideDoc) => {
-        const rideData = rideDoc.data();
-        const lastReadValue = rideData[`lastRead_${user.uid}`];
-        let initialLastRead = lastReadValue && lastReadValue !== null ? lastReadValue : null;
-        
-        if (!rideThreadsMap.has(rideDoc.id)) {
-          rideThreadsMap.set(rideDoc.id, {
-            id: rideDoc.id,
-            type: 'ride',
-            unreadCount: 0,
-            lastReadTimestamp: initialLastRead
-          });
-        } else {
-          // Update lastReadTimestamp if it changed
-          const existing = rideThreadsMap.get(rideDoc.id);
-          if (lastReadValue && lastReadValue !== null) {
-            existing.lastReadTimestamp = lastReadValue;
-          }
-        }
-        
-        // Listen to messages for unread count
-        const messagesRef = collection(db, 'rides', rideDoc.id, 'messages');
-        const messagesQuery = query(messagesRef, orderBy('timestamp', 'desc'));
-        
-        const unsubMsg = onSnapshot(messagesQuery, (msgSnapshot) => {
-          const thread = rideThreadsMap.get(rideDoc.id);
-          if (!thread) return;
-          
-          if (thread.lastReadTimestamp) {
-            const lastReadTime = thread.lastReadTimestamp.toDate ? thread.lastReadTimestamp.toDate() : new Date(0);
-            thread.unreadCount = msgSnapshot.docs.filter(doc => {
-              const msgData = doc.data();
-              const msgTime = msgData.timestamp?.toDate ? msgData.timestamp.toDate() : new Date(0);
-              return msgTime > lastReadTime && msgData.senderId !== user.uid;
-            }).length;
-          } else {
-            thread.unreadCount = msgSnapshot.docs.filter(doc => 
-              doc.data().senderId !== user.uid
-            ).length;
-          }
-          updateAllThreadsState();
-        });
-        
-        messageUnsubscribers.push(unsubMsg);
-        
-        // Listen to ride doc for lastRead changes
-        const rideDocRef = doc(db, 'rides', rideDoc.id);
-        const unsubRideDoc = onSnapshot(rideDocRef, (updatedDoc) => {
-          const thread = rideThreadsMap.get(rideDoc.id);
-          if (!thread) return;
-          
-          const updatedData = updatedDoc.data();
-          if (updatedData) {
-            const newLastRead = updatedData[`lastRead_${user.uid}`];
-            if (newLastRead !== undefined && newLastRead !== null) {
-              thread.lastReadTimestamp = newLastRead;
-              updateAllThreadsState();
-            }
-          }
-        });
-        
-        messageUnsubscribers.push(unsubRideDoc);
-      });
-      
-      updateAllThreadsState();
-    });
-
-    // Listen to direct message threads
-    const directMessagesRef = collection(db, 'directMessages');
-    const directQuery = query(directMessagesRef, where('participants', 'array-contains', user.uid));
-    
-    const unsubDirect = onSnapshot(directQuery, (snapshot) => {
-      snapshot.docs.forEach((threadDoc) => {
-        const threadData = threadDoc.data();
-        const otherUserId = threadData.participants.find(id => id !== user.uid);
-        const lastReadValue = threadData[`lastRead_${user.uid}`];
-        let initialLastRead = lastReadValue && lastReadValue !== null ? lastReadValue : null;
-        
-        if (!directThreadsMap.has(threadDoc.id)) {
-          directThreadsMap.set(threadDoc.id, {
-            id: threadDoc.id,
-            type: 'direct',
-            unreadCount: 0,
-            lastReadTimestamp: initialLastRead,
-            otherUserId: otherUserId
-          });
-        } else {
-          const existing = directThreadsMap.get(threadDoc.id);
-          if (lastReadValue && lastReadValue !== null) {
-            existing.lastReadTimestamp = lastReadValue;
-          }
-        }
-        
-        // Listen to messages for unread count
-        const messagesRef = collection(db, 'directMessages', threadDoc.id, 'messages');
-        const messagesQuery = query(messagesRef, orderBy('timestamp', 'desc'));
-        
-        const unsubMsg = onSnapshot(messagesQuery, (msgSnapshot) => {
-          const thread = directThreadsMap.get(threadDoc.id);
-          if (!thread) return;
-          
-          if (thread.lastReadTimestamp) {
-            const lastReadTime = thread.lastReadTimestamp.toDate ? thread.lastReadTimestamp.toDate() : new Date(0);
-            thread.unreadCount = msgSnapshot.docs.filter(doc => {
-              const msgData = doc.data();
-              const msgTime = msgData.timestamp?.toDate ? msgData.timestamp.toDate() : new Date(0);
-              return msgTime > lastReadTime && msgData.senderId === thread.otherUserId;
-            }).length;
-          } else {
-            thread.unreadCount = msgSnapshot.docs.filter(doc => 
-              doc.data().senderId === thread.otherUserId
-            ).length;
-          }
-          updateAllThreadsState();
-        });
-        
-        messageUnsubscribers.push(unsubMsg);
-        
-        // Listen to thread doc for lastRead changes
-        const threadDocRef = doc(db, 'directMessages', threadDoc.id);
-        const unsubThreadDoc = onSnapshot(threadDocRef, (updatedDoc) => {
-          const thread = directThreadsMap.get(threadDoc.id);
-          if (!thread) return;
-          
-          const updatedData = updatedDoc.data();
-          if (updatedData) {
-            const newLastRead = updatedData[`lastRead_${user.uid}`];
-            if (newLastRead !== undefined && newLastRead !== null) {
-              thread.lastReadTimestamp = newLastRead;
-              updateAllThreadsState();
-            }
-          }
-        });
-        
-        messageUnsubscribers.push(unsubThreadDoc);
-      });
-      
-      updateAllThreadsState();
-    });
-
-    return () => {
-      unsubRides();
-      unsubDirect();
-      messageUnsubscribers.forEach(unsub => unsub());
-    };
-  }, [user]);
-
   // Fetch messages for selected thread
   useEffect(() => {
     if (!selectedThread || !user) return;
@@ -657,12 +484,10 @@ export default function Messages() {
         (error) => {
           // Handle permission errors gracefully
           if (error.code === 'permission-denied') {
-            console.log('Permission denied - waiting for participant access. Retrying in 2s...');
             setMessages([]);
             
             // Retry after 2 seconds - user might be added as participant
             retryTimeout = setTimeout(() => {
-              console.log('Retrying message listener...');
               if (unsubscribe) unsubscribe();
               setupListener();
             }, 2000);
@@ -896,12 +721,12 @@ export default function Messages() {
             <div className="flex gap-4 bg-white/5 p-1 rounded-2xl backdrop-blur-xl bg-[#0A0A0A]" style={{height:"6vh", marginTop:"5vh",background:"#0A0A0A"}}>
               {categories.map(category => {
                 const Icon = category.icon;
-                // Calculate unread count for this category from allThreads (tracks all categories)
+                // Get unread count for this category from context
                 let categoryUnread = 0;
                 if (category.id === 'rides') {
-                  categoryUnread = allThreads.rides.reduce((sum, thread) => sum + (thread.unreadCount || 0), 0);
+                  categoryUnread = rideUnreadCount;
                 } else if (category.id === 'direct') {
-                  categoryUnread = allThreads.direct.reduce((sum, thread) => sum + (thread.unreadCount || 0), 0);
+                  categoryUnread = directUnreadCount;
                 }
                 
                 return (
@@ -921,7 +746,7 @@ export default function Messages() {
                     <span className="text-sm">{category.label}</span>
                     {categoryUnread > 0 && (
                       <div className="absolute -top-1 -right-1 bg-red-500 text-white text-[9px] font-bold rounded-full min-w-[16px] h-4 flex items-center justify-center px-1.5">
-                        {categoryUnread > 99 ? '99+' : categoryUnread}
+                        {categoryUnread > 9 ? '9+' : categoryUnread}
                       </div>
                     )}
                   </button>

@@ -1,5 +1,5 @@
 __turbopack_load_page_chunks__("/messages", [
-  "static/chunks/[root-of-the-server]__1fc05183._.js",
+  "static/chunks/[root-of-the-server]__adbaf4aa._.js",
   "static/chunks/node_modules_next_dist_compiled_caaa605a._.js",
   "static/chunks/node_modules_next_dist_shared_lib_82dc2e9d._.js",
   "static/chunks/node_modules_next_dist_client_d0aa886c._.js",
@@ -17,5 +17,5 @@ __turbopack_load_page_chunks__("/messages", [
   "static/chunks/node_modules_@firebase_storage_dist_index_esm_c28a6df1.js",
   "static/chunks/node_modules_3bff678e._.js",
   "static/chunks/pages_messages_2da965e7._.js",
-  "static/chunks/turbopack-pages_messages_4c3427e9._.js"
+  "static/chunks/turbopack-pages_messages_bcac965f._.js"
 ])

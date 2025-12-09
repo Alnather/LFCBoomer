@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/lib/firebase";
+import { UnreadProvider } from "@/context/UnreadContext";
 import TopBar from "@/components/TopBar";
 import BottomNav from "@/components/BottomNav";
 import MessageNotification from "@/components/MessageNotification";
@@ -43,16 +44,18 @@ export default function App({ Component, pageProps }) {
   const showNav = !isAuthPage || !user; // Show nav on auth pages when not logged in
 
   return (
-    <div className="app-layout">
-      <TopBar user={user} isAuthPage={isAuthPage} />
-      <MessageNotification user={user} />
-      <main className="flex-1 w-full flex justify-center" style={{ marginTop: '10vh' }}>
-        <div className="w-full max-w-2xl md:max-w-7xl px-6">
-          <Component {...pageProps} user={user} loading={loading} />
-        </div>
-      </main>
-      <BottomNav user={user} isAuthPage={isAuthPage} />
-    </div>
+    <UnreadProvider user={user}>
+      <div className="app-layout">
+        <TopBar user={user} isAuthPage={isAuthPage} />
+        <MessageNotification user={user} />
+        <main className="flex-1 w-full flex justify-center" style={{ marginTop: '10vh' }}>
+          <div className="w-full max-w-2xl md:max-w-7xl px-6">
+            <Component {...pageProps} user={user} loading={loading} />
+          </div>
+        </main>
+        <BottomNav user={user} isAuthPage={isAuthPage} />
+      </div>
+    </UnreadProvider>
   );
 }
 

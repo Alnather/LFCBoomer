@@ -1,12 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { FiUser, FiShoppingBag, FiInfo, FiMessageCircle, FiUsers, FiLogIn } from 'react-icons/fi';
 import { IoCarSport } from 'react-icons/io5';
 import Link from 'next/link';
-import { db, auth } from '../lib/firebase';
-import { collection, query, where, onSnapshot, orderBy, doc } from 'firebase/firestore';
-import { onAuthStateChanged } from 'firebase/auth';
+import { useUnread } from '@/context/UnreadContext';
 
 const colorPalettes = {
   "Midnight Red": {
@@ -163,9 +161,8 @@ export default function TopBar({ user, isAuthPage }) {
   const router = useRouter();
   const currentPath = router.pathname;
   const [selectedPalette, setSelectedPalette] = useState("Midnight Red");
-  const [currentUser, setCurrentUser] = useState(null);
-  const [unreadCount, setUnreadCount] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const { unreadCount } = useUnread();
 
   // Check if mobile
   useEffect(() => {
@@ -176,181 +173,6 @@ export default function TopBar({ user, isAuthPage }) {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-
-  // Check authentication
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (authUser) => {
-      setCurrentUser(authUser);
-    });
-    return () => unsubscribe();
-  }, []);
-
-  // Track unread messages using client-side filtering
-  useEffect(() => {
-    if (!currentUser) {
-      setUnreadCount(0);
-      return;
-    }
-
-    const threadData = new Map();
-    const messageUnsubscribers = new Map();
-    const docUnsubscribers = new Map();
-    const unsubscribers = [];
-
-    const calculateUnreadForThread = (threadKey) => {
-      const data = threadData.get(threadKey);
-      if (!data || !data.messages) return 0;
-      
-      const lastReadTime = data.lastReadTimestamp?.toDate ? data.lastReadTimestamp.toDate() : new Date(0);
-      
-      return data.messages.filter(msg => {
-        const msgTime = msg.timestamp?.toDate ? msg.timestamp.toDate() : new Date(0);
-        if (data.type === 'ride') {
-          return msgTime > lastReadTime && msg.senderId !== currentUser.uid;
-        } else {
-          return msgTime > lastReadTime && msg.senderId === data.otherUserId;
-        }
-      }).length;
-    };
-
-    const updateTotalUnread = () => {
-      let total = 0;
-      threadData.forEach((_, threadKey) => {
-        total += calculateUnreadForThread(threadKey);
-      });
-      setUnreadCount(total);
-    };
-
-    // Track rides
-    const ridesRef = collection(db, 'rides');
-    const ridesQuery = query(ridesRef, where('participants', 'array-contains', currentUser.uid));
-    
-    const unsubRides = onSnapshot(ridesQuery, (snapshot) => {
-      snapshot.docs.forEach((rideDoc) => {
-        const rideData = rideDoc.data();
-        const threadKey = 'ride_' + rideDoc.id;
-        
-        if (!threadData.has(threadKey)) {
-          threadData.set(threadKey, {
-            type: 'ride',
-            lastReadTimestamp: rideData[`lastRead_${currentUser.uid}`],
-            messages: []
-          });
-        } else {
-          const existing = threadData.get(threadKey);
-          const newLastRead = rideData[`lastRead_${currentUser.uid}`];
-          if (newLastRead !== null && newLastRead !== undefined) {
-            existing.lastReadTimestamp = newLastRead;
-          }
-        }
-        
-        // Set up document listener for lastRead changes
-        if (!docUnsubscribers.has(threadKey)) {
-          const rideDocRef = doc(db, 'rides', rideDoc.id);
-          const unsubDoc = onSnapshot(rideDocRef, (updatedDoc) => {
-            const data = threadData.get(threadKey);
-            if (!data) return;
-            
-            const updatedData = updatedDoc.data();
-            if (updatedData) {
-              const newLastRead = updatedData[`lastRead_${currentUser.uid}`];
-              if (newLastRead !== null && newLastRead !== undefined) {
-                data.lastReadTimestamp = newLastRead;
-                updateTotalUnread();
-              }
-            }
-          });
-          docUnsubscribers.set(threadKey, unsubDoc);
-        }
-        
-        // Set up messages listener
-        if (!messageUnsubscribers.has(threadKey)) {
-          const messagesRef = collection(db, 'rides', rideDoc.id, 'messages');
-          const messagesQuery = query(messagesRef, orderBy('timestamp', 'desc'));
-          
-          const unsubMsg = onSnapshot(messagesQuery, (msgSnap) => {
-            const data = threadData.get(threadKey);
-            if (data) {
-              data.messages = msgSnap.docs.map(d => d.data());
-              updateTotalUnread();
-            }
-          });
-          
-          messageUnsubscribers.set(threadKey, unsubMsg);
-        }
-      });
-    });
-
-    // Track direct messages
-    const directRef = collection(db, 'directMessages');
-    const directQuery = query(directRef, where('participants', 'array-contains', currentUser.uid));
-    
-    const unsubDirect = onSnapshot(directQuery, (snapshot) => {
-      snapshot.docs.forEach((threadDoc) => {
-        const dmData = threadDoc.data();
-        const otherUserId = dmData.participants.find(id => id !== currentUser.uid);
-        const threadKey = 'direct_' + threadDoc.id;
-        
-        if (!threadData.has(threadKey)) {
-          threadData.set(threadKey, {
-            type: 'direct',
-            lastReadTimestamp: dmData[`lastRead_${currentUser.uid}`],
-            otherUserId: otherUserId,
-            messages: []
-          });
-        } else {
-          const existing = threadData.get(threadKey);
-          const newLastRead = dmData[`lastRead_${currentUser.uid}`];
-          if (newLastRead !== null && newLastRead !== undefined) {
-            existing.lastReadTimestamp = newLastRead;
-          }
-        }
-        
-        // Set up document listener for lastRead changes
-        if (!docUnsubscribers.has(threadKey)) {
-          const threadDocRef = doc(db, 'directMessages', threadDoc.id);
-          const unsubDoc = onSnapshot(threadDocRef, (updatedDoc) => {
-            const data = threadData.get(threadKey);
-            if (!data) return;
-            
-            const updatedData = updatedDoc.data();
-            if (updatedData) {
-              const newLastRead = updatedData[`lastRead_${currentUser.uid}`];
-              if (newLastRead !== null && newLastRead !== undefined) {
-                data.lastReadTimestamp = newLastRead;
-                updateTotalUnread();
-              }
-            }
-          });
-          docUnsubscribers.set(threadKey, unsubDoc);
-        }
-        
-        // Set up messages listener
-        if (!messageUnsubscribers.has(threadKey)) {
-          const messagesRef = collection(db, 'directMessages', threadDoc.id, 'messages');
-          const messagesQuery = query(messagesRef, orderBy('timestamp', 'desc'));
-          
-          const unsubMsg = onSnapshot(messagesQuery, (msgSnap) => {
-            const data = threadData.get(threadKey);
-            if (data) {
-              data.messages = msgSnap.docs.map(d => d.data());
-              updateTotalUnread();
-            }
-          });
-          
-          messageUnsubscribers.set(threadKey, unsubMsg);
-        }
-      });
-    });
-
-    unsubscribers.push(unsubRides, unsubDirect);
-
-    return () => {
-      unsubscribers.forEach(unsub => unsub());
-      messageUnsubscribers.forEach(unsub => unsub());
-      docUnsubscribers.forEach(unsub => unsub());
-    };
-  }, [currentUser]);
 
   const navItems = user ? [
     { id: 'campus', label: 'Campus', icon: FiInfo, path: '/campus' },
