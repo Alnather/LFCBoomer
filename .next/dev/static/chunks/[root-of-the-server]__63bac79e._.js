@@ -489,7 +489,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2
 ;
 ;
 const firebaseConfig = {
-    apiKey: ("TURBOPACK compile-time value", "AIzaSyAl56SCv-uBfILQGfdMkaJzs0IDwGOBUvA"),
+    apiKey: ("TURBOPACK compile-time value", "AIzaSyA8ij5ko2vB1fE2P7FIOcWOJbAinRpbn4Q"),
     authDomain: "lfcboomer.firebaseapp.com",
     projectId: "lfcboomer",
     storageBucket: "lfcboomer.firebasestorage.app",

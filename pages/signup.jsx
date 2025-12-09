@@ -20,16 +20,8 @@ export default function Signup() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
-        // Reload to get latest verification status
-        await currentUser.reload();
-        const refreshedUser = auth.currentUser;
-        if (refreshedUser?.emailVerified) {
-          // Email verified, go to home
-          router.push('/rides');
-        } else if (refreshedUser) {
-          // Email not verified, go to verification page
-          router.push('/verify-email');
-        }
+        // User is logged in, redirect to rides
+        router.push('/rides');
       }
     });
     return () => unsubscribe();
@@ -63,8 +55,6 @@ export default function Signup() {
       // Create user with Firebase Auth (client-side)
       const userCred = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(userCred.user, { displayName: name });
-      // Send email verification
-      await sendEmailVerification(userCred.user);
       // Create user document in Firestore (lowercase "users")
       const userData = {
         name: name,
@@ -76,8 +66,8 @@ export default function Signup() {
         preferences: {},
       };
       await setDoc(doc(db, "users", userCred.user.uid), userData);
-      // Redirect to verification page
-      router.push("/verify-email");
+      // Redirect to rides page
+      router.push("/rides");
     } catch (err) {
       let friendly = "Signup failed. Please try again.";
       if (err.code === "auth/email-already-in-use") {

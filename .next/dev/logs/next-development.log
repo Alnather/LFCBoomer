@@ -154,3 +154,27 @@ Import trace:
 [01:04:40.235] Server  LOG      ✓ Compiled in 35ms
 [01:04:54.689] Server  LOG      ✓ Compiled in 53ms
 [01:06:36.771] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:18:45.869] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:25:21.576] Server  LOG        Reload env: .env.local
+[01:25:21.633] Server  LOG      ✓ Compiled in 16ms
+[01:27:39.270] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:28:31.540] Browser ERROR   [2025-12-09T07:14:51.501Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[01:56:33.656] Server  LOG      ✓ Compiled in 47ms
+[02:00:31.816] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[02:00:46.963] Browser ERROR   Error fetching listings: {"code":"permission-denied","name":"FirebaseError"}
+[02:01:15.980] Browser ERROR   Error fetching listings: {"code":"permission-denied","name":"FirebaseError"}
+[02:01:18.660] Server  LOG      ✓ Compiled in 52ms
+[02:01:21.037] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[02:01:21.871] Browser ERROR   Error fetching listings: {"code":"permission-denied","name":"FirebaseError"}
+[02:01:45.345] Browser ERROR   Error fetching listings: {"code":"permission-denied","name":"FirebaseError"}
+[02:01:47.447] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[02:01:55.187] Server  LOG      ✓ Compiled in 130ms
+[02:01:55.437] Browser LOG     Refreshing page data due to server-side change
+[02:01:59.139] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[14:28:46.393] Server  LOG      ✓ Compiled in 61ms
+[14:30:59.675] Server  LOG      ✓ Compiled in 10ms
+[16:20:19.580] Server  LOG      ✓ Compiled in 23ms
+[16:20:31.906] Server  LOG      ✓ Compiled in 13ms
+[16:20:57.828] Server  LOG      ✓ Compiled in 8ms
+[16:21:34.369] Server  LOG      ✓ Compiled in 35ms
+[16:23:01.124] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior

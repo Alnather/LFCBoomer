@@ -118,7 +118,7 @@ var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
 ;
 ;
 const firebaseConfig = {
-    apiKey: ("TURBOPACK compile-time value", "AIzaSyAl56SCv-uBfILQGfdMkaJzs0IDwGOBUvA"),
+    apiKey: ("TURBOPACK compile-time value", "AIzaSyA8ij5ko2vB1fE2P7FIOcWOJbAinRpbn4Q"),
     authDomain: "lfcboomer.firebaseapp.com",
     projectId: "lfcboomer",
     storageBucket: "lfcboomer.firebasestorage.app",

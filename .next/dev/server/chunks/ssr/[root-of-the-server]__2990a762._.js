@@ -58,7 +58,7 @@ function VerifyEmail() {
         setResending(true);
         try {
             await (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__["sendEmailVerification"])(user);
-            setMessage("Verification email sent! Please check your inbox.");
+            setMessage("Verification email sent! Please check your inbox and spam, it can take up to 3 minutes.");
         } catch (err) {
             setError(err.message || "Failed to resend verification email");
         } finally{
@@ -73,7 +73,7 @@ function VerifyEmail() {
                 setMessage("Email verified! Redirecting...");
                 setTimeout(()=>router.push("/"), 2000);
             } else {
-                setError("Email not verified yet. Please check your inbox and click the verification link.");
+                setError("Email not verified yet. Please check your inbox and spam, and click the verification link.");
             }
         } catch (err) {
             setError("Failed to check verification status");
@@ -175,7 +175,7 @@ function VerifyEmail() {
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
                                     className: "text-sm mt-3",
-                                    children: "Please check your inbox and click the verification link to activate your account."
+                                    children: "Please check your inbox and spam, and click the verification link to activate your account."
                                 }, void 0, false, {
                                     fileName: "[project]/pages/verify-email.jsx",
                                     lineNumber: 95,

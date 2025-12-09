@@ -218,7 +218,6 @@ function CreateRide() {
                 ]
             };
             const docRef = await (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["addDoc"])((0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'rides'), rideData);
-            console.log('Ride created with ID:', docRef.id);
             // Add system welcome message to the ride
             const messagesRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'rides', docRef.id, 'messages');
             await (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["addDoc"])(messagesRef, {
@@ -248,7 +247,7 @@ function CreateRide() {
                         className: "jsx-1bfe117c79888d07"
                     }, void 0, false, {
                         fileName: "[project]/pages/create-ride.jsx",
-                        lineNumber: 227,
+                        lineNumber: 225,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("meta", {
@@ -258,7 +257,7 @@ function CreateRide() {
                         className: "jsx-1bfe117c79888d07"
                     }, void 0, false, {
                         fileName: "[project]/pages/create-ride.jsx",
-                        lineNumber: 228,
+                        lineNumber: 226,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("meta", {
@@ -267,7 +266,7 @@ function CreateRide() {
                         className: "jsx-1bfe117c79888d07"
                     }, void 0, false, {
                         fileName: "[project]/pages/create-ride.jsx",
-                        lineNumber: 229,
+                        lineNumber: 227,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("meta", {
@@ -276,7 +275,7 @@ function CreateRide() {
                         className: "jsx-1bfe117c79888d07"
                     }, void 0, false, {
                         fileName: "[project]/pages/create-ride.jsx",
-                        lineNumber: 230,
+                        lineNumber: 228,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("meta", {
@@ -285,7 +284,7 @@ function CreateRide() {
                         className: "jsx-1bfe117c79888d07"
                     }, void 0, false, {
                         fileName: "[project]/pages/create-ride.jsx",
-                        lineNumber: 231,
+                        lineNumber: 229,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("meta", {
@@ -294,13 +293,13 @@ function CreateRide() {
                         className: "jsx-1bfe117c79888d07"
                     }, void 0, false, {
                         fileName: "[project]/pages/create-ride.jsx",
-                        lineNumber: 232,
+                        lineNumber: 230,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/pages/create-ride.jsx",
-                lineNumber: 226,
+                lineNumber: 224,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -356,12 +355,12 @@ function CreateRide() {
                                                 className: "text-white"
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                lineNumber: 255,
+                                                lineNumber: 253,
                                                 columnNumber: 17
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/pages/create-ride.jsx",
-                                            lineNumber: 247,
+                                            lineNumber: 245,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].h1, {
@@ -382,23 +381,23 @@ function CreateRide() {
                                             children: "Create Ride"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/create-ride.jsx",
-                                            lineNumber: 257,
+                                            lineNumber: 255,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/pages/create-ride.jsx",
-                                    lineNumber: 246,
+                                    lineNumber: 244,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/pages/create-ride.jsx",
-                                lineNumber: 245,
+                                lineNumber: 243,
                                 columnNumber: 11
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/create-ride.jsx",
-                            lineNumber: 238,
+                            lineNumber: 236,
                             columnNumber: 9
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
@@ -435,7 +434,7 @@ function CreateRide() {
                                                 className: "jsx-1bfe117c79888d07" + " " + "absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-[1rem] blur-2xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                lineNumber: 285,
+                                                lineNumber: 283,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -446,7 +445,7 @@ function CreateRide() {
                                                         size: 22
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                        lineNumber: 287,
+                                                        lineNumber: 285,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
@@ -471,7 +470,7 @@ function CreateRide() {
                                                         className: "jsx-1bfe117c79888d07" + " " + "w-full pr-6 backdrop-blur-xl border-2 border-white/20 rounded-[1rem] text-white text-lg font-semibold placeholder-gray-400 focus:border-primary/50 focus:outline-none transition-all duration-300 shadow-xl"
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                        lineNumber: 288,
+                                                        lineNumber: 286,
                                                         columnNumber: 17
                                                     }, this),
                                                     showSuggestions && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
@@ -509,25 +508,25 @@ function CreateRide() {
                                                                                     className: "jsx-1bfe117c79888d07" + " " + "h-4 bg-white/10 rounded animate-pulse w-3/4"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/pages/create-ride.jsx",
-                                                                                    lineNumber: 321,
+                                                                                    lineNumber: 319,
                                                                                     columnNumber: 33
                                                                                 }, this),
                                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
                                                                                     className: "jsx-1bfe117c79888d07" + " " + "h-3 bg-white/5 rounded animate-pulse w-1/2"
                                                                                 }, void 0, false, {
                                                                                     fileName: "[project]/pages/create-ride.jsx",
-                                                                                    lineNumber: 322,
+                                                                                    lineNumber: 320,
                                                                                     columnNumber: 33
                                                                                 }, this)
                                                                             ]
                                                                         }, void 0, true, {
                                                                             fileName: "[project]/pages/create-ride.jsx",
-                                                                            lineNumber: 320,
+                                                                            lineNumber: 318,
                                                                             columnNumber: 31
                                                                         }, this)
                                                                     }, i, false, {
                                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                                        lineNumber: 319,
+                                                                        lineNumber: 317,
                                                                         columnNumber: 29
                                                                     }, this))
                                                             }, void 0, false) : suggestions.length > 0 ? suggestions.slice(0, 3).map((suggestion, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
@@ -553,7 +552,7 @@ function CreateRide() {
                                                                                 children: suggestion.placePrediction?.structuredFormat?.mainText?.text || suggestion.placePrediction?.text?.text || ''
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                                                lineNumber: 339,
+                                                                                lineNumber: 337,
                                                                                 columnNumber: 31
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -561,40 +560,40 @@ function CreateRide() {
                                                                                 children: suggestion.placePrediction?.structuredFormat?.secondaryText?.text || ''
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                                                lineNumber: 342,
+                                                                                lineNumber: 340,
                                                                                 columnNumber: 31
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                                        lineNumber: 338,
+                                                                        lineNumber: 336,
                                                                         columnNumber: 29
                                                                     }, this)
                                                                 }, suggestion.placePrediction?.placeId || index, false, {
                                                                     fileName: "[project]/pages/create-ride.jsx",
-                                                                    lineNumber: 329,
+                                                                    lineNumber: 327,
                                                                     columnNumber: 27
                                                                 }, this)) : null
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/create-ride.jsx",
-                                                            lineNumber: 314,
+                                                            lineNumber: 312,
                                                             columnNumber: 21
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                        lineNumber: 308,
+                                                        lineNumber: 306,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                lineNumber: 286,
+                                                lineNumber: 284,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pages/create-ride.jsx",
-                                        lineNumber: 280,
+                                        lineNumber: 278,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -617,7 +616,7 @@ function CreateRide() {
                                                             children: day.label
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/create-ride.jsx",
-                                                            lineNumber: 370,
+                                                            lineNumber: 368,
                                                             columnNumber: 21
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -625,23 +624,23 @@ function CreateRide() {
                                                             children: day.full.split(' ')[1]
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/create-ride.jsx",
-                                                            lineNumber: 371,
+                                                            lineNumber: 369,
                                                             columnNumber: 21
                                                         }, this)
                                                     ]
                                                 }, index, true, {
                                                     fileName: "[project]/pages/create-ride.jsx",
-                                                    lineNumber: 359,
+                                                    lineNumber: 357,
                                                     columnNumber: 19
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/pages/create-ride.jsx",
-                                            lineNumber: 357,
+                                            lineNumber: 355,
                                             columnNumber: 15
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/pages/create-ride.jsx",
-                                        lineNumber: 356,
+                                        lineNumber: 354,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -660,7 +659,7 @@ function CreateRide() {
                                                         className: "jsx-1bfe117c79888d07" + " " + "absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-[1rem] blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                        lineNumber: 385,
+                                                        lineNumber: 383,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -671,7 +670,7 @@ function CreateRide() {
                                                                 size: 20
                                                             }, void 0, false, {
                                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                                lineNumber: 387,
+                                                                lineNumber: 385,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$datepicker$2f$dist$2f$index$2e$es$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -687,19 +686,19 @@ function CreateRide() {
                                                                 required: true
                                                             }, void 0, false, {
                                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                                lineNumber: 388,
+                                                                lineNumber: 386,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                        lineNumber: 386,
+                                                        lineNumber: 384,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                lineNumber: 380,
+                                                lineNumber: 378,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
@@ -712,7 +711,7 @@ function CreateRide() {
                                                         className: "jsx-1bfe117c79888d07" + " " + "absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-[1rem] blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                        lineNumber: 406,
+                                                        lineNumber: 404,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -723,7 +722,7 @@ function CreateRide() {
                                                                 size: 20
                                                             }, void 0, false, {
                                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                                lineNumber: 408,
+                                                                lineNumber: 406,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$datepicker$2f$dist$2f$index$2e$es$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -739,19 +738,19 @@ function CreateRide() {
                                                                 required: true
                                                             }, void 0, false, {
                                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                                lineNumber: 409,
+                                                                lineNumber: 407,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                        lineNumber: 407,
+                                                        lineNumber: 405,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                lineNumber: 402,
+                                                lineNumber: 400,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
@@ -764,7 +763,7 @@ function CreateRide() {
                                                         className: "jsx-1bfe117c79888d07" + " " + "absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-[1rem] blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                        lineNumber: 429,
+                                                        lineNumber: 427,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -775,7 +774,7 @@ function CreateRide() {
                                                                 size: 20
                                                             }, void 0, false, {
                                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                                lineNumber: 431,
+                                                                lineNumber: 429,
                                                                 columnNumber: 19
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
@@ -799,25 +798,25 @@ function CreateRide() {
                                                                 className: "jsx-1bfe117c79888d07" + " " + "w-full pl-11 pr-3 py-4 backdrop-blur-xl border-2 border-white/20 rounded-[1rem] text-white text-sm font-semibold placeholder-gray-400 focus:border-primary/50 focus:outline-none transition-all duration-300 shadow-xl pl-3 h-5"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                                lineNumber: 432,
+                                                                lineNumber: 430,
                                                                 columnNumber: 19
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                        lineNumber: 430,
+                                                        lineNumber: 428,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                lineNumber: 425,
+                                                lineNumber: 423,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pages/create-ride.jsx",
-                                        lineNumber: 378,
+                                        lineNumber: 376,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
@@ -833,7 +832,7 @@ function CreateRide() {
                                                 className: "jsx-1bfe117c79888d07" + " " + "absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-[1rem] blur-2xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                lineNumber: 460,
+                                                lineNumber: 458,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -844,7 +843,7 @@ function CreateRide() {
                                                         size: 20
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                        lineNumber: 462,
+                                                        lineNumber: 460,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("textarea", {
@@ -860,19 +859,19 @@ function CreateRide() {
                                                         className: "jsx-1bfe117c79888d07" + " " + "w-full pl-14 pr-6 py-5 backdrop-blur-xl border-2 border-white/20 rounded-[1rem] text-white text-base placeholder-gray-400 focus:border-primary/50 focus:outline-none transition-all duration-300 resize-none shadow-xl"
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                        lineNumber: 463,
+                                                        lineNumber: 461,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                lineNumber: 461,
+                                                lineNumber: 459,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pages/create-ride.jsx",
-                                        lineNumber: 455,
+                                        lineNumber: 453,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].div, {
@@ -885,7 +884,7 @@ function CreateRide() {
                                                 className: "jsx-1bfe117c79888d07" + " " + "absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-[1rem] blur-2xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"
                                             }, void 0, false, {
                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                lineNumber: 479,
+                                                lineNumber: 477,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -896,7 +895,7 @@ function CreateRide() {
                                                         size: 22
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                        lineNumber: 481,
+                                                        lineNumber: 479,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
@@ -912,19 +911,19 @@ function CreateRide() {
                                                         className: "jsx-1bfe117c79888d07" + " " + "w-full pr-6 backdrop-blur-xl border-2 border-white/20 rounded-[1rem] text-white text-lg font-semibold placeholder-gray-400 focus:border-primary/50 focus:outline-none transition-all duration-300 shadow-xl"
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/create-ride.jsx",
-                                                        lineNumber: 482,
+                                                        lineNumber: 480,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pages/create-ride.jsx",
-                                                lineNumber: 480,
+                                                lineNumber: 478,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pages/create-ride.jsx",
-                                        lineNumber: 475,
+                                        lineNumber: 473,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__["motion"].button, {
@@ -946,29 +945,29 @@ function CreateRide() {
                                         children: submitting ? 'Creating Ride...' : 'Create Ride'
                                     }, void 0, false, {
                                         fileName: "[project]/pages/create-ride.jsx",
-                                        lineNumber: 495,
+                                        lineNumber: 493,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/create-ride.jsx",
-                                lineNumber: 278,
+                                lineNumber: 276,
                                 columnNumber: 11
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/create-ride.jsx",
-                            lineNumber: 271,
+                            lineNumber: 269,
                             columnNumber: 9
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/create-ride.jsx",
-                    lineNumber: 236,
+                    lineNumber: 234,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/pages/create-ride.jsx",
-                lineNumber: 235,
+                lineNumber: 233,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$styled$2d$jsx$2f$style$2e$js__$5b$external$5d$__$28$styled$2d$jsx$2f$style$2e$js$2c$__cjs$29$__["default"], {

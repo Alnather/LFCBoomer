@@ -18,16 +18,8 @@ export default function Login() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
-        // Reload to get latest verification status
-        await currentUser.reload();
-        const refreshedUser = auth.currentUser;
-        if (refreshedUser?.emailVerified) {
-          // Email verified, go to home
-          router.push('/rides');
-        } else if (refreshedUser) {
-          // Email not verified, go to verification page
-          router.push('/verify-email');
-        }
+        // User is logged in, redirect to rides
+        router.push('/rides');
       }
     });
     return () => unsubscribe();
@@ -42,16 +34,6 @@ export default function Login() {
     try {
       // Sign in with Firebase Auth (client-side)
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      // Reload user to get latest verification status from server
-      await userCredential.user.reload();
-      const refreshedUser = auth.currentUser;
-      // Check if email is verified
-      if (!refreshedUser || !refreshedUser.emailVerified) {
-        // Don't show error on page, just redirect to verify-email
-        // The auth state change will handle the redirect
-        setLoading(false);
-        return;
-      }
       // Redirect to home after successful login
       router.push("/rides");
       setLoading(false);
