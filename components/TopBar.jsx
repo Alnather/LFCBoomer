@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
-import { FiUser, FiShoppingBag, FiInfo, FiMessageCircle,FiUsers } from 'react-icons/fi';
+import { FiUser, FiShoppingBag, FiInfo, FiMessageCircle, FiUsers, FiLogIn } from 'react-icons/fi';
 import { IoCarSport } from 'react-icons/io5';
 import Link from 'next/link';
 import { db, auth } from '../lib/firebase';
@@ -298,7 +298,7 @@ export default function TopBar({ user, isAuthPage }) {
   ] : [
     { id: 'home', label: 'Home', icon: FiInfo, path: '/' },
     { id: 'signup', label: 'Sign Up', icon: FiUsers, path: '/signup' },
-    { id: 'login', label: 'Sign In', icon: FiMessageCircle, path: '/login' },
+    { id: 'login', label: 'Sign In', icon: FiLogIn, path: '/login' },
   ];
 
   const isActive = (path) => currentPath === path;

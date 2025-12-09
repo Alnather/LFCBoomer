@@ -1,13 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FiPlus, FiMapPin, FiCalendar, FiClock, FiUsers, FiChevronRight, FiArrowRight, FiList } from 'react-icons/fi';
 import { MdFlight, MdShoppingCart, MdLocationCity, MdArrowRightAlt, MdSchool } from 'react-icons/md';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { db } from '../lib/firebase';
+import { db, auth } from '../lib/firebase';
 import { collection, query, where, orderBy, onSnapshot } from 'firebase/firestore';
+import { onAuthStateChanged } from 'firebase/auth';
 
 // Utility function to capitalize first letters
 const capitalizeName = (name) => {
@@ -98,9 +99,33 @@ export default function Rides() {
   const [hoveredFAB, setHoveredFAB] = useState(null);
   const [dateFilter, setDateFilter] = useState(null); // For date picker filter
   const [showDateModal, setShowDateModal] = useState(false); // For date picker modal
+  const [isMobile, setIsMobile] = useState(false);
+  const [user, setUser] = useState(null);
+  const [authLoading, setAuthLoading] = useState(true);
   const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: containerRef });
-  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+
+  // Check authentication
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (!currentUser) {
+        router.push('/login');
+      } else {
+        setUser(currentUser);
+        setAuthLoading(false);
+      }
+    });
+    return () => unsubscribe();
+  }, [router]);
+
+  // Detect mobile screen
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Fuzzy search function
   const fuzzyMatch = (str, pattern) => {
@@ -210,6 +235,18 @@ export default function Rides() {
     return destinationThemes[themeKey];
   };
 
+  // Show loading state while checking authentication
+  if (authLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 mx-auto mb-4 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
+          <div className="text-gray-400 text-lg">Loading...</div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       <Head>
@@ -221,7 +258,7 @@ export default function Rides() {
       </Head>
       <div ref={containerRef} className="w-full pb-32">
       {/* Filters Section - Uber Style */}
-      <div className="sticky top-0 z-30 border-b border-white/5 pb-6 rounded-[3rem] md:place-self-center">
+      <div className=" top-0 z-30 border-b border-white/5 pb-6 rounded-[3rem] md:place-self-center">
         <div className="max-w-2xl md:max-w-6xl mx-auto px-6 pt-8">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -310,8 +347,8 @@ export default function Rides() {
         </div>
       </div>
 
-      {/* Rides Grid with Parallax */}
-      <motion.div style={{ y }} className="w-full pl-5 pr-5 pt-8 pb-32 custom-app-layout-mobile" >
+      {/* Rides Grid */}
+      <div className="w-full pl-5 pr-5 pt-8 pb-32 custom-app-layout-mobile" >
         <div className="max-w-2xl md:max-w-6xl mx-auto"  >
         {loading ? (
           <motion.div
@@ -390,16 +427,20 @@ export default function Rides() {
                       <div className="relative flex items-center pl-0" style={{ height: '70%' }}>
                         {/* Icon */}
                         <div
-                          className="h-full flex items-center justify-start flex-shrink-0 pl-3"
-                          style={{paddingLeft:"2vw",paddingRight:"6vw"}}
+                          className="h-full flex items-center justify-start flex-shrink-0"
+                          style={{paddingLeft: isMobile ? "6vw" : "2vw", paddingRight:"6vw"}}
                         >
-                          <DestIcon className={theme.iconColor} size={"3vw"} />
+                          <DestIcon className={theme.iconColor} size={48} style={{ minWidth: '48px', minHeight: '48px' }} />
                         </div>
 
                         {/* Text Content */}
                         <div className="flex-1 px-4 flex flex-col justify-center space-y-2">
                           {/* Location Name */}
-                          <h3 className="text-2xl font-bold text-white">
+                          <h3 className={`font-bold text-white ${
+                            ride.destination.length > 25 ? 'text-lg' : 
+                            ride.destination.length > 20 ? 'text-xl' : 
+                            'text-2xl'
+                          }`}>
                             {ride.destination}
                           </h3>
                           
@@ -455,7 +496,7 @@ export default function Rides() {
           </div>
         )}
         </div>
-      </motion.div>
+      </div>
 
       {/* Floating Action Buttons */}
       <div className="fixed bottom-28 right-6 flex flex-col gap-4 z-50 items-end">

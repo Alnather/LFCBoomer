@@ -256,32 +256,31 @@ export default function EditRide() {
         <title>Edit Ride - Boomer</title>
       </Head>
 
-      <div className="w-full min-h-screen pb-32" style={isMobile ? {paddingLeft:"4vw",paddingRight:"4vw"} : {}}>
+      <div className="w-full pb-32" style={{minHeight: 'var(--available-height)'}}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          style={{marginTop:"2vh"}}
-          className="sticky top-0 z-30 backdrop-blur-2xl border-b border-white/5 pb-6"
+          style={{marginTop:"2vh", marginBottom: "2vh"}}
+          className="backdrop-blur-2xl"
         >
-          <div className="max-w-2xl mx-auto px-6 pt-8">
-            <div className="flex items-center gap-4 mb-6">
+          <div className="max-w-6xl mx-auto px-6 md:px-12 py-4">
+            <div className="flex items-center gap-4">
               <motion.button
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.1, duration: 0.3 }}
-                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.05, x: -2 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => router.back()}
-                className="w-10 h-10 rounded-full backdrop-blur-xl  flex items-center justify-center hover:bg-white/10 transition-all"
+                className="p-2 rounded-full transition-all hover:bg-white/5 text-white"
               >
-                <HiArrowLeft size={24} className="text-white" />
+                <HiArrowLeft size={28} />
               </motion.button>
+              
+              {/* Page Title - Next to Arrow */}
               <motion.h1
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2, duration: 0.4 }}
-                className="text-3xl font-bold text-white"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-2xl md:text-3xl font-bold text-white"
               >
                 Edit Ride
               </motion.h1>
@@ -294,7 +293,7 @@ export default function EditRide() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          className="max-w-2xl mx-auto px-6 pt-8"
+          className="w-full mx-auto px-6 md:px-12 custom-app-layout-mobile"
           style={{marginTop:"5vh"}}
         >
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -316,7 +315,9 @@ export default function EditRide() {
                   }}
                   onFocus={() => {
                     setShowSuggestions(true);
-                    setIsLoadingSuggestions(true);
+                    if (destination) {
+                      fetchDestinationSuggestions(destination);
+                    }
                   }}
                   onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
                   placeholder="Destination"
@@ -375,7 +376,7 @@ export default function EditRide() {
 
             {/* Day Selector */}
             <div style={{ marginBottom: '4vh' }}>
-              <div className="grid gap-2" style={{ gridTemplateColumns: 'repeat(7, 1fr)' }}>
+              <div className={`grid gap-2 ${isMobile ? 'grid-cols-3' : 'grid-cols-7'}`}>
                 {visibleDays.map((day, index) => (
                   <motion.button
                     key={index}
@@ -518,7 +519,7 @@ export default function EditRide() {
               disabled={submitting}
               whileHover={{ scale: submitting ? 1 : 1.02 }}
               whileTap={{ scale: submitting ? 1 : 0.98 }}
-              style={{ marginBottom: '10vh' }}
+            //   style={{ marginBottom: '10vh' }}
               className={`relative w-full py-6 rounded-full text-white font-bold text-lg transition-all overflow-hidden ${
                 submitting ? 'cursor-not-allowed' : ''
               }`}

@@ -77,7 +77,7 @@ export default function VerifyEmail() {
 
   return (
     <div className=" flex items-center justify-center bg-[#171717] py-12 px-4 custom-app-layout-mobile"  style={{minHeight:"80vh"}} >
-      <div className="bg-[#171717] border border-white/10 p-8 rounded-2xl shadow-xl w-full max-w-md" style={{alignSelf:"center"}} >
+      <div className="bg-[#171717] border border-white/10 p-8 rounded-2xl shadow-xl w-full max-w-md" style={{alignSelf:"center",padding:"2vw"}} >
         <div className="text-center mb-8">
           <Link href="/" className="inline-block mb-4">
             <h1 className="text-3xl font-bold text-white" >Verify Your Email</h1>
@@ -86,7 +86,7 @@ export default function VerifyEmail() {
         </div>
 
         <div className="space-y-5">
-          <div className="bg-blue-500/10 border border-blue-500/30 text-blue-400 px-4 py-4 rounded-xl">
+          <div style={{textAlign:"center"}} className="bg-blue-500/10 border border-blue-500/30 text-blue-400 px-4 py-4 rounded-xl">
             <p className="text-sm">
               A verification email has been sent to:
             </p>
@@ -110,7 +110,7 @@ export default function VerifyEmail() {
 
           <button
             onClick={handleCheckVerification}
-            style={{height:"5vh",marginTop:"3vh"}}
+            style={{height:"5vh",marginTop:"3vh",marginBottom:"1vh"}}
             className="w-full py-3 px-4 bg-gradient-to-r from-primary to-accent hover:from-primary-dark hover:to-primary text-white font-semibold rounded-xl transition-all"
           >
             I've Verified My Email
@@ -119,7 +119,7 @@ export default function VerifyEmail() {
           <button
             onClick={handleResendVerification}
             disabled={resending}
-            style={{height:"5vh"}}
+            style={{height:"5vh",marginBottom:"3vh"}}
             className="w-full py-3 px-4 bg-white/10 hover:bg-white/20 disabled:bg-white/5 disabled:text-gray-600 text-white font-semibold rounded-xl transition-all border border-white/10 disabled:cursor-not-allowed"
           >
             {resending ? "Sending..." : "Resend Verification Email"}

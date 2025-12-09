@@ -12,16 +12,41 @@ var __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$run
 var __TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__ = __turbopack_context__.i("[externals]/framer-motion [external] (framer-motion, esm_import)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$fi$2f$index$2e$mjs__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-icons/fi/index.mjs [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/react [external] (react, cjs)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/router.js [ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/firebase.js [ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__ = __turbopack_context__.i("[externals]/firebase/auth [external] (firebase/auth, esm_import)");
 var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
-    __TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__
+    __TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__,
+    __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__,
+    __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__
 ]);
-[__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__;
+[__TURBOPACK__imported__module__$5b$externals$5d2f$framer$2d$motion__$5b$external$5d$__$28$framer$2d$motion$2c$__esm_import$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__;
+;
+;
+;
 ;
 ;
 ;
 ;
 function Marketplace() {
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const [products, setProducts] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])([]);
+    const [user, setUser] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(null);
+    const [authLoading, setAuthLoading] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(true);
+    // Check authentication
+    (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
+        const unsubscribe = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__["onAuthStateChanged"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["auth"], (currentUser)=>{
+            if (!currentUser) {
+                router.push('/login');
+            } else {
+                setUser(currentUser);
+                setAuthLoading(false);
+            }
+        });
+        return ()=>unsubscribe();
+    }, [
+        router
+    ]);
     (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
         // Fetch products from Fake Store API
         fetch('https://fakestoreapi.com/products?limit=12').then((res)=>res.json()).then((data)=>setProducts(data)).catch((err)=>console.error('Error fetching products:', err));
@@ -34,6 +59,39 @@ function Marketplace() {
         'Clothing',
         'Other'
     ];
+    if (authLoading) {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+            className: "min-h-screen flex items-center justify-center",
+            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                className: "text-center",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                        className: "w-16 h-16 mx-auto mb-4 border-4 border-primary/30 border-t-primary rounded-full animate-spin"
+                    }, void 0, false, {
+                        fileName: "[project]/pages/marketplace.jsx",
+                        lineNumber: 41,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                        className: "text-gray-400 text-lg",
+                        children: "Loading..."
+                    }, void 0, false, {
+                        fileName: "[project]/pages/marketplace.jsx",
+                        lineNumber: 42,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/pages/marketplace.jsx",
+                lineNumber: 40,
+                columnNumber: 9
+            }, this)
+        }, void 0, false, {
+            fileName: "[project]/pages/marketplace.jsx",
+            lineNumber: 39,
+            columnNumber: 7
+        }, this);
+    }
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
         className: "w-full bg-transparent pb-24 relative",
         children: [
@@ -48,7 +106,7 @@ function Marketplace() {
                                 children: "Categories"
                             }, void 0, false, {
                                 fileName: "[project]/pages/marketplace.jsx",
-                                lineNumber: 24,
+                                lineNumber: 54,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -61,12 +119,12 @@ function Marketplace() {
                                         children: cat
                                     }, cat, false, {
                                         fileName: "[project]/pages/marketplace.jsx",
-                                        lineNumber: 27,
+                                        lineNumber: 57,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/pages/marketplace.jsx",
-                                lineNumber: 25,
+                                lineNumber: 55,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -77,7 +135,7 @@ function Marketplace() {
                                         children: "Filters"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/marketplace.jsx",
-                                        lineNumber: 43,
+                                        lineNumber: 73,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -93,14 +151,14 @@ function Marketplace() {
                                                         size: 16
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/marketplace.jsx",
-                                                        lineNumber: 46,
+                                                        lineNumber: 76,
                                                         columnNumber: 17
                                                     }, this),
                                                     "Price Range"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pages/marketplace.jsx",
-                                                lineNumber: 45,
+                                                lineNumber: 75,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -113,14 +171,14 @@ function Marketplace() {
                                                         size: 16
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/marketplace.jsx",
-                                                        lineNumber: 50,
+                                                        lineNumber: 80,
                                                         columnNumber: 17
                                                     }, this),
                                                     "Condition"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pages/marketplace.jsx",
-                                                lineNumber: 49,
+                                                lineNumber: 79,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -133,32 +191,32 @@ function Marketplace() {
                                                         size: 16
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/marketplace.jsx",
-                                                        lineNumber: 54,
+                                                        lineNumber: 84,
                                                         columnNumber: 17
                                                     }, this),
                                                     "Sort By"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pages/marketplace.jsx",
-                                                lineNumber: 53,
+                                                lineNumber: 83,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pages/marketplace.jsx",
-                                        lineNumber: 44,
+                                        lineNumber: 74,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/marketplace.jsx",
-                                lineNumber: 42,
+                                lineNumber: 72,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/marketplace.jsx",
-                        lineNumber: 23,
+                        lineNumber: 53,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -177,7 +235,7 @@ function Marketplace() {
                                                     size: 20
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/marketplace.jsx",
-                                                    lineNumber: 68,
+                                                    lineNumber: 98,
                                                     columnNumber: 15
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("input", {
@@ -189,13 +247,13 @@ function Marketplace() {
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/marketplace.jsx",
-                                                    lineNumber: 69,
+                                                    lineNumber: 99,
                                                     columnNumber: 15
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/pages/marketplace.jsx",
-                                            lineNumber: 67,
+                                            lineNumber: 97,
                                             columnNumber: 13
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -209,12 +267,12 @@ function Marketplace() {
                                                     children: cat
                                                 }, cat, false, {
                                                     fileName: "[project]/pages/marketplace.jsx",
-                                                    lineNumber: 80,
+                                                    lineNumber: 110,
                                                     columnNumber: 17
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/pages/marketplace.jsx",
-                                            lineNumber: 78,
+                                            lineNumber: 108,
                                             columnNumber: 13
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -227,14 +285,14 @@ function Marketplace() {
                                                             size: 16
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/marketplace.jsx",
-                                                            lineNumber: 96,
+                                                            lineNumber: 126,
                                                             columnNumber: 17
                                                         }, this),
                                                         "Price Range"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/pages/marketplace.jsx",
-                                                    lineNumber: 95,
+                                                    lineNumber: 125,
                                                     columnNumber: 15
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -244,14 +302,14 @@ function Marketplace() {
                                                             size: 16
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/marketplace.jsx",
-                                                            lineNumber: 100,
+                                                            lineNumber: 130,
                                                             columnNumber: 17
                                                         }, this),
                                                         "Condition"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/pages/marketplace.jsx",
-                                                    lineNumber: 99,
+                                                    lineNumber: 129,
                                                     columnNumber: 15
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("button", {
@@ -261,31 +319,31 @@ function Marketplace() {
                                                             size: 16
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/marketplace.jsx",
-                                                            lineNumber: 104,
+                                                            lineNumber: 134,
                                                             columnNumber: 17
                                                         }, this),
                                                         "Sort By"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/pages/marketplace.jsx",
-                                                    lineNumber: 103,
+                                                    lineNumber: 133,
                                                     columnNumber: 15
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/pages/marketplace.jsx",
-                                            lineNumber: 94,
+                                            lineNumber: 124,
                                             columnNumber: 13
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/pages/marketplace.jsx",
-                                    lineNumber: 65,
+                                    lineNumber: 95,
                                     columnNumber: 11
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/pages/marketplace.jsx",
-                                lineNumber: 64,
+                                lineNumber: 94,
                                 columnNumber: 9
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -306,12 +364,12 @@ function Marketplace() {
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/marketplace.jsx",
-                                                        lineNumber: 121,
+                                                        lineNumber: 151,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/marketplace.jsx",
-                                                    lineNumber: 120,
+                                                    lineNumber: 150,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -322,7 +380,7 @@ function Marketplace() {
                                                             children: product.title
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/marketplace.jsx",
-                                                            lineNumber: 131,
+                                                            lineNumber: 161,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -333,7 +391,7 @@ function Marketplace() {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/pages/marketplace.jsx",
-                                                            lineNumber: 132,
+                                                            lineNumber: 162,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -341,41 +399,41 @@ function Marketplace() {
                                                             children: product.category
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/marketplace.jsx",
-                                                            lineNumber: 133,
+                                                            lineNumber: 163,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/pages/marketplace.jsx",
-                                                    lineNumber: 130,
+                                                    lineNumber: 160,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, product.id, true, {
                                             fileName: "[project]/pages/marketplace.jsx",
-                                            lineNumber: 115,
+                                            lineNumber: 145,
                                             columnNumber: 15
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/pages/marketplace.jsx",
-                                    lineNumber: 113,
+                                    lineNumber: 143,
                                     columnNumber: 11
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/pages/marketplace.jsx",
-                                lineNumber: 112,
+                                lineNumber: 142,
                                 columnNumber: 9
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/marketplace.jsx",
-                        lineNumber: 62,
+                        lineNumber: 92,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/pages/marketplace.jsx",
-                lineNumber: 21,
+                lineNumber: 51,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
@@ -416,12 +474,12 @@ function Marketplace() {
                                 className: "text-primary"
                             }, void 0, false, {
                                 fileName: "[project]/pages/marketplace.jsx",
-                                lineNumber: 155,
+                                lineNumber: 185,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/marketplace.jsx",
-                            lineNumber: 150,
+                            lineNumber: 180,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("h2", {
@@ -429,7 +487,7 @@ function Marketplace() {
                             children: "Marketplace"
                         }, void 0, false, {
                             fileName: "[project]/pages/marketplace.jsx",
-                            lineNumber: 158,
+                            lineNumber: 188,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -437,7 +495,7 @@ function Marketplace() {
                             children: "Coming Soon"
                         }, void 0, false, {
                             fileName: "[project]/pages/marketplace.jsx",
-                            lineNumber: 161,
+                            lineNumber: 191,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("p", {
@@ -445,24 +503,24 @@ function Marketplace() {
                             children: "Buy and sell items with your campus community. Stay tuned!"
                         }, void 0, false, {
                             fileName: "[project]/pages/marketplace.jsx",
-                            lineNumber: 162,
+                            lineNumber: 192,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/marketplace.jsx",
-                    lineNumber: 144,
+                    lineNumber: 174,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/pages/marketplace.jsx",
-                lineNumber: 143,
+                lineNumber: 173,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/pages/marketplace.jsx",
-        lineNumber: 19,
+        lineNumber: 49,
         columnNumber: 5
     }, this);
 }

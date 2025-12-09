@@ -3,3 +3,619 @@
 [00:00:23.341] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
 [00:00:33.162] Server  LOG      ○ Compiling /rides ...
 [00:00:35.554] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[00:18:52.799] Browser WARN    [2025-12-08T09:29:22.247Z]  @firebase/firestore: Firestore (12.6.0): WebChannelConnection RPC 'Listen' stream 0x235a5e65 transport errored. Name: undefined Message: undefined
+[07:38:19.381] Browser WARN    [2025-12-08T16:48:44.752Z]  @firebase/firestore: Firestore (12.6.0): WebChannelConnection RPC 'Listen' stream 0x235a5e6e transport errored. Name: undefined Message: undefined
+[08:00:52.799] Browser WARN    [2025-12-08T17:11:14.841Z]  @firebase/firestore: Firestore (12.6.0): WebChannelConnection RPC 'Listen' stream 0x235a5e76 transport errored. Name: undefined Message: undefined
+[10:14:19.815] Browser WARN    [2025-12-08T19:24:41.729Z]  @firebase/firestore: Firestore (12.6.0): WebChannelConnection RPC 'Listen' stream 0x235a5e78 transport errored. Name: undefined Message: undefined
+[14:52:46.658] Server  LOG      ✓ Compiled in 166ms
+[14:54:14.888] Server  LOG      ✓ Compiled in 99ms
+[15:11:44.695] Server  LOG      ✓ Compiled in 50ms
+[15:16:28.708] Server  LOG      ✓ Compiled in 116ms
+[15:17:00.298] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[15:17:01.167] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[15:17:18.705] Browser LOG     🔴 LEAVE RIDE ATTEMPT
+[15:17:18.705] Browser LOG     User UID: 7dgHDAix6FOoOqWzerWsPIyseCy2
+[15:17:18.705] Browser LOG     Ride ID: noIWsn9nkyoOLYKA1f8q
+[15:17:18.705] Browser LOG     Current participants: ["SexuDSlWa9a2BhowNXUPj1uKhLb2","7MW5B3pW3FS4pHKSSH0XpPCjJot2","M9bB98o2N9NkoOQWofVv8z2iPEr1","7dgHDAix6FOoOqWzerWsPIyseCy2"]
+[15:17:18.705] Browser LOG     Is participant? true
+[15:17:18.705] Browser LOG     Is organizer? false
+[15:17:18.705] Browser LOG     Attempting updateDoc with arrayRemove...
+[15:17:18.940] Browser LOG     ✅ Successfully left the ride!
+[15:17:18.940] Browser ERROR   [2025-12-09T00:27:41.536Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[15:17:18.940] Browser ERROR   [2025-12-09T00:27:41.537Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[15:17:21.298] Browser LOG     🔵 JOIN RIDE ATTEMPT
+[15:17:21.298] Browser LOG     User UID: 7dgHDAix6FOoOqWzerWsPIyseCy2
+[15:17:21.298] Browser LOG     Ride ID: noIWsn9nkyoOLYKA1f8q
+[15:17:21.298] Browser LOG     Current participants: ["SexuDSlWa9a2BhowNXUPj1uKhLb2","7MW5B3pW3FS4pHKSSH0XpPCjJot2","M9bB98o2N9NkoOQWofVv8z2iPEr1"]
+[15:17:21.298] Browser LOG     Is already participant? false
+[15:17:21.298] Browser LOG     Attempting updateDoc with arrayUnion...
+[15:17:21.402] Browser LOG     ✅ Successfully joined the ride!
+[15:17:21.402] Browser ERROR   [2025-12-09T00:27:44.000Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[15:17:21.402] Browser ERROR   [2025-12-09T00:27:44.000Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[15:21:22.958] Server  LOG      ✓ Compiled in 53ms
+[15:22:30.237] Server  LOG      ✓ Compiled in 61ms
+[15:23:21.927] Server  LOG      ✓ Compiled in 38ms
+[15:23:27.972] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[15:23:27.972] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[15:25:42.563] Server  LOG      ✓ Compiled in 40ms
+[15:28:46.476] Server  LOG      ✓ Compiled in 183ms
+[15:28:53.639] Server  LOG      ✓ Compiled in 63ms
+[15:29:04.294] Server  LOG      ✓ Compiled in 63ms
+[15:32:24.446] Server  LOG      ✓ Compiled in 80ms
+[15:35:28.602] Server  LOG      ✓ Compiled in 112ms
+[15:36:56.053] Server  LOG      ✓ Compiled in 43ms
+[15:36:56.804] Browser ERROR   ./styles/globals.css
+Error evaluating Node.js code
+CssSyntaxError: C:\Users\Hani\ForesterSwap\styles\globals.css:43:27: Unclosed bracket
+    [at Input.error (turbopack:///[project]/node_modules/postcss/lib/input.js:135:16)]
+    [at Parser.unclosedBracket (turbopack:///[project]/node_modules/postcss/lib/parser.js:579:22)]
+    [at Parser.other (turbopack:///[project]/node_modules/postcss/lib/parser.js:425:35)]
+    [at Parser.parse (turbopack:///[project]/node_modules/postcss/lib/parser.js:472:16)]
+    [at parse (turbopack:///[project]/node_modules/postcss/lib/parse.js:11:12)]
+    [at new LazyResult (turbopack:///[project]/node_modules/postcss/lib/lazy-result.js:165:16)]
+    [at Processor.process (turbopack:///[project]/node_modules/postcss/lib/processor.js:53:14)]
+    [at transform (turbopack:///[turbopack-node]/transforms/postcss.ts:70:51)]
+    [at run (turbopack:///[turbopack-node]/ipc/evaluate.ts:92:29)]
+    [at run (turbopack:///[turbopack-node]/ipc/evaluate.ts:115:11)]
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[15:36:58.811] Browser ERROR   ./styles/globals.css
+Error evaluating Node.js code
+CssSyntaxError: C:\Users\Hani\ForesterSwap\styles\globals.css:43:27: Unclosed bracket
+    [at Input.error (turbopack:///[project]/node_modules/postcss/lib/input.js:135:16)]
+    [at Parser.unclosedBracket (turbopack:///[project]/node_modules/postcss/lib/parser.js:579:22)]
+    [at Parser.other (turbopack:///[project]/node_modules/postcss/lib/parser.js:425:35)]
+    [at Parser.parse (turbopack:///[project]/node_modules/postcss/lib/parser.js:472:16)]
+    [at parse (turbopack:///[project]/node_modules/postcss/lib/parse.js:11:12)]
+    [at new LazyResult (turbopack:///[project]/node_modules/postcss/lib/lazy-result.js:165:16)]
+    [at Processor.process (turbopack:///[project]/node_modules/postcss/lib/processor.js:53:14)]
+    [at transform (turbopack:///[turbopack-node]/transforms/postcss.ts:70:51)]
+    [at run (turbopack:///[turbopack-node]/ipc/evaluate.ts:92:29)]
+    [at run (turbopack:///[turbopack-node]/ipc/evaluate.ts:115:11)]
+
+Import trace:
+  Browser:
+    ./styles/globals.css
+    ./pages/_app.jsx
+[15:37:05.081] Server  LOG      ✓ Compiled in 729ms
+[15:37:20.606] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[15:38:04.137] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[15:38:05.416] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[15:39:35.298] Server  LOG      ✓ Compiled in 92ms
+[15:40:09.785] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[15:40:11.729] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[15:40:51.536] Server  LOG      ✓ Compiled in 51ms
+[15:41:09.786] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[15:41:09.786] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[15:42:01.228] Server  LOG      ✓ Compiled in 65ms
+[15:42:46.462] Server  LOG      ✓ Compiled in 63ms
+[15:42:48.685] Browser LOG     🔍 fetchDestinationSuggestions called with input: My Mom's House Denver
+[15:42:48.685] Browser LOG     📡 Fetching suggestions from API...
+[15:42:48.685] Browser LOG     📥 API Response status: 200
+[15:42:48.685] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJe8lrf9N-bIcRFCugBtF5cFI","placeId":"ChIJe8lrf9N-bIcRFCugBtF5cFI","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"text":"Your Mom's House Denver, East 13th Avenue, Denver, CO, USA"},"types":["point_of_interest","night_club","bar","establishment","event_venue"]}},{"placePrediction":{"place":"places/ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","placeId":"ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"HOUSE Denver, South Ogden Street, Denver, CO, USA"},"types":["church","establishment","point_of_interest","place_of_worship"]}},{"placePrediction":{"place":"places/ChIJz4awmsp5bIcRE2UWW6-p1u8","placeId":"ChIJz4awmsp5bIcRE2UWW6-p1u8","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Ski House - at Larimer Lounge, Larimer Street, Denver, CO, USA"},"types":["point_of_interest","establishment","bar"]}},{"placePrediction":{"place":"places/ChIJ467ZLI0NIocRJmfK31GugPo","placeId":"ChIJ467ZLI0NIocRJmfK31GugPo","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"My Mom's, 4th Street Northwest, Albuquerque, NM, USA"},"types":["food","point_of_interest","establishment","restaurant","mexican_restaurant"]}},{"placePrediction":{"place":"places/ChIJFYEUSqyn-zERkfPFuX0CMeY","placeId":"ChIJFYEUSqyn-zERkfPFuX0CMeY","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Sushi House Kuching Sarawak, Jalan Canna, Kuching, Sarawak, Malaysia"},"types":["point_of_interest","restaurant","food","japanese_restaurant","sushi_restaurant","establishment"]}}]}
+[15:42:48.685] Browser LOG     ✅ Got suggestions: 5
+[15:42:48.685] Browser LOG     ✓ Loading complete
+[15:42:48.853] Browser LOG     🔍 fetchDestinationSuggestions called with input: My Mom's House Denver
+[15:42:48.853] Browser LOG     📡 Fetching suggestions from API...
+[15:42:48.853] Browser LOG     📥 API Response status: 200
+[15:42:48.853] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJe8lrf9N-bIcRFCugBtF5cFI","placeId":"ChIJe8lrf9N-bIcRFCugBtF5cFI","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"text":"Your Mom's House Denver, East 13th Avenue, Denver, CO, USA"},"types":["bar","event_venue","night_club","establishment","point_of_interest"]}},{"placePrediction":{"place":"places/ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","placeId":"ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"HOUSE Denver, South Ogden Street, Denver, CO, USA"},"types":["church","point_of_interest","place_of_worship","establishment"]}},{"placePrediction":{"place":"places/ChIJz4awmsp5bIcRE2UWW6-p1u8","placeId":"ChIJz4awmsp5bIcRE2UWW6-p1u8","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Ski House - at Larimer Lounge, Larimer Street, Denver, CO, USA"},"types":["establishment","point_of_interest","bar"]}},{"placePrediction":{"place":"places/ChIJ467ZLI0NIocRJmfK31GugPo","placeId":"ChIJ467ZLI0NIocRJmfK31GugPo","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"My Mom's, 4th Street Northwest, Albuquerque, NM, USA"},"types":["mexican_restaurant","point_of_interest","restaurant","food","establishment"]}},{"placePrediction":{"place":"places/ChIJFYEUSqyn-zERkfPFuX0CMeY","placeId":"ChIJFYEUSqyn-zERkfPFuX0CMeY","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Sushi House Kuching Sarawak, Jalan Canna, Kuching, Sarawak, Malaysia"},"types":["japanese_restaurant","food","establishment","sushi_restaurant","restaurant","point_of_interest"]}}]}
+[15:42:48.853] Browser LOG     ✅ Got suggestions: 5
+[15:42:48.853] Browser LOG     ✓ Loading complete
+[15:42:50.306] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[15:42:50.306] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[15:42:52.862] Server  LOG      ✓ Compiled in 63ms
+[15:42:58.779] Server  LOG      ✓ Compiled in 59ms
+[15:43:02.117] Browser ERROR   [2025-12-09T00:53:24.715Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[15:43:02.117] Browser ERROR   [2025-12-09T00:53:24.716Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[15:43:02.243] Browser LOG     Ride created with ID: ONERn9nYGilQNeMAvWS2
+[15:43:10.155] Server  LOG      ✓ Compiled in 60ms
+[15:43:34.899] Browser LOG     ⏱️ Destination changed to: 
+[15:43:35.070] Browser LOG     ⏱️ Destination changed to: My Mom's House Denver
+[15:43:35.380] Browser LOG     🚀 Triggering autocomplete for: My Mom's House Denver
+[15:43:35.380] Browser LOG     🔍 fetchDestinationSuggestions called with input: My Mom's House Denver
+[15:43:35.380] Browser LOG     📡 Fetching suggestions from API...
+[15:43:35.545] Browser LOG     📥 API Response status: 200
+[15:43:35.545] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJe8lrf9N-bIcRFCugBtF5cFI","placeId":"ChIJe8lrf9N-bIcRFCugBtF5cFI","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"text":"Your Mom's House Denver, East 13th Avenue, Denver, CO, USA"},"types":["point_of_interest","event_venue","night_club","establishment","bar"]}},{"placePrediction":{"place":"places/ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","placeId":"ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"HOUSE Denver, South Ogden Street, Denver, CO, USA"},"types":["point_of_interest","church","place_of_worship","establishment"]}},{"placePrediction":{"place":"places/ChIJz4awmsp5bIcRE2UWW6-p1u8","placeId":"ChIJz4awmsp5bIcRE2UWW6-p1u8","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Ski House - at Larimer Lounge, Larimer Street, Denver, CO, USA"},"types":["bar","point_of_interest","establishment"]}},{"placePrediction":{"place":"places/ChIJ467ZLI0NIocRJmfK31GugPo","placeId":"ChIJ467ZLI0NIocRJmfK31GugPo","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"My Mom's, 4th Street Northwest, Albuquerque, NM, USA"},"types":["restaurant","establishment","mexican_restaurant","point_of_interest","food"]}},{"placePrediction":{"place":"places/ChIJFYEUSqyn-zERkfPFuX0CMeY","placeId":"ChIJFYEUSqyn-zERkfPFuX0CMeY","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Sushi House Kuching Sarawak, Jalan Canna, Kuching, Sarawak, Malaysia"},"types":["restaurant","japanese_restaurant","sushi_restaurant","establishment","food","point_of_interest"]}}]}
+[15:43:35.545] Browser LOG     ✅ Got suggestions: 5
+[15:43:35.545] Browser LOG     ✓ Loading complete
+[15:43:37.029] Browser LOG     👁️ Input focused, destination: My Mom's House Denver
+[15:43:37.029] Browser LOG     🔍 fetchDestinationSuggestions called with input: My Mom's House Denver
+[15:43:37.029] Browser LOG     📡 Fetching suggestions from API...
+[15:43:37.029] Browser LOG     📥 API Response status: 200
+[15:43:37.029] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJe8lrf9N-bIcRFCugBtF5cFI","placeId":"ChIJe8lrf9N-bIcRFCugBtF5cFI","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"text":"Your Mom's House Denver, East 13th Avenue, Denver, CO, USA"},"types":["point_of_interest","event_venue","establishment","night_club","bar"]}},{"placePrediction":{"place":"places/ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","placeId":"ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"HOUSE Denver, South Ogden Street, Denver, CO, USA"},"types":["church","establishment","point_of_interest","place_of_worship"]}},{"placePrediction":{"place":"places/ChIJz4awmsp5bIcRE2UWW6-p1u8","placeId":"ChIJz4awmsp5bIcRE2UWW6-p1u8","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Ski House - at Larimer Lounge, Larimer Street, Denver, CO, USA"},"types":["point_of_interest","establishment","bar"]}},{"placePrediction":{"place":"places/ChIJ467ZLI0NIocRJmfK31GugPo","placeId":"ChIJ467ZLI0NIocRJmfK31GugPo","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"My Mom's, 4th Street Northwest, Albuquerque, NM, USA"},"types":["mexican_restaurant","restaurant","point_of_interest","food","establishment"]}},{"placePrediction":{"place":"places/ChIJFYEUSqyn-zERkfPFuX0CMeY","placeId":"ChIJFYEUSqyn-zERkfPFuX0CMeY","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Sushi House Kuching Sarawak, Jalan Canna, Kuching, Sarawak, Malaysia"},"types":["japanese_restaurant","restaurant","food","point_of_interest","establishment","sushi_restaurant"]}}]}
+[15:43:37.029] Browser LOG     ✅ Got suggestions: 5
+[15:43:37.029] Browser LOG     ✓ Loading complete
+[15:43:37.708] Browser LOG     ✏️ Input changed: o
+[15:43:37.708] Browser LOG     ⏱️ Destination changed to: o
+[15:43:38.033] Browser LOG     ✏️ Input changed: oh
+[15:43:38.033] Browser LOG     ⏱️ Destination changed to: oh
+[15:43:38.033] Browser LOG     ✏️ Input changed: oha
+[15:43:38.033] Browser LOG     ⏱️ Destination changed to: oha
+[15:43:38.033] Browser LOG     ✏️ Input changed: ohar
+[15:43:38.033] Browser LOG     ⏱️ Destination changed to: ohar
+[15:43:38.033] Browser LOG     ✏️ Input changed: ohare
+[15:43:38.033] Browser LOG     ⏱️ Destination changed to: ohare
+[15:43:38.405] Browser LOG     🚀 Triggering autocomplete for: ohare
+[15:43:38.405] Browser LOG     🔍 fetchDestinationSuggestions called with input: ohare
+[15:43:38.405] Browser LOG     📡 Fetching suggestions from API...
+[15:43:38.405] Browser LOG     📥 API Response status: 200
+[15:43:38.405] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJ82J3aie0D4gRS61ZAgdHF1E","placeId":"ChIJ82J3aie0D4gRS61ZAgdHF1E","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare International Airport (ORD), West O'Hare Avenue, Chicago, IL, USA"},"types":["international_airport","airport","establishment","point_of_interest"]}},{"placePrediction":{"place":"places/ChIJqYMlkNG1D4gRNHBCmHDfhJ0","placeId":"ChIJqYMlkNG1D4gRNHBCmHDfhJ0","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O' Hare Airport Heliport, West O'Hare Avenue, Chicago, IL, USA"},"types":["establishment","point_of_interest","airport","heliport"]}},{"placePrediction":{"place":"places/ChIJYd6yS4S2D4gRpPpILxoBbUg","placeId":"ChIJYd6yS4S2D4gRpPpILxoBbUg","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare, Chicago, IL, USA"},"types":["geocode","neighborhood","political"]}},{"placePrediction":{"place":"places/ChIJvQg4-9O1D4gROS6m-S6-5LA","placeId":"ChIJvQg4-9O1D4gROS6m-S6-5LA","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"ORD Terminal 5, Chicago, IL, USA"},"types":["geocode","premise"]}},{"placePrediction":{"place":"places/ChIJQ5pn0NHqD4gRv1br5JunvXQ","placeId":"ChIJQ5pn0NHqD4gRv1br5JunvXQ","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare School of Irish Dance, North Herky Drive, Lake Bluff, IL, USA"},"types":["point_of_interest","establishment"]}}]}
+[15:43:38.405] Browser LOG     ✅ Got suggestions: 5
+[15:43:38.405] Browser LOG     ✓ Loading complete
+[15:43:39.100] Browser LOG     👋 Input blurred
+[15:43:44.631] Browser LOG     👁️ Input focused, destination: ohare
+[15:43:44.631] Browser LOG     🔍 fetchDestinationSuggestions called with input: ohare
+[15:43:44.631] Browser LOG     📡 Fetching suggestions from API...
+[15:43:44.894] Browser LOG     📥 API Response status: 200
+[15:43:44.894] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJ82J3aie0D4gRS61ZAgdHF1E","placeId":"ChIJ82J3aie0D4gRS61ZAgdHF1E","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare International Airport (ORD), West O'Hare Avenue, Chicago, IL, USA"},"types":["airport","point_of_interest","international_airport","establishment"]}},{"placePrediction":{"place":"places/ChIJqYMlkNG1D4gRNHBCmHDfhJ0","placeId":"ChIJqYMlkNG1D4gRNHBCmHDfhJ0","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O' Hare Airport Heliport, West O'Hare Avenue, Chicago, IL, USA"},"types":["heliport","establishment","point_of_interest","airport"]}},{"placePrediction":{"place":"places/ChIJYd6yS4S2D4gRpPpILxoBbUg","placeId":"ChIJYd6yS4S2D4gRpPpILxoBbUg","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare, Chicago, IL, USA"},"types":["geocode","political","neighborhood"]}},{"placePrediction":{"place":"places/ChIJvQg4-9O1D4gROS6m-S6-5LA","placeId":"ChIJvQg4-9O1D4gROS6m-S6-5LA","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"ORD Terminal 5, Chicago, IL, USA"},"types":["premise","geocode"]}},{"placePrediction":{"place":"places/ChIJQ5pn0NHqD4gRv1br5JunvXQ","placeId":"ChIJQ5pn0NHqD4gRv1br5JunvXQ","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare School of Irish Dance, North Herky Drive, Lake Bluff, IL, USA"},"types":["establishment","point_of_interest"]}}]}
+[15:43:44.894] Browser LOG     ✅ Got suggestions: 5
+[15:43:44.894] Browser LOG     ✓ Loading complete
+[15:43:47.779] Browser LOG     👋 Input blurred
+[15:43:52.919] Browser LOG     👁️ Input focused, destination: ohare
+[15:43:52.919] Browser LOG     🔍 fetchDestinationSuggestions called with input: ohare
+[15:43:52.919] Browser LOG     📡 Fetching suggestions from API...
+[15:43:53.102] Browser LOG     📥 API Response status: 200
+[15:43:53.102] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJ82J3aie0D4gRS61ZAgdHF1E","placeId":"ChIJ82J3aie0D4gRS61ZAgdHF1E","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare International Airport (ORD), West O'Hare Avenue, Chicago, IL, USA"},"types":["point_of_interest","international_airport","establishment","airport"]}},{"placePrediction":{"place":"places/ChIJqYMlkNG1D4gRNHBCmHDfhJ0","placeId":"ChIJqYMlkNG1D4gRNHBCmHDfhJ0","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O' Hare Airport Heliport, West O'Hare Avenue, Chicago, IL, USA"},"types":["establishment","point_of_interest","airport","heliport"]}},{"placePrediction":{"place":"places/ChIJYd6yS4S2D4gRpPpILxoBbUg","placeId":"ChIJYd6yS4S2D4gRpPpILxoBbUg","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare, Chicago, IL, USA"},"types":["neighborhood","geocode","political"]}},{"placePrediction":{"place":"places/ChIJvQg4-9O1D4gROS6m-S6-5LA","placeId":"ChIJvQg4-9O1D4gROS6m-S6-5LA","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"ORD Terminal 5, Chicago, IL, USA"},"types":["geocode","premise"]}},{"placePrediction":{"place":"places/ChIJQ5pn0NHqD4gRv1br5JunvXQ","placeId":"ChIJQ5pn0NHqD4gRv1br5JunvXQ","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare School of Irish Dance, North Herky Drive, Lake Bluff, IL, USA"},"types":["establishment","point_of_interest"]}}]}
+[15:43:53.102] Browser LOG     ✅ Got suggestions: 5
+[15:43:53.102] Browser LOG     ✓ Loading complete
+[15:43:54.386] Browser LOG     ✏️ Input changed: ohare 
+[15:43:54.386] Browser LOG     ⏱️ Destination changed to: ohare 
+[15:43:54.762] Browser LOG     🚀 Triggering autocomplete for: ohare 
+[15:43:54.762] Browser LOG     🔍 fetchDestinationSuggestions called with input: ohare 
+[15:43:54.762] Browser LOG     📡 Fetching suggestions from API...
+[15:43:54.762] Browser LOG     📥 API Response status: 200
+[15:43:54.762] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJ82J3aie0D4gRS61ZAgdHF1E","placeId":"ChIJ82J3aie0D4gRS61ZAgdHF1E","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare International Airport (ORD), West O'Hare Avenue, Chicago, IL, USA"},"types":["airport","establishment","point_of_interest","international_airport"]}},{"placePrediction":{"place":"places/ChIJvQg4-9O1D4gROS6m-S6-5LA","placeId":"ChIJvQg4-9O1D4gROS6m-S6-5LA","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"ORD Terminal 5, Chicago, IL, USA"},"types":["premise","geocode"]}},{"placePrediction":{"place":"places/ChIJQ5pn0NHqD4gRv1br5JunvXQ","placeId":"ChIJQ5pn0NHqD4gRv1br5JunvXQ","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare School of Irish Dance, North Herky Drive, Lake Bluff, IL, USA"},"types":["establishment","point_of_interest"]}},{"placePrediction":{"place":"places/ChIJLyYVhSe0D4gRSHC6SRiVIX8","placeId":"ChIJLyYVhSe0D4gRSHC6SRiVIX8","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"ORD Terminal 1, Chicago, IL, USA"},"types":["geocode","premise"]}},{"placePrediction":{"place":"places/ChIJrQb7WBu2D4gRTJ9KKDEhpwc","placeId":"ChIJrQb7WBu2D4gRTJ9KKDEhpwc","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"The Westin O'Hare, North River Road, Rosemont, IL, USA"},"types":["hotel","point_of_interest","establishment","event_venue","lodging","wedding_venue"]}}]}
+[15:43:54.762] Browser LOG     ✅ Got suggestions: 5
+[15:43:54.762] Browser LOG     ✓ Loading complete
+[15:43:56.361] Browser LOG     👋 Input blurred
+[15:44:02.986] Browser LOG     👁️ Input focused, destination: ohare 
+[15:44:02.986] Browser LOG     🔍 fetchDestinationSuggestions called with input: ohare 
+[15:44:02.986] Browser LOG     📡 Fetching suggestions from API...
+[15:44:03.097] Browser LOG     📥 API Response status: 200
+[15:44:03.098] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJ82J3aie0D4gRS61ZAgdHF1E","placeId":"ChIJ82J3aie0D4gRS61ZAgdHF1E","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare International Airport (ORD), West O'Hare Avenue, Chicago, IL, USA"},"types":["establishment","airport","point_of_interest","international_airport"]}},{"placePrediction":{"place":"places/ChIJvQg4-9O1D4gROS6m-S6-5LA","placeId":"ChIJvQg4-9O1D4gROS6m-S6-5LA","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"ORD Terminal 5, Chicago, IL, USA"},"types":["geocode","premise"]}},{"placePrediction":{"place":"places/ChIJQ5pn0NHqD4gRv1br5JunvXQ","placeId":"ChIJQ5pn0NHqD4gRv1br5JunvXQ","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare School of Irish Dance, North Herky Drive, Lake Bluff, IL, USA"},"types":["point_of_interest","establishment"]}},{"placePrediction":{"place":"places/ChIJLyYVhSe0D4gRSHC6SRiVIX8","placeId":"ChIJLyYVhSe0D4gRSHC6SRiVIX8","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"ORD Terminal 1, Chicago, IL, USA"},"types":["premise","geocode"]}},{"placePrediction":{"place":"places/ChIJrQb7WBu2D4gRTJ9KKDEhpwc","placeId":"ChIJrQb7WBu2D4gRTJ9KKDEhpwc","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"The Westin O'Hare, North River Road, Rosemont, IL, USA"},"types":["establishment","event_venue","wedding_venue","hotel","point_of_interest","lodging"]}}]}
+[15:44:03.098] Browser LOG     ✅ Got suggestions: 5
+[15:44:03.098] Browser LOG     ✓ Loading complete
+[15:44:04.473] Browser LOG     👋 Input blurred
+[15:44:27.538] Server  LOG      ✓ Compiled in 69ms
+[15:44:27.800] Browser LOG     ⏱️ Destination changed to: ohare 
+[15:44:27.800] Browser LOG     ⏱️ Destination changed to: My Mom's House Denver
+[15:44:29.809] Browser LOG     🚀 Triggering autocomplete for: My Mom's House Denver
+[15:44:29.809] Browser LOG     🔍 fetchDestinationSuggestions called with input: My Mom's House Denver
+[15:44:29.809] Browser LOG     📡 Fetching suggestions from API...
+[15:44:29.809] Browser LOG     📥 API Response status: 200
+[15:44:29.809] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJe8lrf9N-bIcRFCugBtF5cFI","placeId":"ChIJe8lrf9N-bIcRFCugBtF5cFI","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"text":"Your Mom's House Denver, East 13th Avenue, Denver, CO, USA"},"types":["event_venue","point_of_interest","night_club","establishment","bar"]}},{"placePrediction":{"place":"places/ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","placeId":"ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"HOUSE Denver, South Ogden Street, Denver, CO, USA"},"types":["point_of_interest","establishment","place_of_worship","church"]}},{"placePrediction":{"place":"places/ChIJz4awmsp5bIcRE2UWW6-p1u8","placeId":"ChIJz4awmsp5bIcRE2UWW6-p1u8","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Ski House - at Larimer Lounge, Larimer Street, Denver, CO, USA"},"types":["point_of_interest","establishment","bar"]}},{"placePrediction":{"place":"places/ChIJ467ZLI0NIocRJmfK31GugPo","placeId":"ChIJ467ZLI0NIocRJmfK31GugPo","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"My Mom's, 4th Street Northwest, Albuquerque, NM, USA"},"types":["mexican_restaurant","establishment","restaurant","food","point_of_interest"]}},{"placePrediction":{"place":"places/ChIJFYEUSqyn-zERkfPFuX0CMeY","placeId":"ChIJFYEUSqyn-zERkfPFuX0CMeY","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Sushi House Kuching Sarawak, Jalan Canna, Kuching, Sarawak, Malaysia"},"types":["sushi_restaurant","japanese_restaurant","food","restaurant","establishment","point_of_interest"]}}]}
+[15:44:29.809] Browser LOG     ✅ Got suggestions: 5
+[15:44:29.809] Browser LOG     ✓ Loading complete
+[15:44:40.925] Server  LOG      ✓ Compiled in 68ms
+[15:44:41.798] Browser LOG     ⏱️ Destination changed to: My Mom's House Denver
+[15:44:42.808] Browser LOG     🚀 Triggering autocomplete for: My Mom's House Denver
+[15:44:42.808] Browser LOG     🔍 fetchDestinationSuggestions called with input: My Mom's House Denver
+[15:44:42.808] Browser LOG     📡 Fetching suggestions from API...
+[15:44:42.808] Browser LOG     📥 API Response status: 200
+[15:44:42.808] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJe8lrf9N-bIcRFCugBtF5cFI","placeId":"ChIJe8lrf9N-bIcRFCugBtF5cFI","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"text":"Your Mom's House Denver, East 13th Avenue, Denver, CO, USA"},"types":["night_club","bar","establishment","event_venue","point_of_interest"]}},{"placePrediction":{"place":"places/ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","placeId":"ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"HOUSE Denver, South Ogden Street, Denver, CO, USA"},"types":["establishment","church","place_of_worship","point_of_interest"]}},{"placePrediction":{"place":"places/ChIJz4awmsp5bIcRE2UWW6-p1u8","placeId":"ChIJz4awmsp5bIcRE2UWW6-p1u8","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Ski House - at Larimer Lounge, Larimer Street, Denver, CO, USA"},"types":["point_of_interest","establishment","bar"]}},{"placePrediction":{"place":"places/ChIJ467ZLI0NIocRJmfK31GugPo","placeId":"ChIJ467ZLI0NIocRJmfK31GugPo","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"My Mom's, 4th Street Northwest, Albuquerque, NM, USA"},"types":["food","establishment","point_of_interest","mexican_restaurant","restaurant"]}},{"placePrediction":{"place":"places/ChIJFYEUSqyn-zERkfPFuX0CMeY","placeId":"ChIJFYEUSqyn-zERkfPFuX0CMeY","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Sushi House Kuching Sarawak, Jalan Canna, Kuching, Sarawak, Malaysia"},"types":["establishment","food","restaurant","japanese_restaurant","sushi_restaurant","point_of_interest"]}}]}
+[15:44:42.808] Browser LOG     ✅ Got suggestions: 5
+[15:44:42.808] Browser LOG     ✓ Loading complete
+[15:44:59.467] Browser LOG     👁️ Input focused, destination: My Mom's House Denver
+[15:44:59.467] Browser LOG     🔍 fetchDestinationSuggestions called with input: My Mom's House Denver
+[15:44:59.467] Browser LOG     📡 Fetching suggestions from API...
+[15:44:59.662] Browser LOG     📥 API Response status: 200
+[15:44:59.662] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJe8lrf9N-bIcRFCugBtF5cFI","placeId":"ChIJe8lrf9N-bIcRFCugBtF5cFI","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"text":"Your Mom's House Denver, East 13th Avenue, Denver, CO, USA"},"types":["establishment","night_club","bar","point_of_interest","event_venue"]}},{"placePrediction":{"place":"places/ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","placeId":"ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"HOUSE Denver, South Ogden Street, Denver, CO, USA"},"types":["point_of_interest","church","place_of_worship","establishment"]}},{"placePrediction":{"place":"places/ChIJz4awmsp5bIcRE2UWW6-p1u8","placeId":"ChIJz4awmsp5bIcRE2UWW6-p1u8","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Ski House - at Larimer Lounge, Larimer Street, Denver, CO, USA"},"types":["point_of_interest","establishment","bar"]}},{"placePrediction":{"place":"places/ChIJ467ZLI0NIocRJmfK31GugPo","placeId":"ChIJ467ZLI0NIocRJmfK31GugPo","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"My Mom's, 4th Street Northwest, Albuquerque, NM, USA"},"types":["food","mexican_restaurant","establishment","restaurant","point_of_interest"]}},{"placePrediction":{"place":"places/ChIJFYEUSqyn-zERkfPFuX0CMeY","placeId":"ChIJFYEUSqyn-zERkfPFuX0CMeY","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Sushi House Kuching Sarawak, Jalan Canna, Kuching, Sarawak, Malaysia"},"types":["point_of_interest","japanese_restaurant","food","restaurant","sushi_restaurant","establishment"]}}]}
+[15:44:59.662] Browser LOG     ✅ Got suggestions: 5
+[15:44:59.662] Browser LOG     ✓ Loading complete
+[15:44:59.923] Browser LOG     ✏️ Input changed: o
+[15:44:59.924] Browser LOG     ⏱️ Destination changed to: o
+[15:45:00.174] Browser LOG     ✏️ Input changed: oh
+[15:45:00.174] Browser LOG     ⏱️ Destination changed to: oh
+[15:45:00.469] Browser LOG     ✏️ Input changed: oha
+[15:45:00.469] Browser LOG     ⏱️ Destination changed to: oha
+[15:45:00.469] Browser LOG     ✏️ Input changed: ohar
+[15:45:00.469] Browser LOG     ⏱️ Destination changed to: ohar
+[15:45:00.469] Browser LOG     ✏️ Input changed: ohare
+[15:45:00.469] Browser LOG     ⏱️ Destination changed to: ohare
+[15:45:00.818] Browser LOG     🚀 Triggering autocomplete for: ohare
+[15:45:00.818] Browser LOG     🔍 fetchDestinationSuggestions called with input: ohare
+[15:45:00.818] Browser LOG     📡 Fetching suggestions from API...
+[15:45:00.818] Browser LOG     📥 API Response status: 200
+[15:45:00.818] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJ82J3aie0D4gRS61ZAgdHF1E","placeId":"ChIJ82J3aie0D4gRS61ZAgdHF1E","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare International Airport (ORD), West O'Hare Avenue, Chicago, IL, USA"},"types":["international_airport","airport","establishment","point_of_interest"]}},{"placePrediction":{"place":"places/ChIJqYMlkNG1D4gRNHBCmHDfhJ0","placeId":"ChIJqYMlkNG1D4gRNHBCmHDfhJ0","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O' Hare Airport Heliport, West O'Hare Avenue, Chicago, IL, USA"},"types":["point_of_interest","heliport","establishment","airport"]}},{"placePrediction":{"place":"places/ChIJYd6yS4S2D4gRpPpILxoBbUg","placeId":"ChIJYd6yS4S2D4gRpPpILxoBbUg","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare, Chicago, IL, USA"},"types":["neighborhood","geocode","political"]}},{"placePrediction":{"place":"places/ChIJvQg4-9O1D4gROS6m-S6-5LA","placeId":"ChIJvQg4-9O1D4gROS6m-S6-5LA","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"ORD Terminal 5, Chicago, IL, USA"},"types":["geocode","premise"]}},{"placePrediction":{"place":"places/ChIJQ5pn0NHqD4gRv1br5JunvXQ","placeId":"ChIJQ5pn0NHqD4gRv1br5JunvXQ","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare School of Irish Dance, North Herky Drive, Lake Bluff, IL, USA"},"types":["establishment","point_of_interest"]}}]}
+[15:45:00.818] Browser LOG     ✅ Got suggestions: 5
+[15:45:00.818] Browser LOG     ✓ Loading complete
+[15:45:01.624] Browser LOG     ✏️ Input changed: 
+[15:45:01.624] Browser LOG     ⏱️ Destination changed to: 
+[15:45:01.936] Browser LOG     ⚠️ Destination is empty, skipping autocomplete
+[15:45:02.417] Browser LOG     👋 Input blurred
+[15:45:09.316] Browser LOG     👁️ Input focused, destination: 
+[15:45:09.976] Browser LOG     ✏️ Input changed: o
+[15:45:09.976] Browser LOG     ⏱️ Destination changed to: o
+[15:45:09.976] Browser LOG     ✏️ Input changed: oh
+[15:45:09.976] Browser LOG     ⏱️ Destination changed to: oh
+[15:45:09.976] Browser LOG     ✏️ Input changed: oha
+[15:45:09.976] Browser LOG     ⏱️ Destination changed to: oha
+[15:45:09.976] Browser LOG     ✏️ Input changed: ohar
+[15:45:09.976] Browser LOG     ⏱️ Destination changed to: ohar
+[15:45:09.976] Browser LOG     ✏️ Input changed: ohare
+[15:45:09.976] Browser LOG     ⏱️ Destination changed to: ohare
+[15:45:10.398] Browser LOG     🚀 Triggering autocomplete for: ohare
+[15:45:10.398] Browser LOG     🔍 fetchDestinationSuggestions called with input: ohare
+[15:45:10.398] Browser LOG     📡 Fetching suggestions from API...
+[15:45:10.398] Browser LOG     📥 API Response status: 200
+[15:45:10.398] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJ82J3aie0D4gRS61ZAgdHF1E","placeId":"ChIJ82J3aie0D4gRS61ZAgdHF1E","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare International Airport (ORD), West O'Hare Avenue, Chicago, IL, USA"},"types":["establishment","point_of_interest","international_airport","airport"]}},{"placePrediction":{"place":"places/ChIJqYMlkNG1D4gRNHBCmHDfhJ0","placeId":"ChIJqYMlkNG1D4gRNHBCmHDfhJ0","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O' Hare Airport Heliport, West O'Hare Avenue, Chicago, IL, USA"},"types":["point_of_interest","establishment","airport","heliport"]}},{"placePrediction":{"place":"places/ChIJYd6yS4S2D4gRpPpILxoBbUg","placeId":"ChIJYd6yS4S2D4gRpPpILxoBbUg","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare, Chicago, IL, USA"},"types":["political","geocode","neighborhood"]}},{"placePrediction":{"place":"places/ChIJvQg4-9O1D4gROS6m-S6-5LA","placeId":"ChIJvQg4-9O1D4gROS6m-S6-5LA","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"ORD Terminal 5, Chicago, IL, USA"},"types":["geocode","premise"]}},{"placePrediction":{"place":"places/ChIJQ5pn0NHqD4gRv1br5JunvXQ","placeId":"ChIJQ5pn0NHqD4gRv1br5JunvXQ","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"O'Hare School of Irish Dance, North Herky Drive, Lake Bluff, IL, USA"},"types":["establishment","point_of_interest"]}}]}
+[15:45:10.398] Browser LOG     ✅ Got suggestions: 5
+[15:45:10.398] Browser LOG     ✓ Loading complete
+[15:45:13.351] Browser LOG     ✏️ Input changed: j
+[15:45:13.351] Browser LOG     ⏱️ Destination changed to: j
+[15:45:13.555] Browser LOG     ✏️ Input changed: je
+[15:45:13.555] Browser LOG     ⏱️ Destination changed to: je
+[15:45:13.695] Browser LOG     ✏️ Input changed: jew
+[15:45:13.695] Browser LOG     ⏱️ Destination changed to: jew
+[15:45:13.901] Browser LOG     ✏️ Input changed: jewe
+[15:45:13.901] Browser LOG     ⏱️ Destination changed to: jewe
+[15:45:14.056] Browser LOG     ✏️ Input changed: jewel
+[15:45:14.056] Browser LOG     ⏱️ Destination changed to: jewel
+[15:45:14.407] Browser LOG     🚀 Triggering autocomplete for: jewel
+[15:45:14.407] Browser LOG     🔍 fetchDestinationSuggestions called with input: jewel
+[15:45:14.407] Browser LOG     📡 Fetching suggestions from API...
+[15:45:14.407] Browser LOG     📥 API Response status: 200
+[15:45:14.407] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJeT8xYCfrD4gR1sh5p2rfQEs","placeId":"ChIJeT8xYCfrD4gR1sh5p2rfQEs","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Jewel-Osco, North Western Avenue, Lake Forest, IL, USA"},"types":["store","food_store","deli","supermarket","bakery","market","florist","butcher_shop","food_delivery","grocery_store","establishment","point_of_interest","food"]}},{"placePrediction":{"place":"places/ChIJ8YiFZifrD4gRrb3K0vxtPH8","placeId":"ChIJ8YiFZifrD4gRrb3K0vxtPH8","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Jewel-Osco Pharmacy, North Western Avenue, Lake Forest, IL, USA"},"types":["point_of_interest","pharmacy","drugstore","health","store","establishment"]}},{"placePrediction":{"place":"places/ChIJq6pqYSfrD4gR4F6gFqRlzpY","placeId":"ChIJq6pqYSfrD4gR4F6gFqRlzpY","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Jewel-Osco Deli, North Western Avenue, Lake Forest, IL, USA"},"types":["store","establishment","food","deli","food_store","point_of_interest"]}},{"placePrediction":{"place":"places/ChIJKyw3s97qD4gRAFlLtoFCJcI","placeId":"ChIJKyw3s97qD4gRAFlLtoFCJcI","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Lake Forest Jewelers, Forest Avenue, Lake Forest, IL, USA"},"types":["establishment","wholesaler","jewelry_store","finance","point_of_interest","store"]}},{"placePrediction":{"place":"places/ChIJe_6ztvHAD4gRZaX9rK-nzsk","placeId":"ChIJe_6ztvHAD4gRZaX9rK-nzsk","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Jewel-Osco, Deerfield Road, Highland Park, IL, USA"},"types":["establishment","food_store","supermarket","food","florist","point_of_interest","food_delivery","market","deli","bakery","store","grocery_store","butcher_shop"]}}]}
+[15:45:14.407] Browser LOG     ✅ Got suggestions: 5
+[15:45:14.407] Browser LOG     ✓ Loading complete
+[15:45:15.880] Browser LOG     ✏️ Input changed: 
+[15:45:15.880] Browser LOG     ⏱️ Destination changed to: 
+[15:45:16.190] Browser LOG     ⚠️ Destination is empty, skipping autocomplete
+[15:45:16.813] Browser LOG     👋 Input blurred
+[15:45:19.242] Browser LOG     👁️ Input focused, destination: 
+[15:45:19.242] Browser LOG     👋 Input blurred
+[15:46:59.365] Server  LOG      ✓ Compiled in 160ms
+[15:47:59.171] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[15:48:52.783] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[15:49:00.573] Server  LOG      ✓ Compiled in 62ms
+[15:49:07.765] Server  LOG      ✓ Compiled in 42ms
+[15:50:16.226] Server  LOG      ✓ Compiled in 57ms
+[15:50:21.013] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[15:50:36.929] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[15:51:42.358] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[15:52:42.316] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[15:53:08.662] Server  LOG      ✓ Compiled in 36ms
+[15:53:14.543] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[15:53:19.070] Server  LOG      ✓ Compiled in 47ms
+[15:53:53.099] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[15:53:58.144] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[15:54:07.054] Server  LOG      ✓ Compiled in 60ms
+[15:54:10.537] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[15:54:48.729] Server  LOG      ✓ Compiled in 39ms
+[15:54:52.793] Server  LOG      ✓ Compiled in 70ms
+[15:54:57.026] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[17:32:16.815] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[17:32:38.148] Browser LOG     ⏱️ Destination changed to: 
+[17:32:38.373] Browser LOG     ⏱️ Destination changed to: My Mom's House Denver
+[17:32:38.680] Browser LOG     🚀 Triggering autocomplete for: My Mom's House Denver
+[17:32:38.680] Browser LOG     🔍 fetchDestinationSuggestions called with input: My Mom's House Denver
+[17:32:38.680] Browser LOG     📡 Fetching suggestions from API...
+[17:32:38.920] Browser LOG     📥 API Response status: 200
+[17:32:38.920] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJe8lrf9N-bIcRFCugBtF5cFI","placeId":"ChIJe8lrf9N-bIcRFCugBtF5cFI","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"text":"Your Mom's House Denver, East 13th Avenue, Denver, CO, USA"},"types":["establishment","night_club","bar","event_venue","point_of_interest"]}},{"placePrediction":{"place":"places/ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","placeId":"ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"HOUSE Denver, South Ogden Street, Denver, CO, USA"},"types":["place_of_worship","church","establishment","point_of_interest"]}},{"placePrediction":{"place":"places/ChIJz4awmsp5bIcRE2UWW6-p1u8","placeId":"ChIJz4awmsp5bIcRE2UWW6-p1u8","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Ski House - at Larimer Lounge, Larimer Street, Denver, CO, USA"},"types":["point_of_interest","establishment","bar"]}},{"placePrediction":{"place":"places/ChIJ467ZLI0NIocRJmfK31GugPo","placeId":"ChIJ467ZLI0NIocRJmfK31GugPo","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"My Mom's, 4th Street Northwest, Albuquerque, NM, USA"},"types":["mexican_restaurant","establishment","point_of_interest","food","restaurant"]}},{"placePrediction":{"place":"places/ChIJFYEUSqyn-zERkfPFuX0CMeY","placeId":"ChIJFYEUSqyn-zERkfPFuX0CMeY","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Sushi House Kuching Sarawak, Jalan Canna, Kuching, Sarawak, Malaysia"},"types":["point_of_interest","establishment","japanese_restaurant","restaurant","food","sushi_restaurant"]}}]}
+[17:32:38.920] Browser LOG     ✅ Got suggestions: 5
+[17:32:38.920] Browser LOG     ✓ Loading complete
+[17:33:12.791] Browser LOG     ⏱️ Destination changed to: 
+[17:33:12.974] Browser LOG     ⏱️ Destination changed to: My Mom's House Denver
+[17:33:13.279] Browser LOG     🚀 Triggering autocomplete for: My Mom's House Denver
+[17:33:13.279] Browser LOG     🔍 fetchDestinationSuggestions called with input: My Mom's House Denver
+[17:33:13.279] Browser LOG     📡 Fetching suggestions from API...
+[17:33:13.444] Browser LOG     📥 API Response status: 200
+[17:33:13.444] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJe8lrf9N-bIcRFCugBtF5cFI","placeId":"ChIJe8lrf9N-bIcRFCugBtF5cFI","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"text":"Your Mom's House Denver, East 13th Avenue, Denver, CO, USA"},"types":["bar","establishment","event_venue","night_club","point_of_interest"]}},{"placePrediction":{"place":"places/ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","placeId":"ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"HOUSE Denver, South Ogden Street, Denver, CO, USA"},"types":["church","establishment","point_of_interest","place_of_worship"]}},{"placePrediction":{"place":"places/ChIJz4awmsp5bIcRE2UWW6-p1u8","placeId":"ChIJz4awmsp5bIcRE2UWW6-p1u8","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Ski House - at Larimer Lounge, Larimer Street, Denver, CO, USA"},"types":["establishment","bar","point_of_interest"]}},{"placePrediction":{"place":"places/ChIJ467ZLI0NIocRJmfK31GugPo","placeId":"ChIJ467ZLI0NIocRJmfK31GugPo","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"My Mom's, 4th Street Northwest, Albuquerque, NM, USA"},"types":["food","point_of_interest","restaurant","establishment","mexican_restaurant"]}},{"placePrediction":{"place":"places/ChIJFYEUSqyn-zERkfPFuX0CMeY","placeId":"ChIJFYEUSqyn-zERkfPFuX0CMeY","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Sushi House Kuching Sarawak, Jalan Canna, Kuching, Sarawak, Malaysia"},"types":["food","establishment","sushi_restaurant","restaurant","japanese_restaurant","point_of_interest"]}}]}
+[17:33:13.445] Browser LOG     ✅ Got suggestions: 5
+[17:33:13.445] Browser LOG     ✓ Loading complete
+[17:34:30.528] Browser LOG     ⏱️ Destination changed to: 
+[17:34:30.680] Browser LOG     ⏱️ Destination changed to: My Mom's House Denver
+[17:34:31.048] Browser LOG     🚀 Triggering autocomplete for: My Mom's House Denver
+[17:34:31.048] Browser LOG     🔍 fetchDestinationSuggestions called with input: My Mom's House Denver
+[17:34:31.048] Browser LOG     📡 Fetching suggestions from API...
+[17:34:31.048] Browser LOG     📥 API Response status: 200
+[17:34:31.048] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJe8lrf9N-bIcRFCugBtF5cFI","placeId":"ChIJe8lrf9N-bIcRFCugBtF5cFI","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"text":"Your Mom's House Denver, East 13th Avenue, Denver, CO, USA"},"types":["bar","point_of_interest","night_club","establishment","event_venue"]}},{"placePrediction":{"place":"places/ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","placeId":"ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"HOUSE Denver, South Ogden Street, Denver, CO, USA"},"types":["point_of_interest","church","place_of_worship","establishment"]}},{"placePrediction":{"place":"places/ChIJz4awmsp5bIcRE2UWW6-p1u8","placeId":"ChIJz4awmsp5bIcRE2UWW6-p1u8","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Ski House - at Larimer Lounge, Larimer Street, Denver, CO, USA"},"types":["bar","establishment","point_of_interest"]}},{"placePrediction":{"place":"places/ChIJ467ZLI0NIocRJmfK31GugPo","placeId":"ChIJ467ZLI0NIocRJmfK31GugPo","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"My Mom's, 4th Street Northwest, Albuquerque, NM, USA"},"types":["food","point_of_interest","restaurant","establishment","mexican_restaurant"]}},{"placePrediction":{"place":"places/ChIJFYEUSqyn-zERkfPFuX0CMeY","placeId":"ChIJFYEUSqyn-zERkfPFuX0CMeY","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Sushi House Kuching Sarawak, Jalan Canna, Kuching, Sarawak, Malaysia"},"types":["sushi_restaurant","establishment","food","japanese_restaurant","restaurant","point_of_interest"]}}]}
+[17:34:31.048] Browser LOG     ✅ Got suggestions: 5
+[17:34:31.048] Browser LOG     ✓ Loading complete
+[17:36:31.157] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[17:36:31.342] Browser ERROR   Error fetching rides: {"code":"permission-denied","name":"FirebaseError"}
+[17:36:36.963] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[17:36:40.570] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[17:36:40.570] Browser ERROR   Error fetching rides: {"code":"permission-denied","name":"FirebaseError"}
+[17:37:25.200] Server  LOG      ✓ Compiled in 48ms
+[17:37:25.809] Browser LOG     Refreshing page data due to server-side change
+[17:37:25.809] Browser ERROR   Error fetching rides: {"code":"permission-denied","name":"FirebaseError"}
+[17:37:28.185] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[17:37:32.842] Browser WARN    Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly.
+[17:37:37.470] Server  LOG      ✓ Compiled in 70ms
+[17:37:37.801] Browser LOG     Refreshing page data due to server-side change
+[17:37:37.801] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[17:37:37.801] Browser LOG     Refreshing page data due to server-side change
+[17:37:46.989] Server  LOG      ✓ Compiled in 59ms
+[17:38:05.622] Browser ERROR   %o
+
+%s
+
+%s
+ {} The above error occurred in the <Rides> component. React will try to recreate this component tree from scratch using the error boundary you provided, PagesDevOverlayErrorBoundary.
+[17:38:13.385] Browser ERROR   %o
+
+%s
+
+%s
+ {} The above error occurred in the <Rides> component. React will try to recreate this component tree from scratch using the error boundary you provided, PagesDevOverlayErrorBoundary.
+[17:38:20.071] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[17:38:30.949] Server  LOG      ✓ Compiled in 46ms
+[17:38:41.902] Server  LOG      ✓ Compiled in 47ms
+[17:38:51.447] Server  LOG      ✓ Compiled in 42ms
+[17:39:26.952] Browser ERROR   %o
+
+%s
+
+%s
+ {} The above error occurred in the <Rides> component. React will try to recreate this component tree from scratch using the error boundary you provided, PagesDevOverlayErrorBoundary.
+[17:39:43.430] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[17:39:45.170] Browser ERROR   %o
+
+%s
+
+%s
+ {} The above error occurred in the <Rides> component. React will try to recreate this component tree from scratch using the error boundary you provided, PagesDevOverlayErrorBoundary.
+[17:39:48.544] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[17:40:26.600] Server  LOG      ✓ Compiled in 66ms
+[17:40:43.869] Server  LOG      ✓ Compiled in 49ms
+[17:40:55.682] Server  LOG      ✓ Compiled in 48ms
+[17:41:19.259] Server  LOG      ✓ Compiled in 59ms
+[17:43:02.741] Browser ERROR   %o
+
+%s
+
+%s
+ {} The above error occurred in the <Rides> component. React will try to recreate this component tree from scratch using the error boundary you provided, PagesDevOverlayErrorBoundary.
+[17:43:26.230] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[17:43:26.230] Browser LOG     ⏱️ Destination changed to: 
+[17:43:26.426] Browser LOG     ⏱️ Destination changed to: My Mom's House Denver
+[17:43:26.729] Browser LOG     🚀 Triggering autocomplete for: My Mom's House Denver
+[17:43:26.729] Browser LOG     🔍 fetchDestinationSuggestions called with input: My Mom's House Denver
+[17:43:26.729] Browser LOG     📡 Fetching suggestions from API...
+[17:43:26.937] Browser LOG     📥 API Response status: 200
+[17:43:26.937] Browser LOG     📦 API Response data: {"suggestions":[{"placePrediction":{"place":"places/ChIJe8lrf9N-bIcRFCugBtF5cFI","placeId":"ChIJe8lrf9N-bIcRFCugBtF5cFI","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"text":"Your Mom's House Denver, East 13th Avenue, Denver, CO, USA"},"types":["establishment","point_of_interest","night_club","event_venue","bar"]}},{"placePrediction":{"place":"places/ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","placeId":"ChIJ9ewiX1F_bIcRiEZ-WMsAZ-g","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"HOUSE Denver, South Ogden Street, Denver, CO, USA"},"types":["church","point_of_interest","place_of_worship","establishment"]}},{"placePrediction":{"place":"places/ChIJz4awmsp5bIcRE2UWW6-p1u8","placeId":"ChIJz4awmsp5bIcRE2UWW6-p1u8","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Ski House - at Larimer Lounge, Larimer Street, Denver, CO, USA"},"types":["establishment","bar","point_of_interest"]}},{"placePrediction":{"place":"places/ChIJ467ZLI0NIocRJmfK31GugPo","placeId":"ChIJ467ZLI0NIocRJmfK31GugPo","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"My Mom's, 4th Street Northwest, Albuquerque, NM, USA"},"types":["point_of_interest","restaurant","food","establishment","mexican_restaurant"]}},{"placePrediction":{"place":"places/ChIJFYEUSqyn-zERkfPFuX0CMeY","placeId":"ChIJFYEUSqyn-zERkfPFuX0CMeY","structuredFormat":{"mainText":"[Object]","secondaryText":"[Object]"},"text":{"matches":"[Array]","text":"Sushi House Kuching Sarawak, Jalan Canna, Kuching, Sarawak, Malaysia"},"types":["food","establishment","point_of_interest","restaurant","sushi_restaurant","japanese_restaurant"]}}]}
+[17:43:26.937] Browser LOG     ✅ Got suggestions: 5
+[17:43:26.937] Browser LOG     ✓ Loading complete
+[17:43:31.196] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[17:43:36.036] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[17:43:37.548] Browser ERROR   %o
+
+%s
+
+%s
+ {} The above error occurred in the <Rides> component. React will try to recreate this component tree from scratch using the error boundary you provided, PagesDevOverlayErrorBoundary.
+[17:43:57.466] Server  LOG      ✓ Compiled in 86ms
+[17:43:57.806] Browser LOG     Refreshing page data due to server-side change
+[17:44:05.136] Server  LOG      ✓ Compiled in 40ms
+[17:44:18.260] Server  LOG      ✓ Compiled in 41ms
+[17:44:18.803] Browser ERROR   ./pages/rides.jsx:498:20
+Parsing ecmascript source code failed
+  496 |         )}
+  497 |         </div>
+> 498 |       </motion.div>
+      |                    ^
+> 499 |
+      | ^
+> 500 |       {/* Floating Action Buttons */}
+      | ^^^^^^^
+  501 |       <div className="fixed bottom-28 right-6 flex flex-col gap-4 z-50 items-end">
+  502 |         {/* My Rides FAB */}
+  503 |         <motion.button
+
+Expected '</', got 'jsx text (
+
+      )'
+[17:44:18.803] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[17:44:18.803] Browser LOG     Refreshing page data due to server-side change
+[17:44:18.803] Browser ERROR   ./pages/rides.jsx:498:20
+Parsing ecmascript source code failed
+  496 |         )}
+  497 |         </div>
+> 498 |       </motion.div>
+      |                    ^
+> 499 |
+      | ^
+> 500 |       {/* Floating Action Buttons */}
+      | ^^^^^^^
+  501 |       <div className="fixed bottom-28 right-6 flex flex-col gap-4 z-50 items-end">
+  502 |         {/* My Rides FAB */}
+  503 |         <motion.button
+
+Expected '</', got 'jsx text (
+
+      )'
+[17:44:18.803] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[17:44:26.470] Server  LOG      ✓ Compiled in 52ms
+[17:44:26.798] Browser LOG     Refreshing page data due to server-side change
+[17:44:35.610] Server  LOG      ✓ Compiled in 69ms
+[17:44:35.638] Browser LOG     Refreshing page data due to server-side change
+[17:44:36.316] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[17:45:30.447] Server  LOG      ✓ Compiled in 58ms
+[17:45:30.801] Browser ERROR   %o
+
+%s
+
+%s
+ {} The above error occurred in the <Rides> component. React will try to recreate this component tree from scratch using the error boundary you provided, PagesDevOverlayErrorBoundary.
+[17:45:42.549] Server  LOG      ✓ Compiled in 52ms
+[17:45:58.543] Server  LOG      ✓ Compiled in 83ms
+[17:45:58.809] Browser ERROR   ./pages/rides.jsx:499:20
+Parsing ecmascript source code failed
+  497 |         )}
+  498 |         </div>
+> 499 |       </motion.div>
+      |                    ^
+> 500 |
+      | ^
+> 501 |       {/* Floating Action Buttons */}
+      | ^^^^^^^
+  502 |       <div className="fixed bottom-28 right-6 flex flex-col gap-4 z-50 items-end">
+  503 |         {/* My Rides FAB */}
+  504 |         <motion.button
+
+Expected '</', got 'jsx text (
+
+      )'
+[17:45:58.809] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[17:45:58.809] Browser ERROR   ./pages/rides.jsx:499:20
+Parsing ecmascript source code failed
+  497 |         )}
+  498 |         </div>
+> 499 |       </motion.div>
+      |                    ^
+> 500 |
+      | ^
+> 501 |       {/* Floating Action Buttons */}
+      | ^^^^^^^
+  502 |       <div className="fixed bottom-28 right-6 flex flex-col gap-4 z-50 items-end">
+  503 |         {/* My Rides FAB */}
+  504 |         <motion.button
+
+Expected '</', got 'jsx text (
+
+      )'
+[17:45:58.809] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[17:46:07.286] Server  LOG      ✓ Compiled in 47ms
+[17:46:18.837] Server  LOG      ✓ Compiled in 51ms
+[17:48:12.354] Server  LOG      ✓ Compiled in 63ms
+[17:48:12.801] Browser LOG     Refreshing page data due to server-side change
+[17:48:20.882] Server  LOG      ✓ Compiled in 79ms
+[17:48:21.797] Browser LOG     Refreshing page data due to server-side change
+[17:48:21.797] Browser ERROR   %o
+
+%s
+
+%s
+ {} The above error occurred in the <Rides> component. React will try to recreate this component tree from scratch using the error boundary you provided, PagesDevOverlayErrorBoundary.
+[17:48:27.731] Server  LOG      ✓ Compiled in 58ms
+[17:48:28.796] Browser LOG     Refreshing page data due to server-side change
+[17:48:28.796] Browser ERROR   ./pages/rides.jsx:506:13
+Parsing ecmascript source code failed
+  504 |         )}
+  505 |         </div>
+> 506 |       </div>
+      |             ^
+> 507 |
+      | ^
+> 508 |       {/* Floating Action Buttons */}
+      | ^^^^^^^
+  509 |       <div className="fixed bottom-28 right-6 flex flex-col gap-4 z-50 items-end">
+  510 |         {/* My Rides FAB */}
+  511 |         <motion.button
+
+Expected '</', got 'jsx text (
+
+      )'
+[17:48:28.796] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[17:48:28.797] Browser ERROR   ./pages/rides.jsx:506:13
+Parsing ecmascript source code failed
+  504 |         )}
+  505 |         </div>
+> 506 |       </div>
+      |             ^
+> 507 |
+      | ^
+> 508 |       {/* Floating Action Buttons */}
+      | ^^^^^^^
+  509 |       <div className="fixed bottom-28 right-6 flex flex-col gap-4 z-50 items-end">
+  510 |         {/* My Rides FAB */}
+  511 |         <motion.button
+
+Expected '</', got 'jsx text (
+
+      )'
+[17:48:28.797] Browser ERROR   ./pages/rides.jsx
+Code generation for chunk item errored
+An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+
+Caused by:
+- CJS module can't be async.
+
+Debug info:
+- An error occurred while generating the chunk item [project]/pages/rides.jsx [ssr] (ecmascript)
+- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
+- Execution of EcmascriptChunkItemContent::new failed
+- CJS module can't be async.
+[17:48:33.557] Server  LOG      ✓ Compiled in 44ms
+[17:48:33.803] Browser LOG     Refreshing page data due to server-side change
+[17:48:33.803] Browser ERROR   %o
+
+%s
+
+%s
+ {} The above error occurred in the <Rides> component. React will try to recreate this component tree from scratch using the error boundary you provided, PagesDevOverlayErrorBoundary.
+[17:49:21.833] Browser ERROR   %o
+
+%s
+
+%s
+ {} The above error occurred in the <Rides> component. React will try to recreate this component tree from scratch using the error boundary you provided, PagesDevOverlayErrorBoundary.
+[17:49:38.514] Server  LOG      ✓ Compiled in 90ms
+[17:56:22.318] Server  LOG      ✓ Compiled in 44ms
+[17:56:42.965] Server  LOG      ✓ Compiled in 40ms
+[17:57:01.643] Server  LOG      ✓ Compiled in 36ms
+[17:57:17.747] Server  LOG      ✓ Compiled in 39ms
+[17:57:31.365] Server  LOG      ✓ Compiled in 46ms
+[17:57:36.896] Server  LOG      ✓ Compiled in 39ms
+[17:57:53.895] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[17:59:43.918] Server  LOG      ✓ Compiled in 43ms
+[18:00:12.742] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior

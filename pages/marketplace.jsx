@@ -1,9 +1,28 @@
 import { motion } from 'framer-motion';
 import { FiPackage, FiSearch, FiFilter } from 'react-icons/fi';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { auth } from '../lib/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 export default function Marketplace() {
+  const router = useRouter();
   const [products, setProducts] = useState([]);
+  const [user, setUser] = useState(null);
+  const [authLoading, setAuthLoading] = useState(true);
+
+  // Check authentication
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (!currentUser) {
+        router.push('/login');
+      } else {
+        setUser(currentUser);
+        setAuthLoading(false);
+      }
+    });
+    return () => unsubscribe();
+  }, [router]);
 
   useEffect(() => {
     // Fetch products from Fake Store API
@@ -14,6 +33,17 @@ export default function Marketplace() {
   }, []);
 
   const categories = ['All', 'Electronics', 'Books', 'Furniture', 'Clothing', 'Other'];
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 mx-auto mb-4 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
+          <div className="text-gray-400 text-lg">Loading...</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full bg-transparent pb-24 relative">

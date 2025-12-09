@@ -616,7 +616,8 @@ function VerifyEmail() {
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "bg-[#171717] border border-white/10 p-8 rounded-2xl shadow-xl w-full max-w-md",
             style: {
-                alignSelf: "center"
+                alignSelf: "center",
+                padding: "2vw"
             },
             children: [
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -659,6 +660,9 @@ function VerifyEmail() {
                     className: "space-y-5",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                textAlign: "center"
+                            },
                             className: "bg-blue-500/10 border border-blue-500/30 text-blue-400 px-4 py-4 rounded-xl",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -711,7 +715,8 @@ function VerifyEmail() {
                             onClick: handleCheckVerification,
                             style: {
                                 height: "5vh",
-                                marginTop: "3vh"
+                                marginTop: "3vh",
+                                marginBottom: "1vh"
                             },
                             className: "w-full py-3 px-4 bg-gradient-to-r from-primary to-accent hover:from-primary-dark hover:to-primary text-white font-semibold rounded-xl transition-all",
                             children: "I've Verified My Email"
@@ -724,7 +729,8 @@ function VerifyEmail() {
                             onClick: handleResendVerification,
                             disabled: resending,
                             style: {
-                                height: "5vh"
+                                height: "5vh",
+                                marginBottom: "3vh"
                             },
                             className: "w-full py-3 px-4 bg-white/10 hover:bg-white/20 disabled:bg-white/5 disabled:text-gray-600 text-white font-semibold rounded-xl transition-all border border-white/10 disabled:cursor-not-allowed",
                             children: resending ? "Sending..." : "Resend Verification Email"

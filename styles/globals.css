@@ -28,12 +28,28 @@
   --color-dark-light: #171717;
   --color-dark-lighter: #262626;
   --color-dark-card: #1C1C1C;
+  --spacing: 0.25rem;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+:root {
+  --topbar-height: calc(var(--spacing) * 16);
+  --bottombar-height: 0px;
+  --available-height: calc(100vh - var(--topbar-height) - var(--bottombar-height));
+}
+
+/* Mobile: Account for both TopBar and BottomNav */
+@media screen and (max-width: 768px) {
+  :root {
+    --topbar-height: calc(var(--spacing) * 16);
+    --bottombar-height: calc(var(--spacing) * 20);
+    --available-height: calc(100vh - var(--topbar-height) - var(--bottombar-height));
+  }
 }
 
 /* add padding 4vw left and right when mobile to app layout*/

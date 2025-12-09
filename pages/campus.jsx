@@ -1,7 +1,28 @@
 import { motion } from 'framer-motion';
 import { FiInfo, FiCalendar, FiCoffee, FiActivity, FiClock, FiMapPin } from 'react-icons/fi';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { auth } from '../lib/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 export default function Campus() {
+  const router = useRouter();
+  const [user, setUser] = useState(null);
+  const [authLoading, setAuthLoading] = useState(true);
+
+  // Check authentication
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (!currentUser) {
+        router.push('/login');
+      } else {
+        setUser(currentUser);
+        setAuthLoading(false);
+      }
+    });
+    return () => unsubscribe();
+  }, [router]);
+
   const facilities = [
     { name: 'Cafeteria', icon: FiCoffee, status: 'Open', hours: '7:00 AM - 9:00 PM', capacity: 65 },
     { name: 'Gym', icon: FiActivity, status: 'Open', hours: '6:00 AM - 11:00 PM', capacity: 42 },
@@ -16,6 +37,17 @@ export default function Campus() {
   ];
 
   const categories = ['All', 'Dining', 'Fitness', 'Events', 'Services'];
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 mx-auto mb-4 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
+          <div className="text-gray-400 text-lg">Loading...</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full bg-transparent pb-24 relative">

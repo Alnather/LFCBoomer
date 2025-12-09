@@ -472,38 +472,35 @@ export default function RideDetail() {
   };
 
   return (
-    <div className={`pb-32 min-h-screen transition-colors duration-300 ${
+    <div className={`pb-32 transition-colors duration-300 ${
       colorTheme === 'arctic' ? 'bg-gray-50' : ''
-    }`}>
-      {/* Header with Back Button and Theme Toggle */}
+    }`} style={{ minHeight: 'var(--available-height)' }}>
+      {/* Header with Back Button and Title */}
       <div className="backdrop-blur-2xl" style={{ marginTop: "2vh", marginBottom: "2vh" }}>
-        <div className="max-w-2xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-6 md:px-12 py-4 flex items-center gap-4">
           {/* Back Button */}
           <motion.button
             whileHover={{ scale: 1.05, x: -2 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => router.back()}
-            className={`p-2 rounded-full transition-all ${
-              colorTheme === 'arctic' 
-                ? 'hover:bg-gray-200 text-gray-900' 
-                : 'hover:bg-white/5 text-white'
-            }`}
+            className="p-2 rounded-full transition-all hover:bg-white/5 text-white"
           >
             <HiArrowLeft size={28} />
           </motion.button>
+          
+          {/* Page Title - Next to Arrow */}
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-2xl md:text-3xl font-bold text-white"
+          >
+            Ride Details
+          </motion.h1>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-2xl mx-auto px-6 pt-8 custom-app-layout-mobile">
-        {/* Page Title */}
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
-        >
-          Ride Details
-        </motion.h1>
+      <div className="w-full mx-auto px-6 md:px-12 custom-app-layout-mobile">
         
         {/* Destination Card */}
         <motion.div
