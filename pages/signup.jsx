@@ -66,6 +66,15 @@ export default function Signup() {
         preferences: {},
       };
       await setDoc(doc(db, "users", userCred.user.uid), userData);
+      
+      // Send verification email (optional - user can still access the app)
+      try {
+        await sendEmailVerification(userCred.user);
+      } catch (emailErr) {
+        console.log("Email verification failed to send:", emailErr);
+        // Don't block signup if email fails
+      }
+      
       // Redirect to rides page
       router.push("/rides");
     } catch (err) {

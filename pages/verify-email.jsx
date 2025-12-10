@@ -15,13 +15,13 @@ export default function VerifyEmail() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        if (currentUser.emailVerified) {
+        /* if (currentUser.emailVerified) {
           // Already verified, redirect to home
           router.push("/");
-        } else {
+        } else { */
           setUser(currentUser);
           setLoading(false);
-        }
+        /* } */
       } else {
         // Not logged in, redirect to login
         router.push("/login");
@@ -47,7 +47,7 @@ export default function VerifyEmail() {
     }
   }
 
-  async function handleCheckVerification() {
+  /* async function handleCheckVerification() {
     if (!user) return;
 
     try {
@@ -61,7 +61,7 @@ export default function VerifyEmail() {
     } catch (err) {
       setError("Failed to check verification status");
     }
-  }
+  } */
 
   async function handleLogout() {
     await auth.signOut();

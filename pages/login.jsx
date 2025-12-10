@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { signInWithEmailAndPassword, sendEmailVerification, onAuthStateChanged } from "firebase/auth";
+import { signInWithEmailAndPassword, /* sendEmailVerification, */ onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 
 export default function Login() {
@@ -51,7 +51,7 @@ export default function Login() {
     }
   }
 
-  async function handleResendVerification() {
+  /* async function handleResendVerification() {
     setError("");
     setVerificationResent(false);
     
@@ -68,7 +68,7 @@ export default function Login() {
     } catch (err) {
       setError("Failed to resend verification email. Please try again.");
     }
-  }
+  } */
 
   return (
     <div className=" flex items-center justify-center bg-[#171717] py-12 px-4 custom-app-layout-mobile"  style={{minHeight:"80vh"}} >
@@ -93,11 +93,11 @@ export default function Login() {
             </div>
           )}
 
-          {verificationResent && (
+          {/* verificationResent && (
             <div className="bg-green-500/10 border border-green-500/30 text-green-400 px-4 py-3 rounded-xl text-sm">
               Verification email sent! Please check your inbox.
             </div>
-          )}
+          ) */}
 
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
@@ -138,7 +138,7 @@ export default function Login() {
             {loading ? "Signing in..." : "Sign In"}
           </button>
 
-          {showResendVerification && (
+          {/* showResendVerification && (
             <button
               type="button"
               onClick={handleResendVerification}
@@ -146,7 +146,7 @@ export default function Login() {
             >
               Resend Verification Email
             </button>
-          )}
+          ) */}
         </form>
 
         <div className="mt-6 text-center" style={{marginBottom:"1vh"}}>

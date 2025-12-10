@@ -42,13 +42,13 @@ export default function App({ Component, pageProps }) {
         setUser(refreshedUser);
         
         // Check if user is logged in but email is not verified
-        if (refreshedUser && !refreshedUser.emailVerified) {
+        /* if (refreshedUser && !refreshedUser.emailVerified) {
           // Allow access to verification and auth pages
           const allowedPages = ['/verify-email', '/login', '/signup'];
           if (!allowedPages.includes(router.pathname)) {
             router.push('/verify-email');
           }
-        }
+        } */
       } else {
         setUser(null);
       }
