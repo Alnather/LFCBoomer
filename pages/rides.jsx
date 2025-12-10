@@ -159,12 +159,21 @@ export default function Rides() {
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const ridesData = snapshot.docs.map(doc => {
         const data = doc.data();
+        // Convert Firestore Timestamp to local date string (YYYY-MM-DD)
+        let dateStr = '';
+        if (data.date?.toDate) {
+          const d = data.date.toDate();
+          const year = d.getFullYear();
+          const month = String(d.getMonth() + 1).padStart(2, '0');
+          const day = String(d.getDate()).padStart(2, '0');
+          dateStr = `${year}-${month}-${day}`;
+        }
         return {
           id: doc.id,
           destination: data.destination,
           city: data.city || '',
           fullAddress: data.fullAddress || data.destination,
-          date: data.date?.toDate ? data.date.toDate().toISOString().split('T')[0] : '',
+          date: dateStr,
           time: data.time,
           organizer: capitalizeName(data.organizerName),
           organizerId: data.organizerId,
@@ -203,7 +212,11 @@ export default function Rides() {
     }
 
     if (dateFilter) {
-      const dateStr = dateFilter.toISOString().split('T')[0];
+      // Convert date filter to local date string (YYYY-MM-DD)
+      const year = dateFilter.getFullYear();
+      const month = String(dateFilter.getMonth() + 1).padStart(2, '0');
+      const day = String(dateFilter.getDate()).padStart(2, '0');
+      const dateStr = `${year}-${month}-${day}`;
       filtered = filtered.filter((ride) => ride.date === dateStr);
     }
 
@@ -453,7 +466,7 @@ export default function Rides() {
                           {/* Date and Time */}
                           <div className="flex items-center gap-3">
                             <p className="text-lg text-gray-300 font-medium">
-                              {new Date(ride.date).toLocaleDateString('en-US', { 
+                              {new Date(ride.date + 'T12:00:00').toLocaleDateString('en-US', { 
                                 weekday: 'short', 
                                 month: 'short', 
                                 day: 'numeric' 

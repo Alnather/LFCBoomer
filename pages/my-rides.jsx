@@ -116,11 +116,23 @@ export default function MyRides() {
     const q = query(ridesRef, where('organizerId', '==', user.uid));
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
-      const rides = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-        date: doc.data().date?.toDate ? doc.data().date.toDate().toISOString().split('T')[0] : ''
-      }));
+      const rides = snapshot.docs.map(doc => {
+        const data = doc.data();
+        // Convert Firestore Timestamp to local date string (YYYY-MM-DD)
+        let dateStr = '';
+        if (data.date?.toDate) {
+          const d = data.date.toDate();
+          const year = d.getFullYear();
+          const month = String(d.getMonth() + 1).padStart(2, '0');
+          const day = String(d.getDate()).padStart(2, '0');
+          dateStr = `${year}-${month}-${day}`;
+        }
+        return {
+          id: doc.id,
+          ...data,
+          date: dateStr
+        };
+      });
       setMyCreatedRides(rides);
       setLoading(false);
     });
@@ -136,11 +148,23 @@ export default function MyRides() {
     const q = query(ridesRef, where('participants', 'array-contains', user.uid));
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
-      const rides = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-        date: doc.data().date?.toDate ? doc.data().date.toDate().toISOString().split('T')[0] : ''
-      })).filter(ride => ride.organizerId !== user.uid); // Exclude rides they created
+      const rides = snapshot.docs.map(doc => {
+        const data = doc.data();
+        // Convert Firestore Timestamp to local date string (YYYY-MM-DD)
+        let dateStr = '';
+        if (data.date?.toDate) {
+          const d = data.date.toDate();
+          const year = d.getFullYear();
+          const month = String(d.getMonth() + 1).padStart(2, '0');
+          const day = String(d.getDate()).padStart(2, '0');
+          dateStr = `${year}-${month}-${day}`;
+        }
+        return {
+          id: doc.id,
+          ...data,
+          date: dateStr
+        };
+      }).filter(ride => ride.organizerId !== user.uid); // Exclude rides they created
       
       setMyJoinedRides(rides);
     });
@@ -368,7 +392,7 @@ export default function MyRides() {
                         
                         <div className="flex items-center gap-3">
                           <p className="text-lg text-gray-300 font-medium">
-                            {new Date(ride.date).toLocaleDateString('en-US', { 
+                            {new Date(ride.date + 'T12:00:00').toLocaleDateString('en-US', { 
                               weekday: 'short', 
                               month: 'short', 
                               day: 'numeric' 

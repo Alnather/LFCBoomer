@@ -139,12 +139,21 @@ export default function RideDetail() {
     const unsubscribe = onSnapshot(rideRef, (docSnap) => {
       if (docSnap.exists()) {
         const data = docSnap.data();
+        // Convert Firestore Timestamp to local date string (YYYY-MM-DD)
+        let dateStr = '';
+        if (data.date?.toDate) {
+          const d = data.date.toDate();
+          const year = d.getFullYear();
+          const month = String(d.getMonth() + 1).padStart(2, '0');
+          const day = String(d.getDate()).padStart(2, '0');
+          dateStr = `${year}-${month}-${day}`;
+        }
         setRide({
           id: docSnap.id,
           destination: data.destination,
           city: data.city || '',
           fullAddress: data.fullAddress || data.destination,
-          date: data.date?.toDate ? data.date.toDate().toISOString().split('T')[0] : '',
+          date: dateStr,
           time: data.time,
           organizer: capitalizeName(data.organizerName),
           organizerId: data.organizerId,
@@ -545,7 +554,7 @@ export default function RideDetail() {
                 onClick={async () => {
                   const shareData = {
                     title: `Ride to ${ride.destination}`,
-                    text: `Join me on a ride to ${ride.destination} on ${new Date(ride.date).toLocaleDateString()} at ${ride.time}`,
+                    text: `Join me on a ride to ${ride.destination} on ${new Date(ride.date + 'T12:00:00').toLocaleDateString()} at ${ride.time}`,
                     url: window.location.href
                   };
                   if (navigator.share) {
@@ -575,7 +584,7 @@ export default function RideDetail() {
                 <FiCalendar className={getTextColor('tertiary')} size={20} />
                 <div>
                   <p className={`font-semibold ${getTextColor('primary')}`}>
-                    {new Date(ride.date).toLocaleDateString('en-US', {
+                    {new Date(ride.date + 'T12:00:00').toLocaleDateString('en-US', {
                       month: 'short',
                       day: 'numeric'
                     })}
