@@ -7,11 +7,31 @@ import { UnreadProvider } from "@/context/UnreadContext";
 import TopBar from "@/components/TopBar";
 import BottomNav from "@/components/BottomNav";
 import MessageNotification from "@/components/MessageNotification";
+import Script from "next/script";
+
+// Google Analytics Measurement ID
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export default function App({ Component, pageProps }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
+
+  // Track page views
+  useEffect(() => {
+    if (!GA_MEASUREMENT_ID) return;
+
+    const handleRouteChange = (url) => {
+      window.gtag('config', GA_MEASUREMENT_ID, {
+        page_path: url,
+      });
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
@@ -45,6 +65,30 @@ export default function App({ Component, pageProps }) {
 
   return (
     <UnreadProvider user={user}>
+      {/* Google Analytics */}
+      {GA_MEASUREMENT_ID && (
+        <>
+          <Script
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          />
+          <Script
+            id="google-analytics"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_MEASUREMENT_ID}', {
+                  page_path: window.location.pathname,
+                });
+              `,
+            }}
+          />
+        </>
+      )}
+      
       <div className="app-layout">
         <TopBar user={user} isAuthPage={isAuthPage} />
         <MessageNotification user={user} />
