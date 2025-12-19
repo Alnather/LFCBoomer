@@ -1,180 +1,171 @@
-[00:00:01.527] Server  LOG      ✓ Ready in 953ms
-[00:00:08.827] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:00:34.656] Browser LOG     🔵 JOIN RIDE ATTEMPT
-[00:00:34.656] Browser LOG     User UID: f7Ik2i5pd2csBJPdQNYcoE1iIQ92
-[00:00:34.656] Browser LOG     Ride ID: 7HhFKAJYH4Q4H7xjrEvV
-[00:00:34.656] Browser LOG     Current participants: ["BtAMz05CDTbovZU4emCeGKGx02m1"]
-[00:00:34.656] Browser LOG     Is already participant? false
-[00:00:34.656] Browser LOG     Attempting updateDoc with arrayUnion...
-[00:00:34.656] Browser ERROR   [2025-12-09T05:46:54.513Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
-[00:00:34.656] Browser ERROR   [2025-12-09T05:46:54.513Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
-[00:00:34.656] Browser ERROR   [2025-12-09T05:46:54.582Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
-[00:00:34.656] Browser LOG     Permission denied on messages - retrying in 1.5s...
-[00:00:34.656] Browser LOG     ✅ Successfully joined the ride!
-[00:00:36.115] Browser LOG     Retrying message listener after join...
-[00:01:39.932] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:02:33.171] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:03:56.385] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:06:19.470] Browser ERROR   [2025-12-09T05:52:38.953Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:06:19.470] Browser ERROR   [2025-12-09T05:52:38.955Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:06:19.470] Browser ERROR   [2025-12-09T05:52:39.304Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:06:19.470] Browser ERROR   [2025-12-09T05:52:39.305Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:07:30.202] Browser ERROR   [2025-12-09T05:53:50.163Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:07:30.202] Browser ERROR   [2025-12-09T05:53:50.164Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:07:40.850] Server  LOG      ✓ Compiled in 87ms
-[00:07:44.901] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:07:45.175] Browser ERROR   [2025-12-09T05:54:05.145Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:07:45.175] Browser ERROR   [2025-12-09T05:54:05.146Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:07:46.086] Browser ERROR   [2025-12-09T05:54:06.058Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:07:46.086] Browser ERROR   [2025-12-09T05:54:06.058Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:07:48.006] Browser ERROR   [2025-12-09T05:54:07.975Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:07:48.006] Browser ERROR   [2025-12-09T05:54:07.975Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:07:48.459] Browser ERROR   [2025-12-09T05:54:08.430Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:07:48.459] Browser ERROR   [2025-12-09T05:54:08.430Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:07:49.298] Browser ERROR   [2025-12-09T05:54:09.267Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:07:49.298] Browser ERROR   [2025-12-09T05:54:09.267Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:08:04.894] Browser ERROR   [2025-12-09T05:54:24.867Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:08:04.894] Browser ERROR   [2025-12-09T05:54:24.867Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:08:20.197] Browser ERROR   [2025-12-09T05:54:40.156Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:08:20.197] Browser ERROR   [2025-12-09T05:54:40.156Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:08:31.184] Browser ERROR   [2025-12-09T05:54:51.156Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:08:31.184] Browser ERROR   [2025-12-09T05:54:51.157Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:09:55.433] Browser ERROR   [2025-12-09T05:56:14.679Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:09:55.433] Browser ERROR   [2025-12-09T05:56:14.681Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:10:43.427] Browser ERROR   [2025-12-09T05:57:02.656Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:10:43.427] Browser ERROR   [2025-12-09T05:57:02.657Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:11:38.396] Browser ERROR   [2025-12-09T05:57:58.369Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:11:38.397] Browser ERROR   [2025-12-09T05:57:58.369Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:11:48.352] Server  LOG      ✓ Compiled in 62ms
-[00:11:48.471] Browser ERROR   ./components/MessageNotification.jsx:211:6
-Parsing ecmascript source code failed
-  209 |
-  210 |   const handleClick = () => {
-> 211 |     });
-      |      ^
-  212 |     setIsVisible(true);
-  213 |
-  214 |     // Auto-hide after 1.5 seconds
-
-Expected a semicolon
-
-Import trace:
-  SSR:
-    ./components/MessageNotification.jsx
-    ./pages/_app.jsx
-[00:11:48.471] Browser ERROR   ./components/MessageNotification.jsx
-Code generation for chunk item errored
-An error occurred while generating the chunk item [project]/components/MessageNotification.jsx [ssr] (ecmascript)
-
-Caused by:
-- CJS module can't be async.
-
-Debug info:
-- An error occurred while generating the chunk item [project]/components/MessageNotification.jsx [ssr] (ecmascript)
-- Execution of <ModuleChunkItem as EcmascriptChunkItem>::content_with_async_module_info failed
-- Execution of EcmascriptChunkItemContent::new failed
-- CJS module can't be async.
-
-Import trace:
-  SSR:
-    ./components/MessageNotification.jsx
-    ./pages/_app.jsx
-[00:12:06.313] Server  LOG      ✓ Compiled in 65ms
-[00:12:40.595] Server  LOG      ✓ Compiled in 81ms
-[00:12:41.427] Browser ERROR   [2025-12-09T05:59:00.691Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:12:41.427] Browser ERROR   [2025-12-09T05:59:00.691Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:12:58.677] Server  LOG      ✓ Compiled in 58ms
-[00:13:34.423] Browser ERROR   [2025-12-09T05:59:53.657Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:13:34.423] Browser ERROR   [2025-12-09T05:59:53.657Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:14:06.081] Browser ERROR   [2025-12-09T06:00:26.050Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:14:06.081] Browser ERROR   [2025-12-09T06:00:26.050Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:17:57.710] Browser ERROR   [2025-12-09T06:04:17.681Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:17:57.711] Browser ERROR   [2025-12-09T06:04:17.682Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:17:57.944] Browser ERROR   [2025-12-09T06:04:17.916Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:17:57.944] Browser ERROR   [2025-12-09T06:04:17.916Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:18:25.760] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:20:08.391] Browser ERROR   [2025-12-09T06:06:28.364Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:20:08.391] Browser ERROR   [2025-12-09T06:06:28.364Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:20:08.533] Browser ERROR   [2025-12-09T06:06:28.504Z]  @firebase/firestore: Firestore (12.6.0): FirebaseError: [code=resource-exhausted]: Quota exceeded.
-[00:20:08.533] Browser ERROR   [2025-12-09T06:06:28.504Z]  @firebase/firestore: Firestore (12.6.0): Using maximum backoff delay to prevent overloading the backend.
-[00:23:14.155] Server  LOG      ✓ Compiled in 83ms
-[00:23:51.975] Server  LOG      ✓ Compiled in 72ms
-[00:25:58.373] Server  LOG      ✓ Compiled in 77ms
-[00:28:49.273] Server  LOG      ✓ Compiled in 107ms
-[00:28:49.437] Browser LOG     Refreshing page data due to server-side change
-[00:28:58.313] Server  LOG      ✓ Compiled in 164ms
-[00:28:58.465] Browser LOG     Refreshing page data due to server-side change
-[00:29:07.471] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:29:10.710] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:29:28.843] Server  LOG      ✓ Compiled in 237ms
-[00:29:51.220] Server  LOG      ✓ Compiled in 305ms
-[00:29:51.539] Browser ERROR   %o
-
-%s
-
-%s
- {} The above error occurred in the <TopBar> component. React will try to recreate this component tree from scratch using the error boundary you provided, PagesDevOverlayErrorBoundary.
-[00:30:13.752] Server  LOG      ✓ Compiled in 77ms
-[00:30:19.182] Server  LOG      ✓ Compiled in 59ms
-[00:31:09.039] Server  LOG      ✓ Compiled in 238ms
-[00:36:55.694] Server  LOG      ✓ Compiled in 71ms
-[00:36:57.709] Server  LOG      ✓ Compiled in 61ms
-[00:40:16.578] Server  LOG        Reload env: .env.local
-[00:40:30.142] Server  LOG      ✓ Compiled in 79ms
-[00:41:38.177] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:47:26.572] Server  LOG      ✓ Compiled in 71ms
-[00:49:26.212] Server  LOG      ✓ Compiled in 210ms
-[00:49:46.133] Server  LOG      ✓ Compiled in 77ms
-[00:50:25.047] Server  LOG      ✓ Compiled in 95ms
-[00:51:48.651] Server  LOG      ✓ Compiled in 53ms
-[00:52:03.707] Server  LOG      ✓ Compiled in 62ms
-[00:52:13.772] Server  LOG      ✓ Compiled in 65ms
-[00:52:55.465] Server  LOG      ✓ Compiled in 42ms
-[00:56:15.399] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[00:57:42.592] Server  LOG      ✓ Compiled in 54ms
-[00:58:05.450] Server  LOG      ✓ Compiled in 56ms
-[00:58:25.247] Server  LOG      ✓ Compiled in 64ms
-[00:58:52.856] Server  LOG      ✓ Compiled in 36ms
-[00:58:53.436] Browser ERROR   %o
-
-%s
-
-%s
- {} The above error occurred in the <UnreadProvider> component. React will try to recreate this component tree from scratch using the error boundary you provided, PagesDevOverlayErrorBoundary.
-[00:59:36.818] Server  LOG      ✓ Compiled in 46ms
-[01:00:01.252] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[01:00:08.091] Server  LOG      ✓ Compiled in 83ms
-[01:00:08.129] Browser LOG     Refreshing page data due to server-side change
-[01:00:25.982] Server  LOG      ✓ Compiled in 38ms
-[01:00:39.994] Server  LOG      ✓ Compiled in 33ms
-[01:01:18.136] Server  LOG      ✓ Compiled in 26ms
-[01:01:24.928] Server  LOG      ✓ Compiled in 80ms
-[01:01:41.698] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[01:04:27.007] Server  LOG      ✓ Compiled in 58ms
-[01:04:40.235] Server  LOG      ✓ Compiled in 35ms
-[01:04:54.689] Server  LOG      ✓ Compiled in 53ms
-[01:06:36.771] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[01:18:45.869] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[01:25:21.576] Server  LOG        Reload env: .env.local
-[01:25:21.633] Server  LOG      ✓ Compiled in 16ms
-[01:27:39.270] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[01:28:31.540] Browser ERROR   [2025-12-09T07:14:51.501Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
-[01:56:33.656] Server  LOG      ✓ Compiled in 47ms
-[02:00:31.816] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[02:00:46.963] Browser ERROR   Error fetching listings: {"code":"permission-denied","name":"FirebaseError"}
-[02:01:15.980] Browser ERROR   Error fetching listings: {"code":"permission-denied","name":"FirebaseError"}
-[02:01:18.660] Server  LOG      ✓ Compiled in 52ms
-[02:01:21.037] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[02:01:21.871] Browser ERROR   Error fetching listings: {"code":"permission-denied","name":"FirebaseError"}
-[02:01:45.345] Browser ERROR   Error fetching listings: {"code":"permission-denied","name":"FirebaseError"}
-[02:01:47.447] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[02:01:55.187] Server  LOG      ✓ Compiled in 130ms
-[02:01:55.437] Browser LOG     Refreshing page data due to server-side change
-[02:01:59.139] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
-[14:28:46.393] Server  LOG      ✓ Compiled in 61ms
-[14:30:59.675] Server  LOG      ✓ Compiled in 10ms
-[16:20:19.580] Server  LOG      ✓ Compiled in 23ms
-[16:20:31.906] Server  LOG      ✓ Compiled in 13ms
-[16:20:57.828] Server  LOG      ✓ Compiled in 8ms
-[16:21:34.369] Server  LOG      ✓ Compiled in 35ms
-[16:23:01.124] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:00:01.639] Server  LOG      ✓ Ready in 1211ms
+[00:00:09.097] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:01:47.543] Server  LOG      ✓ Compiled in 83ms
+[00:01:58.382] Server  LOG      ✓ Compiled in 49ms
+[00:02:29.227] Server  LOG      ✓ Compiled in 47ms
+[00:02:31.722] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:03:15.702] Server  LOG      ✓ Compiled in 52ms
+[00:03:21.456] Server  LOG      ✓ Compiled in 43ms
+[00:03:52.166] Server  LOG      ✓ Compiled in 40ms
+[00:04:05.119] Server  LOG      ✓ Compiled in 54ms
+[00:04:10.784] Server  LOG      ✓ Compiled in 48ms
+[00:04:11.841] Server  LOG      ✓ Compiled in 44ms
+[00:04:13.751] Server  LOG      ✓ Compiled in 43ms
+[00:04:53.966] Server  LOG      ✓ Compiled in 38ms
+[00:05:11.075] Server  LOG      ✓ Compiled in 40ms
+[00:05:18.952] Server  LOG      ✓ Compiled in 36ms
+[00:05:22.898] Server  LOG      ✓ Compiled in 43ms
+[00:05:27.412] Server  LOG      ✓ Compiled in 45ms
+[00:05:35.945] Server  LOG      ✓ Compiled in 39ms
+[00:05:46.813] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:07:20.685] Browser ERROR   Error fetching seller: {"code":"permission-denied","name":"FirebaseError"}
+[00:07:22.811] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:08:12.597] Browser ERROR   Error creating conversation: {"code":"permission-denied","name":"FirebaseError"}
+[00:08:54.664] Browser LOG     Could not update user products array: {"code":"permission-denied","name":"FirebaseError"}
+[00:10:33.347] Server  LOG      ✓ Compiled in 68ms
+[00:10:52.227] Server  LOG      ✓ Compiled in 42ms
+[00:12:58.336] Server  LOG      ✓ Compiled in 183ms
+[00:13:18.424] Server  LOG      ✓ Compiled in 133ms
+[00:14:49.146] Server  LOG      ✓ Compiled in 111ms
+[00:37:54.499] Server  LOG      ✓ Compiled in 51ms
+[00:38:00.753] Server  LOG      ✓ Compiled in 46ms
+[00:38:04.051] Server  LOG      ✓ Compiled in 48ms
+[00:38:08.221] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:38:38.868] Server  LOG      ✓ Compiled in 44ms
+[00:38:40.157] Server  LOG      ✓ Compiled in 36ms
+[00:38:42.221] Server  LOG      ✓ Compiled in 46ms
+[00:38:48.888] Server  LOG      ✓ Compiled in 46ms
+[00:39:12.059] Server  LOG      ✓ Compiled in 47ms
+[00:39:58.518] Server  LOG      ✓ Compiled in 46ms
+[00:40:10.046] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:40:18.867] Server  LOG      ✓ Compiled in 37ms
+[00:40:46.282] Server  LOG      ✓ Compiled in 37ms
+[00:41:06.962] Server  LOG      ✓ Compiled in 54ms
+[00:41:12.420] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:41:22.142] Server  LOG      ✓ Compiled in 47ms
+[00:41:38.389] Server  LOG      ✓ Compiled in 40ms
+[00:41:41.715] Server  LOG      ✓ Compiled in 50ms
+[00:41:54.481] Browser ERROR   Error creating conversation: {"code":"permission-denied","name":"FirebaseError"}
+[00:43:32.438] Server  LOG      ✓ Compiled in 48ms
+[00:44:02.871] Server  LOG      ✓ Compiled in 40ms
+[00:46:53.286] Browser ERROR   Error fetching marketplace conversations: {"code":"permission-denied","name":"FirebaseError"}
+[00:48:22.830] Server  LOG      ✓ Compiled in 87ms
+[00:50:25.596] Server  LOG      ✓ Compiled in 132ms
+[00:50:37.207] Server  LOG      ✓ Compiled in 129ms
+[00:50:57.609] Server  LOG      ✓ Compiled in 180ms
+[00:51:15.373] Server  LOG      ✓ Compiled in 85ms
+[00:51:28.936] Server  LOG      ✓ Compiled in 69ms
+[00:51:36.594] Server  LOG      ✓ Compiled in 100ms
+[00:52:55.901] Server  LOG      ✓ Compiled in 61ms
+[00:55:03.633] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:55:12.856] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:55:20.457] Browser ERROR   Error creating conversation: {"code":"permission-denied","name":"FirebaseError"}
+[00:55:56.194] Browser LOG     Could not update user products array: {"code":"permission-denied","name":"FirebaseError"}
+[00:56:07.721] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:05:40.278] Server  LOG      ✓ Compiled in 93ms
+[01:06:00.264] Server  LOG      ✓ Compiled in 90ms
+[01:06:12.969] Server  LOG      ✓ Compiled in 55ms
+[01:06:20.419] Server  LOG      ✓ Compiled in 48ms
+[01:06:31.170] Server  LOG      ✓ Compiled in 58ms
+[01:06:44.109] Server  LOG      ✓ Compiled in 43ms
+[01:06:55.811] Server  LOG      ✓ Compiled in 53ms
+[01:07:10.182] Server  LOG      ✓ Compiled in 59ms
+[01:07:21.373] Server  LOG      ✓ Compiled in 135ms
+[01:07:25.711] Server  LOG      ✓ Compiled in 77ms
+[01:08:05.194] Server  LOG      ✓ Compiled in 52ms
+[01:08:11.848] Server  LOG      ✓ Compiled in 42ms
+[01:08:21.481] Server  LOG      ✓ Compiled in 45ms
+[01:08:33.326] Server  LOG      ✓ Compiled in 50ms
+[01:08:34.006] Server  LOG      ✓ Compiled in 56ms
+[01:08:41.887] Server  LOG      ✓ Compiled in 117ms
+[01:08:46.389] Server  LOG      ✓ Compiled in 82ms
+[01:09:04.730] Server  LOG      ✓ Compiled in 62ms
+[01:09:19.241] Server  LOG      ✓ Compiled in 82ms
+[01:11:35.556] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:11:42.731] Browser ERROR   [2025-12-19T20:58:00.128Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[01:11:42.731] Browser ERROR   [2025-12-19T20:58:00.129Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[01:12:04.890] Browser ERROR   [2025-12-19T20:58:22.271Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[01:12:04.890] Browser ERROR   [2025-12-19T20:58:22.287Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[01:13:49.308] Server  LOG      ✓ Compiled in 105ms
+[01:16:40.242] Server  LOG      ✓ Compiled in 142ms
+[01:16:53.655] Server  LOG      ✓ Compiled in 145ms
+[01:17:22.624] Server  LOG      ✓ Compiled in 89ms
+[01:18:25.453] Browser ERROR   Error fetching profile: {"code":"failed-precondition","name":"FirebaseError"}
+[01:19:37.676] Browser ERROR   Error fetching profile: {"code":"failed-precondition","name":"FirebaseError"}
+[01:19:53.325] Server  LOG      ✓ Compiled in 214ms
+[01:19:54.080] Browser LOG     Refreshing page data due to server-side change
+[01:20:07.594] Server  LOG      ✓ Compiled in 48ms
+[01:20:08.072] Browser ERROR   Error fetching profile: {"code":"failed-precondition","name":"FirebaseError"}
+[01:20:15.645] Server  LOG      ✓ Compiled in 38ms
+[01:20:15.919] Browser ERROR   Error fetching profile: {"code":"failed-precondition","name":"FirebaseError"}
+[01:20:18.971] Server  LOG      ✓ Compiled in 43ms
+[01:20:19.271] Browser ERROR   Error fetching profile: {"code":"failed-precondition","name":"FirebaseError"}
+[01:20:19.518] Server  LOG      ✓ Compiled in 242ms
+[01:20:20.079] Browser LOG     Refreshing page data due to server-side change
+[01:20:28.521] Server  LOG      ✓ Compiled in 62ms
+[01:20:37.289] Server  LOG      ✓ Compiled in 154ms
+[01:20:46.717] Server  LOG      ✓ Compiled in 53ms
+[01:20:47.154] Browser ERROR   Error fetching profile: {"code":"failed-precondition","name":"FirebaseError"}
+[01:20:50.349] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:20:56.900] Browser ERROR   Error fetching profile: {"code":"failed-precondition","name":"FirebaseError"}
+[01:21:31.048] Server  LOG      ✓ Compiled in 242ms
+[01:21:42.993] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:21:48.196] Browser ERROR   Error fetching profile: {"code":"failed-precondition","name":"FirebaseError"}
+[01:23:53.229] Server  LOG      ✓ Compiled in 51ms
+[01:23:55.087] Server  LOG      ✓ Compiled in 47ms
+[01:23:56.451] Server  LOG      ✓ Compiled in 44ms
+[01:24:10.661] Server  LOG      ✓ Compiled in 53ms
+[01:24:16.086] Server  LOG      ✓ Compiled in 53ms
+[01:24:38.863] Server  LOG      ✓ Compiled in 50ms
+[01:24:47.484] Server  LOG      ✓ Compiled in 43ms
+[01:25:06.525] Server  LOG      ✓ Compiled in 54ms
+[01:25:10.265] Server  LOG      ✓ Compiled in 42ms
+[01:25:21.413] Server  LOG      ✓ Compiled in 42ms
+[01:25:28.680] Server  LOG      ✓ Compiled in 52ms
+[01:25:57.961] Browser LOG     Could not update user products array: {"code":"permission-denied","name":"FirebaseError"}
+[01:26:07.708] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:27:00.289] Browser ERROR   [2025-12-19T21:13:17.677Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[01:27:00.289] Browser ERROR   [2025-12-19T21:13:17.688Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[01:27:04.160] Browser ERROR   [2025-12-19T21:13:21.530Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[01:27:04.161] Browser ERROR   [2025-12-19T21:13:21.557Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[01:27:49.962] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:27:52.480] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:28:21.469] Browser ERROR   [2025-12-19T21:14:38.868Z]  @firebase/firestore: Firestore (12.6.0): Uncaught Error in snapshot listener: FirebaseError: [code=permission-denied]: Missing or insufficient permissions.
+[01:29:05.143] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:31:28.629] Server  LOG      ✓ Compiled in 125ms
+[01:31:29.078] Browser ERROR   Error fetching profile: {"code":"failed-precondition","name":"FirebaseError"}
+[01:31:39.553] Server  LOG      ✓ Compiled in 72ms
+[01:31:40.078] Browser ERROR   Error fetching profile: {"code":"failed-precondition","name":"FirebaseError"}
+[01:34:18.542] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:34:48.917] Browser ERROR   Error fetching profile: {"code":"failed-precondition","name":"FirebaseError"}
+[01:35:14.855] Server  LOG      ✓ Compiled in 48ms
+[01:35:15.133] Browser ERROR   Error fetching profile: {"code":"failed-precondition","name":"FirebaseError"}
+[01:35:28.056] Server  LOG      ✓ Compiled in 44ms
+[01:35:28.348] Browser ERROR   Error fetching profile: {"code":"failed-precondition","name":"FirebaseError"}
+[01:35:38.221] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:36:15.827] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:36:28.554] Browser ERROR   Error fetching profile: {"code":"failed-precondition","name":"FirebaseError"}
+[01:37:11.318] Browser ERROR   Error fetching profile: {"code":"failed-precondition","name":"FirebaseError"}
+[01:38:42.192] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:38:47.603] Browser ERROR   Error fetching listing: {"code":"permission-denied","name":"FirebaseError"}
+[01:38:53.755] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:39:35.268] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:40:51.562] Server  LOG      ✓ Compiled in 84ms
+[01:40:52.065] Browser LOG     Refreshing page data due to server-side change
+[01:40:52.074] Browser LOG     Refreshing page data due to server-side change
+[01:40:52.075] Browser LOG     Refreshing page data due to server-side change
+[01:40:59.199] Server  LOG      ✓ Compiled in 52ms
+[01:41:00.068] Browser LOG     Refreshing page data due to server-side change
+[01:41:00.068] Browser LOG     Refreshing page data due to server-side change
+[01:41:00.069] Browser LOG     Refreshing page data due to server-side change
+[01:41:10.154] Server  LOG      ✓ Compiled in 81ms
+[01:41:20.918] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[01:44:09.596] Server  LOG      ✓ Compiled in 60ms
+[01:44:11.079] Browser LOG     Fetching rides for organizerId: BtAMz05CDTbovZU4emCeGKGx02m1
+[01:44:11.079] Browser LOG     Rides found: 2
+[01:44:11.079] Browser LOG     Ride: BvnsSu1rkiLQOJEZMW0X {"city":"North Western Avenue","createdAt":{"nanoseconds":447000000,"seconds":1766178879,"type":"firestore/timestamp/1.0"},"date":{"nanoseconds":976000000,"seconds":1766259033,"type":"firestore/timestamp/1.0"},"description":"","destination":"Jewel-Osco","fullAddress":"Jewel-Osco, North Western Avenue, Lake Forest, IL, USA","lastRead_BtAMz05CDTbovZU4emCeGKGx02m1":{"nanoseconds":750000000,"seconds":1766179238,"type":"firestore/timestamp/1.0"},"organizerEmail":"yousefa@lakeforest.edu","organizerId":"BtAMz05CDTbovZU4emCeGKGx02m1","organizerName":"Ahmed Hani","participants":["BtAMz05CDTbovZU4emCeGKGx02m1"],"pickup":"Lake Forest College","seats":4,"status":"active","time":"01:30 PM"}
+[01:44:11.079] Browser LOG     Ride: wAYDqqITzEE6RqT4gU28 {"city":"North Western Avenue","createdAt":{"nanoseconds":90000000,"seconds":1765264490,"type":"firestore/timestamp/1.0"},"date":{"nanoseconds":519000000,"seconds":1765728733,"type":"firestore/timestamp/1.0"},"description":"Getting some groceries tomorrow, can do a different time too","destination":"Jewel-Osco","fullAddress":"Jewel-Osco, North Western Avenue, Lake Forest, IL, USA","lastRead_BtAMz05CDTbovZU4emCeGKGx02m1":{"nanoseconds":402000000,"seconds":1766179238,"type":"firestore/timestamp/1.0"},"lastRead_f7Ik2i5pd2csBJPdQNYcoE1iIQ92":{"nanoseconds":312000000,"seconds":1765264511,"type":"firestore/timestamp/1.0"},"organizerEmail":"yousefa@lakeforest.edu","organizerId":"BtAMz05CDTbovZU4emCeGKGx02m1","organizerName":"Ahmed Hani","participants":["BtAMz05CDTbovZU4emCeGKGx02m1"],"pickup":"Deerpath","seats":4,"status":"active","time":"10:00 AM","updatedAt":{"nanoseconds":444000000,"seconds":1765383134,"type":"firestore/timestamp/1.0"}}
+[01:44:11.079] Browser LOG     Today for filtering: 2025-12-19
+[01:44:11.079] Browser LOG     Ride date: {"nanoseconds":976000000,"seconds":1766259033,"type":"firestore/timestamp/1.0"} isUpcoming: false
+[01:44:11.079] Browser LOG     Ride date: {"nanoseconds":519000000,"seconds":1765728733,"type":"firestore/timestamp/1.0"} isUpcoming: false
+[01:44:11.079] Browser LOG     Filtered rides: []

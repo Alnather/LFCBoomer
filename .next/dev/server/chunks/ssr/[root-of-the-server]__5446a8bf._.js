@@ -162,6 +162,7 @@ const UnreadContext = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$exter
     unreadCount: 0,
     rideUnreadCount: 0,
     directUnreadCount: 0,
+    marketplaceUnreadCount: 0,
     latestMessage: null
 });
 function useUnread() {
@@ -170,6 +171,7 @@ function useUnread() {
 function UnreadProvider({ user, children }) {
     const [rideUnreadCount, setRideUnreadCount] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(0);
     const [directUnreadCount, setDirectUnreadCount] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(0);
+    const [marketplaceUnreadCount, setMarketplaceUnreadCount] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(0);
     const [latestMessage, setLatestMessage] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(null);
     // Use refs for Maps to persist across re-renders and prevent listener leaks
     const threadDataRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useRef"])(new Map());
@@ -180,6 +182,7 @@ function UnreadProvider({ user, children }) {
         if (!user) {
             setRideUnreadCount(0);
             setDirectUnreadCount(0);
+            setMarketplaceUnreadCount(0);
             setLatestMessage(null);
             return;
         }
@@ -204,16 +207,20 @@ function UnreadProvider({ user, children }) {
         const updateCategoryUnread = ()=>{
             let rideTotal = 0;
             let directTotal = 0;
+            let marketplaceTotal = 0;
             threadData.forEach((data, threadKey)=>{
                 const count = calculateUnreadForThread(threadKey);
                 if (data.type === 'ride') {
                     rideTotal += count;
+                } else if (data.type === 'marketplace') {
+                    marketplaceTotal += count;
                 } else {
                     directTotal += count;
                 }
             });
             setRideUnreadCount(rideTotal);
             setDirectUnreadCount(directTotal);
+            setMarketplaceUnreadCount(marketplaceTotal);
         };
         const checkForNewMessage = (threadKey, messages, data)=>{
             if (!messages || messages.length === 0) return;
@@ -356,6 +363,66 @@ function UnreadProvider({ user, children }) {
             });
         });
         unsubscribers.push(unsubRides, unsubDirect);
+        // Track marketplace conversations
+        const conversationsRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'conversations');
+        const conversationsQuery = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])(conversationsRef, (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["where"])('participants', 'array-contains', user.uid));
+        const unsubMarketplace = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["onSnapshot"])(conversationsQuery, (snapshot)=>{
+            snapshot.docs.forEach((convDoc)=>{
+                const convData = convDoc.data();
+                // Only track marketplace type conversations
+                if (convData.type !== 'marketplace') return;
+                const otherUserId = convData.participants.find((id)=>id !== user.uid);
+                const threadKey = 'marketplace_' + convDoc.id;
+                // Initialize or update thread data
+                if (!threadData.has(threadKey)) {
+                    threadData.set(threadKey, {
+                        type: 'marketplace',
+                        lastReadTimestamp: convData[`lastRead_${user.uid}`],
+                        otherUserId: otherUserId,
+                        messages: []
+                    });
+                } else {
+                    const existing = threadData.get(threadKey);
+                    const newLastRead = convData[`lastRead_${user.uid}`];
+                    if (newLastRead !== null && newLastRead !== undefined) {
+                        existing.lastReadTimestamp = newLastRead;
+                    }
+                }
+                // Set up document listener for lastRead changes
+                if (!docUnsubscribers.has(threadKey)) {
+                    const convDocRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["doc"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'conversations', convDoc.id);
+                    const unsubDoc = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["onSnapshot"])(convDocRef, (updatedDoc)=>{
+                        const data = threadData.get(threadKey);
+                        if (!data) return;
+                        const updatedData = updatedDoc.data();
+                        if (updatedData) {
+                            const newLastRead = updatedData[`lastRead_${user.uid}`];
+                            if (newLastRead !== null && newLastRead !== undefined) {
+                                data.lastReadTimestamp = newLastRead;
+                                updateCategoryUnread();
+                            }
+                        }
+                    });
+                    docUnsubscribers.set(threadKey, unsubDoc);
+                }
+                // Set up messages listener (only once per thread)
+                if (!messageUnsubscribers.has(threadKey)) {
+                    const messagesRef = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["collection"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'conversations', convDoc.id, 'messages');
+                    const messagesQuery = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["query"])(messagesRef, (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["orderBy"])('timestamp', 'desc'), (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["limit"])(10));
+                    const unsubMsg = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["onSnapshot"])(messagesQuery, (msgSnap)=>{
+                        const data = threadData.get(threadKey);
+                        if (data) {
+                            const messages = msgSnap.docs.map((d)=>d.data());
+                            data.messages = messages;
+                            updateCategoryUnread();
+                            checkForNewMessage(threadKey, messages, data);
+                        }
+                    });
+                    messageUnsubscribers.set(threadKey, unsubMsg);
+                }
+            });
+        });
+        unsubscribers.push(unsubMarketplace);
         return ()=>{
             unsubscribers.forEach((unsub)=>unsub());
             messageUnsubscribers.forEach((unsub)=>unsub());
@@ -365,18 +432,19 @@ function UnreadProvider({ user, children }) {
         user
     ]);
     // Compute total for backward compatibility
-    const unreadCount = rideUnreadCount + directUnreadCount;
+    const unreadCount = rideUnreadCount + directUnreadCount + marketplaceUnreadCount;
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(UnreadContext.Provider, {
         value: {
             unreadCount,
             rideUnreadCount,
             directUnreadCount,
+            marketplaceUnreadCount,
             latestMessage
         },
         children: children
     }, void 0, false, {
         fileName: "[project]/context/UnreadContext.jsx",
-        lineNumber: 253,
+        lineNumber: 330,
         columnNumber: 5
     }, this);
 }
@@ -1190,19 +1258,22 @@ var __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/router.js [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__ = __turbopack_context__.i("[externals]/firebase/auth [external] (firebase/auth, esm_import)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/firebase.js [ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__ = __turbopack_context__.i("[externals]/firebase/firestore [external] (firebase/firestore, esm_import)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$context$2f$UnreadContext$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/context/UnreadContext.jsx [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$TopBar$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/TopBar.jsx [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$BottomNav$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/BottomNav.jsx [ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$MessageNotification$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/MessageNotification.jsx [ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$script$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/script.js [ssr] (ecmascript)");
 var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
     __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__,
     __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__,
+    __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__,
     __TURBOPACK__imported__module__$5b$project$5d2f$context$2f$UnreadContext$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__,
     __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$TopBar$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__,
     __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$BottomNav$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__,
     __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$MessageNotification$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__
 ]);
-[__TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$context$2f$UnreadContext$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$TopBar$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$BottomNav$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$MessageNotification$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__;
+[__TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$context$2f$UnreadContext$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$TopBar$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$BottomNav$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__, __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$MessageNotification$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__;
 ;
 ;
 ;
@@ -1213,10 +1284,30 @@ var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
 ;
 ;
 ;
+;
+;
+// Google Analytics Measurement ID
+const GA_MEASUREMENT_ID = ("TURBOPACK compile-time value", "G-51G7NE56NH");
 function App({ Component, pageProps }) {
     const [user, setUser] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(null);
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useState"])(true);
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$router$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
+    // Track page views
+    (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
+        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+        ;
+        const handleRouteChange = (url)=>{
+            window.gtag('config', GA_MEASUREMENT_ID, {
+                page_path: url
+            });
+        };
+        router.events.on('routeChangeComplete', handleRouteChange);
+        return ()=>{
+            router.events.off('routeChangeComplete', handleRouteChange);
+        };
+    }, [
+        router.events
+    ]);
     (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react__$5b$external$5d$__$28$react$2c$__cjs$29$__["useEffect"])(()=>{
         const unsubscribe = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$auth__$5b$external$5d$__$28$firebase$2f$auth$2c$__esm_import$29$__["onAuthStateChanged"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["auth"], async (currentUser)=>{
             if (currentUser) {
@@ -1224,19 +1315,25 @@ function App({ Component, pageProps }) {
                 await currentUser.reload();
                 const refreshedUser = __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["auth"].currentUser;
                 setUser(refreshedUser);
-                // Check if user is logged in but email is not verified
-                if (refreshedUser && !refreshedUser.emailVerified) {
-                    // Allow access to verification and auth pages
-                    const allowedPages = [
-                        '/verify-email',
-                        '/login',
-                        '/signup'
-                    ];
-                    if (!allowedPages.includes(router.pathname)) {
-                        router.push('/verify-email');
+                // Sync emailVerified status to Firestore for other users to see
+                if (refreshedUser && refreshedUser.emailVerified) {
+                    try {
+                        await (0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["updateDoc"])((0, __TURBOPACK__imported__module__$5b$externals$5d2f$firebase$2f$firestore__$5b$external$5d$__$28$firebase$2f$firestore$2c$__esm_import$29$__["doc"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["db"], 'users', refreshedUser.uid), {
+                            emailVerified: true
+                        });
+                    } catch (err) {
+                        // Non-critical - user doc might not exist yet
+                        console.log('Could not sync verified status:', err);
                     }
                 }
-            } else {
+            // Check if user is logged in but email is not verified
+            /* if (refreshedUser && !refreshedUser.emailVerified) {
+          // Allow access to verification and auth pages
+          const allowedPages = ['/verify-email', '/login', '/signup'];
+          if (!allowedPages.includes(router.pathname)) {
+            router.push('/verify-email');
+          }
+        } */ } else {
                 setUser(null);
             }
             setLoading(false);
@@ -1255,67 +1352,99 @@ function App({ Component, pageProps }) {
     const showNav = !isAuthPage || !user; // Show nav on auth pages when not logged in
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$context$2f$UnreadContext$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["UnreadProvider"], {
         user: user,
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-            className: "app-layout",
-            children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$TopBar$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
-                    user: user,
-                    isAuthPage: isAuthPage
-                }, void 0, false, {
-                    fileName: "[project]/pages/_app.jsx",
-                    lineNumber: 49,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$MessageNotification$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
-                    user: user
-                }, void 0, false, {
-                    fileName: "[project]/pages/_app.jsx",
-                    lineNumber: 50,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("main", {
-                    className: "flex-1 w-full flex justify-center",
-                    style: {
-                        marginTop: '10vh'
-                    },
-                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
-                        className: "w-full max-w-2xl md:max-w-7xl px-6",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(Component, {
-                            ...pageProps,
-                            user: user,
-                            loading: loading
+        children: [
+            GA_MEASUREMENT_ID && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["Fragment"], {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$script$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
+                        strategy: "afterInteractive",
+                        src: `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`
+                    }, void 0, false, {
+                        fileName: "[project]/pages/_app.jsx",
+                        lineNumber: 84,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$script$2e$js__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
+                        id: "google-analytics",
+                        strategy: "afterInteractive",
+                        dangerouslySetInnerHTML: {
+                            __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_MEASUREMENT_ID}', {
+                  page_path: window.location.pathname,
+                });
+              `
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/pages/_app.jsx",
+                        lineNumber: 88,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                className: "app-layout",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$TopBar$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
+                        user: user,
+                        isAuthPage: isAuthPage
+                    }, void 0, false, {
+                        fileName: "[project]/pages/_app.jsx",
+                        lineNumber: 106,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$MessageNotification$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
+                        user: user
+                    }, void 0, false, {
+                        fileName: "[project]/pages/_app.jsx",
+                        lineNumber: 107,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("main", {
+                        className: "flex-1 w-full flex justify-center",
+                        style: {
+                            marginTop: '10vh'
+                        },
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])("div", {
+                            className: "w-full max-w-2xl md:max-w-7xl px-6",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(Component, {
+                                ...pageProps,
+                                user: user,
+                                loading: loading
+                            }, void 0, false, {
+                                fileName: "[project]/pages/_app.jsx",
+                                lineNumber: 110,
+                                columnNumber: 13
+                            }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/_app.jsx",
-                            lineNumber: 53,
-                            columnNumber: 13
+                            lineNumber: 109,
+                            columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/pages/_app.jsx",
-                        lineNumber: 52,
-                        columnNumber: 11
+                        lineNumber: 108,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$BottomNav$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
+                        user: user,
+                        isAuthPage: isAuthPage
+                    }, void 0, false, {
+                        fileName: "[project]/pages/_app.jsx",
+                        lineNumber: 113,
+                        columnNumber: 9
                     }, this)
-                }, void 0, false, {
-                    fileName: "[project]/pages/_app.jsx",
-                    lineNumber: 51,
-                    columnNumber: 9
-                }, this),
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$externals$5d2f$react$2f$jsx$2d$dev$2d$runtime__$5b$external$5d$__$28$react$2f$jsx$2d$dev$2d$runtime$2c$__cjs$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$BottomNav$2e$jsx__$5b$ssr$5d$__$28$ecmascript$29$__["default"], {
-                    user: user,
-                    isAuthPage: isAuthPage
-                }, void 0, false, {
-                    fileName: "[project]/pages/_app.jsx",
-                    lineNumber: 56,
-                    columnNumber: 9
-                }, this)
-            ]
-        }, void 0, true, {
-            fileName: "[project]/pages/_app.jsx",
-            lineNumber: 48,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
+                ]
+            }, void 0, true, {
+                fileName: "[project]/pages/_app.jsx",
+                lineNumber: 105,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "[project]/pages/_app.jsx",
-        lineNumber: 47,
+        lineNumber: 80,
         columnNumber: 5
     }, this);
 }

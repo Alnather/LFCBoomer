@@ -11,6 +11,12 @@ self.__BUILD_MANIFEST = {
   "/create-ride": [
     "static/chunks/pages/create-ride.js"
   ],
+  "/edit-listing/[id]": [
+    "static/chunks/pages/edit-listing/[id].js"
+  ],
+  "/listing/[id]": [
+    "static/chunks/pages/listing/[id].js"
+  ],
   "/login": [
     "static/chunks/pages/login.js"
   ],
@@ -20,23 +26,20 @@ self.__BUILD_MANIFEST = {
   "/messages": [
     "static/chunks/pages/messages.js"
   ],
-  "/my-rides": [
-    "static/chunks/pages/my-rides.js"
+  "/my-listings": [
+    "static/chunks/pages/my-listings.js"
   ],
   "/profile": [
     "static/chunks/pages/profile.js"
+  ],
+  "/profile/[id]": [
+    "static/chunks/pages/profile/[id].js"
   ],
   "/ride/[id]": [
     "static/chunks/pages/ride/[id].js"
   ],
   "/rides": [
     "static/chunks/pages/rides.js"
-  ],
-  "/signup": [
-    "static/chunks/pages/signup.js"
-  ],
-  "/verify-email": [
-    "static/chunks/pages/verify-email.js"
   ],
   "__rewrites": {
     "afterFiles": [],
@@ -57,14 +60,18 @@ self.__BUILD_MANIFEST = {
     "/chat/[id]",
     "/create-listing",
     "/create-ride",
+    "/edit-listing/[id]",
     "/edit-ride/[id]",
     "/icon-test",
+    "/listing/[id]",
     "/listings",
     "/login",
     "/marketplace",
     "/messages",
+    "/my-listings",
     "/my-rides",
     "/profile",
+    "/profile/[id]",
     "/ride/[id]",
     "/rides",
     "/signup",

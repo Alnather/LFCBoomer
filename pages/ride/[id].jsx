@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 import { FiArrowLeft, FiMapPin, FiCalendar, FiClock, FiUsers, FiMessageCircle, FiChevronLeft, FiTrash2, FiCheck, FiX, FiCamera, FiShare2, FiMoon, FiSun } from 'react-icons/fi';
-import { MdFlight, MdShoppingCart, MdLocationCity, MdArrowRightAlt, MdArrowBack, MdKeyboardArrowLeft, MdSchool, MdEdit } from 'react-icons/md';
+import { MdFlight, MdShoppingCart, MdLocationCity, MdArrowRightAlt, MdArrowBack, MdKeyboardArrowLeft, MdSchool, MdEdit, MdVerified } from 'react-icons/md';
 import { IoArrowBack, IoChevronBack } from 'react-icons/io5';
 import { HiArrowLeft } from 'react-icons/hi';
 import { db, auth, storage } from '../../lib/firebase';
@@ -729,18 +729,27 @@ export default function RideDetail() {
                             <div
                               className={`flex items-end gap-2 ${msg.senderId === user?.uid ? 'justify-end' : 'justify-start'}`}
                             >
-                              {/* Avatar for other users */}
+                              {/* Avatar for other users - clickable to profile */}
                               {msg.senderId !== user?.uid && (
-                                <div className={`w-8 h-8 rounded-full bg-gradient-to-br flex items-center justify-center flex-shrink-0 mb-1 ${
-                                  colorTheme === 'arctic'
-                                    ? 'from-purple-300/70 to-pink-300/70'
-                                    : 'from-purple-500/30 to-pink-500/30'
-                                }`}>
+                                <div 
+                                  className={`w-8 h-8 rounded-full bg-gradient-to-br flex items-center justify-center flex-shrink-0 mb-1 cursor-pointer hover:opacity-80 transition-opacity relative ${
+                                    colorTheme === 'arctic'
+                                      ? 'from-purple-300/70 to-pink-300/70'
+                                      : 'from-purple-500/30 to-pink-500/30'
+                                  }`}
+                                  onClick={() => router.push(`/profile/${msg.senderId}`)}
+                                >
                                   <span className={`font-semibold text-xs ${
                                     colorTheme === 'arctic' ? 'text-purple-900' : 'text-white'
                                   }`}>
                                     {msg.senderName?.charAt(0).toUpperCase()}
                                   </span>
+                                  {/* Verified badge */}
+                                  {usersData[msg.senderId]?.emailVerified && (
+                                    <div className="absolute -bottom-0.5 -right-0.5 bg-[#0A0A0A] rounded-full p-0.5">
+                                      <MdVerified className="text-primary" size={10} />
+                                    </div>
+                                  )}
                                 </div>
                               )}
                               
@@ -889,26 +898,42 @@ export default function RideDetail() {
             Participants ({ride.members}/{ride.seats})
           </h3>
           <div className="flex flex-wrap gap-3">
-            {ride.participants.map((participantId) => (
-              <div key={participantId} style={{ paddingRight: "1vw" }} className={`flex items-center gap-3 px-4 py-2 rounded-full border ${
-                colorTheme === 'arctic'
-                  ? 'bg-gray-100 border-gray-300'
-                  : 'bg-white/5 border-white/10'
-              }`}>
-                <div className={`w-8 h-8 rounded-full bg-gradient-to-br flex items-center justify-center ${
-                  colorTheme === 'arctic'
-                    ? 'from-primary/50 to-accent/50'
-                    : 'from-primary/30 to-accent/30'
-                }`}>
-                  <span className={`font-semibold text-xs ${
-                    colorTheme === 'arctic' ? 'text-white' : 'text-white'
-                  }`}>{getUserInitials(participantId)}</span>
+            {ride.participants.map((participantId) => {
+              const participantData = usersData[participantId];
+              const isCurrentUser = participantId === user?.uid;
+              
+              return (
+                <div 
+                  key={participantId} 
+                  style={{ paddingRight: "1vw" }} 
+                  className={`flex items-center gap-3 px-4 py-2 rounded-full border ${
+                    colorTheme === 'arctic'
+                      ? 'bg-gray-100 border-gray-300'
+                      : 'bg-white/5 border-white/10'
+                  } ${!isCurrentUser ? 'cursor-pointer hover:border-primary/50 transition-all' : ''}`}
+                  onClick={() => !isCurrentUser && router.push(`/profile/${participantId}`)}
+                >
+                  <div className={`w-8 h-8 rounded-full bg-gradient-to-br flex items-center justify-center relative ${
+                    colorTheme === 'arctic'
+                      ? 'from-primary/50 to-accent/50'
+                      : 'from-primary/30 to-accent/30'
+                  }`}>
+                    <span className={`font-semibold text-xs ${
+                      colorTheme === 'arctic' ? 'text-white' : 'text-white'
+                    }`}>{getUserInitials(participantId)}</span>
+                    {/* Verified badge */}
+                    {participantData?.emailVerified && (
+                      <div className="absolute -bottom-0.5 -right-0.5 bg-[#0A0A0A] rounded-full p-0.5">
+                        <MdVerified className="text-primary" size={12} />
+                      </div>
+                    )}
+                  </div>
+                  <p className={`font-medium text-sm ${getTextColor('primary')}`}>
+                    {getUserDisplayName(participantId)}
+                  </p>
                 </div>
-                <p className={`font-medium text-sm ${getTextColor('primary')}`}>
-                  {getUserDisplayName(participantId)}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </motion.div>
 

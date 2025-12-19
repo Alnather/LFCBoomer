@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { applyActionCode, verifyPasswordResetCode, confirmPasswordReset } from "firebase/auth";
-import { auth } from "@/lib/firebase";
+import { auth, db } from "@/lib/firebase";
+import { doc, updateDoc } from "firebase/firestore";
 
 export default function AuthAction() {
   const router = useRouter();
@@ -28,6 +29,16 @@ export default function AuthAction() {
       switch (mode) {
         case "verifyEmail":
           await applyActionCode(auth, actionCode);
+          // Update Firestore user document with emailVerified status
+          if (auth.currentUser) {
+            try {
+              await updateDoc(doc(db, 'users', auth.currentUser.uid), {
+                emailVerified: true
+              });
+            } catch (err) {
+              console.log('Could not update user verified status:', err);
+            }
+          }
           setStatus("success");
           setMessage("Your email has been verified successfully!");
           // Redirect to login after 3 seconds

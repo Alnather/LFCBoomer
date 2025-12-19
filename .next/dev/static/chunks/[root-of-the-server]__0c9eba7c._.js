@@ -676,11 +676,23 @@ function MyRides() {
             const unsubscribe = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["onSnapshot"])(q, {
                 "MyRides.useEffect.unsubscribe": (snapshot)=>{
                     const rides = snapshot.docs.map({
-                        "MyRides.useEffect.unsubscribe.rides": (doc)=>({
+                        "MyRides.useEffect.unsubscribe.rides": (doc)=>{
+                            const data = doc.data();
+                            // Convert Firestore Timestamp to local date string (YYYY-MM-DD)
+                            let dateStr = '';
+                            if (data.date?.toDate) {
+                                const d = data.date.toDate();
+                                const year = d.getFullYear();
+                                const month = String(d.getMonth() + 1).padStart(2, '0');
+                                const day = String(d.getDate()).padStart(2, '0');
+                                dateStr = `${year}-${month}-${day}`;
+                            }
+                            return {
                                 id: doc.id,
-                                ...doc.data(),
-                                date: doc.data().date?.toDate ? doc.data().date.toDate().toISOString().split('T')[0] : ''
-                            })
+                                ...data,
+                                date: dateStr
+                            };
+                        }
                     }["MyRides.useEffect.unsubscribe.rides"]);
                     setMyCreatedRides(rides);
                     setLoading(false);
@@ -702,11 +714,23 @@ function MyRides() {
             const unsubscribe = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["onSnapshot"])(q, {
                 "MyRides.useEffect.unsubscribe": (snapshot)=>{
                     const rides = snapshot.docs.map({
-                        "MyRides.useEffect.unsubscribe.rides": (doc)=>({
+                        "MyRides.useEffect.unsubscribe.rides": (doc)=>{
+                            const data = doc.data();
+                            // Convert Firestore Timestamp to local date string (YYYY-MM-DD)
+                            let dateStr = '';
+                            if (data.date?.toDate) {
+                                const d = data.date.toDate();
+                                const year = d.getFullYear();
+                                const month = String(d.getMonth() + 1).padStart(2, '0');
+                                const day = String(d.getDate()).padStart(2, '0');
+                                dateStr = `${year}-${month}-${day}`;
+                            }
+                            return {
                                 id: doc.id,
-                                ...doc.data(),
-                                date: doc.data().date?.toDate ? doc.data().date.toDate().toISOString().split('T')[0] : ''
-                            })
+                                ...data,
+                                date: dateStr
+                            };
+                        }
                     }["MyRides.useEffect.unsubscribe.rides"]).filter({
                         "MyRides.useEffect.unsubscribe.rides": (ride)=>ride.organizerId !== user.uid
                     }["MyRides.useEffect.unsubscribe.rides"]); // Exclude rides they created
@@ -851,7 +875,7 @@ function MyRides() {
                         className: "w-16 h-16 mx-auto mb-4 border-4 border-primary/30 border-t-primary rounded-full animate-spin"
                     }, void 0, false, {
                         fileName: "[project]/pages/my-rides.jsx",
-                        lineNumber: 260,
+                        lineNumber: 284,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -859,18 +883,18 @@ function MyRides() {
                         children: "Loading your rides..."
                     }, void 0, false, {
                         fileName: "[project]/pages/my-rides.jsx",
-                        lineNumber: 261,
+                        lineNumber: 285,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/pages/my-rides.jsx",
-                lineNumber: 259,
+                lineNumber: 283,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/pages/my-rides.jsx",
-            lineNumber: 258,
+            lineNumber: 282,
             columnNumber: 7
         }, this);
     }
@@ -901,12 +925,12 @@ function MyRides() {
                                 className: "text-white"
                             }, void 0, false, {
                                 fileName: "[project]/pages/my-rides.jsx",
-                                lineNumber: 280,
+                                lineNumber: 304,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/my-rides.jsx",
-                            lineNumber: 274,
+                            lineNumber: 298,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -914,18 +938,18 @@ function MyRides() {
                             children: "My Rides"
                         }, void 0, false, {
                             fileName: "[project]/pages/my-rides.jsx",
-                            lineNumber: 282,
+                            lineNumber: 306,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/my-rides.jsx",
-                    lineNumber: 273,
+                    lineNumber: 297,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/pages/my-rides.jsx",
-                lineNumber: 272,
+                lineNumber: 296,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -949,7 +973,7 @@ function MyRides() {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/my-rides.jsx",
-                            lineNumber: 289,
+                            lineNumber: 313,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -962,18 +986,18 @@ function MyRides() {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/my-rides.jsx",
-                            lineNumber: 299,
+                            lineNumber: 323,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/my-rides.jsx",
-                    lineNumber: 288,
+                    lineNumber: 312,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/pages/my-rides.jsx",
-                lineNumber: 287,
+                lineNumber: 311,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -986,7 +1010,7 @@ function MyRides() {
                             size: 48
                         }, void 0, false, {
                             fileName: "[project]/pages/my-rides.jsx",
-                            lineNumber: 316,
+                            lineNumber: 340,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -994,7 +1018,7 @@ function MyRides() {
                             children: "No rides yet"
                         }, void 0, false, {
                             fileName: "[project]/pages/my-rides.jsx",
-                            lineNumber: 317,
+                            lineNumber: 341,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1002,13 +1026,13 @@ function MyRides() {
                             children: activeTab === 'created' ? 'Create a ride to get started' : 'Join a ride to see it here'
                         }, void 0, false, {
                             fileName: "[project]/pages/my-rides.jsx",
-                            lineNumber: 318,
+                            lineNumber: 342,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/my-rides.jsx",
-                    lineNumber: 315,
+                    lineNumber: 339,
                     columnNumber: 11
                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6",
@@ -1044,7 +1068,7 @@ function MyRides() {
                                     className: `absolute inset-0 bg-gradient-to-br ${theme.gradient} rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`
                                 }, void 0, false, {
                                     fileName: "[project]/pages/my-rides.jsx",
-                                    lineNumber: 343,
+                                    lineNumber: 367,
                                     columnNumber: 19
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1057,7 +1081,7 @@ function MyRides() {
                                             className: `absolute inset-0 bg-gradient-to-br ${theme.gradient} opacity-50 rounded-3xl`
                                         }, void 0, false, {
                                             fileName: "[project]/pages/my-rides.jsx",
-                                            lineNumber: 348,
+                                            lineNumber: 372,
                                             columnNumber: 21
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1077,12 +1101,12 @@ function MyRides() {
                                                         size: 48
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/my-rides.jsx",
-                                                        lineNumber: 354,
+                                                        lineNumber: 378,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/my-rides.jsx",
-                                                    lineNumber: 353,
+                                                    lineNumber: 377,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1093,7 +1117,7 @@ function MyRides() {
                                                             children: ride.destination
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/my-rides.jsx",
-                                                            lineNumber: 359,
+                                                            lineNumber: 383,
                                                             columnNumber: 25
                                                         }, this),
                                                         ride.city && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1101,7 +1125,7 @@ function MyRides() {
                                                             children: ride.city
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/my-rides.jsx",
-                                                            lineNumber: 364,
+                                                            lineNumber: 388,
                                                             columnNumber: 27
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1109,14 +1133,14 @@ function MyRides() {
                                                             children: [
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                     className: "text-lg text-gray-300 font-medium",
-                                                                    children: new Date(ride.date).toLocaleDateString('en-US', {
+                                                                    children: new Date(ride.date + 'T12:00:00').toLocaleDateString('en-US', {
                                                                         weekday: 'short',
                                                                         month: 'short',
                                                                         day: 'numeric'
                                                                     })
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/pages/my-rides.jsx",
-                                                                    lineNumber: 370,
+                                                                    lineNumber: 394,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1124,7 +1148,7 @@ function MyRides() {
                                                                     children: "•"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/pages/my-rides.jsx",
-                                                                    lineNumber: 377,
+                                                                    lineNumber: 401,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1132,25 +1156,25 @@ function MyRides() {
                                                                     children: ride.time
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/pages/my-rides.jsx",
-                                                                    lineNumber: 378,
+                                                                    lineNumber: 402,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/pages/my-rides.jsx",
-                                                            lineNumber: 369,
+                                                            lineNumber: 393,
                                                             columnNumber: 25
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/pages/my-rides.jsx",
-                                                    lineNumber: 358,
+                                                    lineNumber: 382,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/pages/my-rides.jsx",
-                                            lineNumber: 351,
+                                            lineNumber: 375,
                                             columnNumber: 21
                                         }, this),
                                         ride.participants && ride.participants.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1179,12 +1203,12 @@ function MyRides() {
                                                                                 children: getUserInitials(participantId)
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/pages/my-rides.jsx",
-                                                                                lineNumber: 395,
+                                                                                lineNumber: 419,
                                                                                 columnNumber: 37
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/pages/my-rides.jsx",
-                                                                            lineNumber: 394,
+                                                                            lineNumber: 418,
                                                                             columnNumber: 35
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1192,7 +1216,7 @@ function MyRides() {
                                                                             children: getUserDisplayName(participantId)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/pages/my-rides.jsx",
-                                                                            lineNumber: 397,
+                                                                            lineNumber: 421,
                                                                             columnNumber: 35
                                                                         }, this),
                                                                         participantId !== user.uid && activeTab === 'created' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -1213,28 +1237,28 @@ function MyRides() {
                                                                                 className: "text-gray-400"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/pages/my-rides.jsx",
-                                                                                lineNumber: 410,
+                                                                                lineNumber: 434,
                                                                                 columnNumber: 39
                                                                             }, this)
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/pages/my-rides.jsx",
-                                                                            lineNumber: 401,
+                                                                            lineNumber: 425,
                                                                             columnNumber: 37
                                                                         }, this)
                                                                     ]
                                                                 }, participantId, true, {
                                                                     fileName: "[project]/pages/my-rides.jsx",
-                                                                    lineNumber: 393,
+                                                                    lineNumber: 417,
                                                                     columnNumber: 33
                                                                 }, this))
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/my-rides.jsx",
-                                                            lineNumber: 391,
+                                                            lineNumber: 415,
                                                             columnNumber: 29
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/my-rides.jsx",
-                                                        lineNumber: 390,
+                                                        lineNumber: 414,
                                                         columnNumber: 27
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1266,7 +1290,7 @@ function MyRides() {
                                                                             size: 18
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/pages/my-rides.jsx",
-                                                                            lineNumber: 433,
+                                                                            lineNumber: 457,
                                                                             columnNumber: 33
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1274,13 +1298,13 @@ function MyRides() {
                                                                             children: "Edit"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/pages/my-rides.jsx",
-                                                                            lineNumber: 434,
+                                                                            lineNumber: 458,
                                                                             columnNumber: 33
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/pages/my-rides.jsx",
-                                                                    lineNumber: 422,
+                                                                    lineNumber: 446,
                                                                     columnNumber: 31
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -1309,7 +1333,7 @@ function MyRides() {
                                                                             size: 18
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/pages/my-rides.jsx",
-                                                                            lineNumber: 446,
+                                                                            lineNumber: 470,
                                                                             columnNumber: 33
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1317,13 +1341,13 @@ function MyRides() {
                                                                             children: "Delete"
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/pages/my-rides.jsx",
-                                                                            lineNumber: 447,
+                                                                            lineNumber: 471,
                                                                             columnNumber: 33
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/pages/my-rides.jsx",
-                                                                    lineNumber: 436,
+                                                                    lineNumber: 460,
                                                                     columnNumber: 31
                                                                 }, this)
                                                             ]
@@ -1353,7 +1377,7 @@ function MyRides() {
                                                                     size: 18
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/pages/my-rides.jsx",
-                                                                    lineNumber: 461,
+                                                                    lineNumber: 485,
                                                                     columnNumber: 31
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1361,52 +1385,52 @@ function MyRides() {
                                                                     children: "Leave"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/pages/my-rides.jsx",
-                                                                    lineNumber: 462,
+                                                                    lineNumber: 486,
                                                                     columnNumber: 31
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/pages/my-rides.jsx",
-                                                            lineNumber: 451,
+                                                            lineNumber: 475,
                                                             columnNumber: 29
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/my-rides.jsx",
-                                                        lineNumber: 419,
+                                                        lineNumber: 443,
                                                         columnNumber: 27
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pages/my-rides.jsx",
-                                                lineNumber: 388,
+                                                lineNumber: 412,
                                                 columnNumber: 25
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/pages/my-rides.jsx",
-                                            lineNumber: 387,
+                                            lineNumber: 411,
                                             columnNumber: 23
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/pages/my-rides.jsx",
-                                    lineNumber: 346,
+                                    lineNumber: 370,
                                     columnNumber: 19
                                 }, this)
                             ]
                         }, ride.id, true, {
                             fileName: "[project]/pages/my-rides.jsx",
-                            lineNumber: 332,
+                            lineNumber: 356,
                             columnNumber: 17
                         }, this);
                     })
                 }, void 0, false, {
                     fileName: "[project]/pages/my-rides.jsx",
-                    lineNumber: 325,
+                    lineNumber: 349,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/pages/my-rides.jsx",
-                lineNumber: 313,
+                lineNumber: 337,
                 columnNumber: 7
             }, this),
             deleteModal.show && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1437,12 +1461,12 @@ function MyRides() {
                                             size: 24
                                         }, void 0, false, {
                                             fileName: "[project]/pages/my-rides.jsx",
-                                            lineNumber: 489,
+                                            lineNumber: 513,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/pages/my-rides.jsx",
-                                        lineNumber: 488,
+                                        lineNumber: 512,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1450,13 +1474,13 @@ function MyRides() {
                                         children: "Delete Ride?"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/my-rides.jsx",
-                                        lineNumber: 491,
+                                        lineNumber: 515,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/my-rides.jsx",
-                                lineNumber: 487,
+                                lineNumber: 511,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1468,14 +1492,14 @@ function MyRides() {
                                         children: deleteModal.rideName
                                     }, void 0, false, {
                                         fileName: "[project]/pages/my-rides.jsx",
-                                        lineNumber: 494,
+                                        lineNumber: 518,
                                         columnNumber: 49
                                     }, this),
                                     "? This action cannot be undone."
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/my-rides.jsx",
-                                lineNumber: 493,
+                                lineNumber: 517,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1500,7 +1524,7 @@ function MyRides() {
                                         children: "Cancel"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/my-rides.jsx",
-                                        lineNumber: 497,
+                                        lineNumber: 521,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -1518,29 +1542,29 @@ function MyRides() {
                                         children: "Delete"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/my-rides.jsx",
-                                        lineNumber: 506,
+                                        lineNumber: 530,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/my-rides.jsx",
-                                lineNumber: 496,
+                                lineNumber: 520,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/my-rides.jsx",
-                        lineNumber: 486,
+                        lineNumber: 510,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/pages/my-rides.jsx",
-                    lineNumber: 480,
+                    lineNumber: 504,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/pages/my-rides.jsx",
-                lineNumber: 479,
+                lineNumber: 503,
                 columnNumber: 9
             }, this),
             removeParticipantModal.show && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1574,12 +1598,12 @@ function MyRides() {
                                             size: 24
                                         }, void 0, false, {
                                             fileName: "[project]/pages/my-rides.jsx",
-                                            lineNumber: 533,
+                                            lineNumber: 557,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/pages/my-rides.jsx",
-                                        lineNumber: 532,
+                                        lineNumber: 556,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1587,13 +1611,13 @@ function MyRides() {
                                         children: "Remove Participant?"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/my-rides.jsx",
-                                        lineNumber: 535,
+                                        lineNumber: 559,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/my-rides.jsx",
-                                lineNumber: 531,
+                                lineNumber: 555,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1605,14 +1629,14 @@ function MyRides() {
                                         children: removeParticipantModal.participantName
                                     }, void 0, false, {
                                         fileName: "[project]/pages/my-rides.jsx",
-                                        lineNumber: 538,
+                                        lineNumber: 562,
                                         columnNumber: 24
                                     }, this),
                                     " from this ride?"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/my-rides.jsx",
-                                lineNumber: 537,
+                                lineNumber: 561,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1620,14 +1644,14 @@ function MyRides() {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                                         fileName: "[project]/pages/my-rides.jsx",
-                                        lineNumber: 541,
+                                        lineNumber: 565,
                                         columnNumber: 17
                                     }, this),
                                     "They will need to join again if they wish to participate in the ride."
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/my-rides.jsx",
-                                lineNumber: 540,
+                                lineNumber: 564,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1656,7 +1680,7 @@ function MyRides() {
                                         children: "Cancel"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/my-rides.jsx",
-                                        lineNumber: 545,
+                                        lineNumber: 569,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -1674,35 +1698,35 @@ function MyRides() {
                                         children: "Remove"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/my-rides.jsx",
-                                        lineNumber: 554,
+                                        lineNumber: 578,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/my-rides.jsx",
-                                lineNumber: 544,
+                                lineNumber: 568,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/my-rides.jsx",
-                        lineNumber: 530,
+                        lineNumber: 554,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/pages/my-rides.jsx",
-                    lineNumber: 524,
+                    lineNumber: 548,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/pages/my-rides.jsx",
-                lineNumber: 523,
+                lineNumber: 547,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/pages/my-rides.jsx",
-        lineNumber: 270,
+        lineNumber: 294,
         columnNumber: 5
     }, this);
 }

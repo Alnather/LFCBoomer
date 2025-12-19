@@ -475,6 +475,7 @@ __turbopack_context__.s([
     "storage",
     ()=>storage
 ]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/node_modules/next/dist/build/polyfills/process.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$firebase$2f$app$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/firebase/app/dist/esm/index.esm.js [client] (ecmascript) <locals>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$app$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@firebase/app/dist/esm/index.esm.js [client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$firebase$2f$auth$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/firebase/auth/dist/esm/index.esm.js [client] (ecmascript) <locals>");
@@ -488,14 +489,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2
 ;
 ;
 const firebaseConfig = {
-    apiKey: "AIzaSyDiNCO2trc8GFQouKD9B2peUM3Gg5InBhI",
-    authDomain: "forester-swap.firebaseapp.com",
-    databaseURL: "https://forester-swap-default-rtdb.firebaseio.com",
-    projectId: "forester-swap",
-    storageBucket: "forester-swap.firebasestorage.app",
-    messagingSenderId: "386036888086",
-    appId: "1:386036888086:web:db1e00c63ad4457c70bb37",
-    measurementId: "G-XGCCTCXV21"
+    apiKey: ("TURBOPACK compile-time value", "AIzaSyA8ij5ko2vB1fE2P7FIOcWOJbAinRpbn4Q"),
+    authDomain: "lfcboomer.firebaseapp.com",
+    projectId: "lfcboomer",
+    storageBucket: "lfcboomer.firebasestorage.app",
+    messagingSenderId: "579328875040",
+    appId: "1:579328875040:web:de58e2a358891dba5bfa45",
+    measurementId: "G-51G7NE56NH"
 };
 // where do i get the config values? from firebase console -> project settings -> general -> your apps -> firebase sdk snippet -> config
 const app = !(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$app$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["getApps"])().length ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$app$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["initializeApp"])(firebaseConfig) : (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$app$2f$dist$2f$esm$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["getApps"])()[0];
@@ -681,42 +681,29 @@ function EditRide() {
     }["EditRide.useEffect"], []);
     const visibleDays = isMobile ? days.slice(0, 3) : days;
     const fetchDestinationSuggestions = async (input)=>{
-        console.log('🔍 fetchDestinationSuggestions called with input:', input);
         if (input.length < 2) {
-            console.log('❌ Input too short, clearing suggestions');
             setSuggestions([]);
             return;
         }
-        console.log('📡 Fetching suggestions from API...');
         setIsLoadingSuggestions(true);
         try {
             const response = await fetch(`/api/autocomplete?input=${encodeURIComponent(input)}`);
-            console.log('📥 API Response status:', response.status);
             const data = await response.json();
-            console.log('📦 API Response data:', data);
             if (data.suggestions) {
-                console.log('✅ Got suggestions:', data.suggestions.length);
                 setSuggestions(data.suggestions);
-            } else {
-                console.log('⚠️ No suggestions in response');
             }
         } catch (error) {
-            console.error('❌ Error fetching suggestions:', error);
+            console.error('Error fetching suggestions:', error);
         } finally{
             setIsLoadingSuggestions(false);
-            console.log('✓ Loading complete');
         }
     };
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "EditRide.useEffect": ()=>{
-            console.log('⏱️ Destination changed to:', destination);
             const timer = setTimeout({
                 "EditRide.useEffect.timer": ()=>{
                     if (destination) {
-                        console.log('🚀 Triggering autocomplete for:', destination);
                         fetchDestinationSuggestions(destination);
-                    } else {
-                        console.log('⚠️ Destination is empty, skipping autocomplete');
                     }
                 }
             }["EditRide.useEffect.timer"], 300);
@@ -728,17 +715,11 @@ function EditRide() {
         destination
     ]);
     const handleSuggestionClick = (suggestion)=>{
-        console.log('👆 Suggestion clicked:', suggestion);
-        // Extract data from Google Places API format
-        const fullText = suggestion.placePrediction?.text?.text || suggestion.description || '';
-        const mainText = suggestion.placePrediction?.structuredFormat?.mainText?.text || fullText.split(',')[0];
-        const secondaryText = suggestion.placePrediction?.structuredFormat?.secondaryText?.text || '';
-        setDestination(mainText);
-        setCity(secondaryText);
-        setFullAddress(fullText);
+        setDestination(suggestion.shortName);
+        setCity(suggestion.city);
+        setFullAddress(suggestion.fullText);
         setShowSuggestions(false);
         setSuggestions([]);
-        console.log('✓ Destination set to:', mainText, 'City:', secondaryText);
     };
     const handleSubmit = async (e)=>{
         e.preventDefault();
@@ -793,7 +774,7 @@ function EditRide() {
                         className: "w-16 h-16 mx-auto mb-4 border-4 border-primary/30 border-t-primary rounded-full animate-spin"
                     }, void 0, false, {
                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                        lineNumber: 263,
+                        lineNumber: 240,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -801,18 +782,18 @@ function EditRide() {
                         children: "Loading ride..."
                     }, void 0, false, {
                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                        lineNumber: 264,
+                        lineNumber: 241,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/pages/edit-ride/[id].jsx",
-                lineNumber: 262,
+                lineNumber: 239,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/pages/edit-ride/[id].jsx",
-            lineNumber: 261,
+            lineNumber: 238,
             columnNumber: 7
         }, this);
     }
@@ -826,7 +807,7 @@ function EditRide() {
                         media: "(prefers-color-scheme: dark)"
                     }, void 0, false, {
                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                        lineNumber: 273,
+                        lineNumber: 250,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meta", {
@@ -835,7 +816,7 @@ function EditRide() {
                         media: "(prefers-color-scheme: light)"
                     }, void 0, false, {
                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                        lineNumber: 274,
+                        lineNumber: 251,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meta", {
@@ -843,7 +824,7 @@ function EditRide() {
                         content: "yes"
                     }, void 0, false, {
                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                        lineNumber: 275,
+                        lineNumber: 252,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meta", {
@@ -851,7 +832,7 @@ function EditRide() {
                         content: "yes"
                     }, void 0, false, {
                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                        lineNumber: 276,
+                        lineNumber: 253,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meta", {
@@ -859,7 +840,7 @@ function EditRide() {
                         content: "black-translucent"
                     }, void 0, false, {
                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                        lineNumber: 277,
+                        lineNumber: 254,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("meta", {
@@ -867,20 +848,20 @@ function EditRide() {
                         content: "width=device-width, initial-scale=1, viewport-fit=cover"
                     }, void 0, false, {
                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                        lineNumber: 278,
+                        lineNumber: 255,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("title", {
                         children: "Edit Ride - Boomer"
                     }, void 0, false, {
                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                        lineNumber: 279,
+                        lineNumber: 256,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/pages/edit-ride/[id].jsx",
-                lineNumber: 272,
+                lineNumber: 249,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -925,12 +906,12 @@ function EditRide() {
                                             size: 28
                                         }, void 0, false, {
                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                            lineNumber: 299,
+                                            lineNumber: 276,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                                        lineNumber: 293,
+                                        lineNumber: 270,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].h1, {
@@ -946,23 +927,23 @@ function EditRide() {
                                         children: "Edit Ride"
                                     }, void 0, false, {
                                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                                        lineNumber: 303,
+                                        lineNumber: 280,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pages/edit-ride/[id].jsx",
-                                lineNumber: 292,
+                                lineNumber: 269,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                            lineNumber: 291,
+                            lineNumber: 268,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                        lineNumber: 284,
+                        lineNumber: 261,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -999,7 +980,7 @@ function EditRide() {
                                             className: "absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-[1rem] blur-2xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                            lineNumber: 329,
+                                            lineNumber: 306,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1010,28 +991,23 @@ function EditRide() {
                                                     size: 22
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                    lineNumber: 331,
+                                                    lineNumber: 308,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                     type: "text",
                                                     value: destination,
                                                     onChange: (e)=>{
-                                                        console.log('✏️ Input changed:', e.target.value);
                                                         setDestination(e.target.value);
                                                         setShowSuggestions(true);
                                                     },
                                                     onFocus: ()=>{
-                                                        console.log('👁️ Input focused, destination:', destination);
                                                         setShowSuggestions(true);
                                                         if (destination) {
                                                             fetchDestinationSuggestions(destination);
                                                         }
                                                     },
-                                                    onBlur: ()=>{
-                                                        console.log('👋 Input blurred');
-                                                        setTimeout(()=>setShowSuggestions(false), 200);
-                                                    },
+                                                    onBlur: ()=>setTimeout(()=>setShowSuggestions(false), 200),
                                                     placeholder: "Destination",
                                                     style: {
                                                         height: '8vh',
@@ -1042,7 +1018,7 @@ function EditRide() {
                                                     required: true
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                    lineNumber: 332,
+                                                    lineNumber: 309,
                                                     columnNumber: 17
                                                 }, this),
                                                 showSuggestions && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1075,28 +1051,28 @@ function EditRide() {
                                                                                 className: "h-4 bg-white/10 rounded animate-pulse w-3/4"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                                                lineNumber: 371,
+                                                                                lineNumber: 343,
                                                                                 columnNumber: 33
                                                                             }, this),
                                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                                                 className: "h-3 bg-white/5 rounded animate-pulse w-1/2"
                                                                             }, void 0, false, {
                                                                                 fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                                                lineNumber: 372,
+                                                                                lineNumber: 344,
                                                                                 columnNumber: 33
                                                                             }, this)
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                                        lineNumber: 370,
+                                                                        lineNumber: 342,
                                                                         columnNumber: 31
                                                                     }, this)
                                                                 }, i, false, {
                                                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                                    lineNumber: 369,
+                                                                    lineNumber: 341,
                                                                     columnNumber: 29
                                                                 }, this))
-                                                        }, void 0, false) : suggestions.length > 0 ? suggestions.slice(0, 5).map((suggestion, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].button, {
+                                                        }, void 0, false) : suggestions.length > 0 ? suggestions.slice(0, 3).map((suggestion, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].button, {
                                                                 initial: {
                                                                     opacity: 0,
                                                                     x: -10
@@ -1116,51 +1092,51 @@ function EditRide() {
                                                                     children: [
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                             className: "text-white text-sm font-semibold truncate",
-                                                                            children: suggestion.placePrediction?.structuredFormat?.mainText?.text || suggestion.placePrediction?.text?.text || ''
+                                                                            children: suggestion.shortName || ''
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                                            lineNumber: 389,
+                                                                            lineNumber: 361,
                                                                             columnNumber: 31
                                                                         }, this),
                                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                                             className: "text-gray-400 text-xs truncate",
-                                                                            children: suggestion.placePrediction?.structuredFormat?.secondaryText?.text || ''
+                                                                            children: suggestion.fullText || ''
                                                                         }, void 0, false, {
                                                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                                            lineNumber: 392,
+                                                                            lineNumber: 364,
                                                                             columnNumber: 31
                                                                         }, this)
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                                    lineNumber: 388,
+                                                                    lineNumber: 360,
                                                                     columnNumber: 29
                                                                 }, this)
-                                                            }, suggestion.placePrediction?.placeId || index, false, {
+                                                            }, suggestion.shortName || index, false, {
                                                                 fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                                lineNumber: 379,
+                                                                lineNumber: 351,
                                                                 columnNumber: 27
                                                             }, this)) : null
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                        lineNumber: 365,
+                                                        lineNumber: 337,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                    lineNumber: 359,
+                                                    lineNumber: 331,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                            lineNumber: 330,
+                                            lineNumber: 307,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                    lineNumber: 324,
+                                    lineNumber: 301,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1185,7 +1161,7 @@ function EditRide() {
                                                         children: day.label
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                        lineNumber: 423,
+                                                        lineNumber: 395,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1193,23 +1169,23 @@ function EditRide() {
                                                         children: day.full.split(' ')[1]
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                        lineNumber: 424,
+                                                        lineNumber: 396,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, index, true, {
                                                 fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                lineNumber: 409,
+                                                lineNumber: 381,
                                                 columnNumber: 19
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                                        lineNumber: 407,
+                                        lineNumber: 379,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                    lineNumber: 406,
+                                    lineNumber: 378,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1228,7 +1204,7 @@ function EditRide() {
                                                     className: "absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-[1rem] blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                    lineNumber: 438,
+                                                    lineNumber: 410,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1239,7 +1215,7 @@ function EditRide() {
                                                             size: 20
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                            lineNumber: 440,
+                                                            lineNumber: 412,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$datepicker$2f$dist$2f$index$2e$es$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1255,19 +1231,19 @@ function EditRide() {
                                                             required: true
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                            lineNumber: 441,
+                                                            lineNumber: 413,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                    lineNumber: 439,
+                                                    lineNumber: 411,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                            lineNumber: 433,
+                                            lineNumber: 405,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1280,7 +1256,7 @@ function EditRide() {
                                                     className: "absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-[1rem] blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                    lineNumber: 459,
+                                                    lineNumber: 431,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1291,7 +1267,7 @@ function EditRide() {
                                                             size: 20
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                            lineNumber: 461,
+                                                            lineNumber: 433,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$datepicker$2f$dist$2f$index$2e$es$2e$js__$5b$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1299,7 +1275,7 @@ function EditRide() {
                                                             onChange: (newTime)=>setTime(newTime),
                                                             showTimeSelect: true,
                                                             showTimeSelectOnly: true,
-                                                            timeIntervals: 15,
+                                                            timeIntervals: 30,
                                                             timeCaption: "Time",
                                                             dateFormat: "h:mm aa",
                                                             placeholderText: "Time",
@@ -1307,19 +1283,19 @@ function EditRide() {
                                                             required: true
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                            lineNumber: 462,
+                                                            lineNumber: 434,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                    lineNumber: 460,
+                                                    lineNumber: 432,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                            lineNumber: 455,
+                                            lineNumber: 427,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1332,7 +1308,7 @@ function EditRide() {
                                                     className: "absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-[1rem] blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                    lineNumber: 482,
+                                                    lineNumber: 454,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1343,18 +1319,23 @@ function EditRide() {
                                                             size: 20
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                            lineNumber: 484,
+                                                            lineNumber: 456,
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                            type: "number",
+                                                            type: "text",
+                                                            inputMode: "numeric",
+                                                            pattern: "[1-8]",
                                                             value: seats,
                                                             onChange: (e)=>{
-                                                                const newValue = Math.max(minSeats, Math.min(8, parseInt(e.target.value) || minSeats));
-                                                                setSeats(newValue);
+                                                                const val = e.target.value.replace(/[^1-8]/g, '');
+                                                                if (val === '') setSeats('');
+                                                                else setSeats(Math.max(minSeats, Math.min(8, parseInt(val) || minSeats)));
                                                             },
-                                                            min: minSeats,
-                                                            max: "8",
+                                                            onBlur: (e)=>{
+                                                                if (!seats || seats === '') setSeats(minSeats);
+                                                            },
+                                                            onFocus: (e)=>e.target.select(),
                                                             placeholder: "Seats",
                                                             style: {
                                                                 background: '#5a6f8226'
@@ -1363,25 +1344,25 @@ function EditRide() {
                                                             title: `Minimum seats: ${minSeats}`
                                                         }, void 0, false, {
                                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                            lineNumber: 485,
+                                                            lineNumber: 457,
                                                             columnNumber: 19
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                    lineNumber: 483,
+                                                    lineNumber: 455,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                            lineNumber: 478,
+                                            lineNumber: 450,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                    lineNumber: 431,
+                                    lineNumber: 403,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1397,7 +1378,7 @@ function EditRide() {
                                             className: "absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-[1rem] blur-2xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                            lineNumber: 509,
+                                            lineNumber: 486,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1408,7 +1389,7 @@ function EditRide() {
                                                     size: 20
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                    lineNumber: 511,
+                                                    lineNumber: 488,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -1424,19 +1405,19 @@ function EditRide() {
                                                     className: "w-full pl-14 pr-6 py-5 backdrop-blur-xl border-2 border-white/20 rounded-[1rem] text-white text-base placeholder-gray-400 focus:border-primary/50 focus:outline-none transition-all duration-300 resize-none shadow-xl"
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                    lineNumber: 512,
+                                                    lineNumber: 489,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                            lineNumber: 510,
+                                            lineNumber: 487,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                    lineNumber: 504,
+                                    lineNumber: 481,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1452,7 +1433,7 @@ function EditRide() {
                                             className: "absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-[1rem] blur-2xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                            lineNumber: 530,
+                                            lineNumber: 507,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1463,7 +1444,7 @@ function EditRide() {
                                                     size: 22
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                    lineNumber: 532,
+                                                    lineNumber: 509,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1479,19 +1460,19 @@ function EditRide() {
                                                     className: "w-full pr-6 backdrop-blur-xl border-2 border-white/20 rounded-[1rem] text-white text-lg font-semibold placeholder-gray-400 focus:border-primary/50 focus:outline-none transition-all duration-300 shadow-xl"
                                                 }, void 0, false, {
                                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                    lineNumber: 533,
+                                                    lineNumber: 510,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                            lineNumber: 531,
+                                            lineNumber: 508,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                    lineNumber: 525,
+                                    lineNumber: 502,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$client$5d$__$28$ecmascript$29$__["motion"].button, {
@@ -1525,7 +1506,7 @@ function EditRide() {
                                             }
                                         }, void 0, false, {
                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                            lineNumber: 556,
+                                            lineNumber: 533,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1539,7 +1520,7 @@ function EditRide() {
                                                         className: "w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                        lineNumber: 575,
+                                                        lineNumber: 552,
                                                         columnNumber: 21
                                                     }, this),
                                                     "Updating Ride..."
@@ -1550,7 +1531,7 @@ function EditRide() {
                                                         size: 20
                                                     }, void 0, false, {
                                                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                                                        lineNumber: 580,
+                                                        lineNumber: 557,
                                                         columnNumber: 21
                                                     }, this),
                                                     "Update Ride"
@@ -1558,30 +1539,30 @@ function EditRide() {
                                             }, void 0, true)
                                         }, void 0, false, {
                                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                                            lineNumber: 572,
+                                            lineNumber: 549,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/pages/edit-ride/[id].jsx",
-                                    lineNumber: 545,
+                                    lineNumber: 522,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/edit-ride/[id].jsx",
-                            lineNumber: 322,
+                            lineNumber: 299,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/pages/edit-ride/[id].jsx",
-                        lineNumber: 315,
+                        lineNumber: 292,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/pages/edit-ride/[id].jsx",
-                lineNumber: 282,
+                lineNumber: 259,
                 columnNumber: 7
             }, this)
         ]

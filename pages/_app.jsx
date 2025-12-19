@@ -2,7 +2,8 @@ import "@/styles/globals.css";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "@/lib/firebase";
+import { auth, db } from "@/lib/firebase";
+import { doc, updateDoc } from "firebase/firestore";
 import { UnreadProvider } from "@/context/UnreadContext";
 import TopBar from "@/components/TopBar";
 import BottomNav from "@/components/BottomNav";
@@ -40,6 +41,18 @@ export default function App({ Component, pageProps }) {
         await currentUser.reload();
         const refreshedUser = auth.currentUser;
         setUser(refreshedUser);
+        
+        // Sync emailVerified status to Firestore for other users to see
+        if (refreshedUser && refreshedUser.emailVerified) {
+          try {
+            await updateDoc(doc(db, 'users', refreshedUser.uid), {
+              emailVerified: true
+            });
+          } catch (err) {
+            // Non-critical - user doc might not exist yet
+            console.log('Could not sync verified status:', err);
+          }
+        }
         
         // Check if user is logged in but email is not verified
         /* if (refreshedUser && !refreshedUser.emailVerified) {

@@ -6,13 +6,14 @@
   "/campus": "pages/campus.js",
   "/create-listing": "pages/create-listing.js",
   "/create-ride": "pages/create-ride.js",
+  "/edit-listing/[id]": "pages/edit-listing/[id].js",
+  "/listing/[id]": "pages/listing/[id].js",
   "/login": "pages/login.js",
   "/marketplace": "pages/marketplace.js",
   "/messages": "pages/messages.js",
-  "/my-rides": "pages/my-rides.js",
+  "/my-listings": "pages/my-listings.js",
   "/profile": "pages/profile.js",
+  "/profile/[id]": "pages/profile/[id].js",
   "/ride/[id]": "pages/ride/[id].js",
-  "/rides": "pages/rides.js",
-  "/signup": "pages/signup.js",
-  "/verify-email": "pages/verify-email.js"
+  "/rides": "pages/rides.js"
 }

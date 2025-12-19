@@ -6,6 +6,7 @@ const UnreadContext = createContext({
   unreadCount: 0, 
   rideUnreadCount: 0,
   directUnreadCount: 0,
+  marketplaceUnreadCount: 0,
   latestMessage: null 
 });
 
@@ -16,6 +17,7 @@ export function useUnread() {
 export function UnreadProvider({ user, children }) {
   const [rideUnreadCount, setRideUnreadCount] = useState(0);
   const [directUnreadCount, setDirectUnreadCount] = useState(0);
+  const [marketplaceUnreadCount, setMarketplaceUnreadCount] = useState(0);
   const [latestMessage, setLatestMessage] = useState(null);
   
   // Use refs for Maps to persist across re-renders and prevent listener leaks
@@ -28,6 +30,7 @@ export function UnreadProvider({ user, children }) {
     if (!user) {
       setRideUnreadCount(0);
       setDirectUnreadCount(0);
+      setMarketplaceUnreadCount(0);
       setLatestMessage(null);
       return;
     }
@@ -57,11 +60,14 @@ export function UnreadProvider({ user, children }) {
     const updateCategoryUnread = () => {
       let rideTotal = 0;
       let directTotal = 0;
+      let marketplaceTotal = 0;
       
       threadData.forEach((data, threadKey) => {
         const count = calculateUnreadForThread(threadKey);
         if (data.type === 'ride') {
           rideTotal += count;
+        } else if (data.type === 'marketplace') {
+          marketplaceTotal += count;
         } else {
           directTotal += count;
         }
@@ -69,6 +75,7 @@ export function UnreadProvider({ user, children }) {
       
       setRideUnreadCount(rideTotal);
       setDirectUnreadCount(directTotal);
+      setMarketplaceUnreadCount(marketplaceTotal);
     };
 
     const checkForNewMessage = (threadKey, messages, data) => {
@@ -239,6 +246,76 @@ export function UnreadProvider({ user, children }) {
 
     unsubscribers.push(unsubRides, unsubDirect);
 
+    // Track marketplace conversations
+    const conversationsRef = collection(db, 'conversations');
+    const conversationsQuery = query(conversationsRef, where('participants', 'array-contains', user.uid));
+    
+    const unsubMarketplace = onSnapshot(conversationsQuery, (snapshot) => {
+      snapshot.docs.forEach((convDoc) => {
+        const convData = convDoc.data();
+        // Only track marketplace type conversations
+        if (convData.type !== 'marketplace') return;
+        
+        const otherUserId = convData.participants.find(id => id !== user.uid);
+        const threadKey = 'marketplace_' + convDoc.id;
+        
+        // Initialize or update thread data
+        if (!threadData.has(threadKey)) {
+          threadData.set(threadKey, {
+            type: 'marketplace',
+            lastReadTimestamp: convData[`lastRead_${user.uid}`],
+            otherUserId: otherUserId,
+            messages: []
+          });
+        } else {
+          const existing = threadData.get(threadKey);
+          const newLastRead = convData[`lastRead_${user.uid}`];
+          if (newLastRead !== null && newLastRead !== undefined) {
+            existing.lastReadTimestamp = newLastRead;
+          }
+        }
+        
+        // Set up document listener for lastRead changes
+        if (!docUnsubscribers.has(threadKey)) {
+          const convDocRef = doc(db, 'conversations', convDoc.id);
+          const unsubDoc = onSnapshot(convDocRef, (updatedDoc) => {
+            const data = threadData.get(threadKey);
+            if (!data) return;
+            
+            const updatedData = updatedDoc.data();
+            if (updatedData) {
+              const newLastRead = updatedData[`lastRead_${user.uid}`];
+              if (newLastRead !== null && newLastRead !== undefined) {
+                data.lastReadTimestamp = newLastRead;
+                updateCategoryUnread();
+              }
+            }
+          });
+          docUnsubscribers.set(threadKey, unsubDoc);
+        }
+        
+        // Set up messages listener (only once per thread)
+        if (!messageUnsubscribers.has(threadKey)) {
+          const messagesRef = collection(db, 'conversations', convDoc.id, 'messages');
+          const messagesQuery = query(messagesRef, orderBy('timestamp', 'desc'), limit(10));
+          
+          const unsubMsg = onSnapshot(messagesQuery, (msgSnap) => {
+            const data = threadData.get(threadKey);
+            if (data) {
+              const messages = msgSnap.docs.map(d => d.data());
+              data.messages = messages;
+              updateCategoryUnread();
+              checkForNewMessage(threadKey, messages, data);
+            }
+          });
+          
+          messageUnsubscribers.set(threadKey, unsubMsg);
+        }
+      });
+    });
+
+    unsubscribers.push(unsubMarketplace);
+
     return () => {
       unsubscribers.forEach(unsub => unsub());
       messageUnsubscribers.forEach(unsub => unsub());
@@ -247,10 +324,10 @@ export function UnreadProvider({ user, children }) {
   }, [user]);
 
   // Compute total for backward compatibility
-  const unreadCount = rideUnreadCount + directUnreadCount;
+  const unreadCount = rideUnreadCount + directUnreadCount + marketplaceUnreadCount;
 
   return (
-    <UnreadContext.Provider value={{ unreadCount, rideUnreadCount, directUnreadCount, latestMessage }}>
+    <UnreadContext.Provider value={{ unreadCount, rideUnreadCount, directUnreadCount, marketplaceUnreadCount, latestMessage }}>
       {children}
     </UnreadContext.Provider>
   );

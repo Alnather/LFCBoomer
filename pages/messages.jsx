@@ -37,7 +37,7 @@ const detectTheme = (destination) => {
 
 export default function Messages() {
   const router = useRouter();
-  const { category: urlCategory, userId: urlUserId } = router.query; // Get URL parameters
+  const { category: urlCategory, userId: urlUserId, conversationId: urlConversationId } = router.query; // Get URL parameters
   const [user, setUser] = useState(null);
   const [activeCategory, setActiveCategory] = useState('rides'); // 'rides', 'marketplace', 'direct'
   const [threads, setThreads] = useState([]);
@@ -48,11 +48,12 @@ export default function Messages() {
   const [usersData, setUsersData] = useState({});
   const [isMobile, setIsMobile] = useState(false);
   const [unreadCounts, setUnreadCounts] = useState({}); // Track unread counts per thread
+  const [pendingConversationId, setPendingConversationId] = useState(null); // For auto-selecting conversation
   const messagesEndRef = useRef(null);
   const threadsRef = useRef(threads); // Ref to access latest threads state in listeners
   
   // Get per-category unread counts from context
-  const { rideUnreadCount, directUnreadCount } = useUnread();
+  const { rideUnreadCount, directUnreadCount, marketplaceUnreadCount } = useUnread();
   
   // Keep threadsRef in sync with threads state
   useEffect(() => {
@@ -123,8 +124,24 @@ export default function Messages() {
         
         fetchOtherUserName();
       }
+      
+      // If conversationId is provided for marketplace, store it for auto-selection
+      if (urlCategory === 'marketplace' && urlConversationId) {
+        setPendingConversationId(urlConversationId);
+      }
     }
-  }, [urlCategory, urlUserId, user]);
+  }, [urlCategory, urlUserId, urlConversationId, user]);
+
+  // Auto-select marketplace conversation when threads load
+  useEffect(() => {
+    if (pendingConversationId && threads.length > 0 && activeCategory === 'marketplace') {
+      const targetThread = threads.find(t => t.id === pendingConversationId);
+      if (targetThread) {
+        setSelectedThread(targetThread);
+        setPendingConversationId(null); // Clear so it doesn't re-select
+      }
+    }
+  }, [pendingConversationId, threads, activeCategory]);
 
   // Check screen width for mobile detection
   useEffect(() => {
@@ -445,8 +462,123 @@ export default function Messages() {
         unsubscribe();
         messageUnsubscribers.forEach(unsub => unsub());
       };
+    } else if (activeCategory === 'marketplace') {
+      // Fetch marketplace conversation threads
+      const conversationsRef = collection(db, 'conversations');
+      const q = query(
+        conversationsRef, 
+        where('participants', 'array-contains', user.uid),
+        where('type', '==', 'marketplace')
+      );
+
+      const messageUnsubscribers = [];
+      const marketplaceThreadsMap = new Map();
+
+      const unsubscribe = onSnapshot(q, async (snapshot) => {
+        
+        for (const convoDoc of snapshot.docs) {
+          const convoData = convoDoc.data();
+          const otherUserId = convoData.participants.find(id => id !== user.uid);
+          
+          // Determine if current user is buyer or seller
+          const isSeller = convoData.user2Id === user.uid;
+          const otherUserName = isSeller ? convoData.user1Name : convoData.user2Name;
+          
+          // Get lastRead value
+          const lastReadValue = convoData[`lastRead_${user.uid}`];
+          let initialLastRead = null;
+          
+          if (lastReadValue !== null && lastReadValue !== undefined) {
+            initialLastRead = lastReadValue;
+          }
+
+          // Initialize thread data
+          marketplaceThreadsMap.set(convoDoc.id, {
+            id: convoDoc.id,
+            type: 'marketplace',
+            title: convoData.productName || 'Product',
+            subtitle: otherUserName || 'User',
+            productPhoto: convoData.productPhoto,
+            productPrice: convoData.productPrice,
+            productPriceType: convoData.productPriceType,
+            productId: convoData.productId,
+            participants: convoData.participants || [],
+            participantCount: 2,
+            lastMessage: convoData.lastMessage || 'No messages yet',
+            lastMessageSenderId: null,
+            lastMessageTime: convoData.lastMessageTime?.toDate ? convoData.lastMessageTime.toDate() : new Date(0),
+            themeKey: 'default',
+            unreadCount: 0,
+            lastReadTimestamp: initialLastRead,
+            otherUserId: otherUserId
+          });
+
+          // Listen to the conversation document for updates
+          const convoDocRef = doc(db, 'conversations', convoDoc.id);
+          const unsubConvoDoc = onSnapshot(convoDocRef, (updatedConvoDoc) => {
+            const thread = marketplaceThreadsMap.get(convoDoc.id);
+            if (!thread) return;
+            
+            const updatedConvoData = updatedConvoDoc.data();
+            
+            if (updatedConvoData) {
+              const newLastRead = updatedConvoData[`lastRead_${user.uid}`];
+              if (newLastRead !== undefined && newLastRead !== null) {
+                thread.lastReadTimestamp = newLastRead;
+              }
+              
+              thread.lastMessage = updatedConvoData.lastMessage || 'No messages yet';
+              thread.lastMessageTime = updatedConvoData.lastMessageTime?.toDate ? updatedConvoData.lastMessageTime.toDate() : new Date(0);
+              
+              const updatedThreads = Array.from(marketplaceThreadsMap.values())
+                .sort((a, b) => b.lastMessageTime - a.lastMessageTime);
+              setThreads(updatedThreads);
+            }
+          });
+
+          messageUnsubscribers.push(unsubConvoDoc);
+
+          // Listen to messages for unread count
+          const messagesRef = collection(db, 'conversations', convoDoc.id, 'messages');
+          const messagesQuery = query(messagesRef, orderBy('timestamp', 'desc'), limit(10));
+          
+          const unsubMsg = onSnapshot(messagesQuery, (msgSnapshot) => {
+            const thread = marketplaceThreadsMap.get(convoDoc.id);
+            if (!thread) return;
+
+            if (thread.lastReadTimestamp) {
+              const lastReadTime = thread.lastReadTimestamp.toDate ? thread.lastReadTimestamp.toDate() : new Date(0);
+              thread.unreadCount = msgSnapshot.docs.filter(doc => {
+                const msgData = doc.data();
+                const msgTime = msgData.timestamp?.toDate ? msgData.timestamp.toDate() : new Date(0);
+                return msgTime > lastReadTime && msgData.senderId === thread.otherUserId;
+              }).length;
+            } else {
+              thread.unreadCount = msgSnapshot.docs.filter(doc => 
+                doc.data().senderId === thread.otherUserId
+              ).length;
+            }
+
+            const updatedThreads = Array.from(marketplaceThreadsMap.values())
+              .sort((a, b) => b.lastMessageTime - a.lastMessageTime);
+            setThreads(updatedThreads);
+          });
+
+          messageUnsubscribers.push(unsubMsg);
+        }
+        
+        setLoading(false);
+      }, (error) => {
+        console.error('Error fetching marketplace conversations:', error);
+        setLoading(false);
+      });
+
+      return () => {
+        unsubscribe();
+        messageUnsubscribers.forEach(unsub => unsub());
+      };
     } else {
-      // Marketplace category - placeholder for now
+      // Unknown category
       setThreads([]);
       setLoading(false);
     }
@@ -465,6 +597,8 @@ export default function Messages() {
       messagesRef = collection(db, 'rides', selectedThread.id, 'messages');
     } else if (selectedThread.type === 'direct') {
       messagesRef = collection(db, 'directMessages', selectedThread.id, 'messages');
+    } else if (selectedThread.type === 'marketplace') {
+      messagesRef = collection(db, 'conversations', selectedThread.id, 'messages');
     } else {
       return;
     }
@@ -523,6 +657,11 @@ export default function Messages() {
           await setDoc(threadRef, {
             [`lastRead_${user.uid}`]: serverTimestamp()
           }, { merge: true });
+        } else if (selectedThread.type === 'marketplace') {
+          const threadRef = doc(db, 'conversations', selectedThread.id);
+          await setDoc(threadRef, {
+            [`lastRead_${user.uid}`]: serverTimestamp()
+          }, { merge: true });
         }
       } catch (error) {
         console.error('Error updating lastRead timestamp:', error);
@@ -576,6 +715,17 @@ export default function Messages() {
         }
         
         messagesRef = collection(db, 'directMessages', selectedThread.id, 'messages');
+      } else if (selectedThread.type === 'marketplace') {
+        // For marketplace conversations
+        const convoRef = doc(db, 'conversations', selectedThread.id);
+        
+        // Update conversation with last message
+        await setDoc(convoRef, {
+          lastMessageTime: serverTimestamp(),
+          lastMessage: newMessage.trim()
+        }, { merge: true });
+        
+        messagesRef = collection(db, 'conversations', selectedThread.id, 'messages');
       } else {
         throw new Error('Invalid thread type');
       }
@@ -727,6 +877,8 @@ export default function Messages() {
                   categoryUnread = rideUnreadCount;
                 } else if (category.id === 'direct') {
                   categoryUnread = directUnreadCount;
+                } else if (category.id === 'marketplace') {
+                  categoryUnread = marketplaceUnreadCount;
                 }
                 
                 return (
@@ -819,6 +971,11 @@ export default function Messages() {
                         await setDoc(threadRef, {
                           [`lastRead_${user.uid}`]: serverTimestamp()
                         }, { merge: true });
+                      } else if (thread.type === 'marketplace') {
+                        const threadRef = doc(db, 'conversations', thread.id);
+                        await setDoc(threadRef, {
+                          [`lastRead_${user.uid}`]: serverTimestamp()
+                        }, { merge: true });
                       }
                     } catch (error) {
                       console.error('❌ Error updating lastRead on click:', error);
@@ -836,15 +993,26 @@ export default function Messages() {
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        {/* Icon/Avatar */}
-                        <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${theme.bg} flex items-center justify-center flex-shrink-0 relative`}>
-                          <Icon className={theme.color} size={24} />
-                          {hasUnread && (
-                            <div className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full min-w-[18px] h-[18px] flex items-center justify-center px-1 shadow-lg">
-                              {thread.unreadCount > 9 ? '9+' : thread.unreadCount}
-                            </div>
-                          )}
-                        </div>
+                        {/* Icon/Avatar - use product photo for marketplace */}
+                        {thread.type === 'marketplace' && thread.productPhoto ? (
+                          <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 relative bg-[#0D0D0D]">
+                            <img src={thread.productPhoto} alt="" className="w-full h-full object-cover" />
+                            {hasUnread && (
+                              <div className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full min-w-[18px] h-[18px] flex items-center justify-center px-1 shadow-lg">
+                                {thread.unreadCount > 9 ? '9+' : thread.unreadCount}
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${theme.bg} flex items-center justify-center flex-shrink-0 relative`}>
+                            <Icon className={theme.color} size={24} />
+                            {hasUnread && (
+                              <div className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold rounded-full min-w-[18px] h-[18px] flex items-center justify-center px-1 shadow-lg">
+                                {thread.unreadCount > 9 ? '9+' : thread.unreadCount}
+                              </div>
+                            )}
+                          </div>
+                        )}
                         
                         {/* Content */}
                         <div className="flex-1 min-w-0">
@@ -856,6 +1024,10 @@ export default function Messages() {
                               {formatTime(thread.lastMessageTime)}
                             </span>
                           </div>
+                          {/* Show subtitle for marketplace (seller/buyer name) */}
+                          {thread.type === 'marketplace' && thread.subtitle && (
+                            <p className="text-xs text-primary mb-0.5">{thread.subtitle}</p>
+                          )}
                           <p className={`text-xs truncate ${hasUnread ? 'text-gray-300 font-semibold' : 'text-gray-400'}`}>
                             {getLastMessagePreview(thread)}
                           </p>
@@ -1028,9 +1200,12 @@ export default function Messages() {
                           transition={{ delay: index * 0.05 }}
                           className={`flex items-end gap-2 ${isOwn ? 'justify-end' : 'justify-start'}`}
                         >
-                          {/* Avatar for other users */}
+                          {/* Avatar for other users - clickable to profile */}
                           {!isOwn && (
-                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500/30 to-pink-500/30 flex items-center justify-center flex-shrink-0 mb-1">
+                            <div 
+                              className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500/30 to-pink-500/30 flex items-center justify-center flex-shrink-0 mb-1 cursor-pointer hover:opacity-80 transition-opacity"
+                              onClick={() => message.senderId && router.push(`/profile/${message.senderId}`)}
+                            >
                               <span className="font-semibold text-xs text-white">
                                 {message.senderName?.charAt(0).toUpperCase()}
                               </span>

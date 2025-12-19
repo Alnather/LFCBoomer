@@ -203,6 +203,15 @@ export default function Rides() {
     // Filter rides based on criteria
     let filtered = rides;
 
+    // Filter out expired rides (date in the past)
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    filtered = filtered.filter((ride) => {
+      if (!ride.date) return false;
+      const rideDate = new Date(ride.date);
+      return rideDate >= today;
+    });
+
     if (destination) {
       filtered = filtered.filter((ride) =>
         fuzzyMatch(ride.destination, destination) ||
@@ -418,8 +427,8 @@ export default function Rides() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -20, scale: 0.95 }}
                     transition={{ 
-                      delay: index * 0.08,
-                      duration: 0.4,
+                      delay: index * 0.03,
+                      duration: 0.3,
                       ease: [0.25, 0.46, 0.45, 0.94]
                     }}
                     whileHover={{ y: -4, scale: 1.01, transition: { duration: 0.2 } }}

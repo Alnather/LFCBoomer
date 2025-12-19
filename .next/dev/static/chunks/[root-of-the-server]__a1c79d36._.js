@@ -597,6 +597,13 @@ function Signup() {
                 preferences: {}
             };
             await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["setDoc"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$firestore$2f$dist$2f$index$2e$esm$2e$js__$5b$client$5d$__$28$ecmascript$29$__["doc"])(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$firebase$2e$js__$5b$client$5d$__$28$ecmascript$29$__["db"], "users", userCred.user.uid), userData);
+            // Send verification email (optional - user can still access the app)
+            try {
+                await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$firebase$2f$auth$2f$dist$2f$esm$2f$index$2e$js__$5b$client$5d$__$28$ecmascript$29$__["sendEmailVerification"])(userCred.user);
+            } catch (emailErr) {
+                console.log("Email verification failed to send:", emailErr);
+            // Don't block signup if email fails
+            }
             // Redirect to rides page
             router.push("/rides");
         } catch (err) {
@@ -647,12 +654,12 @@ function Signup() {
                                 children: "Create An Account"
                             }, void 0, false, {
                                 fileName: "[project]/pages/signup.jsx",
-                                lineNumber: 98,
+                                lineNumber: 107,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/pages/signup.jsx",
-                            lineNumber: 97,
+                            lineNumber: 106,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -663,13 +670,13 @@ function Signup() {
                             children: "Join the Lake Forest community"
                         }, void 0, false, {
                             fileName: "[project]/pages/signup.jsx",
-                            lineNumber: 100,
+                            lineNumber: 109,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/signup.jsx",
-                    lineNumber: 96,
+                    lineNumber: 105,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -681,7 +688,7 @@ function Signup() {
                             children: error
                         }, void 0, false, {
                             fileName: "[project]/pages/signup.jsx",
-                            lineNumber: 105,
+                            lineNumber: 114,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -695,7 +702,7 @@ function Signup() {
                                             children: "First Name"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/signup.jsx",
-                                            lineNumber: 112,
+                                            lineNumber: 121,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -710,13 +717,13 @@ function Signup() {
                                             placeholder: "John"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/signup.jsx",
-                                            lineNumber: 115,
+                                            lineNumber: 124,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/pages/signup.jsx",
-                                    lineNumber: 111,
+                                    lineNumber: 120,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -727,7 +734,7 @@ function Signup() {
                                             children: "Last Name"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/signup.jsx",
-                                            lineNumber: 129,
+                                            lineNumber: 138,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -742,19 +749,19 @@ function Signup() {
                                             placeholder: "Doe"
                                         }, void 0, false, {
                                             fileName: "[project]/pages/signup.jsx",
-                                            lineNumber: 132,
+                                            lineNumber: 141,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/pages/signup.jsx",
-                                    lineNumber: 128,
+                                    lineNumber: 137,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/signup.jsx",
-                            lineNumber: 110,
+                            lineNumber: 119,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -765,7 +772,7 @@ function Signup() {
                                     children: "Email Address (Lake Forest College)"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/signup.jsx",
-                                    lineNumber: 147,
+                                    lineNumber: 156,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -780,7 +787,7 @@ function Signup() {
                                     placeholder: "you@lakeforest.edu"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/signup.jsx",
-                                    lineNumber: 150,
+                                    lineNumber: 159,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -788,13 +795,13 @@ function Signup() {
                                     children: "Must be a @lakeforest.edu email address"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/signup.jsx",
-                                    lineNumber: 161,
+                                    lineNumber: 170,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/signup.jsx",
-                            lineNumber: 146,
+                            lineNumber: 155,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -805,7 +812,7 @@ function Signup() {
                                     children: "Password"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/signup.jsx",
-                                    lineNumber: 167,
+                                    lineNumber: 176,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -820,13 +827,13 @@ function Signup() {
                                     placeholder: "••••••••"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/signup.jsx",
-                                    lineNumber: 170,
+                                    lineNumber: 179,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/signup.jsx",
-                            lineNumber: 166,
+                            lineNumber: 175,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -837,7 +844,7 @@ function Signup() {
                                     children: "Confirm Password"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/signup.jsx",
-                                    lineNumber: 184,
+                                    lineNumber: 193,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -852,13 +859,13 @@ function Signup() {
                                     placeholder: "••••••••"
                                 }, void 0, false, {
                                     fileName: "[project]/pages/signup.jsx",
-                                    lineNumber: 187,
+                                    lineNumber: 196,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/pages/signup.jsx",
-                            lineNumber: 183,
+                            lineNumber: 192,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -872,13 +879,13 @@ function Signup() {
                             children: loading ? "Creating account..." : "Create Account"
                         }, void 0, false, {
                             fileName: "[project]/pages/signup.jsx",
-                            lineNumber: 200,
+                            lineNumber: 209,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/pages/signup.jsx",
-                    lineNumber: 103,
+                    lineNumber: 112,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -897,29 +904,29 @@ function Signup() {
                                 children: "Sign in"
                             }, void 0, false, {
                                 fileName: "[project]/pages/signup.jsx",
-                                lineNumber: 213,
+                                lineNumber: 222,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pages/signup.jsx",
-                        lineNumber: 211,
+                        lineNumber: 220,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/pages/signup.jsx",
-                    lineNumber: 210,
+                    lineNumber: 219,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/pages/signup.jsx",
-            lineNumber: 89,
+            lineNumber: 98,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/pages/signup.jsx",
-        lineNumber: 88,
+        lineNumber: 97,
         columnNumber: 5
     }, this);
 }
